@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt.prompts_api import PromptsApi
+from flowhunt.api.prompts_api import PromptsApi
 
 
 class TestPromptsApi(unittest.TestCase):

@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt.secrets_api import SecretsApi
+from flowhunt.api.secrets_api import SecretsApi
 
 
 class TestSecretsApi(unittest.TestCase):

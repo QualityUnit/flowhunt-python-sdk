@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt.semantic_search_api import SemanticSearchApi
+from flowhunt.api.semantic_search_api import SemanticSearchApi
 
 
 class TestSemanticSearchApi(unittest.TestCase):

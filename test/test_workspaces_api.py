@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt.workspaces_api import WorkspacesApi
+from flowhunt.api.workspaces_api import WorkspacesApi
 
 
 class TestWorkspacesApi(unittest.TestCase):

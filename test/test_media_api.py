@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt.media_api import MediaApi
+from flowhunt.api.media_api import MediaApi
 
 
 class TestMediaApi(unittest.TestCase):

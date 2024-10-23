@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt.flow_webhooks_api import FlowWebhooksApi
+from flowhunt.api.flow_webhooks_api import FlowWebhooksApi
 
 
 class TestFlowWebhooksApi(unittest.TestCase):

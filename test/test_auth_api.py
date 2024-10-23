@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt.auth_api import AuthApi
+from flowhunt.api.auth_api import AuthApi
 
 
 class TestAuthApi(unittest.TestCase):

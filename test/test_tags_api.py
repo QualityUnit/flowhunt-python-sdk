@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt.tags_api import TagsApi
+from flowhunt.api.tags_api import TagsApi
 
 
 class TestTagsApi(unittest.TestCase):

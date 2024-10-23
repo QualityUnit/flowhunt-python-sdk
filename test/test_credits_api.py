@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt.credits_api import CreditsApi
+from flowhunt.api.credits_api import CreditsApi
 
 
 class TestCreditsApi(unittest.TestCase):

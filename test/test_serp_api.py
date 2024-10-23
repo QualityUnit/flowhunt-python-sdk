@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt.serp_api import SERPApi
+from flowhunt.api.serp_api import SERPApi
 
 
 class TestSERPApi(unittest.TestCase):

@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt.schedules_api import SchedulesApi
+from flowhunt.api.schedules_api import SchedulesApi
 
 
 class TestSchedulesApi(unittest.TestCase):

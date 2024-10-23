@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt.health_api import HealthApi
+from flowhunt.api.health_api import HealthApi
 
 
 class TestHealthApi(unittest.TestCase):

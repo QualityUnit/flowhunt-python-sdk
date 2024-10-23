@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt.billing_api import BillingApi
+from flowhunt.api.billing_api import BillingApi
 
 
 class TestBillingApi(unittest.TestCase):

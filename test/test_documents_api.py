@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt.documents_api import DocumentsApi
+from flowhunt.api.documents_api import DocumentsApi
 
 
 class TestDocumentsApi(unittest.TestCase):

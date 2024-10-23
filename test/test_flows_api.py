@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt.flows_api import FlowsApi
+from flowhunt.api.flows_api import FlowsApi
 
 
 class TestFlowsApi(unittest.TestCase):

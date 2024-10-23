@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt.integrations_api import IntegrationsApi
+from flowhunt.api.integrations_api import IntegrationsApi
 
 
 class TestIntegrationsApi(unittest.TestCase):

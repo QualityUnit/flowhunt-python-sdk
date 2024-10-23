@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt.api_keys_api import ApiKeysApi
+from flowhunt.api.api_keys_api import ApiKeysApi
 
 
 class TestApiKeysApi(unittest.TestCase):

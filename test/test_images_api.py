@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt.images_api import ImagesApi
+from flowhunt.api.images_api import ImagesApi
 
 
 class TestImagesApi(unittest.TestCase):

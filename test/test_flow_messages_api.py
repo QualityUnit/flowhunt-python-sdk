@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt.flow_messages_api import FlowMessagesApi
+from flowhunt.api.flow_messages_api import FlowMessagesApi
 
 
 class TestFlowMessagesApi(unittest.TestCase):

@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt.chatbots_api import ChatbotsApi
+from flowhunt.api.chatbots_api import ChatbotsApi
 
 
 class TestChatbotsApi(unittest.TestCase):
