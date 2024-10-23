@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.token import Token
+from flowhunt.models.token import Token
 
 class TestToken(unittest.TestCase):
     """Token unit test stubs"""

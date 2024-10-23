@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.vector_document_type import VectorDocumentType
+from flowhunt.models.vector_document_type import VectorDocumentType
 
 class TestVectorDocumentType(unittest.TestCase):
     """VectorDocumentType unit test stubs"""

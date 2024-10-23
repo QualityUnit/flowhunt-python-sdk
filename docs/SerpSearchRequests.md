@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from flowhunt-python-sdk.models.serp_search_requests import SerpSearchRequests
+from flowhunt.models.serp_search_requests import SerpSearchRequests
 
 # TODO update the JSON string below
 json = "{}"

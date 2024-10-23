@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.integration_category import IntegrationCategory
+from flowhunt.models.integration_category import IntegrationCategory
 
 class TestIntegrationCategory(unittest.TestCase):
     """IntegrationCategory unit test stubs"""

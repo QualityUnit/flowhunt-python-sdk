@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.flow_search_request import FlowSearchRequest
+from flowhunt.models.flow_search_request import FlowSearchRequest
 
 class TestFlowSearchRequest(unittest.TestCase):
     """FlowSearchRequest unit test stubs"""

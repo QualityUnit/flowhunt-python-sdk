@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.document_update_request import DocumentUpdateRequest
+from flowhunt.models.document_update_request import DocumentUpdateRequest
 
 class TestDocumentUpdateRequest(unittest.TestCase):
     """DocumentUpdateRequest unit test stubs"""

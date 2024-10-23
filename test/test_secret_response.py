@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.secret_response import SecretResponse
+from flowhunt.models.secret_response import SecretResponse
 
 class TestSecretResponse(unittest.TestCase):
     """SecretResponse unit test stubs"""

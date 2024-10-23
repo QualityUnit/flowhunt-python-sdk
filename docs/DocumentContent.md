@@ -31,7 +31,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from flowhunt-python-sdk.models.document_content import DocumentContent
+from flowhunt.models.document_content import DocumentContent
 
 # TODO update the JSON string below
 json = "{}"

@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.checkout_create_request import CheckoutCreateRequest
+from flowhunt.models.checkout_create_request import CheckoutCreateRequest
 
 class TestCheckoutCreateRequest(unittest.TestCase):
     """CheckoutCreateRequest unit test stubs"""

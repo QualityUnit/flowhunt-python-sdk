@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from flowhunt-python-sdk.models.plan_response import PlanResponse
+from flowhunt.models.plan_response import PlanResponse
 
 # TODO update the JSON string below
 json = "{}"

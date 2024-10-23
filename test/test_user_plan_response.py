@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.user_plan_response import UserPlanResponse
+from flowhunt.models.user_plan_response import UserPlanResponse
 
 class TestUserPlanResponse(unittest.TestCase):
     """UserPlanResponse unit test stubs"""

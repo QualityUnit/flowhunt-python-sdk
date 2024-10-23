@@ -1,4 +1,4 @@
-# flowhunt-python-sdk.FlowSessionsApi
+# flowhunt.FlowSessionsApi
 
 All URIs are relative to *http://localhost*
 
@@ -21,14 +21,14 @@ Delete Chatbot Session View
 * Bearer Authentication (HTTPBearer):
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.completed import Completed
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.completed import Completed
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
@@ -44,14 +44,14 @@ configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
 
 # Configure Bearer authorization: HTTPBearer
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.FlowSessionsApi(api_client)
+    api_instance = flowhunt.FlowSessionsApi(api_client)
     session_id = 'session_id_example' # str | 
     workspace_id = 'workspace_id_example' # str | 
 
@@ -107,14 +107,14 @@ Get Chatbot Session View
 * Bearer Authentication (HTTPBearer):
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.flow_session_view_response import FlowSessionViewResponse
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.flow_session_view_response import FlowSessionViewResponse
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
@@ -130,14 +130,14 @@ configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
 
 # Configure Bearer authorization: HTTPBearer
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.FlowSessionsApi(api_client)
+    api_instance = flowhunt.FlowSessionsApi(api_client)
     session_id = 'session_id_example' # str | 
     workspace_id = 'workspace_id_example' # str | 
 
@@ -193,15 +193,15 @@ Search Chatbot Sessions View
 * Bearer Authentication (HTTPBearer):
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.flow_session_view_response import FlowSessionViewResponse
-from flowhunt-python-sdk.models.flow_session_view_search_request import FlowSessionViewSearchRequest
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.flow_session_view_response import FlowSessionViewResponse
+from flowhunt.models.flow_session_view_search_request import FlowSessionViewSearchRequest
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
@@ -217,16 +217,16 @@ configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
 
 # Configure Bearer authorization: HTTPBearer
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.FlowSessionsApi(api_client)
+    api_instance = flowhunt.FlowSessionsApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
-    flow_session_view_search_request = flowhunt-python-sdk.FlowSessionViewSearchRequest() # FlowSessionViewSearchRequest | 
+    flow_session_view_search_request = flowhunt.FlowSessionViewSearchRequest() # FlowSessionViewSearchRequest | 
 
     try:
         # Search Chatbot Sessions View
@@ -280,15 +280,15 @@ Update Chatbot Session View
 * Bearer Authentication (HTTPBearer):
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.flow_session_view_response import FlowSessionViewResponse
-from flowhunt-python-sdk.models.flow_session_view_update_request import FlowSessionViewUpdateRequest
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.flow_session_view_response import FlowSessionViewResponse
+from flowhunt.models.flow_session_view_update_request import FlowSessionViewUpdateRequest
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
@@ -304,17 +304,17 @@ configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
 
 # Configure Bearer authorization: HTTPBearer
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.FlowSessionsApi(api_client)
+    api_instance = flowhunt.FlowSessionsApi(api_client)
     session_id = 'session_id_example' # str | 
     workspace_id = 'workspace_id_example' # str | 
-    flow_session_view_update_request = flowhunt-python-sdk.FlowSessionViewUpdateRequest() # FlowSessionViewUpdateRequest | 
+    flow_session_view_update_request = flowhunt.FlowSessionViewUpdateRequest() # FlowSessionViewUpdateRequest | 
 
     try:
         # Update Chatbot Session View

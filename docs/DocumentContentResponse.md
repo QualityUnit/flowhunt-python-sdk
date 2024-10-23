@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from flowhunt-python-sdk.models.document_content_response import DocumentContentResponse
+from flowhunt.models.document_content_response import DocumentContentResponse
 
 # TODO update the JSON string below
 json = "{}"

@@ -1,4 +1,4 @@
-# flowhunt-python-sdk.BillingApi
+# flowhunt.BillingApi
 
 All URIs are relative to *http://localhost*
 
@@ -23,13 +23,13 @@ Create Change Plan Portal
 * Bearer Authentication (HTTPBearer):
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
@@ -45,14 +45,14 @@ configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
 
 # Configure Bearer authorization: HTTPBearer
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.BillingApi(api_client)
+    api_instance = flowhunt.BillingApi(api_client)
 
     try:
         # Create Change Plan Portal
@@ -101,14 +101,14 @@ Create Checkout
 * Bearer Authentication (HTTPBearer):
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.checkout_create_request import CheckoutCreateRequest
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.checkout_create_request import CheckoutCreateRequest
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
@@ -124,15 +124,15 @@ configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
 
 # Configure Bearer authorization: HTTPBearer
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.BillingApi(api_client)
-    checkout_create_request = flowhunt-python-sdk.CheckoutCreateRequest() # CheckoutCreateRequest | 
+    api_instance = flowhunt.BillingApi(api_client)
+    checkout_create_request = flowhunt.CheckoutCreateRequest() # CheckoutCreateRequest | 
 
     try:
         # Create Checkout
@@ -185,13 +185,13 @@ Create Update Info Portal
 * Bearer Authentication (HTTPBearer):
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
@@ -207,14 +207,14 @@ configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
 
 # Configure Bearer authorization: HTTPBearer
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.BillingApi(api_client)
+    api_instance = flowhunt.BillingApi(api_client)
 
     try:
         # Create Update Info Portal
@@ -261,22 +261,22 @@ Get Pricing Plans
 
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.plan_response import PlanResponse
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.plan_response import PlanResponse
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.BillingApi(api_client)
+    api_instance = flowhunt.BillingApi(api_client)
 
     try:
         # Get Pricing Plans
@@ -323,22 +323,22 @@ Get User Plan
 
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.user_plan_response import UserPlanResponse
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.user_plan_response import UserPlanResponse
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.BillingApi(api_client)
+    api_instance = flowhunt.BillingApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
 
     try:
@@ -390,22 +390,22 @@ Stripe Webhook
 
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.completed import Completed
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.completed import Completed
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.BillingApi(api_client)
+    api_instance = flowhunt.BillingApi(api_client)
 
     try:
         # Stripe Webhook

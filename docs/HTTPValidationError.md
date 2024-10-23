@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from flowhunt-python-sdk.models.http_validation_error import HTTPValidationError
+from flowhunt.models.http_validation_error import HTTPValidationError
 
 # TODO update the JSON string below
 json = "{}"

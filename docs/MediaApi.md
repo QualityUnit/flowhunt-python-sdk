@@ -1,4 +1,4 @@
-# flowhunt-python-sdk.MediaApi
+# flowhunt.MediaApi
 
 All URIs are relative to *http://localhost*
 
@@ -20,14 +20,14 @@ Get Transcript
 * Bearer Authentication (HTTPBearer):
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.document_content_response import DocumentContentResponse
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.document_content_response import DocumentContentResponse
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
@@ -43,14 +43,14 @@ configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
 
 # Configure Bearer authorization: HTTPBearer
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.MediaApi(api_client)
+    api_instance = flowhunt.MediaApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
     file = None # bytearray | 
     postback_url = 'postback_url_example' # str | The post back URL where to send the response in body (optional)
@@ -108,15 +108,15 @@ Get Transcript Result
 * Bearer Authentication (HTTPBearer):
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.document_content_response import DocumentContentResponse
-from flowhunt-python-sdk.models.transcript_task_request import TranscriptTaskRequest
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.document_content_response import DocumentContentResponse
+from flowhunt.models.transcript_task_request import TranscriptTaskRequest
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
@@ -132,16 +132,16 @@ configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
 
 # Configure Bearer authorization: HTTPBearer
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.MediaApi(api_client)
+    api_instance = flowhunt.MediaApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
-    transcript_task_request = flowhunt-python-sdk.TranscriptTaskRequest() # TranscriptTaskRequest | 
+    transcript_task_request = flowhunt.TranscriptTaskRequest() # TranscriptTaskRequest | 
 
     try:
         # Get Transcript Result
@@ -195,15 +195,15 @@ Get Youtube Transcript
 * Bearer Authentication (HTTPBearer):
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.youtube_transcript_request import YoutubeTranscriptRequest
-from flowhunt-python-sdk.models.youtube_transcript_response import YoutubeTranscriptResponse
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.youtube_transcript_request import YoutubeTranscriptRequest
+from flowhunt.models.youtube_transcript_response import YoutubeTranscriptResponse
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
@@ -219,16 +219,16 @@ configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
 
 # Configure Bearer authorization: HTTPBearer
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.MediaApi(api_client)
+    api_instance = flowhunt.MediaApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
-    youtube_transcript_request = flowhunt-python-sdk.YoutubeTranscriptRequest() # YoutubeTranscriptRequest | 
+    youtube_transcript_request = flowhunt.YoutubeTranscriptRequest() # YoutubeTranscriptRequest | 
 
     try:
         # Get Youtube Transcript

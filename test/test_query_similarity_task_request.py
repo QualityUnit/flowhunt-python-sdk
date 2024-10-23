@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.query_similarity_task_request import QuerySimilarityTaskRequest
+from flowhunt.models.query_similarity_task_request import QuerySimilarityTaskRequest
 
 class TestQuerySimilarityTaskRequest(unittest.TestCase):
     """QuerySimilarityTaskRequest unit test stubs"""

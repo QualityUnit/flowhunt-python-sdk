@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.api_integration_open_api_import_request import ApiIntegrationOpenApiImportRequest
+from flowhunt.models.api_integration_open_api_import_request import ApiIntegrationOpenApiImportRequest
 
 class TestApiIntegrationOpenApiImportRequest(unittest.TestCase):
     """ApiIntegrationOpenApiImportRequest unit test stubs"""

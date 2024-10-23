@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from flowhunt-python-sdk.models.api_integration_search_request import ApiIntegrationSearchRequest
+from flowhunt.models.api_integration_search_request import ApiIntegrationSearchRequest
 
 # TODO update the JSON string below
 json = "{}"

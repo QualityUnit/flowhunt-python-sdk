@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.tag_response import TagResponse
+from flowhunt.models.tag_response import TagResponse
 
 class TestTagResponse(unittest.TestCase):
     """TagResponse unit test stubs"""

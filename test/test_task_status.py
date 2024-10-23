@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.task_status import TaskStatus
+from flowhunt.models.task_status import TaskStatus
 
 class TestTaskStatus(unittest.TestCase):
     """TaskStatus unit test stubs"""

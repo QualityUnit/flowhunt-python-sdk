@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.flow_invoke_request import FlowInvokeRequest
+from flowhunt.models.flow_invoke_request import FlowInvokeRequest
 
 class TestFlowInvokeRequest(unittest.TestCase):
     """FlowInvokeRequest unit test stubs"""

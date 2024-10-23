@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from flowhunt-python-sdk.models.query_similarity_request import QuerySimilarityRequest
+from flowhunt.models.query_similarity_request import QuerySimilarityRequest
 
 # TODO update the JSON string below
 json = "{}"

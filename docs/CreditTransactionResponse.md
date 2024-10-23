@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from flowhunt-python-sdk.models.credit_transaction_response import CreditTransactionResponse
+from flowhunt.models.credit_transaction_response import CreditTransactionResponse
 
 # TODO update the JSON string below
 json = "{}"

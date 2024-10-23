@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.user_token_response import UserTokenResponse
+from flowhunt.models.user_token_response import UserTokenResponse
 
 class TestUserTokenResponse(unittest.TestCase):
     """UserTokenResponse unit test stubs"""
@@ -35,28 +35,28 @@ class TestUserTokenResponse(unittest.TestCase):
         model = UserTokenResponse()
         if include_optional:
             return UserTokenResponse(
-                user = flowhunt-python-sdk.models.user_response.UserResponse(
+                user = flowhunt.models.user_response.UserResponse(
                     email = 'test@test.com', 
                     username = 'John Doe', 
                     is_active = True, 
                     avatar_url = '', 
                     api_key_workspace_id = '', 
                     subscription_plan = 'S', ),
-                token = flowhunt-python-sdk.models.token.Token(
+                token = flowhunt.models.token.Token(
                     access_token = '', 
                     refresh_token = '', 
                     expires_at = 56, )
             )
         else:
             return UserTokenResponse(
-                user = flowhunt-python-sdk.models.user_response.UserResponse(
+                user = flowhunt.models.user_response.UserResponse(
                     email = 'test@test.com', 
                     username = 'John Doe', 
                     is_active = True, 
                     avatar_url = '', 
                     api_key_workspace_id = '', 
                     subscription_plan = 'S', ),
-                token = flowhunt-python-sdk.models.token.Token(
+                token = flowhunt.models.token.Token(
                     access_token = '', 
                     refresh_token = '', 
                     expires_at = 56, ),

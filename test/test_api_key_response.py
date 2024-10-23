@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.api_key_response import ApiKeyResponse
+from flowhunt.models.api_key_response import ApiKeyResponse
 
 class TestApiKeyResponse(unittest.TestCase):
     """ApiKeyResponse unit test stubs"""

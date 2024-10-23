@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.youtube_transcript_request import YoutubeTranscriptRequest
+from flowhunt.models.youtube_transcript_request import YoutubeTranscriptRequest
 
 class TestYoutubeTranscriptRequest(unittest.TestCase):
     """YoutubeTranscriptRequest unit test stubs"""

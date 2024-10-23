@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from flowhunt-python-sdk.models.completed import Completed
+from flowhunt.models.completed import Completed
 
 # TODO update the JSON string below
 json = "{}"

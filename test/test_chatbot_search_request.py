@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.chatbot_search_request import ChatbotSearchRequest
+from flowhunt.models.chatbot_search_request import ChatbotSearchRequest
 
 class TestChatbotSearchRequest(unittest.TestCase):
     """ChatbotSearchRequest unit test stubs"""

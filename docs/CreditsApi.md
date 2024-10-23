@@ -1,4 +1,4 @@
-# flowhunt-python-sdk.CreditsApi
+# flowhunt.CreditsApi
 
 All URIs are relative to *http://localhost*
 
@@ -21,14 +21,14 @@ Get Credit Balance
 * Bearer Authentication (HTTPBearer):
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.credit_balance_response import CreditBalanceResponse
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.credit_balance_response import CreditBalanceResponse
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
@@ -44,14 +44,14 @@ configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
 
 # Configure Bearer authorization: HTTPBearer
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.CreditsApi(api_client)
+    api_instance = flowhunt.CreditsApi(api_client)
 
     try:
         # Get Credit Balance
@@ -100,14 +100,14 @@ Get Workspace Credit Balance
 * Bearer Authentication (HTTPBearer):
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.credit_balance_response import CreditBalanceResponse
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.credit_balance_response import CreditBalanceResponse
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
@@ -123,14 +123,14 @@ configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
 
 # Configure Bearer authorization: HTTPBearer
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.CreditsApi(api_client)
+    api_instance = flowhunt.CreditsApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
 
     try:
@@ -184,15 +184,15 @@ Search Credit Transactions
 * Bearer Authentication (HTTPBearer):
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.credit_transaction_response import CreditTransactionResponse
-from flowhunt-python-sdk.models.credit_transaction_search_request import CreditTransactionSearchRequest
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.credit_transaction_response import CreditTransactionResponse
+from flowhunt.models.credit_transaction_search_request import CreditTransactionSearchRequest
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
@@ -208,16 +208,16 @@ configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
 
 # Configure Bearer authorization: HTTPBearer
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.CreditsApi(api_client)
+    api_instance = flowhunt.CreditsApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
-    credit_transaction_search_request = flowhunt-python-sdk.CreditTransactionSearchRequest() # CreditTransactionSearchRequest | 
+    credit_transaction_search_request = flowhunt.CreditTransactionSearchRequest() # CreditTransactionSearchRequest | 
 
     try:
         # Search Credit Transactions
@@ -271,15 +271,15 @@ Search Daily Credit Transactions
 * Bearer Authentication (HTTPBearer):
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.credit_daily_transaction_response import CreditDailyTransactionResponse
-from flowhunt-python-sdk.models.credit_daily_transaction_search_request import CreditDailyTransactionSearchRequest
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.credit_daily_transaction_response import CreditDailyTransactionResponse
+from flowhunt.models.credit_daily_transaction_search_request import CreditDailyTransactionSearchRequest
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
@@ -295,16 +295,16 @@ configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
 
 # Configure Bearer authorization: HTTPBearer
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.CreditsApi(api_client)
+    api_instance = flowhunt.CreditsApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
-    credit_daily_transaction_search_request = flowhunt-python-sdk.CreditDailyTransactionSearchRequest() # CreditDailyTransactionSearchRequest | 
+    credit_daily_transaction_search_request = flowhunt.CreditDailyTransactionSearchRequest() # CreditDailyTransactionSearchRequest | 
 
     try:
         # Search Daily Credit Transactions

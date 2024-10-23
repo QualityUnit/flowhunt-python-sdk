@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.flow_session_status import FlowSessionStatus
+from flowhunt.models.flow_session_status import FlowSessionStatus
 
 class TestFlowSessionStatus(unittest.TestCase):
     """FlowSessionStatus unit test stubs"""

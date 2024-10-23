@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.vector_documents_task_response import VectorDocumentsTaskResponse
+from flowhunt.models.vector_documents_task_response import VectorDocumentsTaskResponse
 
 class TestVectorDocumentsTaskResponse(unittest.TestCase):
     """VectorDocumentsTaskResponse unit test stubs"""
@@ -38,7 +38,7 @@ class TestVectorDocumentsTaskResponse(unittest.TestCase):
                 id = '',
                 status = 'PENDING',
                 result = [
-                    flowhunt-python-sdk.models.vector_document_response.VectorDocumentResponse(
+                    flowhunt.models.vector_document_response.VectorDocumentResponse(
                         document_id = '00000000-0000-0000-0000-000000000000', 
                         workspace_id = '00000000-0000-0000-0000-000000000000', 
                         document_type = U, 

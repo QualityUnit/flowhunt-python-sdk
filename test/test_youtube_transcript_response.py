@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.youtube_transcript_response import YoutubeTranscriptResponse
+from flowhunt.models.youtube_transcript_response import YoutubeTranscriptResponse
 
 class TestYoutubeTranscriptResponse(unittest.TestCase):
     """YoutubeTranscriptResponse unit test stubs"""
@@ -37,7 +37,7 @@ class TestYoutubeTranscriptResponse(unittest.TestCase):
             return YoutubeTranscriptResponse(
                 id = '',
                 status = 'PENDING',
-                result = flowhunt-python-sdk.models.youtube_content.YoutubeContent(
+                result = flowhunt.models.youtube_content.YoutubeContent(
                     url = '', 
                     img_url = '', 
                     status_code = 56, 
@@ -49,7 +49,7 @@ class TestYoutubeTranscriptResponse(unittest.TestCase):
                     encoding = '', 
                     description = '', 
                     content = '', 
-                    metadata = flowhunt-python-sdk.models.metadata.metadata(), 
+                    metadata = flowhunt.models.metadata.metadata(), 
                     alt_content = [
                         ''
                         ], 

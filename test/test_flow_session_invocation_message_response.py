@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.flow_session_invocation_message_response import FlowSessionInvocationMessageResponse
+from flowhunt.models.flow_session_invocation_message_response import FlowSessionInvocationMessageResponse
 
 class TestFlowSessionInvocationMessageResponse(unittest.TestCase):
     """FlowSessionInvocationMessageResponse unit test stubs"""
@@ -37,12 +37,12 @@ class TestFlowSessionInvocationMessageResponse(unittest.TestCase):
             return FlowSessionInvocationMessageResponse(
                 message_id = 'a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11',
                 response_status = success,
-                loading_indicator = flowhunt-python-sdk.models.flow_loading_indicator.FlowLoadingIndicator(
+                loading_indicator = flowhunt.models.flow_loading_indicator.FlowLoadingIndicator(
                     tool_name = '', 
                     loading_desc = '', 
                     icon = '', ),
                 intermediate_responses = [
-                    flowhunt-python-sdk.models.flow_message_response.FlowMessageResponse(
+                    flowhunt.models.flow_message_response.FlowMessageResponse(
                         message_id = 'a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11', 
                         session_id = 'a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11', 
                         role = A, 

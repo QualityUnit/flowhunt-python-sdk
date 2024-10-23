@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.integration_response import IntegrationResponse
+from flowhunt.models.integration_response import IntegrationResponse
 
 class TestIntegrationResponse(unittest.TestCase):
     """IntegrationResponse unit test stubs"""

@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.subscription_plan import SubscriptionPlan
+from flowhunt.models.subscription_plan import SubscriptionPlan
 
 class TestSubscriptionPlan(unittest.TestCase):
     """SubscriptionPlan unit test stubs"""

@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.register_user_request import RegisterUserRequest
+from flowhunt.models.register_user_request import RegisterUserRequest
 
 class TestRegisterUserRequest(unittest.TestCase):
     """RegisterUserRequest unit test stubs"""

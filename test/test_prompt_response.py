@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.prompt_response import PromptResponse
+from flowhunt.models.prompt_response import PromptResponse
 
 class TestPromptResponse(unittest.TestCase):
     """PromptResponse unit test stubs"""

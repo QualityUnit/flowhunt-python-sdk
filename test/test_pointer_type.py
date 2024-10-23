@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.pointer_type import PointerType
+from flowhunt.models.pointer_type import PointerType
 
 class TestPointerType(unittest.TestCase):
     """PointerType unit test stubs"""

@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from flowhunt-python-sdk.models.workspace_role import WorkspaceRole
+from flowhunt.models.workspace_role import WorkspaceRole
 
 # TODO update the JSON string below
 json = "{}"

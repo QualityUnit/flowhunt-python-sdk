@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.task_response import TaskResponse
+from flowhunt.models.task_response import TaskResponse
 
 class TestTaskResponse(unittest.TestCase):
     """TaskResponse unit test stubs"""

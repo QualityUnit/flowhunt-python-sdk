@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.schedule_create_request import ScheduleCreateRequest
+from flowhunt.models.schedule_create_request import ScheduleCreateRequest
 
 class TestScheduleCreateRequest(unittest.TestCase):
     """ScheduleCreateRequest unit test stubs"""
@@ -35,7 +35,7 @@ class TestScheduleCreateRequest(unittest.TestCase):
         model = ScheduleCreateRequest()
         if include_optional:
             return ScheduleCreateRequest(
-                url = flowhunt-python-sdk.models.app_url.AppUrl(
+                url = flowhunt.models.app_url.AppUrl(
                     parsed_url = [
                         null
                         ], 
@@ -48,7 +48,7 @@ class TestScheduleCreateRequest(unittest.TestCase):
             )
         else:
             return ScheduleCreateRequest(
-                url = flowhunt-python-sdk.models.app_url.AppUrl(
+                url = flowhunt.models.app_url.AppUrl(
                     parsed_url = [
                         null
                         ], 

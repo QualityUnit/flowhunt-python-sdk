@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.workspace_role import WorkspaceRole
+from flowhunt.models.workspace_role import WorkspaceRole
 
 class TestWorkspaceRole(unittest.TestCase):
     """WorkspaceRole unit test stubs"""

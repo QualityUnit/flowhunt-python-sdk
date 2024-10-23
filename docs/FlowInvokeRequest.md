@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from flowhunt-python-sdk.models.flow_invoke_request import FlowInvokeRequest
+from flowhunt.models.flow_invoke_request import FlowInvokeRequest
 
 # TODO update the JSON string below
 json = "{}"

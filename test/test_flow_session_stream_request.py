@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.flow_session_stream_request import FlowSessionStreamRequest
+from flowhunt.models.flow_session_stream_request import FlowSessionStreamRequest
 
 class TestFlowSessionStreamRequest(unittest.TestCase):
     """FlowSessionStreamRequest unit test stubs"""
@@ -36,7 +36,7 @@ class TestFlowSessionStreamRequest(unittest.TestCase):
         if include_optional:
             return FlowSessionStreamRequest(
                 messages = [
-                    flowhunt-python-sdk.models.flow_session_message.FlowSessionMessage(
+                    flowhunt.models.flow_session_message.FlowSessionMessage(
                         content = '', 
                         role = 'assistant', )
                     ]
@@ -44,7 +44,7 @@ class TestFlowSessionStreamRequest(unittest.TestCase):
         else:
             return FlowSessionStreamRequest(
                 messages = [
-                    flowhunt-python-sdk.models.flow_session_message.FlowSessionMessage(
+                    flowhunt.models.flow_session_message.FlowSessionMessage(
                         content = '', 
                         role = 'assistant', )
                     ],

@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.bool_char import BoolChar
+from flowhunt.models.bool_char import BoolChar
 
 class TestBoolChar(unittest.TestCase):
     """BoolChar unit test stubs"""

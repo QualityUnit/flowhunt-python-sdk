@@ -1,4 +1,4 @@
-# flowhunt-python-sdk.FlowMessagesApi
+# flowhunt.FlowMessagesApi
 
 All URIs are relative to *http://localhost*
 
@@ -18,14 +18,14 @@ Search Flow Messages
 * Bearer Authentication (HTTPBearer):
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.flow_message_response import FlowMessageResponse
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.flow_message_response import FlowMessageResponse
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
@@ -41,14 +41,14 @@ configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
 
 # Configure Bearer authorization: HTTPBearer
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.FlowMessagesApi(api_client)
+    api_instance = flowhunt.FlowMessagesApi(api_client)
     session_id = 'session_id_example' # str | 
     workspace_id = 'workspace_id_example' # str | 
 

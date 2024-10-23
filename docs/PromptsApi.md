@@ -1,4 +1,4 @@
-# flowhunt-python-sdk.PromptsApi
+# flowhunt.PromptsApi
 
 All URIs are relative to *http://localhost*
 
@@ -25,15 +25,15 @@ Create Prompt
 * Bearer Authentication (HTTPBearer):
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.prompt_create_request import PromptCreateRequest
-from flowhunt-python-sdk.models.prompt_response import PromptResponse
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.prompt_create_request import PromptCreateRequest
+from flowhunt.models.prompt_response import PromptResponse
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
@@ -49,16 +49,16 @@ configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
 
 # Configure Bearer authorization: HTTPBearer
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.PromptsApi(api_client)
+    api_instance = flowhunt.PromptsApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
-    prompt_create_request = flowhunt-python-sdk.PromptCreateRequest() # PromptCreateRequest | 
+    prompt_create_request = flowhunt.PromptCreateRequest() # PromptCreateRequest | 
 
     try:
         # Create Prompt
@@ -112,15 +112,15 @@ Create Prompt Category
 * Bearer Authentication (HTTPBearer):
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.prompt_category_create_request import PromptCategoryCreateRequest
-from flowhunt-python-sdk.models.prompt_category_response import PromptCategoryResponse
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.prompt_category_create_request import PromptCategoryCreateRequest
+from flowhunt.models.prompt_category_response import PromptCategoryResponse
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
@@ -136,16 +136,16 @@ configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
 
 # Configure Bearer authorization: HTTPBearer
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.PromptsApi(api_client)
+    api_instance = flowhunt.PromptsApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
-    prompt_category_create_request = flowhunt-python-sdk.PromptCategoryCreateRequest() # PromptCategoryCreateRequest | 
+    prompt_category_create_request = flowhunt.PromptCategoryCreateRequest() # PromptCategoryCreateRequest | 
 
     try:
         # Create Prompt Category
@@ -199,14 +199,14 @@ Delete Prompt
 * Bearer Authentication (HTTPBearer):
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.completed import Completed
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.completed import Completed
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
@@ -222,14 +222,14 @@ configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
 
 # Configure Bearer authorization: HTTPBearer
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.PromptsApi(api_client)
+    api_instance = flowhunt.PromptsApi(api_client)
     prompt_id = 'prompt_id_example' # str | 
     workspace_id = 'workspace_id_example' # str | 
 
@@ -285,14 +285,14 @@ Delete Prompt Category
 * Bearer Authentication (HTTPBearer):
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.completed import Completed
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.completed import Completed
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
@@ -308,14 +308,14 @@ configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
 
 # Configure Bearer authorization: HTTPBearer
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.PromptsApi(api_client)
+    api_instance = flowhunt.PromptsApi(api_client)
     cat_id = 'cat_id_example' # str | 
     workspace_id = 'workspace_id_example' # str | 
 
@@ -371,15 +371,15 @@ Search Prompt Categories
 * Bearer Authentication (HTTPBearer):
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.prompt_category_response import PromptCategoryResponse
-from flowhunt-python-sdk.models.prompt_category_search_request import PromptCategorySearchRequest
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.prompt_category_response import PromptCategoryResponse
+from flowhunt.models.prompt_category_search_request import PromptCategorySearchRequest
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
@@ -395,16 +395,16 @@ configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
 
 # Configure Bearer authorization: HTTPBearer
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.PromptsApi(api_client)
+    api_instance = flowhunt.PromptsApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
-    prompt_category_search_request = flowhunt-python-sdk.PromptCategorySearchRequest() # PromptCategorySearchRequest | 
+    prompt_category_search_request = flowhunt.PromptCategorySearchRequest() # PromptCategorySearchRequest | 
 
     try:
         # Search Prompt Categories
@@ -458,15 +458,15 @@ Search Prompts
 * Bearer Authentication (HTTPBearer):
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.prompt_response import PromptResponse
-from flowhunt-python-sdk.models.prompt_search_request import PromptSearchRequest
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.prompt_response import PromptResponse
+from flowhunt.models.prompt_search_request import PromptSearchRequest
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
@@ -482,16 +482,16 @@ configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
 
 # Configure Bearer authorization: HTTPBearer
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.PromptsApi(api_client)
+    api_instance = flowhunt.PromptsApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
-    prompt_search_request = flowhunt-python-sdk.PromptSearchRequest() # PromptSearchRequest | 
+    prompt_search_request = flowhunt.PromptSearchRequest() # PromptSearchRequest | 
 
     try:
         # Search Prompts
@@ -545,15 +545,15 @@ Update Prompt
 * Bearer Authentication (HTTPBearer):
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.prompt_response import PromptResponse
-from flowhunt-python-sdk.models.prompt_update_request import PromptUpdateRequest
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.prompt_response import PromptResponse
+from flowhunt.models.prompt_update_request import PromptUpdateRequest
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
@@ -569,17 +569,17 @@ configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
 
 # Configure Bearer authorization: HTTPBearer
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.PromptsApi(api_client)
+    api_instance = flowhunt.PromptsApi(api_client)
     prompt_id = 'prompt_id_example' # str | 
     workspace_id = 'workspace_id_example' # str | 
-    prompt_update_request = flowhunt-python-sdk.PromptUpdateRequest() # PromptUpdateRequest | 
+    prompt_update_request = flowhunt.PromptUpdateRequest() # PromptUpdateRequest | 
 
     try:
         # Update Prompt
@@ -634,15 +634,15 @@ Update Prompt Category
 * Bearer Authentication (HTTPBearer):
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.prompt_category_response import PromptCategoryResponse
-from flowhunt-python-sdk.models.prompt_category_update_request import PromptCategoryUpdateRequest
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.prompt_category_response import PromptCategoryResponse
+from flowhunt.models.prompt_category_update_request import PromptCategoryUpdateRequest
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
@@ -658,17 +658,17 @@ configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
 
 # Configure Bearer authorization: HTTPBearer
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.PromptsApi(api_client)
+    api_instance = flowhunt.PromptsApi(api_client)
     cat_id = 'cat_id_example' # str | 
     workspace_id = 'workspace_id_example' # str | 
-    prompt_category_update_request = flowhunt-python-sdk.PromptCategoryUpdateRequest() # PromptCategoryUpdateRequest | 
+    prompt_category_update_request = flowhunt.PromptCategoryUpdateRequest() # PromptCategoryUpdateRequest | 
 
     try:
         # Update Prompt Category

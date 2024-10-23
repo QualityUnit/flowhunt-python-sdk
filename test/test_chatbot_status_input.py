@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.chatbot_status_input import ChatbotStatusInput
+from flowhunt.models.chatbot_status_input import ChatbotStatusInput
 
 class TestChatbotStatusInput(unittest.TestCase):
     """ChatbotStatusInput unit test stubs"""

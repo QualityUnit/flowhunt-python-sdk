@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.faq_update_request import FaqUpdateRequest
+from flowhunt.models.faq_update_request import FaqUpdateRequest
 
 class TestFaqUpdateRequest(unittest.TestCase):
     """FaqUpdateRequest unit test stubs"""

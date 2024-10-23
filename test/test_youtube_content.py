@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.youtube_content import YoutubeContent
+from flowhunt.models.youtube_content import YoutubeContent
 
 class TestYoutubeContent(unittest.TestCase):
     """YoutubeContent unit test stubs"""

@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.api_integration_update_request import ApiIntegrationUpdateRequest
+from flowhunt.models.api_integration_update_request import ApiIntegrationUpdateRequest
 
 class TestApiIntegrationUpdateRequest(unittest.TestCase):
     """ApiIntegrationUpdateRequest unit test stubs"""
@@ -42,14 +42,14 @@ class TestApiIntegrationUpdateRequest(unittest.TestCase):
                 description = '',
                 secret = None,
                 endpoints = [
-                    flowhunt-python-sdk.models.api_endpoint_create_request.ApiEndpointCreateRequest(
+                    flowhunt.models.api_endpoint_create_request.ApiEndpointCreateRequest(
                         path = '/api', 
                         method = GET, 
                         parameters = [
                             None
                             ], 
-                        request_body = flowhunt-python-sdk.models.request_body.request_body(), 
-                        success_response = flowhunt-python-sdk.models.success_response.success_response(), 
+                        request_body = flowhunt.models.request_body.request_body(), 
+                        success_response = flowhunt.models.success_response.success_response(), 
                         description = 'API Endpoint', 
                         security_scheme = [
                             ''

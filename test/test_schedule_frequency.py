@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.schedule_frequency import ScheduleFrequency
+from flowhunt.models.schedule_frequency import ScheduleFrequency
 
 class TestScheduleFrequency(unittest.TestCase):
     """ScheduleFrequency unit test stubs"""

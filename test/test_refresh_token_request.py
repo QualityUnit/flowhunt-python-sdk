@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.refresh_token_request import RefreshTokenRequest
+from flowhunt.models.refresh_token_request import RefreshTokenRequest
 
 class TestRefreshTokenRequest(unittest.TestCase):
     """RefreshTokenRequest unit test stubs"""

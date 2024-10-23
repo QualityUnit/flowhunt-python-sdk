@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.image_optimize_request import ImageOptimizeRequest
+from flowhunt.models.image_optimize_request import ImageOptimizeRequest
 
 class TestImageOptimizeRequest(unittest.TestCase):
     """ImageOptimizeRequest unit test stubs"""

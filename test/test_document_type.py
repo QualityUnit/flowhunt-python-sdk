@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.document_type import DocumentType
+from flowhunt.models.document_type import DocumentType
 
 class TestDocumentType(unittest.TestCase):
     """DocumentType unit test stubs"""

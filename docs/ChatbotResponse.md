@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from flowhunt-python-sdk.models.chatbot_response import ChatbotResponse
+from flowhunt.models.chatbot_response import ChatbotResponse
 
 # TODO update the JSON string below
 json = "{}"

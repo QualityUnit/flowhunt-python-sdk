@@ -1,4 +1,4 @@
-# flowhunt-python-sdk.ApiKeysApi
+# flowhunt.ApiKeysApi
 
 All URIs are relative to *http://localhost*
 
@@ -20,15 +20,15 @@ Create Api Key
 * Bearer Authentication (HTTPBearer):
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.api_key_create_request import ApiKeyCreateRequest
-from flowhunt-python-sdk.models.api_key_response import ApiKeyResponse
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.api_key_create_request import ApiKeyCreateRequest
+from flowhunt.models.api_key_response import ApiKeyResponse
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
@@ -38,16 +38,16 @@ configuration = flowhunt-python-sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization: HTTPBearer
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.ApiKeysApi(api_client)
+    api_instance = flowhunt.ApiKeysApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
-    api_key_create_request = flowhunt-python-sdk.ApiKeyCreateRequest() # ApiKeyCreateRequest | 
+    api_key_create_request = flowhunt.ApiKeyCreateRequest() # ApiKeyCreateRequest | 
 
     try:
         # Create Api Key
@@ -100,14 +100,14 @@ Delete Api Key
 * Bearer Authentication (HTTPBearer):
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.completed import Completed
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.completed import Completed
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
@@ -117,14 +117,14 @@ configuration = flowhunt-python-sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization: HTTPBearer
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.ApiKeysApi(api_client)
+    api_instance = flowhunt.ApiKeysApi(api_client)
     api_key_id = 'api_key_id_example' # str | 
     workspace_id = 'workspace_id_example' # str | 
 
@@ -179,15 +179,15 @@ Search Api Key
 * Bearer Authentication (HTTPBearer):
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.api_key_response import ApiKeyResponse
-from flowhunt-python-sdk.models.api_key_search_request import ApiKeySearchRequest
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.api_key_response import ApiKeyResponse
+from flowhunt.models.api_key_search_request import ApiKeySearchRequest
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
@@ -197,16 +197,16 @@ configuration = flowhunt-python-sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization: HTTPBearer
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.ApiKeysApi(api_client)
+    api_instance = flowhunt.ApiKeysApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
-    api_key_search_request = flowhunt-python-sdk.ApiKeySearchRequest() # ApiKeySearchRequest | 
+    api_key_search_request = flowhunt.ApiKeySearchRequest() # ApiKeySearchRequest | 
 
     try:
         # Search Api Key
@@ -259,15 +259,15 @@ Update Api Key
 * Bearer Authentication (HTTPBearer):
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.api_key_response import ApiKeyResponse
-from flowhunt-python-sdk.models.api_key_update_request import ApiKeyUpdateRequest
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.api_key_response import ApiKeyResponse
+from flowhunt.models.api_key_update_request import ApiKeyUpdateRequest
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
@@ -277,17 +277,17 @@ configuration = flowhunt-python-sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization: HTTPBearer
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.ApiKeysApi(api_client)
+    api_instance = flowhunt.ApiKeysApi(api_client)
     api_key_id = 'api_key_id_example' # str | 
     workspace_id = 'workspace_id_example' # str | 
-    api_key_update_request = flowhunt-python-sdk.ApiKeyUpdateRequest() # ApiKeyUpdateRequest | 
+    api_key_update_request = flowhunt.ApiKeyUpdateRequest() # ApiKeyUpdateRequest | 
 
     try:
         # Update Api Key

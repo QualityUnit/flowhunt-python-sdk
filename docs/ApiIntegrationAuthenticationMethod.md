@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from flowhunt-python-sdk.models.api_integration_authentication_method import ApiIntegrationAuthenticationMethod
+from flowhunt.models.api_integration_authentication_method import ApiIntegrationAuthenticationMethod
 
 # TODO update the JSON string below
 json = "{}"

@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from flowhunt-python-sdk.models.serp_volume_request import SerpVolumeRequest
+from flowhunt.models.serp_volume_request import SerpVolumeRequest
 
 # TODO update the JSON string below
 json = "{}"

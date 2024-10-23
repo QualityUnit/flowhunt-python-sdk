@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from flowhunt-python-sdk.models.chatbot_create_request import ChatbotCreateRequest
+from flowhunt.models.chatbot_create_request import ChatbotCreateRequest
 
 # TODO update the JSON string below
 json = "{}"

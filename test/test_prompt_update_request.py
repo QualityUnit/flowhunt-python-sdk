@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.prompt_update_request import PromptUpdateRequest
+from flowhunt.models.prompt_update_request import PromptUpdateRequest
 
 class TestPromptUpdateRequest(unittest.TestCase):
     """PromptUpdateRequest unit test stubs"""
@@ -38,7 +38,7 @@ class TestPromptUpdateRequest(unittest.TestCase):
                 name = '',
                 description = '',
                 prompt_text = '',
-                prompt_url = flowhunt-python-sdk.models.app_url.AppUrl(
+                prompt_url = flowhunt.models.app_url.AppUrl(
                     parsed_url = [
                         null
                         ], 

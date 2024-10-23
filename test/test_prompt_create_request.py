@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.prompt_create_request import PromptCreateRequest
+from flowhunt.models.prompt_create_request import PromptCreateRequest
 
 class TestPromptCreateRequest(unittest.TestCase):
     """PromptCreateRequest unit test stubs"""
@@ -39,7 +39,7 @@ class TestPromptCreateRequest(unittest.TestCase):
                 name = 'example.pdf',
                 description = '',
                 prompt_text = 'Prompt text',
-                prompt_url = flowhunt-python-sdk.models.app_url.AppUrl(
+                prompt_url = flowhunt.models.app_url.AppUrl(
                     parsed_url = [
                         null
                         ], 

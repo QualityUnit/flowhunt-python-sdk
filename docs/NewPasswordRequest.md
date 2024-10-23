@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from flowhunt-python-sdk.models.new_password_request import NewPasswordRequest
+from flowhunt.models.new_password_request import NewPasswordRequest
 
 # TODO update the JSON string below
 json = "{}"

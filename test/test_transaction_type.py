@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.transaction_type import TransactionType
+from flowhunt.models.transaction_type import TransactionType
 
 class TestTransactionType(unittest.TestCase):
     """TransactionType unit test stubs"""

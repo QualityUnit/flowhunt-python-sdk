@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.validation_error_loc_inner import ValidationErrorLocInner
+from flowhunt.models.validation_error_loc_inner import ValidationErrorLocInner
 
 class TestValidationErrorLocInner(unittest.TestCase):
     """ValidationErrorLocInner unit test stubs"""

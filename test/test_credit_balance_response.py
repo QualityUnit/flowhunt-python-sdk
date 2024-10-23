@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.credit_balance_response import CreditBalanceResponse
+from flowhunt.models.credit_balance_response import CreditBalanceResponse
 
 class TestCreditBalanceResponse(unittest.TestCase):
     """CreditBalanceResponse unit test stubs"""

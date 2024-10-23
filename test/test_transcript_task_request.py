@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.transcript_task_request import TranscriptTaskRequest
+from flowhunt.models.transcript_task_request import TranscriptTaskRequest
 
 class TestTranscriptTaskRequest(unittest.TestCase):
     """TranscriptTaskRequest unit test stubs"""

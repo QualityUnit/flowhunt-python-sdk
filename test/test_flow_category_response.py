@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.flow_category_response import FlowCategoryResponse
+from flowhunt.models.flow_category_response import FlowCategoryResponse
 
 class TestFlowCategoryResponse(unittest.TestCase):
     """FlowCategoryResponse unit test stubs"""

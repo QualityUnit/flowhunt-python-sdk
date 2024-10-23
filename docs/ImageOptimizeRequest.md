@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from flowhunt-python-sdk.models.image_optimize_request import ImageOptimizeRequest
+from flowhunt.models.image_optimize_request import ImageOptimizeRequest
 
 # TODO update the JSON string below
 json = "{}"

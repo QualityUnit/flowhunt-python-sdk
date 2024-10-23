@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.prompt_category_update_request import PromptCategoryUpdateRequest
+from flowhunt.models.prompt_category_update_request import PromptCategoryUpdateRequest
 
 class TestPromptCategoryUpdateRequest(unittest.TestCase):
     """PromptCategoryUpdateRequest unit test stubs"""

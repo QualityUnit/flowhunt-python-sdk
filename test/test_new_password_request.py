@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.new_password_request import NewPasswordRequest
+from flowhunt.models.new_password_request import NewPasswordRequest
 
 class TestNewPasswordRequest(unittest.TestCase):
     """NewPasswordRequest unit test stubs"""

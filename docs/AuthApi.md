@@ -1,4 +1,4 @@
-# flowhunt-python-sdk.AuthApi
+# flowhunt.AuthApi
 
 All URIs are relative to *http://localhost*
 
@@ -25,21 +25,21 @@ Activate User :param token: :param auth_controller: :return:
 
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.AuthApi(api_client)
+    api_instance = flowhunt.AuthApi(api_client)
     token = 'token_example' # str | 
 
     try:
@@ -92,15 +92,15 @@ Get Third Party Token
 * Api Key Authentication (sudo_api_key_header):
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.thrid_party_login_request import ThridPartyLoginRequest
-from flowhunt-python-sdk.models.user_token_response import UserTokenResponse
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.thrid_party_login_request import ThridPartyLoginRequest
+from flowhunt.models.user_token_response import UserTokenResponse
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
@@ -116,11 +116,11 @@ configuration.api_key['sudo_api_key_header'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['sudo_api_key_header'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.AuthApi(api_client)
+    api_instance = flowhunt.AuthApi(api_client)
     provider_name = 'provider_name_example' # str | 
-    thrid_party_login_request = flowhunt-python-sdk.ThridPartyLoginRequest() # ThridPartyLoginRequest | 
+    thrid_party_login_request = flowhunt.ThridPartyLoginRequest() # ThridPartyLoginRequest | 
 
     try:
         # Get Third Party Token
@@ -173,15 +173,15 @@ Get Token
 * Api Key Authentication (sudo_api_key_header):
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.login_user_request import LoginUserRequest
-from flowhunt-python-sdk.models.user_token_response import UserTokenResponse
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.login_user_request import LoginUserRequest
+from flowhunt.models.user_token_response import UserTokenResponse
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
@@ -197,10 +197,10 @@ configuration.api_key['sudo_api_key_header'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['sudo_api_key_header'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.AuthApi(api_client)
-    login_user_request = flowhunt-python-sdk.LoginUserRequest() # LoginUserRequest | 
+    api_instance = flowhunt.AuthApi(api_client)
+    login_user_request = flowhunt.LoginUserRequest() # LoginUserRequest | 
 
     try:
         # Get Token
@@ -253,14 +253,14 @@ Get User
 * Bearer Authentication (HTTPBearer):
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.user_response import UserResponse
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.user_response import UserResponse
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
@@ -276,14 +276,14 @@ configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
 
 # Configure Bearer authorization: HTTPBearer
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.AuthApi(api_client)
+    api_instance = flowhunt.AuthApi(api_client)
 
     try:
         # Get User
@@ -332,22 +332,22 @@ Password Recovery
 
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.completed import Completed
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.completed import Completed
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.AuthApi(api_client)
+    api_instance = flowhunt.AuthApi(api_client)
     email = 'email_example' # str | 
 
     try:
@@ -399,24 +399,24 @@ Refresh Token
 
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.refresh_token_request import RefreshTokenRequest
-from flowhunt-python-sdk.models.token import Token
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.refresh_token_request import RefreshTokenRequest
+from flowhunt.models.token import Token
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.AuthApi(api_client)
-    refresh_token_request = flowhunt-python-sdk.RefreshTokenRequest() # RefreshTokenRequest | 
+    api_instance = flowhunt.AuthApi(api_client)
+    refresh_token_request = flowhunt.RefreshTokenRequest() # RefreshTokenRequest | 
 
     try:
         # Refresh Token
@@ -467,24 +467,24 @@ Register User
 
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.completed import Completed
-from flowhunt-python-sdk.models.register_user_request import RegisterUserRequest
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.completed import Completed
+from flowhunt.models.register_user_request import RegisterUserRequest
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.AuthApi(api_client)
-    register_user_request = flowhunt-python-sdk.RegisterUserRequest() # RegisterUserRequest | 
+    api_instance = flowhunt.AuthApi(api_client)
+    register_user_request = flowhunt.RegisterUserRequest() # RegisterUserRequest | 
 
     try:
         # Register User
@@ -537,24 +537,24 @@ Reset Password :param auth_controller: :param new_password: :return:
 
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.completed import Completed
-from flowhunt-python-sdk.models.new_password_request import NewPasswordRequest
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.completed import Completed
+from flowhunt.models.new_password_request import NewPasswordRequest
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.AuthApi(api_client)
-    new_password_request = flowhunt-python-sdk.NewPasswordRequest() # NewPasswordRequest | 
+    api_instance = flowhunt.AuthApi(api_client)
+    new_password_request = flowhunt.NewPasswordRequest() # NewPasswordRequest | 
 
     try:
         # Reset Password

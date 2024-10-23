@@ -1,4 +1,4 @@
-# flowhunt-python-sdk.TagsApi
+# flowhunt.TagsApi
 
 All URIs are relative to *http://localhost*
 
@@ -21,15 +21,15 @@ Create Tag
 * Bearer Authentication (HTTPBearer):
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.tag_create_request import TagCreateRequest
-from flowhunt-python-sdk.models.tag_response import TagResponse
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.tag_create_request import TagCreateRequest
+from flowhunt.models.tag_response import TagResponse
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
@@ -45,16 +45,16 @@ configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
 
 # Configure Bearer authorization: HTTPBearer
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.TagsApi(api_client)
+    api_instance = flowhunt.TagsApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
-    tag_create_request = flowhunt-python-sdk.TagCreateRequest() # TagCreateRequest | 
+    tag_create_request = flowhunt.TagCreateRequest() # TagCreateRequest | 
 
     try:
         # Create Tag
@@ -108,14 +108,14 @@ Delete Tag
 * Bearer Authentication (HTTPBearer):
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.completed import Completed
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.completed import Completed
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
@@ -131,14 +131,14 @@ configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
 
 # Configure Bearer authorization: HTTPBearer
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.TagsApi(api_client)
+    api_instance = flowhunt.TagsApi(api_client)
     tag_id = 'tag_id_example' # str | 
     workspace_id = 'workspace_id_example' # str | 
 
@@ -194,15 +194,15 @@ Search Tags
 * Bearer Authentication (HTTPBearer):
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.tag_response import TagResponse
-from flowhunt-python-sdk.models.tag_search_request import TagSearchRequest
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.tag_response import TagResponse
+from flowhunt.models.tag_search_request import TagSearchRequest
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
@@ -218,16 +218,16 @@ configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
 
 # Configure Bearer authorization: HTTPBearer
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.TagsApi(api_client)
+    api_instance = flowhunt.TagsApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
-    tag_search_request = flowhunt-python-sdk.TagSearchRequest() # TagSearchRequest | 
+    tag_search_request = flowhunt.TagSearchRequest() # TagSearchRequest | 
 
     try:
         # Search Tags
@@ -281,15 +281,15 @@ Update Tag
 * Bearer Authentication (HTTPBearer):
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.tag_response import TagResponse
-from flowhunt-python-sdk.models.tag_update_request import TagUpdateRequest
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.tag_response import TagResponse
+from flowhunt.models.tag_update_request import TagUpdateRequest
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
@@ -305,17 +305,17 @@ configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
 
 # Configure Bearer authorization: HTTPBearer
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.TagsApi(api_client)
+    api_instance = flowhunt.TagsApi(api_client)
     tag_id = 'tag_id_example' # str | 
     workspace_id = 'workspace_id_example' # str | 
-    tag_update_request = flowhunt-python-sdk.TagUpdateRequest() # TagUpdateRequest | 
+    tag_update_request = flowhunt.TagUpdateRequest() # TagUpdateRequest | 
 
     try:
         # Update Tag

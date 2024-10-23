@@ -1,4 +1,4 @@
-# flowhunt-python-sdk.ImagesApi
+# flowhunt.ImagesApi
 
 All URIs are relative to *http://localhost*
 
@@ -20,15 +20,15 @@ Convert Image
 * Bearer Authentication (HTTPBearer):
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.image_convert_request import ImageConvertRequest
-from flowhunt-python-sdk.models.task_response import TaskResponse
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.image_convert_request import ImageConvertRequest
+from flowhunt.models.task_response import TaskResponse
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
@@ -44,16 +44,16 @@ configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
 
 # Configure Bearer authorization: HTTPBearer
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.ImagesApi(api_client)
+    api_instance = flowhunt.ImagesApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
-    image_convert_request = flowhunt-python-sdk.ImageConvertRequest() # ImageConvertRequest | 
+    image_convert_request = flowhunt.ImageConvertRequest() # ImageConvertRequest | 
 
     try:
         # Convert Image
@@ -107,15 +107,15 @@ Get Screenshot
 * Bearer Authentication (HTTPBearer):
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.screenshot_request import ScreenshotRequest
-from flowhunt-python-sdk.models.screenshot_response import ScreenshotResponse
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.screenshot_request import ScreenshotRequest
+from flowhunt.models.screenshot_response import ScreenshotResponse
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
@@ -131,16 +131,16 @@ configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
 
 # Configure Bearer authorization: HTTPBearer
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.ImagesApi(api_client)
+    api_instance = flowhunt.ImagesApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
-    screenshot_request = flowhunt-python-sdk.ScreenshotRequest() # ScreenshotRequest | 
+    screenshot_request = flowhunt.ScreenshotRequest() # ScreenshotRequest | 
 
     try:
         # Get Screenshot
@@ -194,15 +194,15 @@ Optimize Image
 * Bearer Authentication (HTTPBearer):
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.image_optimize_request import ImageOptimizeRequest
-from flowhunt-python-sdk.models.task_response import TaskResponse
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.image_optimize_request import ImageOptimizeRequest
+from flowhunt.models.task_response import TaskResponse
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
@@ -218,16 +218,16 @@ configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
 
 # Configure Bearer authorization: HTTPBearer
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.ImagesApi(api_client)
+    api_instance = flowhunt.ImagesApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
-    image_optimize_request = flowhunt-python-sdk.ImageOptimizeRequest() # ImageOptimizeRequest | 
+    image_optimize_request = flowhunt.ImageOptimizeRequest() # ImageOptimizeRequest | 
 
     try:
         # Optimize Image

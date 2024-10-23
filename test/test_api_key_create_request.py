@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.api_key_create_request import ApiKeyCreateRequest
+from flowhunt.models.api_key_create_request import ApiKeyCreateRequest
 
 class TestApiKeyCreateRequest(unittest.TestCase):
     """ApiKeyCreateRequest unit test stubs"""

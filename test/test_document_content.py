@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.document_content import DocumentContent
+from flowhunt.models.document_content import DocumentContent
 
 class TestDocumentContent(unittest.TestCase):
     """DocumentContent unit test stubs"""

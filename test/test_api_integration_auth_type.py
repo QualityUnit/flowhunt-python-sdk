@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.api_integration_auth_type import ApiIntegrationAuthType
+from flowhunt.models.api_integration_auth_type import ApiIntegrationAuthType
 
 class TestApiIntegrationAuthType(unittest.TestCase):
     """ApiIntegrationAuthType unit test stubs"""

@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from flowhunt-python-sdk.models.api_endpoint_response import ApiEndpointResponse
+from flowhunt.models.api_endpoint_response import ApiEndpointResponse
 
 # TODO update the JSON string below
 json = "{}"

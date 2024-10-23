@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.completed import Completed
+from flowhunt.models.completed import Completed
 
 class TestCompleted(unittest.TestCase):
     """Completed unit test stubs"""

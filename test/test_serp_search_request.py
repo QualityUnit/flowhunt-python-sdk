@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.serp_search_request import SerpSearchRequest
+from flowhunt.models.serp_search_request import SerpSearchRequest
 
 class TestSerpSearchRequest(unittest.TestCase):
     """SerpSearchRequest unit test stubs"""

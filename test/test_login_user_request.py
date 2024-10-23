@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.login_user_request import LoginUserRequest
+from flowhunt.models.login_user_request import LoginUserRequest
 
 class TestLoginUserRequest(unittest.TestCase):
     """LoginUserRequest unit test stubs"""

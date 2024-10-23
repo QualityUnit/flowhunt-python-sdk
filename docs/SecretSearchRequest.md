@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from flowhunt-python-sdk.models.secret_search_request import SecretSearchRequest
+from flowhunt.models.secret_search_request import SecretSearchRequest
 
 # TODO update the JSON string below
 json = "{}"

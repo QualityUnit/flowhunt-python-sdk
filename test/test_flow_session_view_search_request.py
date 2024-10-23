@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.flow_session_view_search_request import FlowSessionViewSearchRequest
+from flowhunt.models.flow_session_view_search_request import FlowSessionViewSearchRequest
 
 class TestFlowSessionViewSearchRequest(unittest.TestCase):
     """FlowSessionViewSearchRequest unit test stubs"""

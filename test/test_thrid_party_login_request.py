@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.thrid_party_login_request import ThridPartyLoginRequest
+from flowhunt.models.thrid_party_login_request import ThridPartyLoginRequest
 
 class TestThridPartyLoginRequest(unittest.TestCase):
     """ThridPartyLoginRequest unit test stubs"""

@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.trigger_type import TriggerType
+from flowhunt.models.trigger_type import TriggerType
 
 class TestTriggerType(unittest.TestCase):
     """TriggerType unit test stubs"""

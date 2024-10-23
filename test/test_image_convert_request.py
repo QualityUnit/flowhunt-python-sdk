@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.image_convert_request import ImageConvertRequest
+from flowhunt.models.image_convert_request import ImageConvertRequest
 
 class TestImageConvertRequest(unittest.TestCase):
     """ImageConvertRequest unit test stubs"""

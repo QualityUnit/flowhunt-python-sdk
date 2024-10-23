@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from flowhunt-python-sdk.models.vector_documents_task_response import VectorDocumentsTaskResponse
+from flowhunt.models.vector_documents_task_response import VectorDocumentsTaskResponse
 
 # TODO update the JSON string below
 json = "{}"

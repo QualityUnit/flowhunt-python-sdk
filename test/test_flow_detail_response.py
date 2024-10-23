@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.flow_detail_response import FlowDetailResponse
+from flowhunt.models.flow_detail_response import FlowDetailResponse
 
 class TestFlowDetailResponse(unittest.TestCase):
     """FlowDetailResponse unit test stubs"""
@@ -39,7 +39,7 @@ class TestFlowDetailResponse(unittest.TestCase):
                 name = 'Flow 1',
                 description = 'Flow 1 description',
                 detailed_description = '',
-                config = flowhunt-python-sdk.models.flow_config.FlowConfig(
+                config = flowhunt.models.flow_config.FlowConfig(
                     nodes = [
                         null
                         ], 
@@ -55,7 +55,7 @@ class TestFlowDetailResponse(unittest.TestCase):
                 id = '123e4567-e89b-12d3-a456-426614174000',
                 name = 'Flow 1',
                 description = 'Flow 1 description',
-                config = flowhunt-python-sdk.models.flow_config.FlowConfig(
+                config = flowhunt.models.flow_config.FlowConfig(
                     nodes = [
                         null
                         ], 

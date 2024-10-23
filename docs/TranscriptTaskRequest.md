@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from flowhunt-python-sdk.models.transcript_task_request import TranscriptTaskRequest
+from flowhunt.models.transcript_task_request import TranscriptTaskRequest
 
 # TODO update the JSON string below
 json = "{}"

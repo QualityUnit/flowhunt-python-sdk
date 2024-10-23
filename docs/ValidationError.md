@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from flowhunt-python-sdk.models.validation_error import ValidationError
+from flowhunt.models.validation_error import ValidationError
 
 # TODO update the JSON string below
 json = "{}"

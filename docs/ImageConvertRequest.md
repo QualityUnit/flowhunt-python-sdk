@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from flowhunt-python-sdk.models.image_convert_request import ImageConvertRequest
+from flowhunt.models.image_convert_request import ImageConvertRequest
 
 # TODO update the JSON string below
 json = "{}"

@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.api_key_search_request import ApiKeySearchRequest
+from flowhunt.models.api_key_search_request import ApiKeySearchRequest
 
 class TestApiKeySearchRequest(unittest.TestCase):
     """ApiKeySearchRequest unit test stubs"""

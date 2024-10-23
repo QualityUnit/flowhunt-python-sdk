@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.document_similarity_request import DocumentSimilarityRequest
+from flowhunt.models.document_similarity_request import DocumentSimilarityRequest
 
 class TestDocumentSimilarityRequest(unittest.TestCase):
     """DocumentSimilarityRequest unit test stubs"""

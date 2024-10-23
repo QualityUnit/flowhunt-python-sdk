@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from flowhunt-python-sdk.models.credit_daily_transaction_search_request import CreditDailyTransactionSearchRequest
+from flowhunt.models.credit_daily_transaction_search_request import CreditDailyTransactionSearchRequest
 
 # TODO update the JSON string below
 json = "{}"

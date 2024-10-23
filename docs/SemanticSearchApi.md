@@ -1,4 +1,4 @@
-# flowhunt-python-sdk.SemanticSearchApi
+# flowhunt.SemanticSearchApi
 
 All URIs are relative to *http://localhost*
 
@@ -21,15 +21,15 @@ Get Similar Docs By Doc Id
 * Bearer Authentication (HTTPBearer):
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.document_similarity_request import DocumentSimilarityRequest
-from flowhunt-python-sdk.models.vector_document_response import VectorDocumentResponse
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.document_similarity_request import DocumentSimilarityRequest
+from flowhunt.models.vector_document_response import VectorDocumentResponse
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
@@ -45,16 +45,16 @@ configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
 
 # Configure Bearer authorization: HTTPBearer
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.SemanticSearchApi(api_client)
+    api_instance = flowhunt.SemanticSearchApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
-    document_similarity_request = flowhunt-python-sdk.DocumentSimilarityRequest() # DocumentSimilarityRequest | 
+    document_similarity_request = flowhunt.DocumentSimilarityRequest() # DocumentSimilarityRequest | 
 
     try:
         # Get Similar Docs By Doc Id
@@ -108,15 +108,15 @@ Get Similar Docs By Query
 * Bearer Authentication (HTTPBearer):
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.query_similarity_request import QuerySimilarityRequest
-from flowhunt-python-sdk.models.vector_document_response import VectorDocumentResponse
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.query_similarity_request import QuerySimilarityRequest
+from flowhunt.models.vector_document_response import VectorDocumentResponse
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
@@ -132,16 +132,16 @@ configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
 
 # Configure Bearer authorization: HTTPBearer
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.SemanticSearchApi(api_client)
+    api_instance = flowhunt.SemanticSearchApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
-    query_similarity_request = flowhunt-python-sdk.QuerySimilarityRequest() # QuerySimilarityRequest | 
+    query_similarity_request = flowhunt.QuerySimilarityRequest() # QuerySimilarityRequest | 
 
     try:
         # Get Similar Docs By Query
@@ -195,15 +195,15 @@ Schedule Similar Docs By Doc Id
 * Bearer Authentication (HTTPBearer):
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.document_similarity_task_request import DocumentSimilarityTaskRequest
-from flowhunt-python-sdk.models.vector_documents_task_response import VectorDocumentsTaskResponse
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.document_similarity_task_request import DocumentSimilarityTaskRequest
+from flowhunt.models.vector_documents_task_response import VectorDocumentsTaskResponse
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
@@ -219,16 +219,16 @@ configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
 
 # Configure Bearer authorization: HTTPBearer
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.SemanticSearchApi(api_client)
+    api_instance = flowhunt.SemanticSearchApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
-    document_similarity_task_request = flowhunt-python-sdk.DocumentSimilarityTaskRequest() # DocumentSimilarityTaskRequest | 
+    document_similarity_task_request = flowhunt.DocumentSimilarityTaskRequest() # DocumentSimilarityTaskRequest | 
 
     try:
         # Schedule Similar Docs By Doc Id
@@ -282,15 +282,15 @@ Schedule Similar Docs By Query
 * Bearer Authentication (HTTPBearer):
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.query_similarity_task_request import QuerySimilarityTaskRequest
-from flowhunt-python-sdk.models.vector_documents_task_response import VectorDocumentsTaskResponse
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.query_similarity_task_request import QuerySimilarityTaskRequest
+from flowhunt.models.vector_documents_task_response import VectorDocumentsTaskResponse
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
@@ -306,16 +306,16 @@ configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
 
 # Configure Bearer authorization: HTTPBearer
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.SemanticSearchApi(api_client)
+    api_instance = flowhunt.SemanticSearchApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
-    query_similarity_task_request = flowhunt-python-sdk.QuerySimilarityTaskRequest() # QuerySimilarityTaskRequest | 
+    query_similarity_task_request = flowhunt.QuerySimilarityTaskRequest() # QuerySimilarityTaskRequest | 
 
     try:
         # Schedule Similar Docs By Query

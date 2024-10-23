@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from flowhunt-python-sdk.models.token import Token
+from flowhunt.models.token import Token
 
 # TODO update the JSON string below
 json = "{}"

@@ -31,7 +31,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from flowhunt-python-sdk.models.youtube_content import YoutubeContent
+from flowhunt.models.youtube_content import YoutubeContent
 
 # TODO update the JSON string below
 json = "{}"

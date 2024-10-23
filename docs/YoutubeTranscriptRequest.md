@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from flowhunt-python-sdk.models.youtube_transcript_request import YoutubeTranscriptRequest
+from flowhunt.models.youtube_transcript_request import YoutubeTranscriptRequest
 
 # TODO update the JSON string below
 json = "{}"

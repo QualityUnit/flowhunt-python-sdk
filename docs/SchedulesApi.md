@@ -1,4 +1,4 @@
-# flowhunt-python-sdk.SchedulesApi
+# flowhunt.SchedulesApi
 
 All URIs are relative to *http://localhost*
 
@@ -25,15 +25,15 @@ Create Schedules
 * Bearer Authentication (HTTPBearer):
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.schedule_create_request import ScheduleCreateRequest
-from flowhunt-python-sdk.models.schedule_response import ScheduleResponse
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.schedule_create_request import ScheduleCreateRequest
+from flowhunt.models.schedule_response import ScheduleResponse
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
@@ -49,16 +49,16 @@ configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
 
 # Configure Bearer authorization: HTTPBearer
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.SchedulesApi(api_client)
+    api_instance = flowhunt.SchedulesApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
-    schedule_create_request = [flowhunt-python-sdk.ScheduleCreateRequest()] # List[ScheduleCreateRequest] | 
+    schedule_create_request = [flowhunt.ScheduleCreateRequest()] # List[ScheduleCreateRequest] | 
 
     try:
         # Create Schedules
@@ -112,14 +112,14 @@ Delete Schedule
 * Bearer Authentication (HTTPBearer):
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.completed import Completed
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.completed import Completed
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
@@ -135,14 +135,14 @@ configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
 
 # Configure Bearer authorization: HTTPBearer
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.SchedulesApi(api_client)
+    api_instance = flowhunt.SchedulesApi(api_client)
     schedule_id = 'schedule_id_example' # str | 
     workspace_id = 'workspace_id_example' # str | 
 
@@ -198,14 +198,14 @@ Get Schedule
 * Bearer Authentication (HTTPBearer):
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.schedule_response import ScheduleResponse
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.schedule_response import ScheduleResponse
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
@@ -221,14 +221,14 @@ configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
 
 # Configure Bearer authorization: HTTPBearer
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.SchedulesApi(api_client)
+    api_instance = flowhunt.SchedulesApi(api_client)
     schedule_id = 'schedule_id_example' # str | 
     workspace_id = 'workspace_id_example' # str | 
 
@@ -284,14 +284,14 @@ Get Schedule Url Details
 * Bearer Authentication (HTTPBearer):
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.schedule_url_detail_response import ScheduleUrlDetailResponse
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.schedule_url_detail_response import ScheduleUrlDetailResponse
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
@@ -307,14 +307,14 @@ configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
 
 # Configure Bearer authorization: HTTPBearer
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.SchedulesApi(api_client)
+    api_instance = flowhunt.SchedulesApi(api_client)
     schedule_id = 'schedule_id_example' # str | 
     url_id = 'url_id_example' # str | 
     domain_id = 'domain_id_example' # str | 
@@ -374,15 +374,15 @@ Get Schedules
 * Bearer Authentication (HTTPBearer):
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.schedule_response import ScheduleResponse
-from flowhunt-python-sdk.models.schedule_search_request import ScheduleSearchRequest
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.schedule_response import ScheduleResponse
+from flowhunt.models.schedule_search_request import ScheduleSearchRequest
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
@@ -398,16 +398,16 @@ configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
 
 # Configure Bearer authorization: HTTPBearer
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.SchedulesApi(api_client)
+    api_instance = flowhunt.SchedulesApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
-    schedule_search_request = flowhunt-python-sdk.ScheduleSearchRequest() # ScheduleSearchRequest | 
+    schedule_search_request = flowhunt.ScheduleSearchRequest() # ScheduleSearchRequest | 
 
     try:
         # Get Schedules
@@ -461,14 +461,14 @@ Run Schedule
 * Bearer Authentication (HTTPBearer):
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.completed import Completed
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.completed import Completed
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
@@ -484,14 +484,14 @@ configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
 
 # Configure Bearer authorization: HTTPBearer
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.SchedulesApi(api_client)
+    api_instance = flowhunt.SchedulesApi(api_client)
     schedule_id = 'schedule_id_example' # str | 
     workspace_id = 'workspace_id_example' # str | 
 
@@ -547,15 +547,15 @@ Search Schedule Urls
 * Bearer Authentication (HTTPBearer):
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.schedule_url_response import ScheduleUrlResponse
-from flowhunt-python-sdk.models.schedule_url_search_request import ScheduleUrlSearchRequest
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.schedule_url_response import ScheduleUrlResponse
+from flowhunt.models.schedule_url_search_request import ScheduleUrlSearchRequest
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
@@ -571,16 +571,16 @@ configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
 
 # Configure Bearer authorization: HTTPBearer
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.SchedulesApi(api_client)
+    api_instance = flowhunt.SchedulesApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
-    schedule_url_search_request = flowhunt-python-sdk.ScheduleUrlSearchRequest() # ScheduleUrlSearchRequest | 
+    schedule_url_search_request = flowhunt.ScheduleUrlSearchRequest() # ScheduleUrlSearchRequest | 
 
     try:
         # Search Schedule Urls
@@ -634,15 +634,15 @@ Update Schedule
 * Bearer Authentication (HTTPBearer):
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.schedule_response import ScheduleResponse
-from flowhunt-python-sdk.models.schedule_update_request import ScheduleUpdateRequest
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.schedule_response import ScheduleResponse
+from flowhunt.models.schedule_update_request import ScheduleUpdateRequest
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
@@ -658,17 +658,17 @@ configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
 
 # Configure Bearer authorization: HTTPBearer
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.SchedulesApi(api_client)
+    api_instance = flowhunt.SchedulesApi(api_client)
     schedule_id = 'schedule_id_example' # str | 
     workspace_id = 'workspace_id_example' # str | 
-    schedule_update_request = flowhunt-python-sdk.ScheduleUpdateRequest() # ScheduleUpdateRequest | 
+    schedule_update_request = flowhunt.ScheduleUpdateRequest() # ScheduleUpdateRequest | 
 
     try:
         # Update Schedule

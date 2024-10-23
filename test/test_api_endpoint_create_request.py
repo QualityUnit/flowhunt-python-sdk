@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.api_endpoint_create_request import ApiEndpointCreateRequest
+from flowhunt.models.api_endpoint_create_request import ApiEndpointCreateRequest
 
 class TestApiEndpointCreateRequest(unittest.TestCase):
     """ApiEndpointCreateRequest unit test stubs"""

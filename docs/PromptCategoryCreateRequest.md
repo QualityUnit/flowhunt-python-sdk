@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from flowhunt-python-sdk.models.prompt_category_create_request import PromptCategoryCreateRequest
+from flowhunt.models.prompt_category_create_request import PromptCategoryCreateRequest
 
 # TODO update the JSON string below
 json = "{}"

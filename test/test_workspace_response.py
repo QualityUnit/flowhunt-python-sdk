@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.workspace_response import WorkspaceResponse
+from flowhunt.models.workspace_response import WorkspaceResponse
 
 class TestWorkspaceResponse(unittest.TestCase):
     """WorkspaceResponse unit test stubs"""

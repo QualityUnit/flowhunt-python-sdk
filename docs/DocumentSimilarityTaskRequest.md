@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from flowhunt-python-sdk.models.document_similarity_task_request import DocumentSimilarityTaskRequest
+from flowhunt.models.document_similarity_task_request import DocumentSimilarityTaskRequest
 
 # TODO update the JSON string below
 json = "{}"

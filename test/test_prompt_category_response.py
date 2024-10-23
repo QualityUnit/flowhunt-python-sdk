@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.prompt_category_response import PromptCategoryResponse
+from flowhunt.models.prompt_category_response import PromptCategoryResponse
 
 class TestPromptCategoryResponse(unittest.TestCase):
     """PromptCategoryResponse unit test stubs"""

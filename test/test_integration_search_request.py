@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.integration_search_request import IntegrationSearchRequest
+from flowhunt.models.integration_search_request import IntegrationSearchRequest
 
 class TestIntegrationSearchRequest(unittest.TestCase):
     """IntegrationSearchRequest unit test stubs"""

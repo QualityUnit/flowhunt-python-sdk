@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.flow_config import FlowConfig
+from flowhunt.models.flow_config import FlowConfig
 
 class TestFlowConfig(unittest.TestCase):
     """FlowConfig unit test stubs"""

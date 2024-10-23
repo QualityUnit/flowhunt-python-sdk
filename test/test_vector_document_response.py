@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.vector_document_response import VectorDocumentResponse
+from flowhunt.models.vector_document_response import VectorDocumentResponse
 
 class TestVectorDocumentResponse(unittest.TestCase):
     """VectorDocumentResponse unit test stubs"""

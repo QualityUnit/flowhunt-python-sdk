@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.flow_loading_indicator import FlowLoadingIndicator
+from flowhunt.models.flow_loading_indicator import FlowLoadingIndicator
 
 class TestFlowLoadingIndicator(unittest.TestCase):
     """FlowLoadingIndicator unit test stubs"""

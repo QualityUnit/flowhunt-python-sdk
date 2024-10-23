@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from flowhunt-python-sdk.models.checkout_create_request import CheckoutCreateRequest
+from flowhunt.models.checkout_create_request import CheckoutCreateRequest
 
 # TODO update the JSON string below
 json = "{}"

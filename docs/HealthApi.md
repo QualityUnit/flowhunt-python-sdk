@@ -1,4 +1,4 @@
-# flowhunt-python-sdk.HealthApi
+# flowhunt.HealthApi
 
 All URIs are relative to *http://localhost*
 
@@ -16,22 +16,22 @@ Health
 
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.health import Health
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.health import Health
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.HealthApi(api_client)
+    api_instance = flowhunt.HealthApi(api_client)
 
     try:
         # Health

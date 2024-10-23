@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.schedule_type import ScheduleType
+from flowhunt.models.schedule_type import ScheduleType
 
 class TestScheduleType(unittest.TestCase):
     """ScheduleType unit test stubs"""

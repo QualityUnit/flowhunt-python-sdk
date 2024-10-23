@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.prompt_search_request import PromptSearchRequest
+from flowhunt.models.prompt_search_request import PromptSearchRequest
 
 class TestPromptSearchRequest(unittest.TestCase):
     """PromptSearchRequest unit test stubs"""

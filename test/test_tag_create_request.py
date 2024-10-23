@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.tag_create_request import TagCreateRequest
+from flowhunt.models.tag_create_request import TagCreateRequest
 
 class TestTagCreateRequest(unittest.TestCase):
     """TagCreateRequest unit test stubs"""

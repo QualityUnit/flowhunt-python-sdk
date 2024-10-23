@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.document_status import DocumentStatus
+from flowhunt.models.document_status import DocumentStatus
 
 class TestDocumentStatus(unittest.TestCase):
     """DocumentStatus unit test stubs"""

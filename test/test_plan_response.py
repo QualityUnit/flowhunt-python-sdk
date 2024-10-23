@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.plan_response import PlanResponse
+from flowhunt.models.plan_response import PlanResponse
 
 class TestPlanResponse(unittest.TestCase):
     """PlanResponse unit test stubs"""
@@ -44,7 +44,7 @@ class TestPlanResponse(unittest.TestCase):
                 description = '',
                 popular = True,
                 features = [
-                    flowhunt-python-sdk.models.feature_response.FeatureResponse(
+                    flowhunt.models.feature_response.FeatureResponse(
                         name = '', 
                         available = True, )
                     ],
@@ -61,7 +61,7 @@ class TestPlanResponse(unittest.TestCase):
                 description = '',
                 popular = True,
                 features = [
-                    flowhunt-python-sdk.models.feature_response.FeatureResponse(
+                    flowhunt.models.feature_response.FeatureResponse(
                         name = '', 
                         available = True, )
                     ],

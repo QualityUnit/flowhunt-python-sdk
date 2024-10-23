@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from flowhunt-python-sdk.models.integration_search_request import IntegrationSearchRequest
+from flowhunt.models.integration_search_request import IntegrationSearchRequest
 
 # TODO update the JSON string below
 json = "{}"

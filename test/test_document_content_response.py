@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.document_content_response import DocumentContentResponse
+from flowhunt.models.document_content_response import DocumentContentResponse
 
 class TestDocumentContentResponse(unittest.TestCase):
     """DocumentContentResponse unit test stubs"""
@@ -37,7 +37,7 @@ class TestDocumentContentResponse(unittest.TestCase):
             return DocumentContentResponse(
                 id = '',
                 status = 'PENDING',
-                result = flowhunt-python-sdk.models.document_content.DocumentContent(
+                result = flowhunt.models.document_content.DocumentContent(
                     url = '', 
                     img_url = '', 
                     status_code = 56, 
@@ -53,7 +53,7 @@ class TestDocumentContentResponse(unittest.TestCase):
                             null
                             ]
                         ], 
-                    metadata = flowhunt-python-sdk.models.metadata.metadata(), 
+                    metadata = flowhunt.models.metadata.metadata(), 
                     alt_content = [
                         ''
                         ], 

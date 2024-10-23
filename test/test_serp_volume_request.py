@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.serp_volume_request import SerpVolumeRequest
+from flowhunt.models.serp_volume_request import SerpVolumeRequest
 
 class TestSerpVolumeRequest(unittest.TestCase):
     """SerpVolumeRequest unit test stubs"""

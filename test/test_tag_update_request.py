@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.tag_update_request import TagUpdateRequest
+from flowhunt.models.tag_update_request import TagUpdateRequest
 
 class TestTagUpdateRequest(unittest.TestCase):
     """TagUpdateRequest unit test stubs"""

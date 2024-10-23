@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.tag_search_request import TagSearchRequest
+from flowhunt.models.tag_search_request import TagSearchRequest
 
 class TestTagSearchRequest(unittest.TestCase):
     """TagSearchRequest unit test stubs"""

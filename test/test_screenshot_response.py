@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.screenshot_response import ScreenshotResponse
+from flowhunt.models.screenshot_response import ScreenshotResponse
 
 class TestScreenshotResponse(unittest.TestCase):
     """ScreenshotResponse unit test stubs"""
@@ -39,9 +39,9 @@ class TestScreenshotResponse(unittest.TestCase):
                 status = 'PENDING',
                 result = '',
                 error_message = '',
-                original_size_url = flowhunt-python-sdk.models.app_url.AppUrl(
+                original_size_url = flowhunt.models.app_url.AppUrl(
                     url = '', ),
-                thumbnail_url = flowhunt-python-sdk.models.app_url.AppUrl(
+                thumbnail_url = flowhunt.models.app_url.AppUrl(
                     url = '', ),
                 timestamp = 56,
                 domain_id = '',

@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.serp_search_requests import SerpSearchRequests
+from flowhunt.models.serp_search_requests import SerpSearchRequests
 
 class TestSerpSearchRequests(unittest.TestCase):
     """SerpSearchRequests unit test stubs"""
@@ -36,7 +36,7 @@ class TestSerpSearchRequests(unittest.TestCase):
         if include_optional:
             return SerpSearchRequests(
                 requests = [
-                    flowhunt-python-sdk.models.serp_search_request.SerpSearchRequest(
+                    flowhunt.models.serp_search_request.SerpSearchRequest(
                         post_back_url = '', 
                         query = 'liveagent help desk software', 
                         country = '', 

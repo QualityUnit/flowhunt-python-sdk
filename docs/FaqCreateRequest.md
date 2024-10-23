@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from flowhunt-python-sdk.models.faq_create_request import FaqCreateRequest
+from flowhunt.models.faq_create_request import FaqCreateRequest
 
 # TODO update the JSON string below
 json = "{}"

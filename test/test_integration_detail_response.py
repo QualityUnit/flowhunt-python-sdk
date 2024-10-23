@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.integration_detail_response import IntegrationDetailResponse
+from flowhunt.models.integration_detail_response import IntegrationDetailResponse
 
 class TestIntegrationDetailResponse(unittest.TestCase):
     """IntegrationDetailResponse unit test stubs"""

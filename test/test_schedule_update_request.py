@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.schedule_update_request import ScheduleUpdateRequest
+from flowhunt.models.schedule_update_request import ScheduleUpdateRequest
 
 class TestScheduleUpdateRequest(unittest.TestCase):
     """ScheduleUpdateRequest unit test stubs"""

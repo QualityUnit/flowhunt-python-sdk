@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from flowhunt-python-sdk.models.tag_search_request import TagSearchRequest
+from flowhunt.models.tag_search_request import TagSearchRequest
 
 # TODO update the JSON string below
 json = "{}"

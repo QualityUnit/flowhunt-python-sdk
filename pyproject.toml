@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "flowhunt-python-sdk"
+name = "flowhunt"
 version = "1.0.0"
 description = "FlowHunt"
 authors = ["OpenAPI Generator Community <team@openapitools.org>"]
@@ -7,7 +7,7 @@ license = "NoLicense"
 readme = "README.md"
 repository = "https://github.com/GIT_USER_ID/flowhunt-python-sdk"
 keywords = ["OpenAPI", "OpenAPI-Generator", "FlowHunt"]
-include = ["flowhunt-python-sdk/py.typed"]
+include = ["flowhunt/py.typed"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
@@ -35,7 +35,7 @@ extension-pkg-whitelist = "pydantic"
 
 [tool.mypy]
 files = [
-  "flowhunt-python-sdk",
+  "flowhunt",
   #"test",  # auto-generated tests
   "tests", # hand-written tests
 ]

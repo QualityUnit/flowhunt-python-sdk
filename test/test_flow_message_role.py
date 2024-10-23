@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.flow_message_role import FlowMessageRole
+from flowhunt.models.flow_message_role import FlowMessageRole
 
 class TestFlowMessageRole(unittest.TestCase):
     """FlowMessageRole unit test stubs"""

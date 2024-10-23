@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.credit_daily_transaction_search_request import CreditDailyTransactionSearchRequest
+from flowhunt.models.credit_daily_transaction_search_request import CreditDailyTransactionSearchRequest
 
 class TestCreditDailyTransactionSearchRequest(unittest.TestCase):
     """CreditDailyTransactionSearchRequest unit test stubs"""

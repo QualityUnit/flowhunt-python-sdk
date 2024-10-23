@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from flowhunt-python-sdk.models.thrid_party_login_request import ThridPartyLoginRequest
+from flowhunt.models.thrid_party_login_request import ThridPartyLoginRequest
 
 # TODO update the JSON string below
 json = "{}"

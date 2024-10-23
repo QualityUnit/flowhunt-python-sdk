@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.credit_transaction_response import CreditTransactionResponse
+from flowhunt.models.credit_transaction_response import CreditTransactionResponse
 
 class TestCreditTransactionResponse(unittest.TestCase):
     """CreditTransactionResponse unit test stubs"""

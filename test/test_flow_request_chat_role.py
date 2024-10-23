@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.flow_request_chat_role import FlowRequestChatRole
+from flowhunt.models.flow_request_chat_role import FlowRequestChatRole
 
 class TestFlowRequestChatRole(unittest.TestCase):
     """FlowRequestChatRole unit test stubs"""

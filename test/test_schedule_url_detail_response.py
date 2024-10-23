@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.schedule_url_detail_response import ScheduleUrlDetailResponse
+from flowhunt.models.schedule_url_detail_response import ScheduleUrlDetailResponse
 
 class TestScheduleUrlDetailResponse(unittest.TestCase):
     """ScheduleUrlDetailResponse unit test stubs"""
@@ -40,7 +40,7 @@ class TestScheduleUrlDetailResponse(unittest.TestCase):
                 url_id = '',
                 url = '',
                 last_text_timestamp = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                page_screenshot = flowhunt-python-sdk.models.url_screenshot_response.UrlScreenshotResponse(
+                page_screenshot = flowhunt.models.url_screenshot_response.UrlScreenshotResponse(
                     original_image = '', 
                     thumbnail_image = '', ),
                 url_title = '',
@@ -62,7 +62,7 @@ class TestScheduleUrlDetailResponse(unittest.TestCase):
                 url_id = '',
                 url = '',
                 last_text_timestamp = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                page_screenshot = flowhunt-python-sdk.models.url_screenshot_response.UrlScreenshotResponse(
+                page_screenshot = flowhunt.models.url_screenshot_response.UrlScreenshotResponse(
                     original_image = '', 
                     thumbnail_image = '', ),
                 url_title = '',

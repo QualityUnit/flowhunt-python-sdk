@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.app_url_input import AppUrlInput
+from flowhunt.models.app_url_input import AppUrlInput
 
 class TestAppUrlInput(unittest.TestCase):
     """AppUrlInput unit test stubs"""

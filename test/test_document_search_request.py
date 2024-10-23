@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.document_search_request import DocumentSearchRequest
+from flowhunt.models.document_search_request import DocumentSearchRequest
 
 class TestDocumentSearchRequest(unittest.TestCase):
     """DocumentSearchRequest unit test stubs"""

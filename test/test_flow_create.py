@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.flow_create import FlowCreate
+from flowhunt.models.flow_create import FlowCreate
 
 class TestFlowCreate(unittest.TestCase):
     """FlowCreate unit test stubs"""
@@ -38,7 +38,7 @@ class TestFlowCreate(unittest.TestCase):
                 name = '',
                 description = '',
                 detailed_description = '',
-                config = flowhunt-python-sdk.models.flow_config.FlowConfig(
+                config = flowhunt.models.flow_config.FlowConfig(
                     nodes = [
                         null
                         ], 
@@ -51,7 +51,7 @@ class TestFlowCreate(unittest.TestCase):
             return FlowCreate(
                 name = '',
                 description = '',
-                config = flowhunt-python-sdk.models.flow_config.FlowConfig(
+                config = flowhunt.models.flow_config.FlowConfig(
                     nodes = [
                         null
                         ], 

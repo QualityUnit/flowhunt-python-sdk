@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.flow_session_create_from_flow_request import FlowSessionCreateFromFlowRequest
+from flowhunt.models.flow_session_create_from_flow_request import FlowSessionCreateFromFlowRequest
 
 class TestFlowSessionCreateFromFlowRequest(unittest.TestCase):
     """FlowSessionCreateFromFlowRequest unit test stubs"""

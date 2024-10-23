@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.api_endpoint_response import ApiEndpointResponse
+from flowhunt.models.api_endpoint_response import ApiEndpointResponse
 
 class TestApiEndpointResponse(unittest.TestCase):
     """ApiEndpointResponse unit test stubs"""

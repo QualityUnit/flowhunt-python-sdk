@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.http_validation_error import HTTPValidationError
+from flowhunt.models.http_validation_error import HTTPValidationError
 
 class TestHTTPValidationError(unittest.TestCase):
     """HTTPValidationError unit test stubs"""
@@ -36,7 +36,7 @@ class TestHTTPValidationError(unittest.TestCase):
         if include_optional:
             return HTTPValidationError(
                 detail = [
-                    flowhunt-python-sdk.models.validation_error.ValidationError(
+                    flowhunt.models.validation_error.ValidationError(
                         loc = [
                             null
                             ], 

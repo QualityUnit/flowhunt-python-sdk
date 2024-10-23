@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.app_url_output import AppUrlOutput
+from flowhunt.models.app_url_output import AppUrlOutput
 
 class TestAppUrlOutput(unittest.TestCase):
     """AppUrlOutput unit test stubs"""

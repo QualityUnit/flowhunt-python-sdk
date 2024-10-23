@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.schedule_search_request import ScheduleSearchRequest
+from flowhunt.models.schedule_search_request import ScheduleSearchRequest
 
 class TestScheduleSearchRequest(unittest.TestCase):
     """ScheduleSearchRequest unit test stubs"""

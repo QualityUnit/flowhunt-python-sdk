@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from flowhunt-python-sdk.models.document_category_update_request import DocumentCategoryUpdateRequest
+from flowhunt.models.document_category_update_request import DocumentCategoryUpdateRequest
 
 # TODO update the JSON string below
 json = "{}"

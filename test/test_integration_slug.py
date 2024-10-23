@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.integration_slug import IntegrationSlug
+from flowhunt.models.integration_slug import IntegrationSlug
 
 class TestIntegrationSlug(unittest.TestCase):
     """IntegrationSlug unit test stubs"""

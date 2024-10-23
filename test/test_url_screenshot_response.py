@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.url_screenshot_response import UrlScreenshotResponse
+from flowhunt.models.url_screenshot_response import UrlScreenshotResponse
 
 class TestUrlScreenshotResponse(unittest.TestCase):
     """UrlScreenshotResponse unit test stubs"""

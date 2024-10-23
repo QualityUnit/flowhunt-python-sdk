@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from flowhunt-python-sdk.models.schedule_update_request import ScheduleUpdateRequest
+from flowhunt.models.schedule_update_request import ScheduleUpdateRequest
 
 # TODO update the JSON string below
 json = "{}"

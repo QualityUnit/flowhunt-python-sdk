@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from flowhunt-python-sdk.models.workspace_user_update_request import WorkspaceUserUpdateRequest
+from flowhunt.models.workspace_user_update_request import WorkspaceUserUpdateRequest
 
 # TODO update the JSON string below
 json = "{}"

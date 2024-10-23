@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from flowhunt-python-sdk.models.app_url_input import AppUrlInput
+from flowhunt.models.app_url_input import AppUrlInput
 
 # TODO update the JSON string below
 json = "{}"

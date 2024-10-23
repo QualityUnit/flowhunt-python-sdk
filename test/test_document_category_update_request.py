@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.document_category_update_request import DocumentCategoryUpdateRequest
+from flowhunt.models.document_category_update_request import DocumentCategoryUpdateRequest
 
 class TestDocumentCategoryUpdateRequest(unittest.TestCase):
     """DocumentCategoryUpdateRequest unit test stubs"""

@@ -1,4 +1,4 @@
-# flowhunt-python-sdk.SERPApi
+# flowhunt.SERPApi
 
 All URIs are relative to *http://localhost*
 
@@ -20,15 +20,15 @@ Serp Search
 * Bearer Authentication (HTTPBearer):
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.serp_search_requests import SerpSearchRequests
-from flowhunt-python-sdk.models.task_response import TaskResponse
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.serp_search_requests import SerpSearchRequests
+from flowhunt.models.task_response import TaskResponse
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
@@ -44,16 +44,16 @@ configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
 
 # Configure Bearer authorization: HTTPBearer
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.SERPApi(api_client)
+    api_instance = flowhunt.SERPApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
-    serp_search_requests = flowhunt-python-sdk.SerpSearchRequests() # SerpSearchRequests | 
+    serp_search_requests = flowhunt.SerpSearchRequests() # SerpSearchRequests | 
 
     try:
         # Serp Search
@@ -107,15 +107,15 @@ Serp Volumes
 * Bearer Authentication (HTTPBearer):
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.serp_volume_request import SerpVolumeRequest
-from flowhunt-python-sdk.models.task_response import TaskResponse
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.serp_volume_request import SerpVolumeRequest
+from flowhunt.models.task_response import TaskResponse
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
@@ -131,16 +131,16 @@ configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
 
 # Configure Bearer authorization: HTTPBearer
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.SERPApi(api_client)
+    api_instance = flowhunt.SERPApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
-    serp_volume_request = flowhunt-python-sdk.SerpVolumeRequest() # SerpVolumeRequest | 
+    serp_volume_request = flowhunt.SerpVolumeRequest() # SerpVolumeRequest | 
 
     try:
         # Serp Volumes
@@ -192,22 +192,22 @@ Serp Volumes Pingback
 
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.task_response import TaskResponse
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.task_response import TaskResponse
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.SERPApi(api_client)
+    api_instance = flowhunt.SERPApi(api_client)
     id = 'id_example' # str | 
     tag = 'tag_example' # str | 
 

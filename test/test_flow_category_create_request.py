@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.flow_category_create_request import FlowCategoryCreateRequest
+from flowhunt.models.flow_category_create_request import FlowCategoryCreateRequest
 
 class TestFlowCategoryCreateRequest(unittest.TestCase):
     """FlowCategoryCreateRequest unit test stubs"""

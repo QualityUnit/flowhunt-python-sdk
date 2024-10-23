@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from flowhunt-python-sdk.models.secret_update_request import SecretUpdateRequest
+from flowhunt.models.secret_update_request import SecretUpdateRequest
 
 # TODO update the JSON string below
 json = "{}"

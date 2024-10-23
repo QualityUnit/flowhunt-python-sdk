@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.health import Health
+from flowhunt.models.health import Health
 
 class TestHealth(unittest.TestCase):
     """Health unit test stubs"""

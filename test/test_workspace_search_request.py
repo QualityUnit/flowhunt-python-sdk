@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.workspace_search_request import WorkspaceSearchRequest
+from flowhunt.models.workspace_search_request import WorkspaceSearchRequest
 
 class TestWorkspaceSearchRequest(unittest.TestCase):
     """WorkspaceSearchRequest unit test stubs"""

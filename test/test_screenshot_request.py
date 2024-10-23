@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.screenshot_request import ScreenshotRequest
+from flowhunt.models.screenshot_request import ScreenshotRequest
 
 class TestScreenshotRequest(unittest.TestCase):
     """ScreenshotRequest unit test stubs"""

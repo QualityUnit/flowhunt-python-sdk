@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.api_method import ApiMethod
+from flowhunt.models.api_method import ApiMethod
 
 class TestApiMethod(unittest.TestCase):
     """ApiMethod unit test stubs"""

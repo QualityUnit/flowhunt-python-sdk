@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from flowhunt-python-sdk.models.flow_session_response import FlowSessionResponse
+from flowhunt.models.flow_session_response import FlowSessionResponse
 
 # TODO update the JSON string below
 json = "{}"

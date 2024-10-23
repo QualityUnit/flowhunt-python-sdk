@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.secret_update_request import SecretUpdateRequest
+from flowhunt.models.secret_update_request import SecretUpdateRequest
 
 class TestSecretUpdateRequest(unittest.TestCase):
     """SecretUpdateRequest unit test stubs"""

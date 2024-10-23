@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.validation_error import ValidationError
+from flowhunt.models.validation_error import ValidationError
 
 class TestValidationError(unittest.TestCase):
     """ValidationError unit test stubs"""

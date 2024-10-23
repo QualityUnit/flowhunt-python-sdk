@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from flowhunt-python-sdk.models.tag_create_request import TagCreateRequest
+from flowhunt.models.tag_create_request import TagCreateRequest
 
 # TODO update the JSON string below
 json = "{}"

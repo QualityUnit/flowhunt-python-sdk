@@ -14,7 +14,7 @@
 
 import unittest
 
-from flowhunt-python-sdk.models.workspace_update_request import WorkspaceUpdateRequest
+from flowhunt.models.workspace_update_request import WorkspaceUpdateRequest
 
 class TestWorkspaceUpdateRequest(unittest.TestCase):
     """WorkspaceUpdateRequest unit test stubs"""

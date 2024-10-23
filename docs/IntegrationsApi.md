@@ -1,4 +1,4 @@
-# flowhunt-python-sdk.IntegrationsApi
+# flowhunt.IntegrationsApi
 
 All URIs are relative to *http://localhost*
 
@@ -31,15 +31,15 @@ Create Api Integration
 * Bearer Authentication (HTTPBearer):
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.api_integration_create_request import ApiIntegrationCreateRequest
-from flowhunt-python-sdk.models.api_integration_response import ApiIntegrationResponse
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.api_integration_create_request import ApiIntegrationCreateRequest
+from flowhunt.models.api_integration_response import ApiIntegrationResponse
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
@@ -55,16 +55,16 @@ configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
 
 # Configure Bearer authorization: HTTPBearer
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.IntegrationsApi(api_client)
+    api_instance = flowhunt.IntegrationsApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
-    api_integration_create_request = flowhunt-python-sdk.ApiIntegrationCreateRequest() # ApiIntegrationCreateRequest | 
+    api_integration_create_request = flowhunt.ApiIntegrationCreateRequest() # ApiIntegrationCreateRequest | 
 
     try:
         # Create Api Integration
@@ -118,15 +118,15 @@ Create Api Integration Endpoint
 * Bearer Authentication (HTTPBearer):
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.api_endpoint_create_request import ApiEndpointCreateRequest
-from flowhunt-python-sdk.models.api_endpoint_response import ApiEndpointResponse
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.api_endpoint_create_request import ApiEndpointCreateRequest
+from flowhunt.models.api_endpoint_response import ApiEndpointResponse
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
@@ -142,17 +142,17 @@ configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
 
 # Configure Bearer authorization: HTTPBearer
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.IntegrationsApi(api_client)
+    api_instance = flowhunt.IntegrationsApi(api_client)
     integration_id = 'integration_id_example' # str | 
     workspace_id = 'workspace_id_example' # str | 
-    api_endpoint_create_request = flowhunt-python-sdk.ApiEndpointCreateRequest() # ApiEndpointCreateRequest | 
+    api_endpoint_create_request = flowhunt.ApiEndpointCreateRequest() # ApiEndpointCreateRequest | 
 
     try:
         # Create Api Integration Endpoint
@@ -207,14 +207,14 @@ Get All Integrations
 * Bearer Authentication (HTTPBearer):
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.integration_response import IntegrationResponse
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.integration_response import IntegrationResponse
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
@@ -230,14 +230,14 @@ configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
 
 # Configure Bearer authorization: HTTPBearer
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.IntegrationsApi(api_client)
+    api_instance = flowhunt.IntegrationsApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
 
     try:
@@ -291,14 +291,14 @@ Get Api Integration
 * Bearer Authentication (HTTPBearer):
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.api_integration_response import ApiIntegrationResponse
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.api_integration_response import ApiIntegrationResponse
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
@@ -314,14 +314,14 @@ configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
 
 # Configure Bearer authorization: HTTPBearer
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.IntegrationsApi(api_client)
+    api_instance = flowhunt.IntegrationsApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
     integration_id = 'integration_id_example' # str | 
 
@@ -377,14 +377,14 @@ Get Api Integration Auth Methods
 * Bearer Authentication (HTTPBearer):
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.api_integration_authentication_method import ApiIntegrationAuthenticationMethod
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.api_integration_authentication_method import ApiIntegrationAuthenticationMethod
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
@@ -400,14 +400,14 @@ configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
 
 # Configure Bearer authorization: HTTPBearer
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.IntegrationsApi(api_client)
+    api_instance = flowhunt.IntegrationsApi(api_client)
 
     try:
         # Get Api Integration Auth Methods
@@ -456,15 +456,15 @@ Get Api Integration Endpoints
 * Bearer Authentication (HTTPBearer):
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.api_endpoint_response import ApiEndpointResponse
-from flowhunt-python-sdk.models.api_endpoint_search_request import ApiEndpointSearchRequest
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.api_endpoint_response import ApiEndpointResponse
+from flowhunt.models.api_endpoint_search_request import ApiEndpointSearchRequest
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
@@ -480,17 +480,17 @@ configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
 
 # Configure Bearer authorization: HTTPBearer
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.IntegrationsApi(api_client)
+    api_instance = flowhunt.IntegrationsApi(api_client)
     integration_id = 'integration_id_example' # str | 
     workspace_id = 'workspace_id_example' # str | 
-    api_endpoint_search_request = flowhunt-python-sdk.ApiEndpointSearchRequest() # ApiEndpointSearchRequest | 
+    api_endpoint_search_request = flowhunt.ApiEndpointSearchRequest() # ApiEndpointSearchRequest | 
 
     try:
         # Get Api Integration Endpoints
@@ -545,15 +545,15 @@ Get Api Integrations
 * Bearer Authentication (HTTPBearer):
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.api_integration_response import ApiIntegrationResponse
-from flowhunt-python-sdk.models.api_integration_search_request import ApiIntegrationSearchRequest
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.api_integration_response import ApiIntegrationResponse
+from flowhunt.models.api_integration_search_request import ApiIntegrationSearchRequest
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
@@ -569,16 +569,16 @@ configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
 
 # Configure Bearer authorization: HTTPBearer
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.IntegrationsApi(api_client)
+    api_instance = flowhunt.IntegrationsApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
-    api_integration_search_request = flowhunt-python-sdk.ApiIntegrationSearchRequest() # ApiIntegrationSearchRequest | 
+    api_integration_search_request = flowhunt.ApiIntegrationSearchRequest() # ApiIntegrationSearchRequest | 
 
     try:
         # Get Api Integrations
@@ -632,15 +632,15 @@ Get My Integrations
 * Bearer Authentication (HTTPBearer):
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.integration_detail_response import IntegrationDetailResponse
-from flowhunt-python-sdk.models.integration_search_request import IntegrationSearchRequest
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.integration_detail_response import IntegrationDetailResponse
+from flowhunt.models.integration_search_request import IntegrationSearchRequest
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
@@ -656,16 +656,16 @@ configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
 
 # Configure Bearer authorization: HTTPBearer
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.IntegrationsApi(api_client)
+    api_instance = flowhunt.IntegrationsApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
-    integration_search_request = flowhunt-python-sdk.IntegrationSearchRequest() # IntegrationSearchRequest | 
+    integration_search_request = flowhunt.IntegrationSearchRequest() # IntegrationSearchRequest | 
 
     try:
         # Get My Integrations
@@ -719,14 +719,14 @@ Import Openapi Spec
 * Bearer Authentication (HTTPBearer):
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.api_integration_response import ApiIntegrationResponse
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.api_integration_response import ApiIntegrationResponse
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
@@ -742,14 +742,14 @@ configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
 
 # Configure Bearer authorization: HTTPBearer
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.IntegrationsApi(api_client)
+    api_instance = flowhunt.IntegrationsApi(api_client)
     integration_id = 'integration_id_example' # str | 
     workspace_id = 'workspace_id_example' # str | 
     file = None # bytearray | 
@@ -807,15 +807,15 @@ Import Openapi Spec From Url
 * Bearer Authentication (HTTPBearer):
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.api_integration_open_api_import_request import ApiIntegrationOpenApiImportRequest
-from flowhunt-python-sdk.models.api_integration_response import ApiIntegrationResponse
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.api_integration_open_api_import_request import ApiIntegrationOpenApiImportRequest
+from flowhunt.models.api_integration_response import ApiIntegrationResponse
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
@@ -831,17 +831,17 @@ configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
 
 # Configure Bearer authorization: HTTPBearer
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.IntegrationsApi(api_client)
+    api_instance = flowhunt.IntegrationsApi(api_client)
     integration_id = 'integration_id_example' # str | 
     workspace_id = 'workspace_id_example' # str | 
-    api_integration_open_api_import_request = flowhunt-python-sdk.ApiIntegrationOpenApiImportRequest() # ApiIntegrationOpenApiImportRequest | 
+    api_integration_open_api_import_request = flowhunt.ApiIntegrationOpenApiImportRequest() # ApiIntegrationOpenApiImportRequest | 
 
     try:
         # Import Openapi Spec From Url
@@ -896,14 +896,14 @@ Remove Api Integration
 * Bearer Authentication (HTTPBearer):
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.completed import Completed
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.completed import Completed
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
@@ -919,14 +919,14 @@ configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
 
 # Configure Bearer authorization: HTTPBearer
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.IntegrationsApi(api_client)
+    api_instance = flowhunt.IntegrationsApi(api_client)
     integration_id = 'integration_id_example' # str | 
     workspace_id = 'workspace_id_example' # str | 
 
@@ -982,14 +982,14 @@ Remove Api Integration Endpoint
 * Bearer Authentication (HTTPBearer):
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.completed import Completed
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.completed import Completed
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
@@ -1005,14 +1005,14 @@ configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
 
 # Configure Bearer authorization: HTTPBearer
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.IntegrationsApi(api_client)
+    api_instance = flowhunt.IntegrationsApi(api_client)
     integration_id = 'integration_id_example' # str | 
     endpoint_id = 'endpoint_id_example' # str | 
     workspace_id = 'workspace_id_example' # str | 
@@ -1070,15 +1070,15 @@ Update Api Integration
 * Bearer Authentication (HTTPBearer):
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.api_integration_response import ApiIntegrationResponse
-from flowhunt-python-sdk.models.api_integration_update_request import ApiIntegrationUpdateRequest
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.api_integration_response import ApiIntegrationResponse
+from flowhunt.models.api_integration_update_request import ApiIntegrationUpdateRequest
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
@@ -1094,17 +1094,17 @@ configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
 
 # Configure Bearer authorization: HTTPBearer
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.IntegrationsApi(api_client)
+    api_instance = flowhunt.IntegrationsApi(api_client)
     integration_id = 'integration_id_example' # str | 
     workspace_id = 'workspace_id_example' # str | 
-    api_integration_update_request = flowhunt-python-sdk.ApiIntegrationUpdateRequest() # ApiIntegrationUpdateRequest | 
+    api_integration_update_request = flowhunt.ApiIntegrationUpdateRequest() # ApiIntegrationUpdateRequest | 
 
     try:
         # Update Api Integration
@@ -1159,15 +1159,15 @@ Update Api Integration Endpoint
 * Bearer Authentication (HTTPBearer):
 
 ```python
-import flowhunt-python-sdk
-from flowhunt-python-sdk.models.api_endpoint_response import ApiEndpointResponse
-from flowhunt-python-sdk.models.api_endpoint_update_request import ApiEndpointUpdateRequest
-from flowhunt-python-sdk.rest import ApiException
+import flowhunt
+from flowhunt.models.api_endpoint_response import ApiEndpointResponse
+from flowhunt.models.api_endpoint_update_request import ApiEndpointUpdateRequest
+from flowhunt.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
@@ -1183,18 +1183,18 @@ configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
 
 # Configure Bearer authorization: HTTPBearer
-configuration = flowhunt-python-sdk.Configuration(
+configuration = flowhunt.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with flowhunt-python-sdk.ApiClient(configuration) as api_client:
+with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt-python-sdk.IntegrationsApi(api_client)
+    api_instance = flowhunt.IntegrationsApi(api_client)
     integration_id = 'integration_id_example' # str | 
     endpoint_id = 'endpoint_id_example' # str | 
     workspace_id = 'workspace_id_example' # str | 
-    api_endpoint_update_request = flowhunt-python-sdk.ApiEndpointUpdateRequest() # ApiEndpointUpdateRequest | 
+    api_endpoint_update_request = flowhunt.ApiEndpointUpdateRequest() # ApiEndpointUpdateRequest | 
 
     try:
         # Update Api Integration Endpoint
