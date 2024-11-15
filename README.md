@@ -157,16 +157,29 @@ Class | Method | HTTP request | Description
 *FlowsApi* | [**get_attachments**](docs/FlowsApi.md#get_attachments) | **GET** /v2/flows/sessions/{session_id}/attachments | Get Attachments
 *FlowsApi* | [**get_invoked_flow_results**](docs/FlowsApi.md#get_invoked_flow_results) | **GET** /v2/flows/{flow_id}/{task_id} | Get Invoked Flow Results
 *FlowsApi* | [**get_public_flow**](docs/FlowsApi.md#get_public_flow) | **GET** /v2/flows/public/{flow_id} | Get Public Flow
+*FlowsApi* | [**get_trigger_types**](docs/FlowsApi.md#get_trigger_types) | **POST** /v2/flows/{flow_id}/triggers | Get Trigger Types
 *FlowsApi* | [**invoke_flow**](docs/FlowsApi.md#invoke_flow) | **POST** /v2/flows/{flow_id}/invoke | Invoke Flow
 *FlowsApi* | [**invoke_flow_response**](docs/FlowsApi.md#invoke_flow_response) | **POST** /v2/flows/sessions/{session_id}/invoke | Invoke Flow Response
 *FlowsApi* | [**invoke_flow_singleton**](docs/FlowsApi.md#invoke_flow_singleton) | **POST** /v2/flows/{flow_id}/invoke_singleton | Invoke Flow Singleton
 *FlowsApi* | [**poll_flow_response**](docs/FlowsApi.md#poll_flow_response) | **POST** /v2/flows/sessions/{session_id}/invocation_response/{message_id} | Poll Flow Response
 *FlowsApi* | [**search**](docs/FlowsApi.md#search) | **POST** /v2/flows/ | Search
+*FlowsApi* | [**search_all**](docs/FlowsApi.md#search_all) | **POST** /v2/flows/all | Search All
 *FlowsApi* | [**search_flow_categories**](docs/FlowsApi.md#search_flow_categories) | **POST** /v2/flows/categories/search | Search Flow Categories
 *FlowsApi* | [**stream_flow_response**](docs/FlowsApi.md#stream_flow_response) | **POST** /v2/flows/sessions/{session_id}/stream | Stream Flow Response
 *FlowsApi* | [**update_flow**](docs/FlowsApi.md#update_flow) | **PUT** /v2/flows/{flow_id} | Update Flow
 *FlowsApi* | [**update_flow_category**](docs/FlowsApi.md#update_flow_category) | **PUT** /v2/flows/categories/{cat_id} | Update Flow Category
 *FlowsApi* | [**upload_attachments**](docs/FlowsApi.md#upload_attachments) | **POST** /v2/flows/sessions/{session_id}/attachments | Upload Attachments
+*GridsApi* | [**create_column**](docs/GridsApi.md#create_column) | **POST** /v2/grids/{grid_id}/create | Create Column
+*GridsApi* | [**create_grid**](docs/GridsApi.md#create_grid) | **POST** /v2/grids/create | Create Grid
+*GridsApi* | [**create_grid_row**](docs/GridsApi.md#create_grid_row) | **POST** /v2/grids/{grid_id}/create_row | Create Grid Row
+*GridsApi* | [**delete_grid**](docs/GridsApi.md#delete_grid) | **DELETE** /v2/grids/{grid_id} | Delete Grid
+*GridsApi* | [**delete_grid_row**](docs/GridsApi.md#delete_grid_row) | **DELETE** /v2/grids/{grid_id}/{col_id} | Delete Grid Row
+*GridsApi* | [**search_columns**](docs/GridsApi.md#search_columns) | **POST** /v2/grids/{grid_id}/search | Search Columns
+*GridsApi* | [**search_grid_rows**](docs/GridsApi.md#search_grid_rows) | **POST** /v2/grids/{grid_id}/search_rows | Search Grid Rows
+*GridsApi* | [**search_grids**](docs/GridsApi.md#search_grids) | **POST** /v2/grids/search | Search Grids
+*GridsApi* | [**update_column**](docs/GridsApi.md#update_column) | **PUT** /v2/grids/{grid_id}/{col_id} | Update Column
+*GridsApi* | [**update_grid**](docs/GridsApi.md#update_grid) | **PUT** /v2/grids/{grid_id} | Update Grid
+*GridsApi* | [**update_grid_row**](docs/GridsApi.md#update_grid_row) | **PUT** /v2/grids/{grid_id}/row_id | Update Grid Row
 *HealthApi* | [**health**](docs/HealthApi.md#health) | **GET** /v2/monitoring/health/ | Health
 *ImagesApi* | [**convert_image**](docs/ImagesApi.md#convert_image) | **POST** /v2/images/convert | Convert Image
 *ImagesApi* | [**get_screenshot**](docs/ImagesApi.md#get_screenshot) | **POST** /v2/images/screenshot | Get Screenshot
@@ -233,6 +246,7 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [AllFlowsSearchRequest](docs/AllFlowsSearchRequest.md)
  - [ApiEndpointCreateRequest](docs/ApiEndpointCreateRequest.md)
  - [ApiEndpointResponse](docs/ApiEndpointResponse.md)
  - [ApiEndpointSearchRequest](docs/ApiEndpointSearchRequest.md)
@@ -259,6 +273,8 @@ Class | Method | HTTP request | Description
  - [ChatbotStatusOutput](docs/ChatbotStatusOutput.md)
  - [ChatbotUpdateRequest](docs/ChatbotUpdateRequest.md)
  - [CheckoutCreateRequest](docs/CheckoutCreateRequest.md)
+ - [ColumnDataType](docs/ColumnDataType.md)
+ - [ColumnExecutorType](docs/ColumnExecutorType.md)
  - [Completed](docs/Completed.md)
  - [CreditBalanceResponse](docs/CreditBalanceResponse.md)
  - [CreditDailyTransactionResponse](docs/CreditDailyTransactionResponse.md)
@@ -313,6 +329,21 @@ Class | Method | HTTP request | Description
  - [FlowSessionViewSearchRequest](docs/FlowSessionViewSearchRequest.md)
  - [FlowSessionViewUpdateRequest](docs/FlowSessionViewUpdateRequest.md)
  - [FlowType](docs/FlowType.md)
+ - [GridCellStatus](docs/GridCellStatus.md)
+ - [GridColumnCreateRequest](docs/GridColumnCreateRequest.md)
+ - [GridColumnResponse](docs/GridColumnResponse.md)
+ - [GridColumnSearchRequest](docs/GridColumnSearchRequest.md)
+ - [GridColumnUpdateRequest](docs/GridColumnUpdateRequest.md)
+ - [GridCreateRequest](docs/GridCreateRequest.md)
+ - [GridResponse](docs/GridResponse.md)
+ - [GridRowCreateRequest](docs/GridRowCreateRequest.md)
+ - [GridRowResponse](docs/GridRowResponse.md)
+ - [GridRowSearchRequest](docs/GridRowSearchRequest.md)
+ - [GridRowUpdateRequest](docs/GridRowUpdateRequest.md)
+ - [GridSearchRequest](docs/GridSearchRequest.md)
+ - [GridStatus](docs/GridStatus.md)
+ - [GridUpdateRequest](docs/GridUpdateRequest.md)
+ - [GrigCell](docs/GrigCell.md)
  - [HTTPValidationError](docs/HTTPValidationError.md)
  - [Health](docs/Health.md)
  - [ImageConvertRequest](docs/ImageConvertRequest.md)
@@ -324,6 +355,7 @@ Class | Method | HTTP request | Description
  - [IntegrationSlug](docs/IntegrationSlug.md)
  - [LoginUserRequest](docs/LoginUserRequest.md)
  - [NewPasswordRequest](docs/NewPasswordRequest.md)
+ - [OutputFormat](docs/OutputFormat.md)
  - [PlanResponse](docs/PlanResponse.md)
  - [PointerType](docs/PointerType.md)
  - [PromptCategoryCreateRequest](docs/PromptCategoryCreateRequest.md)
@@ -363,12 +395,14 @@ Class | Method | HTTP request | Description
  - [TagResponse](docs/TagResponse.md)
  - [TagSearchRequest](docs/TagSearchRequest.md)
  - [TagUpdateRequest](docs/TagUpdateRequest.md)
+ - [TaskOutput](docs/TaskOutput.md)
  - [TaskResponse](docs/TaskResponse.md)
  - [TaskStatus](docs/TaskStatus.md)
  - [ThridPartyLoginRequest](docs/ThridPartyLoginRequest.md)
  - [Token](docs/Token.md)
  - [TransactionType](docs/TransactionType.md)
  - [TranscriptTaskRequest](docs/TranscriptTaskRequest.md)
+ - [TriggerResponse](docs/TriggerResponse.md)
  - [TriggerType](docs/TriggerType.md)
  - [UrlScreenshotResponse](docs/UrlScreenshotResponse.md)
  - [UserDocumentStatus](docs/UserDocumentStatus.md)

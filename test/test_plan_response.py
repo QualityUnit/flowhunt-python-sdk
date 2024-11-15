@@ -48,7 +48,8 @@ class TestPlanResponse(unittest.TestCase):
                         name = '', 
                         available = True, )
                     ],
-                subscription_plan = 'S'
+                subscription_plan = 'S',
+                self_hosted = True
             )
         else:
             return PlanResponse(

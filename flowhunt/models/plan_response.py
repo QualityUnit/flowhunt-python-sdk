@@ -38,7 +38,8 @@ class PlanResponse(BaseModel):
     popular: StrictBool
     features: List[FeatureResponse]
     subscription_plan: Optional[SubscriptionPlan]
-    __properties: ClassVar[List[str]] = ["product_id", "price_id", "currency", "amount", "recurring", "name", "description", "popular", "features", "subscription_plan"]
+    self_hosted: Optional[StrictBool] = None
+    __properties: ClassVar[List[str]] = ["product_id", "price_id", "currency", "amount", "recurring", "name", "description", "popular", "features", "subscription_plan", "self_hosted"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -91,6 +92,11 @@ class PlanResponse(BaseModel):
         if self.subscription_plan is None and "subscription_plan" in self.model_fields_set:
             _dict['subscription_plan'] = None
 
+        # set to None if self_hosted (nullable) is None
+        # and model_fields_set contains the field
+        if self.self_hosted is None and "self_hosted" in self.model_fields_set:
+            _dict['self_hosted'] = None
+
         return _dict
 
     @classmethod
@@ -112,7 +118,8 @@ class PlanResponse(BaseModel):
             "description": obj.get("description"),
             "popular": obj.get("popular"),
             "features": [FeatureResponse.from_dict(_item) for _item in obj["features"]] if obj.get("features") is not None else None,
-            "subscription_plan": obj.get("subscription_plan")
+            "subscription_plan": obj.get("subscription_plan"),
+            "self_hosted": obj.get("self_hosted")
         })
         return _obj
 

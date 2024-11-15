@@ -110,6 +110,13 @@ class TestFlowsApi(unittest.TestCase):
         """
         pass
 
+    def test_get_trigger_types(self) -> None:
+        """Test case for get_trigger_types
+
+        Get Trigger Types
+        """
+        pass
+
     def test_invoke_flow(self) -> None:
         """Test case for invoke_flow
 
@@ -142,6 +149,13 @@ class TestFlowsApi(unittest.TestCase):
         """Test case for search
 
         Search
+        """
+        pass
+
+    def test_search_all(self) -> None:
+        """Test case for search_all
+
+        Search All
         """
         pass
 

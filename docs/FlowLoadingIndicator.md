@@ -8,6 +8,8 @@ Name | Type | Description | Notes
 **tool_name** | **str** | Tool name | 
 **loading_desc** | **str** | Loading description | 
 **icon** | **str** |  | [optional] 
+**color** | **str** |  | [optional] 
+**detailed_description** | **str** |  | [optional] 
 
 ## Example
 

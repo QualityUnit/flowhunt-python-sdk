@@ -37,19 +37,26 @@ class TestFlowSessionInvocationMessageResponse(unittest.TestCase):
             return FlowSessionInvocationMessageResponse(
                 message_id = 'a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11',
                 response_status = success,
-                loading_indicator = flowhunt.models.flow_loading_indicator.FlowLoadingIndicator(
-                    tool_name = '', 
-                    loading_desc = '', 
-                    icon = '', ),
-                intermediate_responses = [
-                    flowhunt.models.flow_message_response.FlowMessageResponse(
-                        message_id = 'a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11', 
-                        session_id = 'a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11', 
-                        role = A, 
-                        created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        message = 'Hello', 
-                        credits = 10, )
-                    ],
+                loading_indicator = {
+                    'key' : flowhunt.models.flow_loading_indicator.FlowLoadingIndicator(
+                        tool_name = '', 
+                        loading_desc = '', 
+                        icon = '', 
+                        color = '', 
+                        detailed_description = '', )
+                    },
+                intermediate_results = {
+                    'key' : flowhunt.models.task_output.TaskOutput(
+                        description = '', 
+                        name = '', 
+                        expected_output = '', 
+                        summary = '', 
+                        raw = '', 
+                        pydantic = flowhunt.models.base_model.BaseModel(), 
+                        json_dict = flowhunt.models.json_dict.json_dict(), 
+                        agent = '', 
+                        output_format = 'json', )
+                    },
                 final_response = [
                     ''
                     ]

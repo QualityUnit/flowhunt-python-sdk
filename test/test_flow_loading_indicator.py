@@ -37,7 +37,9 @@ class TestFlowLoadingIndicator(unittest.TestCase):
             return FlowLoadingIndicator(
                 tool_name = '',
                 loading_desc = '',
-                icon = ''
+                icon = '',
+                color = '',
+                detailed_description = ''
             )
         else:
             return FlowLoadingIndicator(

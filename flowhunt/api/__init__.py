@@ -11,6 +11,7 @@ from flowhunt.api.flow_messages_api import FlowMessagesApi
 from flowhunt.api.flow_sessions_api import FlowSessionsApi
 from flowhunt.api.flow_webhooks_api import FlowWebhooksApi
 from flowhunt.api.flows_api import FlowsApi
+from flowhunt.api.grids_api import GridsApi
 from flowhunt.api.health_api import HealthApi
 from flowhunt.api.images_api import ImagesApi
 from flowhunt.api.integrations_api import IntegrationsApi

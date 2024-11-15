@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **popular** | **bool** |  | 
 **features** | [**List[FeatureResponse]**](FeatureResponse.md) |  | 
 **subscription_plan** | [**SubscriptionPlan**](SubscriptionPlan.md) |  | 
+**self_hosted** | **bool** |  | [optional] 
 
 ## Example
 

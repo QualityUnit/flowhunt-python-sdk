@@ -31,6 +31,7 @@ class SubscriptionPlan(str, Enum):
     A = 'A'
     T = 'T'
     C = 'C'
+    E = 'E'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

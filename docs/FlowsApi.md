@@ -16,11 +16,13 @@ Method | HTTP request | Description
 [**get_attachments**](FlowsApi.md#get_attachments) | **GET** /v2/flows/sessions/{session_id}/attachments | Get Attachments
 [**get_invoked_flow_results**](FlowsApi.md#get_invoked_flow_results) | **GET** /v2/flows/{flow_id}/{task_id} | Get Invoked Flow Results
 [**get_public_flow**](FlowsApi.md#get_public_flow) | **GET** /v2/flows/public/{flow_id} | Get Public Flow
+[**get_trigger_types**](FlowsApi.md#get_trigger_types) | **POST** /v2/flows/{flow_id}/triggers | Get Trigger Types
 [**invoke_flow**](FlowsApi.md#invoke_flow) | **POST** /v2/flows/{flow_id}/invoke | Invoke Flow
 [**invoke_flow_response**](FlowsApi.md#invoke_flow_response) | **POST** /v2/flows/sessions/{session_id}/invoke | Invoke Flow Response
 [**invoke_flow_singleton**](FlowsApi.md#invoke_flow_singleton) | **POST** /v2/flows/{flow_id}/invoke_singleton | Invoke Flow Singleton
 [**poll_flow_response**](FlowsApi.md#poll_flow_response) | **POST** /v2/flows/sessions/{session_id}/invocation_response/{message_id} | Poll Flow Response
 [**search**](FlowsApi.md#search) | **POST** /v2/flows/ | Search
+[**search_all**](FlowsApi.md#search_all) | **POST** /v2/flows/all | Search All
 [**search_flow_categories**](FlowsApi.md#search_flow_categories) | **POST** /v2/flows/categories/search | Search Flow Categories
 [**stream_flow_response**](FlowsApi.md#stream_flow_response) | **POST** /v2/flows/sessions/{session_id}/stream | Stream Flow Response
 [**update_flow**](FlowsApi.md#update_flow) | **PUT** /v2/flows/{flow_id} | Update Flow
@@ -1003,6 +1005,92 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_trigger_types**
+> TriggerResponse get_trigger_types(flow_id, workspace_id)
+
+Get Trigger Types
+
+### Example
+
+* Api Key Authentication (APIKeyHeader):
+* Bearer Authentication (HTTPBearer):
+
+```python
+import flowhunt
+from flowhunt.models.trigger_response import TriggerResponse
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: APIKeyHeader
+configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
+
+# Configure Bearer authorization: HTTPBearer
+configuration = flowhunt.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.FlowsApi(api_client)
+    flow_id = 'flow_id_example' # str | 
+    workspace_id = 'workspace_id_example' # str | 
+
+    try:
+        # Get Trigger Types
+        api_response = api_instance.get_trigger_types(flow_id, workspace_id)
+        print("The response of FlowsApi->get_trigger_types:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling FlowsApi->get_trigger_types: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **flow_id** | **str**|  | 
+ **workspace_id** | **str**|  | 
+
+### Return type
+
+[**TriggerResponse**](TriggerResponse.md)
+
+### Authorization
+
+[APIKeyHeader](../README.md#APIKeyHeader), [HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **invoke_flow**
 > TaskResponse invoke_flow(flow_id, workspace_id, flow_invoke_request)
 
@@ -1384,6 +1472,93 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **workspace_id** | **str**|  | 
  **flow_search_request** | [**FlowSearchRequest**](FlowSearchRequest.md)|  | 
+
+### Return type
+
+[**List[FlowResponse]**](FlowResponse.md)
+
+### Authorization
+
+[APIKeyHeader](../README.md#APIKeyHeader), [HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **search_all**
+> List[FlowResponse] search_all(workspace_id, all_flows_search_request)
+
+Search All
+
+### Example
+
+* Api Key Authentication (APIKeyHeader):
+* Bearer Authentication (HTTPBearer):
+
+```python
+import flowhunt
+from flowhunt.models.all_flows_search_request import AllFlowsSearchRequest
+from flowhunt.models.flow_response import FlowResponse
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: APIKeyHeader
+configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
+
+# Configure Bearer authorization: HTTPBearer
+configuration = flowhunt.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.FlowsApi(api_client)
+    workspace_id = 'workspace_id_example' # str | 
+    all_flows_search_request = flowhunt.AllFlowsSearchRequest() # AllFlowsSearchRequest | 
+
+    try:
+        # Search All
+        api_response = api_instance.search_all(workspace_id, all_flows_search_request)
+        print("The response of FlowsApi->search_all:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling FlowsApi->search_all: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **workspace_id** | **str**|  | 
+ **all_flows_search_request** | [**AllFlowsSearchRequest**](AllFlowsSearchRequest.md)|  | 
 
 ### Return type
 

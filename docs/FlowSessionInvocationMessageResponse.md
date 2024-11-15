@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **message_id** | **str** | Message ID | 
 **response_status** | [**FlowSessionStatus**](FlowSessionStatus.md) | Response status | 
-**loading_indicator** | [**FlowLoadingIndicator**](FlowLoadingIndicator.md) |  | [optional] 
-**intermediate_responses** | [**List[FlowMessageResponse]**](FlowMessageResponse.md) | Intermediate responses | [optional] [default to []]
+**loading_indicator** | [**Dict[str, FlowLoadingIndicator]**](FlowLoadingIndicator.md) |  | [optional] 
+**intermediate_results** | [**Dict[str, TaskOutput]**](TaskOutput.md) |  | [optional] 
 **final_response** | **List[str]** |  | [optional] 
 
 ## Example

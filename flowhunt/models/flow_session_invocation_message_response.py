@@ -20,8 +20,8 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from flowhunt.models.flow_loading_indicator import FlowLoadingIndicator
-from flowhunt.models.flow_message_response import FlowMessageResponse
 from flowhunt.models.flow_session_status import FlowSessionStatus
+from flowhunt.models.task_output import TaskOutput
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -31,10 +31,10 @@ class FlowSessionInvocationMessageResponse(BaseModel):
     """ # noqa: E501
     message_id: StrictStr = Field(description="Message ID")
     response_status: FlowSessionStatus = Field(description="Response status")
-    loading_indicator: Optional[FlowLoadingIndicator] = None
-    intermediate_responses: Optional[List[FlowMessageResponse]] = Field(default=None, description="Intermediate responses")
+    loading_indicator: Optional[Dict[str, FlowLoadingIndicator]] = None
+    intermediate_results: Optional[Dict[str, TaskOutput]] = None
     final_response: Optional[List[StrictStr]] = None
-    __properties: ClassVar[List[str]] = ["message_id", "response_status", "loading_indicator", "intermediate_responses", "final_response"]
+    __properties: ClassVar[List[str]] = ["message_id", "response_status", "loading_indicator", "intermediate_results", "final_response"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -75,20 +75,29 @@ class FlowSessionInvocationMessageResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of loading_indicator
+        # override the default output from pydantic by calling `to_dict()` of each value in loading_indicator (dict)
+        _field_dict = {}
         if self.loading_indicator:
-            _dict['loading_indicator'] = self.loading_indicator.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of each item in intermediate_responses (list)
-        _items = []
-        if self.intermediate_responses:
-            for _item_intermediate_responses in self.intermediate_responses:
-                if _item_intermediate_responses:
-                    _items.append(_item_intermediate_responses.to_dict())
-            _dict['intermediate_responses'] = _items
+            for _key_loading_indicator in self.loading_indicator:
+                if self.loading_indicator[_key_loading_indicator]:
+                    _field_dict[_key_loading_indicator] = self.loading_indicator[_key_loading_indicator].to_dict()
+            _dict['loading_indicator'] = _field_dict
+        # override the default output from pydantic by calling `to_dict()` of each value in intermediate_results (dict)
+        _field_dict = {}
+        if self.intermediate_results:
+            for _key_intermediate_results in self.intermediate_results:
+                if self.intermediate_results[_key_intermediate_results]:
+                    _field_dict[_key_intermediate_results] = self.intermediate_results[_key_intermediate_results].to_dict()
+            _dict['intermediate_results'] = _field_dict
         # set to None if loading_indicator (nullable) is None
         # and model_fields_set contains the field
         if self.loading_indicator is None and "loading_indicator" in self.model_fields_set:
             _dict['loading_indicator'] = None
+
+        # set to None if intermediate_results (nullable) is None
+        # and model_fields_set contains the field
+        if self.intermediate_results is None and "intermediate_results" in self.model_fields_set:
+            _dict['intermediate_results'] = None
 
         # set to None if final_response (nullable) is None
         # and model_fields_set contains the field
@@ -109,8 +118,18 @@ class FlowSessionInvocationMessageResponse(BaseModel):
         _obj = cls.model_validate({
             "message_id": obj.get("message_id"),
             "response_status": obj.get("response_status"),
-            "loading_indicator": FlowLoadingIndicator.from_dict(obj["loading_indicator"]) if obj.get("loading_indicator") is not None else None,
-            "intermediate_responses": [FlowMessageResponse.from_dict(_item) for _item in obj["intermediate_responses"]] if obj.get("intermediate_responses") is not None else None,
+            "loading_indicator": dict(
+                (_k, FlowLoadingIndicator.from_dict(_v))
+                for _k, _v in obj["loading_indicator"].items()
+            )
+            if obj.get("loading_indicator") is not None
+            else None,
+            "intermediate_results": dict(
+                (_k, TaskOutput.from_dict(_v))
+                for _k, _v in obj["intermediate_results"].items()
+            )
+            if obj.get("intermediate_results") is not None
+            else None,
             "final_response": obj.get("final_response")
         })
         return _obj
