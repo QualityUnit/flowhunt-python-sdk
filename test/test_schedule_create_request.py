@@ -43,6 +43,8 @@ class TestScheduleCreateRequest(unittest.TestCase):
                 frequency = 'D',
                 schedule_type = 'U',
                 with_screenshot = 'Y',
+                with_browser = 'Y',
+                follow_links = 'Y',
                 with_proxy_rotation = 'Y',
                 disallow_urls = ''
             )

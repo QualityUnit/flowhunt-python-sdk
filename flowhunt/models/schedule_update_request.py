@@ -32,9 +32,11 @@ class ScheduleUpdateRequest(BaseModel):
     frequency: Optional[ScheduleFrequency] = None
     status: Optional[ScheduleStatus] = None
     with_screenshot: Optional[BoolChar] = None
+    with_browser: Optional[BoolChar] = None
+    follow_links: Optional[BoolChar] = None
     with_proxy_rotation: Optional[BoolChar] = None
     disallow_urls: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["frequency", "status", "with_screenshot", "with_proxy_rotation", "disallow_urls"]
+    __properties: ClassVar[List[str]] = ["frequency", "status", "with_screenshot", "with_browser", "follow_links", "with_proxy_rotation", "disallow_urls"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -90,6 +92,16 @@ class ScheduleUpdateRequest(BaseModel):
         if self.with_screenshot is None and "with_screenshot" in self.model_fields_set:
             _dict['with_screenshot'] = None
 
+        # set to None if with_browser (nullable) is None
+        # and model_fields_set contains the field
+        if self.with_browser is None and "with_browser" in self.model_fields_set:
+            _dict['with_browser'] = None
+
+        # set to None if follow_links (nullable) is None
+        # and model_fields_set contains the field
+        if self.follow_links is None and "follow_links" in self.model_fields_set:
+            _dict['follow_links'] = None
+
         # set to None if with_proxy_rotation (nullable) is None
         # and model_fields_set contains the field
         if self.with_proxy_rotation is None and "with_proxy_rotation" in self.model_fields_set:
@@ -115,6 +127,8 @@ class ScheduleUpdateRequest(BaseModel):
             "frequency": obj.get("frequency"),
             "status": obj.get("status"),
             "with_screenshot": obj.get("with_screenshot"),
+            "with_browser": obj.get("with_browser"),
+            "follow_links": obj.get("follow_links"),
             "with_proxy_rotation": obj.get("with_proxy_rotation"),
             "disallow_urls": obj.get("disallow_urls")
         })

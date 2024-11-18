@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **post_back_url** | **str** |  | [optional] 
 **url** | **str** | URL to take screenshot | 
 **validity** | **datetime** |  | [optional] 
+**use_proxy** | **bool** |  | [optional] 
 
 ## Example
 

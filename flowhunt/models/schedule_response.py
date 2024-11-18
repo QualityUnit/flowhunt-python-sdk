@@ -44,9 +44,11 @@ class ScheduleResponse(BaseModel):
     cnt_completed: Optional[StrictInt]
     cnt_failed: Optional[StrictInt]
     with_screenshot: Optional[BoolChar]
+    with_browser: Optional[BoolChar]
+    follow_links: Optional[BoolChar]
     with_proxy_rotation: Optional[BoolChar]
     disallow_urls: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["workspace_id", "schedule_id", "url", "frequency", "schedule_type", "start_time", "end_time", "status", "status_message", "cnt_scheduled", "cnt_completed", "cnt_failed", "with_screenshot", "with_proxy_rotation", "disallow_urls"]
+    __properties: ClassVar[List[str]] = ["workspace_id", "schedule_id", "url", "frequency", "schedule_type", "start_time", "end_time", "status", "status_message", "cnt_scheduled", "cnt_completed", "cnt_failed", "with_screenshot", "with_browser", "follow_links", "with_proxy_rotation", "disallow_urls"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -122,6 +124,16 @@ class ScheduleResponse(BaseModel):
         if self.with_screenshot is None and "with_screenshot" in self.model_fields_set:
             _dict['with_screenshot'] = None
 
+        # set to None if with_browser (nullable) is None
+        # and model_fields_set contains the field
+        if self.with_browser is None and "with_browser" in self.model_fields_set:
+            _dict['with_browser'] = None
+
+        # set to None if follow_links (nullable) is None
+        # and model_fields_set contains the field
+        if self.follow_links is None and "follow_links" in self.model_fields_set:
+            _dict['follow_links'] = None
+
         # set to None if with_proxy_rotation (nullable) is None
         # and model_fields_set contains the field
         if self.with_proxy_rotation is None and "with_proxy_rotation" in self.model_fields_set:
@@ -157,6 +169,8 @@ class ScheduleResponse(BaseModel):
             "cnt_completed": obj.get("cnt_completed"),
             "cnt_failed": obj.get("cnt_failed"),
             "with_screenshot": obj.get("with_screenshot"),
+            "with_browser": obj.get("with_browser"),
+            "follow_links": obj.get("follow_links"),
             "with_proxy_rotation": obj.get("with_proxy_rotation"),
             "disallow_urls": obj.get("disallow_urls")
         })

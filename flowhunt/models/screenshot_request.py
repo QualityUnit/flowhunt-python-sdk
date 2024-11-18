@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from typing import Optional, Set
@@ -31,7 +31,8 @@ class ScreenshotRequest(BaseModel):
     post_back_url: Optional[StrictStr] = None
     url: Annotated[str, Field(min_length=8, strict=True, max_length=500)] = Field(description="URL to take screenshot")
     validity: Optional[datetime] = None
-    __properties: ClassVar[List[str]] = ["post_back_url", "url", "validity"]
+    use_proxy: Optional[StrictBool] = None
+    __properties: ClassVar[List[str]] = ["post_back_url", "url", "validity", "use_proxy"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -82,6 +83,11 @@ class ScreenshotRequest(BaseModel):
         if self.validity is None and "validity" in self.model_fields_set:
             _dict['validity'] = None
 
+        # set to None if use_proxy (nullable) is None
+        # and model_fields_set contains the field
+        if self.use_proxy is None and "use_proxy" in self.model_fields_set:
+            _dict['use_proxy'] = None
+
         return _dict
 
     @classmethod
@@ -96,7 +102,8 @@ class ScreenshotRequest(BaseModel):
         _obj = cls.model_validate({
             "post_back_url": obj.get("post_back_url"),
             "url": obj.get("url"),
-            "validity": obj.get("validity")
+            "validity": obj.get("validity"),
+            "use_proxy": obj.get("use_proxy")
         })
         return _obj
 

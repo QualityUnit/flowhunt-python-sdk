@@ -18,6 +18,8 @@ Name | Type | Description | Notes
 **cnt_completed** | **int** |  | 
 **cnt_failed** | **int** |  | 
 **with_screenshot** | [**BoolChar**](BoolChar.md) |  | 
+**with_browser** | [**BoolChar**](BoolChar.md) |  | 
+**follow_links** | [**BoolChar**](BoolChar.md) |  | 
 **with_proxy_rotation** | [**BoolChar**](BoolChar.md) |  | 
 **disallow_urls** | **str** |  | [optional] 
 

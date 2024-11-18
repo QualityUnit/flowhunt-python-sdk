@@ -37,7 +37,8 @@ class TestScreenshotRequest(unittest.TestCase):
             return ScreenshotRequest(
                 post_back_url = '',
                 url = '01234567',
-                validity = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f')
+                validity = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
+                use_proxy = True
             )
         else:
             return ScreenshotRequest(

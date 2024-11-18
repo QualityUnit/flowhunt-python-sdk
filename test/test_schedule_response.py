@@ -48,6 +48,8 @@ class TestScheduleResponse(unittest.TestCase):
                 cnt_completed = 56,
                 cnt_failed = 56,
                 with_screenshot = 'Y',
+                with_browser = 'Y',
+                follow_links = 'Y',
                 with_proxy_rotation = 'Y',
                 disallow_urls = ''
             )
@@ -63,6 +65,8 @@ class TestScheduleResponse(unittest.TestCase):
                 cnt_completed = 56,
                 cnt_failed = 56,
                 with_screenshot = 'Y',
+                with_browser = 'Y',
+                follow_links = 'Y',
                 with_proxy_rotation = 'Y',
         )
         """

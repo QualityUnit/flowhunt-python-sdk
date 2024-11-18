@@ -8,6 +8,8 @@ Name | Type | Description | Notes
 **frequency** | [**ScheduleFrequency**](ScheduleFrequency.md) |  | [optional] 
 **status** | [**ScheduleStatus**](ScheduleStatus.md) |  | [optional] 
 **with_screenshot** | [**BoolChar**](BoolChar.md) |  | [optional] 
+**with_browser** | [**BoolChar**](BoolChar.md) |  | [optional] 
+**follow_links** | [**BoolChar**](BoolChar.md) |  | [optional] 
 **with_proxy_rotation** | [**BoolChar**](BoolChar.md) |  | [optional] 
 **disallow_urls** | **str** |  | [optional] 
 
