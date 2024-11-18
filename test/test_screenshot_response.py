@@ -43,6 +43,10 @@ class TestScreenshotResponse(unittest.TestCase):
                     url = '', ),
                 thumbnail_url = flowhunt.models.app_url.AppUrl(
                     url = '', ),
+                original_size_url_full_page = flowhunt.models.app_url.AppUrl(
+                    url = '', ),
+                thumbnail_url_full_page = flowhunt.models.app_url.AppUrl(
+                    url = '', ),
                 timestamp = 56,
                 domain_id = '',
                 url_id = ''

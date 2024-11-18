@@ -34,10 +34,12 @@ class ScreenshotResponse(BaseModel):
     error_message: Optional[StrictStr] = None
     original_size_url: Optional[AppUrlOutput] = None
     thumbnail_url: Optional[AppUrlOutput] = None
+    original_size_url_full_page: Optional[AppUrlOutput] = None
+    thumbnail_url_full_page: Optional[AppUrlOutput] = None
     timestamp: Optional[StrictInt] = None
     domain_id: Optional[StrictStr] = None
     url_id: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["id", "status", "result", "error_message", "original_size_url", "thumbnail_url", "timestamp", "domain_id", "url_id"]
+    __properties: ClassVar[List[str]] = ["id", "status", "result", "error_message", "original_size_url", "thumbnail_url", "original_size_url_full_page", "thumbnail_url_full_page", "timestamp", "domain_id", "url_id"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -84,6 +86,12 @@ class ScreenshotResponse(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of thumbnail_url
         if self.thumbnail_url:
             _dict['thumbnail_url'] = self.thumbnail_url.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of original_size_url_full_page
+        if self.original_size_url_full_page:
+            _dict['original_size_url_full_page'] = self.original_size_url_full_page.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of thumbnail_url_full_page
+        if self.thumbnail_url_full_page:
+            _dict['thumbnail_url_full_page'] = self.thumbnail_url_full_page.to_dict()
         # set to None if result (nullable) is None
         # and model_fields_set contains the field
         if self.result is None and "result" in self.model_fields_set:
@@ -103,6 +111,16 @@ class ScreenshotResponse(BaseModel):
         # and model_fields_set contains the field
         if self.thumbnail_url is None and "thumbnail_url" in self.model_fields_set:
             _dict['thumbnail_url'] = None
+
+        # set to None if original_size_url_full_page (nullable) is None
+        # and model_fields_set contains the field
+        if self.original_size_url_full_page is None and "original_size_url_full_page" in self.model_fields_set:
+            _dict['original_size_url_full_page'] = None
+
+        # set to None if thumbnail_url_full_page (nullable) is None
+        # and model_fields_set contains the field
+        if self.thumbnail_url_full_page is None and "thumbnail_url_full_page" in self.model_fields_set:
+            _dict['thumbnail_url_full_page'] = None
 
         # set to None if timestamp (nullable) is None
         # and model_fields_set contains the field
@@ -137,6 +155,8 @@ class ScreenshotResponse(BaseModel):
             "error_message": obj.get("error_message"),
             "original_size_url": AppUrlOutput.from_dict(obj["original_size_url"]) if obj.get("original_size_url") is not None else None,
             "thumbnail_url": AppUrlOutput.from_dict(obj["thumbnail_url"]) if obj.get("thumbnail_url") is not None else None,
+            "original_size_url_full_page": AppUrlOutput.from_dict(obj["original_size_url_full_page"]) if obj.get("original_size_url_full_page") is not None else None,
+            "thumbnail_url_full_page": AppUrlOutput.from_dict(obj["thumbnail_url_full_page"]) if obj.get("thumbnail_url_full_page") is not None else None,
             "timestamp": obj.get("timestamp"),
             "domain_id": obj.get("domain_id"),
             "url_id": obj.get("url_id")

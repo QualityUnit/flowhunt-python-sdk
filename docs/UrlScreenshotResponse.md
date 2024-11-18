@@ -7,6 +7,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **original_image** | **str** |  | 
 **thumbnail_image** | **str** |  | 
+**original_image_full_page** | **str** |  | 
+**thumbnail_image_full_page** | **str** |  | 
 
 ## Example
 

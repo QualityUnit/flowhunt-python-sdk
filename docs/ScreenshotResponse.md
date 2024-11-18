@@ -11,6 +11,8 @@ Name | Type | Description | Notes
 **error_message** | **str** |  | [optional] 
 **original_size_url** | [**AppUrlOutput**](AppUrlOutput.md) |  | [optional] 
 **thumbnail_url** | [**AppUrlOutput**](AppUrlOutput.md) |  | [optional] 
+**original_size_url_full_page** | [**AppUrlOutput**](AppUrlOutput.md) |  | [optional] 
+**thumbnail_url_full_page** | [**AppUrlOutput**](AppUrlOutput.md) |  | [optional] 
 **timestamp** | **int** |  | [optional] 
 **domain_id** | **str** |  | [optional] 
 **url_id** | **str** |  | [optional] 

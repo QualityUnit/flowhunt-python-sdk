@@ -36,12 +36,16 @@ class TestUrlScreenshotResponse(unittest.TestCase):
         if include_optional:
             return UrlScreenshotResponse(
                 original_image = '',
-                thumbnail_image = ''
+                thumbnail_image = '',
+                original_image_full_page = '',
+                thumbnail_image_full_page = ''
             )
         else:
             return UrlScreenshotResponse(
                 original_image = '',
                 thumbnail_image = '',
+                original_image_full_page = '',
+                thumbnail_image_full_page = '',
         )
         """
 

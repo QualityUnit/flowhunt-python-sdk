@@ -28,7 +28,9 @@ class UrlScreenshotResponse(BaseModel):
     """ # noqa: E501
     original_image: StrictStr
     thumbnail_image: StrictStr
-    __properties: ClassVar[List[str]] = ["original_image", "thumbnail_image"]
+    original_image_full_page: StrictStr
+    thumbnail_image_full_page: StrictStr
+    __properties: ClassVar[List[str]] = ["original_image", "thumbnail_image", "original_image_full_page", "thumbnail_image_full_page"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -82,7 +84,9 @@ class UrlScreenshotResponse(BaseModel):
 
         _obj = cls.model_validate({
             "original_image": obj.get("original_image"),
-            "thumbnail_image": obj.get("thumbnail_image")
+            "thumbnail_image": obj.get("thumbnail_image"),
+            "original_image_full_page": obj.get("original_image_full_page"),
+            "thumbnail_image_full_page": obj.get("thumbnail_image_full_page")
         })
         return _obj
 

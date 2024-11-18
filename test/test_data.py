@@ -42,7 +42,9 @@ class TestData(unittest.TestCase):
                 last_text_timestamp = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 page_screenshot = flowhunt.models.url_screenshot_response.UrlScreenshotResponse(
                     original_image = '', 
-                    thumbnail_image = '', ),
+                    thumbnail_image = '', 
+                    original_image_full_page = '', 
+                    thumbnail_image_full_page = '', ),
                 url_title = '',
                 url_meta_description = '',
                 url_og_image = '',
@@ -77,7 +79,9 @@ class TestData(unittest.TestCase):
                 last_text_timestamp = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 page_screenshot = flowhunt.models.url_screenshot_response.UrlScreenshotResponse(
                     original_image = '', 
-                    thumbnail_image = '', ),
+                    thumbnail_image = '', 
+                    original_image_full_page = '', 
+                    thumbnail_image_full_page = '', ),
                 url_title = '',
                 url_meta_description = '',
                 url_og_image = '',
