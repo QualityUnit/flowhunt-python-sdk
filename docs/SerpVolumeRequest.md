@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **post_back_url** | **str** |  | [optional] 
-**keywords** | **List[str]** |  | [optional] 
+**keywords** | **List[str]** | List of queries | 
 **language_code** | **str** |  | [optional] 
 **location_name** | **str** |  | [optional] 
 **include_adult_keywords** | **bool** |  | [optional] 

@@ -26,6 +26,55 @@ class TestSERPApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
+    def test_search_cluster_group(self) -> None:
+        """Test case for search_cluster_group
+
+        Search Cluster Group
+        """
+        pass
+
+    def test_search_cluster_query(self) -> None:
+        """Test case for search_cluster_query
+
+        Search Cluster Query
+        """
+        pass
+
+    def test_serp_cluster_add_group(self) -> None:
+        """Test case for serp_cluster_add_group
+
+        Serp Cluster Add Group
+        """
+        pass
+
+    def test_serp_cluster_add_queries(self) -> None:
+        """Test case for serp_cluster_add_queries
+
+        Serp Cluster Add Queries
+        """
+        pass
+
+    def test_serp_cluster_delete_group(self) -> None:
+        """Test case for serp_cluster_delete_group
+
+        Serp Cluster Delete Group
+        """
+        pass
+
+    def test_serp_cluster_delete_query(self) -> None:
+        """Test case for serp_cluster_delete_query
+
+        Serp Cluster Delete Query
+        """
+        pass
+
+    def test_serp_cluster_get_query_intersections(self) -> None:
+        """Test case for serp_cluster_get_query_intersections
+
+        Serp Cluster Get Query Intersections
+        """
+        pass
+
     def test_serp_search(self) -> None:
         """Test case for serp_search
 

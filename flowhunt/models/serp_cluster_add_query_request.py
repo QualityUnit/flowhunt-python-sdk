@@ -17,24 +17,24 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import date
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
-class SerpVolumeRequest(BaseModel):
+class SerpClusterAddQueryRequest(BaseModel):
     """
-    SerpVolumeRequest
+    SerpClusterAddQueryRequest
     """ # noqa: E501
     post_back_url: Optional[StrictStr] = None
-    keywords: List[StrictStr] = Field(description="List of queries")
-    language_code: Optional[StrictStr] = None
-    location_name: Optional[StrictStr] = None
-    include_adult_keywords: Optional[StrictBool] = None
-    date_from: Optional[date] = None
-    date_to: Optional[date] = None
-    __properties: ClassVar[List[str]] = ["post_back_url", "keywords", "language_code", "location_name", "include_adult_keywords", "date_from", "date_to"]
+    query: Optional[StrictStr] = None
+    country: Optional[StrictStr] = None
+    language: Optional[StrictStr] = None
+    location: Optional[StrictStr] = None
+    group_name: Optional[StrictStr] = Field(default='', description="Group name of cluster")
+    group_id: Optional[StrictStr] = None
+    count_urls: Optional[StrictInt] = None
+    __properties: ClassVar[List[str]] = ["post_back_url", "query", "country", "language", "location", "group_name", "group_id", "count_urls"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -54,7 +54,7 @@ class SerpVolumeRequest(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of SerpVolumeRequest from a JSON string"""
+        """Create an instance of SerpClusterAddQueryRequest from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -80,36 +80,41 @@ class SerpVolumeRequest(BaseModel):
         if self.post_back_url is None and "post_back_url" in self.model_fields_set:
             _dict['post_back_url'] = None
 
-        # set to None if language_code (nullable) is None
+        # set to None if query (nullable) is None
         # and model_fields_set contains the field
-        if self.language_code is None and "language_code" in self.model_fields_set:
-            _dict['language_code'] = None
+        if self.query is None and "query" in self.model_fields_set:
+            _dict['query'] = None
 
-        # set to None if location_name (nullable) is None
+        # set to None if country (nullable) is None
         # and model_fields_set contains the field
-        if self.location_name is None and "location_name" in self.model_fields_set:
-            _dict['location_name'] = None
+        if self.country is None and "country" in self.model_fields_set:
+            _dict['country'] = None
 
-        # set to None if include_adult_keywords (nullable) is None
+        # set to None if language (nullable) is None
         # and model_fields_set contains the field
-        if self.include_adult_keywords is None and "include_adult_keywords" in self.model_fields_set:
-            _dict['include_adult_keywords'] = None
+        if self.language is None and "language" in self.model_fields_set:
+            _dict['language'] = None
 
-        # set to None if date_from (nullable) is None
+        # set to None if location (nullable) is None
         # and model_fields_set contains the field
-        if self.date_from is None and "date_from" in self.model_fields_set:
-            _dict['date_from'] = None
+        if self.location is None and "location" in self.model_fields_set:
+            _dict['location'] = None
 
-        # set to None if date_to (nullable) is None
+        # set to None if group_id (nullable) is None
         # and model_fields_set contains the field
-        if self.date_to is None and "date_to" in self.model_fields_set:
-            _dict['date_to'] = None
+        if self.group_id is None and "group_id" in self.model_fields_set:
+            _dict['group_id'] = None
+
+        # set to None if count_urls (nullable) is None
+        # and model_fields_set contains the field
+        if self.count_urls is None and "count_urls" in self.model_fields_set:
+            _dict['count_urls'] = None
 
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of SerpVolumeRequest from a dict"""
+        """Create an instance of SerpClusterAddQueryRequest from a dict"""
         if obj is None:
             return None
 
@@ -118,12 +123,13 @@ class SerpVolumeRequest(BaseModel):
 
         _obj = cls.model_validate({
             "post_back_url": obj.get("post_back_url"),
-            "keywords": obj.get("keywords"),
-            "language_code": obj.get("language_code"),
-            "location_name": obj.get("location_name"),
-            "include_adult_keywords": obj.get("include_adult_keywords"),
-            "date_from": obj.get("date_from"),
-            "date_to": obj.get("date_to")
+            "query": obj.get("query"),
+            "country": obj.get("country"),
+            "language": obj.get("language"),
+            "location": obj.get("location"),
+            "group_name": obj.get("group_name") if obj.get("group_name") is not None else '',
+            "group_id": obj.get("group_id"),
+            "count_urls": obj.get("count_urls")
         })
         return _obj
 

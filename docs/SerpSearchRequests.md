@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**requests** | [**List[SerpSearchRequest]**](SerpSearchRequest.md) |  | [optional] 
+**requests** | [**List[SerpSearchRequest]**](SerpSearchRequest.md) | List of serp requests | 
 **live_mode** | **bool** |  | [optional] 
 
 ## Example

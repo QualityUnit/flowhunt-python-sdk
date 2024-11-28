@@ -14,10 +14,10 @@
 
 import unittest
 
-from flowhunt.models.serp_search_requests import SerpSearchRequests
+from flowhunt.models.serp_cluster_add_query_requests import SerpClusterAddQueryRequests
 
-class TestSerpSearchRequests(unittest.TestCase):
-    """SerpSearchRequests unit test stubs"""
+class TestSerpClusterAddQueryRequests(unittest.TestCase):
+    """SerpClusterAddQueryRequests unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,43 +25,46 @@ class TestSerpSearchRequests(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> SerpSearchRequests:
-        """Test SerpSearchRequests
+    def make_instance(self, include_optional) -> SerpClusterAddQueryRequests:
+        """Test SerpClusterAddQueryRequests
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `SerpSearchRequests`
+        # uncomment below to create an instance of `SerpClusterAddQueryRequests`
         """
-        model = SerpSearchRequests()
+        model = SerpClusterAddQueryRequests()
         if include_optional:
-            return SerpSearchRequests(
+            return SerpClusterAddQueryRequests(
                 requests = [
-                    flowhunt.models.serp_search_request.SerpSearchRequest(
+                    flowhunt.models.serp_cluster_add_query_request.SerpClusterAddQueryRequest(
                         post_back_url = '', 
-                        query = 'liveagent help desk software', 
+                        query = '', 
                         country = '', 
-                        location = '', 
                         language = '', 
+                        location = '', 
+                        group_name = '', 
+                        group_id = '', 
                         count_urls = 56, )
-                    ],
-                live_mode = True
+                    ]
             )
         else:
-            return SerpSearchRequests(
+            return SerpClusterAddQueryRequests(
                 requests = [
-                    flowhunt.models.serp_search_request.SerpSearchRequest(
+                    flowhunt.models.serp_cluster_add_query_request.SerpClusterAddQueryRequest(
                         post_back_url = '', 
-                        query = 'liveagent help desk software', 
+                        query = '', 
                         country = '', 
-                        location = '', 
                         language = '', 
+                        location = '', 
+                        group_name = '', 
+                        group_id = '', 
                         count_urls = 56, )
                     ],
         )
         """
 
-    def testSerpSearchRequests(self):
-        """Test SerpSearchRequests"""
+    def testSerpClusterAddQueryRequests(self):
+        """Test SerpClusterAddQueryRequests"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

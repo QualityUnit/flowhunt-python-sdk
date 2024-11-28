@@ -32,8 +32,9 @@ class FlowSessionCreateRequest(BaseModel):
     refresh_token: Optional[StrictStr] = None
     username: Optional[StrictStr] = None
     password: Optional[StrictStr] = None
+    variables: Optional[Dict[str, StrictStr]] = None
     chatbot_id: StrictStr = Field(description="The chatbot ID")
-    __properties: ClassVar[List[str]] = ["url", "lang", "access_token", "refresh_token", "username", "password", "chatbot_id"]
+    __properties: ClassVar[List[str]] = ["url", "lang", "access_token", "refresh_token", "username", "password", "variables", "chatbot_id"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -104,6 +105,11 @@ class FlowSessionCreateRequest(BaseModel):
         if self.password is None and "password" in self.model_fields_set:
             _dict['password'] = None
 
+        # set to None if variables (nullable) is None
+        # and model_fields_set contains the field
+        if self.variables is None and "variables" in self.model_fields_set:
+            _dict['variables'] = None
+
         return _dict
 
     @classmethod
@@ -122,6 +128,7 @@ class FlowSessionCreateRequest(BaseModel):
             "refresh_token": obj.get("refresh_token"),
             "username": obj.get("username"),
             "password": obj.get("password"),
+            "variables": obj.get("variables"),
             "chatbot_id": obj.get("chatbot_id")
         })
         return _obj

@@ -17,19 +17,18 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool
-from typing import Any, ClassVar, Dict, List, Optional
-from flowhunt.models.serp_search_request import SerpSearchRequest
+from pydantic import BaseModel, ConfigDict, Field
+from typing import Any, ClassVar, Dict, List
+from flowhunt.models.serp_cluster_add_query_request import SerpClusterAddQueryRequest
 from typing import Optional, Set
 from typing_extensions import Self
 
-class SerpSearchRequests(BaseModel):
+class SerpClusterAddQueryRequests(BaseModel):
     """
-    SerpSearchRequests
+    SerpClusterAddQueryRequests
     """ # noqa: E501
-    requests: List[SerpSearchRequest] = Field(description="List of serp requests")
-    live_mode: Optional[StrictBool] = None
-    __properties: ClassVar[List[str]] = ["requests", "live_mode"]
+    requests: List[SerpClusterAddQueryRequest] = Field(description="List of serp requests")
+    __properties: ClassVar[List[str]] = ["requests"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -49,7 +48,7 @@ class SerpSearchRequests(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of SerpSearchRequests from a JSON string"""
+        """Create an instance of SerpClusterAddQueryRequests from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -77,16 +76,11 @@ class SerpSearchRequests(BaseModel):
                 if _item_requests:
                     _items.append(_item_requests.to_dict())
             _dict['requests'] = _items
-        # set to None if live_mode (nullable) is None
-        # and model_fields_set contains the field
-        if self.live_mode is None and "live_mode" in self.model_fields_set:
-            _dict['live_mode'] = None
-
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of SerpSearchRequests from a dict"""
+        """Create an instance of SerpClusterAddQueryRequests from a dict"""
         if obj is None:
             return None
 
@@ -94,8 +88,7 @@ class SerpSearchRequests(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "requests": [SerpSearchRequest.from_dict(_item) for _item in obj["requests"]] if obj.get("requests") is not None else None,
-            "live_mode": obj.get("live_mode")
+            "requests": [SerpClusterAddQueryRequest.from_dict(_item) for _item in obj["requests"]] if obj.get("requests") is not None else None
         })
         return _obj
 

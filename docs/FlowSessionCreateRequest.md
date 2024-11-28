@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **refresh_token** | **str** |  | [optional] 
 **username** | **str** |  | [optional] 
 **password** | **str** |  | [optional] 
+**variables** | **Dict[str, str]** |  | [optional] 
 **chatbot_id** | **str** | The chatbot ID | 
 
 ## Example

@@ -209,6 +209,13 @@ Class | Method | HTTP request | Description
 *PromptsApi* | [**search_prompts**](docs/PromptsApi.md#search_prompts) | **POST** /v2/prompts/search | Search Prompts
 *PromptsApi* | [**update_prompt**](docs/PromptsApi.md#update_prompt) | **PUT** /v2/prompts/{prompt_id} | Update Prompt
 *PromptsApi* | [**update_prompt_category**](docs/PromptsApi.md#update_prompt_category) | **PUT** /v2/prompts/categories/{cat_id} | Update Prompt Category
+*SERPApi* | [**search_cluster_group**](docs/SERPApi.md#search_cluster_group) | **POST** /v2/serp/cluster/search | Search Cluster Group
+*SERPApi* | [**search_cluster_query**](docs/SERPApi.md#search_cluster_query) | **POST** /v2/serp/cluster/{group_id}/search | Search Cluster Query
+*SERPApi* | [**serp_cluster_add_group**](docs/SERPApi.md#serp_cluster_add_group) | **POST** /v2/serp/cluster/create | Serp Cluster Add Group
+*SERPApi* | [**serp_cluster_add_queries**](docs/SERPApi.md#serp_cluster_add_queries) | **POST** /v2/serp/cluster/add_queries | Serp Cluster Add Queries
+*SERPApi* | [**serp_cluster_delete_group**](docs/SERPApi.md#serp_cluster_delete_group) | **DELETE** /v2/serp/cluster/{group_id} | Serp Cluster Delete Group
+*SERPApi* | [**serp_cluster_delete_query**](docs/SERPApi.md#serp_cluster_delete_query) | **DELETE** /v2/serp/cluster/{group_id}/{query_id} | Serp Cluster Delete Query
+*SERPApi* | [**serp_cluster_get_query_intersections**](docs/SERPApi.md#serp_cluster_get_query_intersections) | **POST** /v2/serp/cluster/query_intersections | Serp Cluster Get Query Intersections
 *SERPApi* | [**serp_search**](docs/SERPApi.md#serp_search) | **POST** /v2/serp/serp/search | Serp Search
 *SERPApi* | [**serp_volumes**](docs/SERPApi.md#serp_volumes) | **POST** /v2/serp/serp/volumes | Serp Volumes
 *SERPApi* | [**serp_volumes_pingback**](docs/SERPApi.md#serp_volumes_pingback) | **GET** /v2/serp/serp/volumes/pingback/{id}/{tag} | Serp Volumes Pingback
@@ -387,6 +394,13 @@ Class | Method | HTTP request | Description
  - [SecretResponse](docs/SecretResponse.md)
  - [SecretSearchRequest](docs/SecretSearchRequest.md)
  - [SecretUpdateRequest](docs/SecretUpdateRequest.md)
+ - [SerpClusterAddGroupRequest](docs/SerpClusterAddGroupRequest.md)
+ - [SerpClusterAddQueryRequest](docs/SerpClusterAddQueryRequest.md)
+ - [SerpClusterAddQueryRequests](docs/SerpClusterAddQueryRequests.md)
+ - [SerpClusterGroupResponse](docs/SerpClusterGroupResponse.md)
+ - [SerpClusterGroupSearchRequest](docs/SerpClusterGroupSearchRequest.md)
+ - [SerpClusterQueryIntersectionsRequest](docs/SerpClusterQueryIntersectionsRequest.md)
+ - [SerpClusterQueryResponse](docs/SerpClusterQueryResponse.md)
  - [SerpSearchRequest](docs/SerpSearchRequest.md)
  - [SerpSearchRequests](docs/SerpSearchRequests.md)
  - [SerpVolumeRequest](docs/SerpVolumeRequest.md)

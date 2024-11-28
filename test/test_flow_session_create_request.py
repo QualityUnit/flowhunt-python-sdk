@@ -41,6 +41,9 @@ class TestFlowSessionCreateRequest(unittest.TestCase):
                 refresh_token = '',
                 username = '',
                 password = '',
+                variables = {
+                    'key' : ''
+                    },
                 chatbot_id = ''
             )
         else:

@@ -17,19 +17,18 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from flowhunt.models.serp_search_request import SerpSearchRequest
 from typing import Optional, Set
 from typing_extensions import Self
 
-class SerpSearchRequests(BaseModel):
+class SerpClusterAddGroupRequest(BaseModel):
     """
-    SerpSearchRequests
+    SerpClusterAddGroupRequest
     """ # noqa: E501
-    requests: List[SerpSearchRequest] = Field(description="List of serp requests")
-    live_mode: Optional[StrictBool] = None
-    __properties: ClassVar[List[str]] = ["requests", "live_mode"]
+    group_name: Optional[StrictStr] = Field(default='', description="Group name of cluster")
+    group_id: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["group_name", "group_id"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -49,7 +48,7 @@ class SerpSearchRequests(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of SerpSearchRequests from a JSON string"""
+        """Create an instance of SerpClusterAddGroupRequest from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -70,23 +69,16 @@ class SerpSearchRequests(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in requests (list)
-        _items = []
-        if self.requests:
-            for _item_requests in self.requests:
-                if _item_requests:
-                    _items.append(_item_requests.to_dict())
-            _dict['requests'] = _items
-        # set to None if live_mode (nullable) is None
+        # set to None if group_id (nullable) is None
         # and model_fields_set contains the field
-        if self.live_mode is None and "live_mode" in self.model_fields_set:
-            _dict['live_mode'] = None
+        if self.group_id is None and "group_id" in self.model_fields_set:
+            _dict['group_id'] = None
 
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of SerpSearchRequests from a dict"""
+        """Create an instance of SerpClusterAddGroupRequest from a dict"""
         if obj is None:
             return None
 
@@ -94,8 +86,8 @@ class SerpSearchRequests(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "requests": [SerpSearchRequest.from_dict(_item) for _item in obj["requests"]] if obj.get("requests") is not None else None,
-            "live_mode": obj.get("live_mode")
+            "group_name": obj.get("group_name") if obj.get("group_name") is not None else '',
+            "group_id": obj.get("group_id")
         })
         return _obj
 

@@ -41,6 +41,9 @@ class TestFlowSessionCreateFromFlowRequest(unittest.TestCase):
                 refresh_token = '',
                 username = '',
                 password = '',
+                variables = {
+                    'key' : ''
+                    },
                 flow_id = ''
             )
         else:

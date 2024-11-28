@@ -47,6 +47,9 @@ class TestSerpVolumeRequest(unittest.TestCase):
             )
         else:
             return SerpVolumeRequest(
+                keywords = [
+                    ''
+                    ],
         )
         """
 
