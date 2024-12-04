@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**slug** | [**IntegrationSlug**](IntegrationSlug.md) |  | [optional] 
+**integration_name** | **str** |  | [optional] 
 
 ## Example
 

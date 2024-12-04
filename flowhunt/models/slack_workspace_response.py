@@ -17,21 +17,19 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, ConfigDict, StrictStr
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
-class ApiIntegrationResponse(BaseModel):
+class SlackWorkspaceResponse(BaseModel):
     """
-    ApiIntegrationResponse
+    SlackWorkspaceResponse
     """ # noqa: E501
-    integration_id: StrictStr = Field(description="The ID of the API integration.")
-    servers: List[StrictStr] = Field(description="The servers of the API integration.")
-    name: StrictStr = Field(description="The name of the API integration.")
-    description: StrictStr = Field(description="The description of the API integration.")
-    secret: Optional[Dict[str, Any]]
-    __properties: ClassVar[List[str]] = ["integration_id", "servers", "name", "description", "secret"]
+    team_id: StrictStr
+    workspace_name: StrictStr
+    integration_id: StrictStr
+    __properties: ClassVar[List[str]] = ["team_id", "workspace_name", "integration_id"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -51,7 +49,7 @@ class ApiIntegrationResponse(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of ApiIntegrationResponse from a JSON string"""
+        """Create an instance of SlackWorkspaceResponse from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -72,16 +70,11 @@ class ApiIntegrationResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if secret (nullable) is None
-        # and model_fields_set contains the field
-        if self.secret is None and "secret" in self.model_fields_set:
-            _dict['secret'] = None
-
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of ApiIntegrationResponse from a dict"""
+        """Create an instance of SlackWorkspaceResponse from a dict"""
         if obj is None:
             return None
 
@@ -89,11 +82,9 @@ class ApiIntegrationResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "integration_id": obj.get("integration_id"),
-            "servers": obj.get("servers"),
-            "name": obj.get("name"),
-            "description": obj.get("description"),
-            "secret": obj.get("secret")
+            "team_id": obj.get("team_id"),
+            "workspace_name": obj.get("workspace_name"),
+            "integration_id": obj.get("integration_id")
         })
         return _obj
 

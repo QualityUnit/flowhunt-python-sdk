@@ -14,10 +14,10 @@
 
 import unittest
 
-from flowhunt.models.api_integration_auth_type import ApiIntegrationAuthType
+from flowhunt.models.chatbot_status import ChatbotStatus
 
-class TestApiIntegrationAuthType(unittest.TestCase):
-    """ApiIntegrationAuthType unit test stubs"""
+class TestChatbotStatus(unittest.TestCase):
+    """ChatbotStatus unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,9 +25,9 @@ class TestApiIntegrationAuthType(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testApiIntegrationAuthType(self):
-        """Test ApiIntegrationAuthType"""
-        # inst = ApiIntegrationAuthType()
+    def testChatbotStatus(self):
+        """Test ChatbotStatus"""
+        # inst = ChatbotStatus()
 
 if __name__ == '__main__':
     unittest.main()

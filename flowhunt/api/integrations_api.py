@@ -16,22 +16,16 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import StrictBytes, StrictStr
-from typing import List, Tuple, Union
-from flowhunt.models.api_endpoint_create_request import ApiEndpointCreateRequest
-from flowhunt.models.api_endpoint_response import ApiEndpointResponse
-from flowhunt.models.api_endpoint_search_request import ApiEndpointSearchRequest
-from flowhunt.models.api_endpoint_update_request import ApiEndpointUpdateRequest
-from flowhunt.models.api_integration_authentication_method import ApiIntegrationAuthenticationMethod
-from flowhunt.models.api_integration_create_request import ApiIntegrationCreateRequest
-from flowhunt.models.api_integration_open_api_import_request import ApiIntegrationOpenApiImportRequest
-from flowhunt.models.api_integration_response import ApiIntegrationResponse
-from flowhunt.models.api_integration_search_request import ApiIntegrationSearchRequest
-from flowhunt.models.api_integration_update_request import ApiIntegrationUpdateRequest
+from pydantic import StrictStr
+from typing import Any, List
 from flowhunt.models.completed import Completed
 from flowhunt.models.integration_detail_response import IntegrationDetailResponse
+from flowhunt.models.integration_flow_response import IntegrationFlowResponse
 from flowhunt.models.integration_response import IntegrationResponse
 from flowhunt.models.integration_search_request import IntegrationSearchRequest
+from flowhunt.models.integration_slug import IntegrationSlug
+from flowhunt.models.slack_channel_response import SlackChannelResponse
+from flowhunt.models.slack_workspace_response import SlackWorkspaceResponse
 
 from flowhunt.api_client import ApiClient, RequestSerialized
 from flowhunt.api_response import ApiResponse
@@ -52,10 +46,10 @@ class IntegrationsApi:
 
 
     @validate_call
-    def create_api_integration(
+    def create_integration(
         self,
+        slug: IntegrationSlug,
         workspace_id: StrictStr,
-        api_integration_create_request: ApiIntegrationCreateRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -68,14 +62,14 @@ class IntegrationsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiIntegrationResponse:
-        """Create Api Integration
+    ) -> IntegrationFlowResponse:
+        """Create Integration
 
 
+        :param slug: (required)
+        :type slug: IntegrationSlug
         :param workspace_id: (required)
         :type workspace_id: str
-        :param api_integration_create_request: (required)
-        :type api_integration_create_request: ApiIntegrationCreateRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -98,9 +92,9 @@ class IntegrationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._create_api_integration_serialize(
+        _param = self._create_integration_serialize(
+            slug=slug,
             workspace_id=workspace_id,
-            api_integration_create_request=api_integration_create_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -108,7 +102,7 @@ class IntegrationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiIntegrationResponse",
+            '200': "IntegrationFlowResponse",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -123,10 +117,10 @@ class IntegrationsApi:
 
 
     @validate_call
-    def create_api_integration_with_http_info(
+    def create_integration_with_http_info(
         self,
+        slug: IntegrationSlug,
         workspace_id: StrictStr,
-        api_integration_create_request: ApiIntegrationCreateRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -139,14 +133,14 @@ class IntegrationsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ApiIntegrationResponse]:
-        """Create Api Integration
+    ) -> ApiResponse[IntegrationFlowResponse]:
+        """Create Integration
 
 
+        :param slug: (required)
+        :type slug: IntegrationSlug
         :param workspace_id: (required)
         :type workspace_id: str
-        :param api_integration_create_request: (required)
-        :type api_integration_create_request: ApiIntegrationCreateRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -169,9 +163,9 @@ class IntegrationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._create_api_integration_serialize(
+        _param = self._create_integration_serialize(
+            slug=slug,
             workspace_id=workspace_id,
-            api_integration_create_request=api_integration_create_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -179,7 +173,7 @@ class IntegrationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiIntegrationResponse",
+            '200': "IntegrationFlowResponse",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -194,10 +188,10 @@ class IntegrationsApi:
 
 
     @validate_call
-    def create_api_integration_without_preload_content(
+    def create_integration_without_preload_content(
         self,
+        slug: IntegrationSlug,
         workspace_id: StrictStr,
-        api_integration_create_request: ApiIntegrationCreateRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -211,13 +205,13 @@ class IntegrationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Create Api Integration
+        """Create Integration
 
 
+        :param slug: (required)
+        :type slug: IntegrationSlug
         :param workspace_id: (required)
         :type workspace_id: str
-        :param api_integration_create_request: (required)
-        :type api_integration_create_request: ApiIntegrationCreateRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -240,9 +234,9 @@ class IntegrationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._create_api_integration_serialize(
+        _param = self._create_integration_serialize(
+            slug=slug,
             workspace_id=workspace_id,
-            api_integration_create_request=api_integration_create_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -250,7 +244,7 @@ class IntegrationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiIntegrationResponse",
+            '200': "IntegrationFlowResponse",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -260,10 +254,10 @@ class IntegrationsApi:
         return response_data.response
 
 
-    def _create_api_integration_serialize(
+    def _create_integration_serialize(
         self,
+        slug,
         workspace_id,
-        api_integration_create_request,
         _request_auth,
         _content_type,
         _headers,
@@ -285,6 +279,8 @@ class IntegrationsApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
+        if slug is not None:
+            _path_params['slug'] = slug.value
         # process the query parameters
         if workspace_id is not None:
             
@@ -293,8 +289,6 @@ class IntegrationsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if api_integration_create_request is not None:
-            _body_params = api_integration_create_request
 
 
         # set the HTTP header `Accept`
@@ -305,29 +299,15 @@ class IntegrationsApi:
                 ]
             )
 
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
-            )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
         _auth_settings: List[str] = [
-            'APIKeyHeader', 
             'HTTPBearer'
         ]
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/v2/integrations/api_integrations/create',
+            resource_path='/v2/integrations/{slug}/integrate',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -344,11 +324,11 @@ class IntegrationsApi:
 
 
     @validate_call
-    def create_api_integration_endpoint(
+    def delete_integration(
         self,
+        slug: IntegrationSlug,
         integration_id: StrictStr,
         workspace_id: StrictStr,
-        api_endpoint_create_request: ApiEndpointCreateRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -361,16 +341,16 @@ class IntegrationsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiEndpointResponse:
-        """Create Api Integration Endpoint
+    ) -> Completed:
+        """Delete Integration
 
 
+        :param slug: (required)
+        :type slug: IntegrationSlug
         :param integration_id: (required)
         :type integration_id: str
         :param workspace_id: (required)
         :type workspace_id: str
-        :param api_endpoint_create_request: (required)
-        :type api_endpoint_create_request: ApiEndpointCreateRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -393,10 +373,10 @@ class IntegrationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._create_api_integration_endpoint_serialize(
+        _param = self._delete_integration_serialize(
+            slug=slug,
             integration_id=integration_id,
             workspace_id=workspace_id,
-            api_endpoint_create_request=api_endpoint_create_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -404,7 +384,7 @@ class IntegrationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiEndpointResponse",
+            '200': "Completed",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -419,11 +399,11 @@ class IntegrationsApi:
 
 
     @validate_call
-    def create_api_integration_endpoint_with_http_info(
+    def delete_integration_with_http_info(
         self,
+        slug: IntegrationSlug,
         integration_id: StrictStr,
         workspace_id: StrictStr,
-        api_endpoint_create_request: ApiEndpointCreateRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -436,16 +416,16 @@ class IntegrationsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ApiEndpointResponse]:
-        """Create Api Integration Endpoint
+    ) -> ApiResponse[Completed]:
+        """Delete Integration
 
 
+        :param slug: (required)
+        :type slug: IntegrationSlug
         :param integration_id: (required)
         :type integration_id: str
         :param workspace_id: (required)
         :type workspace_id: str
-        :param api_endpoint_create_request: (required)
-        :type api_endpoint_create_request: ApiEndpointCreateRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -468,10 +448,10 @@ class IntegrationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._create_api_integration_endpoint_serialize(
+        _param = self._delete_integration_serialize(
+            slug=slug,
             integration_id=integration_id,
             workspace_id=workspace_id,
-            api_endpoint_create_request=api_endpoint_create_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -479,7 +459,7 @@ class IntegrationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiEndpointResponse",
+            '200': "Completed",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -494,11 +474,11 @@ class IntegrationsApi:
 
 
     @validate_call
-    def create_api_integration_endpoint_without_preload_content(
+    def delete_integration_without_preload_content(
         self,
+        slug: IntegrationSlug,
         integration_id: StrictStr,
         workspace_id: StrictStr,
-        api_endpoint_create_request: ApiEndpointCreateRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -512,15 +492,15 @@ class IntegrationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Create Api Integration Endpoint
+        """Delete Integration
 
 
+        :param slug: (required)
+        :type slug: IntegrationSlug
         :param integration_id: (required)
         :type integration_id: str
         :param workspace_id: (required)
         :type workspace_id: str
-        :param api_endpoint_create_request: (required)
-        :type api_endpoint_create_request: ApiEndpointCreateRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -543,10 +523,10 @@ class IntegrationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._create_api_integration_endpoint_serialize(
+        _param = self._delete_integration_serialize(
+            slug=slug,
             integration_id=integration_id,
             workspace_id=workspace_id,
-            api_endpoint_create_request=api_endpoint_create_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -554,7 +534,7 @@ class IntegrationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiEndpointResponse",
+            '200': "Completed",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -564,11 +544,11 @@ class IntegrationsApi:
         return response_data.response
 
 
-    def _create_api_integration_endpoint_serialize(
+    def _delete_integration_serialize(
         self,
+        slug,
         integration_id,
         workspace_id,
-        api_endpoint_create_request,
         _request_auth,
         _content_type,
         _headers,
@@ -590,6 +570,8 @@ class IntegrationsApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
+        if slug is not None:
+            _path_params['slug'] = slug.value
         if integration_id is not None:
             _path_params['integration_id'] = integration_id
         # process the query parameters
@@ -600,8 +582,6 @@ class IntegrationsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if api_endpoint_create_request is not None:
-            _body_params = api_endpoint_create_request
 
 
         # set the HTTP header `Accept`
@@ -612,29 +592,15 @@ class IntegrationsApi:
                 ]
             )
 
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
-            )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
         _auth_settings: List[str] = [
-            'APIKeyHeader', 
             'HTTPBearer'
         ]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/v2/integrations/api_integrations/{integration_id}/endpoints/create',
+            method='DELETE',
+            resource_path='/v2/integrations/{slug}/{integration_id}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -915,10 +881,11 @@ class IntegrationsApi:
 
 
     @validate_call
-    def get_api_integration(
+    def get_integration(
         self,
-        workspace_id: StrictStr,
+        slug: IntegrationSlug,
         integration_id: StrictStr,
+        workspace_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -931,14 +898,16 @@ class IntegrationsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiIntegrationResponse:
-        """Get Api Integration
+    ) -> IntegrationDetailResponse:
+        """Get Integration
 
 
-        :param workspace_id: (required)
-        :type workspace_id: str
+        :param slug: (required)
+        :type slug: IntegrationSlug
         :param integration_id: (required)
         :type integration_id: str
+        :param workspace_id: (required)
+        :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -961,9 +930,10 @@ class IntegrationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_api_integration_serialize(
-            workspace_id=workspace_id,
+        _param = self._get_integration_serialize(
+            slug=slug,
             integration_id=integration_id,
+            workspace_id=workspace_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -971,7 +941,7 @@ class IntegrationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiIntegrationResponse",
+            '200': "IntegrationDetailResponse",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -986,10 +956,11 @@ class IntegrationsApi:
 
 
     @validate_call
-    def get_api_integration_with_http_info(
+    def get_integration_with_http_info(
         self,
-        workspace_id: StrictStr,
+        slug: IntegrationSlug,
         integration_id: StrictStr,
+        workspace_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1002,14 +973,16 @@ class IntegrationsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ApiIntegrationResponse]:
-        """Get Api Integration
+    ) -> ApiResponse[IntegrationDetailResponse]:
+        """Get Integration
 
 
-        :param workspace_id: (required)
-        :type workspace_id: str
+        :param slug: (required)
+        :type slug: IntegrationSlug
         :param integration_id: (required)
         :type integration_id: str
+        :param workspace_id: (required)
+        :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1032,9 +1005,10 @@ class IntegrationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_api_integration_serialize(
-            workspace_id=workspace_id,
+        _param = self._get_integration_serialize(
+            slug=slug,
             integration_id=integration_id,
+            workspace_id=workspace_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1042,7 +1016,7 @@ class IntegrationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiIntegrationResponse",
+            '200': "IntegrationDetailResponse",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -1057,10 +1031,11 @@ class IntegrationsApi:
 
 
     @validate_call
-    def get_api_integration_without_preload_content(
+    def get_integration_without_preload_content(
         self,
-        workspace_id: StrictStr,
+        slug: IntegrationSlug,
         integration_id: StrictStr,
+        workspace_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1074,13 +1049,15 @@ class IntegrationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Get Api Integration
+        """Get Integration
 
 
-        :param workspace_id: (required)
-        :type workspace_id: str
+        :param slug: (required)
+        :type slug: IntegrationSlug
         :param integration_id: (required)
         :type integration_id: str
+        :param workspace_id: (required)
+        :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1103,9 +1080,10 @@ class IntegrationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_api_integration_serialize(
-            workspace_id=workspace_id,
+        _param = self._get_integration_serialize(
+            slug=slug,
             integration_id=integration_id,
+            workspace_id=workspace_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1113,7 +1091,7 @@ class IntegrationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiIntegrationResponse",
+            '200': "IntegrationDetailResponse",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -1123,548 +1101,11 @@ class IntegrationsApi:
         return response_data.response
 
 
-    def _get_api_integration_serialize(
+    def _get_integration_serialize(
         self,
-        workspace_id,
-        integration_id,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        # process the query parameters
-        if workspace_id is not None:
-            
-            _query_params.append(('workspace_id', workspace_id))
-            
-        if integration_id is not None:
-            
-            _query_params.append(('integration_id', integration_id))
-            
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'APIKeyHeader', 
-            'HTTPBearer'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/v2/integrations/api_integrations/',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def get_api_integration_auth_methods(
-        self,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[ApiIntegrationAuthenticationMethod]:
-        """Get Api Integration Auth Methods
-
-
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_api_integration_auth_methods_serialize(
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[ApiIntegrationAuthenticationMethod]",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def get_api_integration_auth_methods_with_http_info(
-        self,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[ApiIntegrationAuthenticationMethod]]:
-        """Get Api Integration Auth Methods
-
-
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_api_integration_auth_methods_serialize(
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[ApiIntegrationAuthenticationMethod]",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def get_api_integration_auth_methods_without_preload_content(
-        self,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """Get Api Integration Auth Methods
-
-
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_api_integration_auth_methods_serialize(
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[ApiIntegrationAuthenticationMethod]",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _get_api_integration_auth_methods_serialize(
-        self,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'APIKeyHeader', 
-            'HTTPBearer'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/v2/integrations/api_integrations/auth_methods',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def get_api_integration_endpoints(
-        self,
-        integration_id: StrictStr,
-        workspace_id: StrictStr,
-        api_endpoint_search_request: ApiEndpointSearchRequest,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[ApiEndpointResponse]:
-        """Get Api Integration Endpoints
-
-
-        :param integration_id: (required)
-        :type integration_id: str
-        :param workspace_id: (required)
-        :type workspace_id: str
-        :param api_endpoint_search_request: (required)
-        :type api_endpoint_search_request: ApiEndpointSearchRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_api_integration_endpoints_serialize(
-            integration_id=integration_id,
-            workspace_id=workspace_id,
-            api_endpoint_search_request=api_endpoint_search_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[ApiEndpointResponse]",
-            '422': "HTTPValidationError",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def get_api_integration_endpoints_with_http_info(
-        self,
-        integration_id: StrictStr,
-        workspace_id: StrictStr,
-        api_endpoint_search_request: ApiEndpointSearchRequest,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[ApiEndpointResponse]]:
-        """Get Api Integration Endpoints
-
-
-        :param integration_id: (required)
-        :type integration_id: str
-        :param workspace_id: (required)
-        :type workspace_id: str
-        :param api_endpoint_search_request: (required)
-        :type api_endpoint_search_request: ApiEndpointSearchRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_api_integration_endpoints_serialize(
-            integration_id=integration_id,
-            workspace_id=workspace_id,
-            api_endpoint_search_request=api_endpoint_search_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[ApiEndpointResponse]",
-            '422': "HTTPValidationError",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def get_api_integration_endpoints_without_preload_content(
-        self,
-        integration_id: StrictStr,
-        workspace_id: StrictStr,
-        api_endpoint_search_request: ApiEndpointSearchRequest,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """Get Api Integration Endpoints
-
-
-        :param integration_id: (required)
-        :type integration_id: str
-        :param workspace_id: (required)
-        :type workspace_id: str
-        :param api_endpoint_search_request: (required)
-        :type api_endpoint_search_request: ApiEndpointSearchRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_api_integration_endpoints_serialize(
-            integration_id=integration_id,
-            workspace_id=workspace_id,
-            api_endpoint_search_request=api_endpoint_search_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[ApiEndpointResponse]",
-            '422': "HTTPValidationError",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _get_api_integration_endpoints_serialize(
-        self,
+        slug,
         integration_id,
         workspace_id,
-        api_endpoint_search_request,
         _request_auth,
         _content_type,
         _headers,
@@ -1686,6 +1127,8 @@ class IntegrationsApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
+        if slug is not None:
+            _path_params['slug'] = slug.value
         if integration_id is not None:
             _path_params['integration_id'] = integration_id
         # process the query parameters
@@ -1696,8 +1139,6 @@ class IntegrationsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if api_endpoint_search_request is not None:
-            _body_params = api_endpoint_search_request
 
 
         # set the HTTP header `Accept`
@@ -1708,29 +1149,15 @@ class IntegrationsApi:
                 ]
             )
 
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
-            )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
         _auth_settings: List[str] = [
-            'APIKeyHeader', 
             'HTTPBearer'
         ]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/v2/integrations/api_integrations/{integration_id}/endpoints',
+            method='GET',
+            resource_path='/v2/integrations/{slug}/{integration_id}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1747,10 +1174,10 @@ class IntegrationsApi:
 
 
     @validate_call
-    def get_api_integrations(
+    def get_slack_channels(
         self,
+        slack_team_id: StrictStr,
         workspace_id: StrictStr,
-        api_integration_search_request: ApiIntegrationSearchRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1763,14 +1190,14 @@ class IntegrationsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[ApiIntegrationResponse]:
-        """Get Api Integrations
+    ) -> List[SlackChannelResponse]:
+        """Get Slack Channels
 
 
+        :param slack_team_id: (required)
+        :type slack_team_id: str
         :param workspace_id: (required)
         :type workspace_id: str
-        :param api_integration_search_request: (required)
-        :type api_integration_search_request: ApiIntegrationSearchRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1793,9 +1220,9 @@ class IntegrationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_api_integrations_serialize(
+        _param = self._get_slack_channels_serialize(
+            slack_team_id=slack_team_id,
             workspace_id=workspace_id,
-            api_integration_search_request=api_integration_search_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1803,7 +1230,7 @@ class IntegrationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[ApiIntegrationResponse]",
+            '200': "List[SlackChannelResponse]",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -1818,10 +1245,10 @@ class IntegrationsApi:
 
 
     @validate_call
-    def get_api_integrations_with_http_info(
+    def get_slack_channels_with_http_info(
         self,
+        slack_team_id: StrictStr,
         workspace_id: StrictStr,
-        api_integration_search_request: ApiIntegrationSearchRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1834,14 +1261,14 @@ class IntegrationsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[ApiIntegrationResponse]]:
-        """Get Api Integrations
+    ) -> ApiResponse[List[SlackChannelResponse]]:
+        """Get Slack Channels
 
 
+        :param slack_team_id: (required)
+        :type slack_team_id: str
         :param workspace_id: (required)
         :type workspace_id: str
-        :param api_integration_search_request: (required)
-        :type api_integration_search_request: ApiIntegrationSearchRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1864,9 +1291,9 @@ class IntegrationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_api_integrations_serialize(
+        _param = self._get_slack_channels_serialize(
+            slack_team_id=slack_team_id,
             workspace_id=workspace_id,
-            api_integration_search_request=api_integration_search_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1874,7 +1301,7 @@ class IntegrationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[ApiIntegrationResponse]",
+            '200': "List[SlackChannelResponse]",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -1889,10 +1316,10 @@ class IntegrationsApi:
 
 
     @validate_call
-    def get_api_integrations_without_preload_content(
+    def get_slack_channels_without_preload_content(
         self,
+        slack_team_id: StrictStr,
         workspace_id: StrictStr,
-        api_integration_search_request: ApiIntegrationSearchRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1906,13 +1333,13 @@ class IntegrationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Get Api Integrations
+        """Get Slack Channels
 
 
+        :param slack_team_id: (required)
+        :type slack_team_id: str
         :param workspace_id: (required)
         :type workspace_id: str
-        :param api_integration_search_request: (required)
-        :type api_integration_search_request: ApiIntegrationSearchRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1935,9 +1362,9 @@ class IntegrationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_api_integrations_serialize(
+        _param = self._get_slack_channels_serialize(
+            slack_team_id=slack_team_id,
             workspace_id=workspace_id,
-            api_integration_search_request=api_integration_search_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1945,7 +1372,7 @@ class IntegrationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[ApiIntegrationResponse]",
+            '200': "List[SlackChannelResponse]",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -1955,10 +1382,276 @@ class IntegrationsApi:
         return response_data.response
 
 
-    def _get_api_integrations_serialize(
+    def _get_slack_channels_serialize(
+        self,
+        slack_team_id,
+        workspace_id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if slack_team_id is not None:
+            _path_params['slack_team_id'] = slack_team_id
+        # process the query parameters
+        if workspace_id is not None:
+            
+            _query_params.append(('workspace_id', workspace_id))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'APIKeyHeader', 
+            'HTTPBearer'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/v2/integrations/slack/{slack_team_id}/channels',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def get_slack_workspaces(
+        self,
+        workspace_id: StrictStr,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> List[SlackWorkspaceResponse]:
+        """Get Slack Workspaces
+
+
+        :param workspace_id: (required)
+        :type workspace_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_slack_workspaces_serialize(
+            workspace_id=workspace_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "List[SlackWorkspaceResponse]",
+            '422': "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def get_slack_workspaces_with_http_info(
+        self,
+        workspace_id: StrictStr,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[List[SlackWorkspaceResponse]]:
+        """Get Slack Workspaces
+
+
+        :param workspace_id: (required)
+        :type workspace_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_slack_workspaces_serialize(
+            workspace_id=workspace_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "List[SlackWorkspaceResponse]",
+            '422': "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def get_slack_workspaces_without_preload_content(
+        self,
+        workspace_id: StrictStr,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Get Slack Workspaces
+
+
+        :param workspace_id: (required)
+        :type workspace_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_slack_workspaces_serialize(
+            workspace_id=workspace_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "List[SlackWorkspaceResponse]",
+            '422': "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _get_slack_workspaces_serialize(
         self,
         workspace_id,
-        api_integration_search_request,
         _request_auth,
         _content_type,
         _headers,
@@ -1988,8 +1681,6 @@ class IntegrationsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if api_integration_search_request is not None:
-            _body_params = api_integration_search_request
 
 
         # set the HTTP header `Accept`
@@ -2000,19 +1691,6 @@ class IntegrationsApi:
                 ]
             )
 
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
-            )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -2021,8 +1699,8 @@ class IntegrationsApi:
         ]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/v2/integrations/api_integrations/',
+            method='GET',
+            resource_path='/v2/integrations/slack/',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2039,10 +1717,9 @@ class IntegrationsApi:
 
 
     @validate_call
-    def get_my_integrations(
+    def integration_callback(
         self,
-        workspace_id: StrictStr,
-        integration_search_request: IntegrationSearchRequest,
+        slug: IntegrationSlug,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2055,14 +1732,12 @@ class IntegrationsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[IntegrationDetailResponse]:
-        """Get My Integrations
+    ) -> object:
+        """Integration Callback
 
 
-        :param workspace_id: (required)
-        :type workspace_id: str
-        :param integration_search_request: (required)
-        :type integration_search_request: IntegrationSearchRequest
+        :param slug: (required)
+        :type slug: IntegrationSlug
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2085,9 +1760,8 @@ class IntegrationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_my_integrations_serialize(
-            workspace_id=workspace_id,
-            integration_search_request=integration_search_request,
+        _param = self._integration_callback_serialize(
+            slug=slug,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2095,7 +1769,7 @@ class IntegrationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[IntegrationDetailResponse]",
+            '200': "object",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -2110,8 +1784,202 @@ class IntegrationsApi:
 
 
     @validate_call
-    def get_my_integrations_with_http_info(
+    def integration_callback_with_http_info(
         self,
+        slug: IntegrationSlug,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[object]:
+        """Integration Callback
+
+
+        :param slug: (required)
+        :type slug: IntegrationSlug
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._integration_callback_serialize(
+            slug=slug,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "object",
+            '422': "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def integration_callback_without_preload_content(
+        self,
+        slug: IntegrationSlug,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Integration Callback
+
+
+        :param slug: (required)
+        :type slug: IntegrationSlug
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._integration_callback_serialize(
+            slug=slug,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "object",
+            '422': "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _integration_callback_serialize(
+        self,
+        slug,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if slug is not None:
+            _path_params['slug'] = slug.value
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/v2/integrations/{slug}/callback',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def search_integrations(
+        self,
+        slug: IntegrationSlug,
         workspace_id: StrictStr,
         integration_search_request: IntegrationSearchRequest,
         _request_timeout: Union[
@@ -2126,10 +1994,12 @@ class IntegrationsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[IntegrationDetailResponse]]:
-        """Get My Integrations
+    ) -> IntegrationResponse:
+        """Search Integrations
 
 
+        :param slug: (required)
+        :type slug: IntegrationSlug
         :param workspace_id: (required)
         :type workspace_id: str
         :param integration_search_request: (required)
@@ -2156,7 +2026,8 @@ class IntegrationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_my_integrations_serialize(
+        _param = self._search_integrations_serialize(
+            slug=slug,
             workspace_id=workspace_id,
             integration_search_request=integration_search_request,
             _request_auth=_request_auth,
@@ -2166,7 +2037,82 @@ class IntegrationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[IntegrationDetailResponse]",
+            '200': "IntegrationResponse",
+            '422': "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def search_integrations_with_http_info(
+        self,
+        slug: IntegrationSlug,
+        workspace_id: StrictStr,
+        integration_search_request: IntegrationSearchRequest,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[IntegrationResponse]:
+        """Search Integrations
+
+
+        :param slug: (required)
+        :type slug: IntegrationSlug
+        :param workspace_id: (required)
+        :type workspace_id: str
+        :param integration_search_request: (required)
+        :type integration_search_request: IntegrationSearchRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._search_integrations_serialize(
+            slug=slug,
+            workspace_id=workspace_id,
+            integration_search_request=integration_search_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "IntegrationResponse",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -2181,8 +2127,9 @@ class IntegrationsApi:
 
 
     @validate_call
-    def get_my_integrations_without_preload_content(
+    def search_integrations_without_preload_content(
         self,
+        slug: IntegrationSlug,
         workspace_id: StrictStr,
         integration_search_request: IntegrationSearchRequest,
         _request_timeout: Union[
@@ -2198,9 +2145,11 @@ class IntegrationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Get My Integrations
+        """Search Integrations
 
 
+        :param slug: (required)
+        :type slug: IntegrationSlug
         :param workspace_id: (required)
         :type workspace_id: str
         :param integration_search_request: (required)
@@ -2227,7 +2176,8 @@ class IntegrationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_my_integrations_serialize(
+        _param = self._search_integrations_serialize(
+            slug=slug,
             workspace_id=workspace_id,
             integration_search_request=integration_search_request,
             _request_auth=_request_auth,
@@ -2237,7 +2187,7 @@ class IntegrationsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[IntegrationDetailResponse]",
+            '200': "IntegrationResponse",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -2247,8 +2197,9 @@ class IntegrationsApi:
         return response_data.response
 
 
-    def _get_my_integrations_serialize(
+    def _search_integrations_serialize(
         self,
+        slug,
         workspace_id,
         integration_search_request,
         _request_auth,
@@ -2272,6 +2223,8 @@ class IntegrationsApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
+        if slug is not None:
+            _path_params['slug'] = slug.value
         # process the query parameters
         if workspace_id is not None:
             
@@ -2308,1829 +2261,12 @@ class IntegrationsApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'APIKeyHeader', 
             'HTTPBearer'
         ]
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/v2/integrations/',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def import_openapi_spec(
-        self,
-        integration_id: StrictStr,
-        workspace_id: StrictStr,
-        file: Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiIntegrationResponse:
-        """Import Openapi Spec
-
-
-        :param integration_id: (required)
-        :type integration_id: str
-        :param workspace_id: (required)
-        :type workspace_id: str
-        :param file: (required)
-        :type file: bytearray
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._import_openapi_spec_serialize(
-            integration_id=integration_id,
-            workspace_id=workspace_id,
-            file=file,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiIntegrationResponse",
-            '422': "HTTPValidationError",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def import_openapi_spec_with_http_info(
-        self,
-        integration_id: StrictStr,
-        workspace_id: StrictStr,
-        file: Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ApiIntegrationResponse]:
-        """Import Openapi Spec
-
-
-        :param integration_id: (required)
-        :type integration_id: str
-        :param workspace_id: (required)
-        :type workspace_id: str
-        :param file: (required)
-        :type file: bytearray
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._import_openapi_spec_serialize(
-            integration_id=integration_id,
-            workspace_id=workspace_id,
-            file=file,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiIntegrationResponse",
-            '422': "HTTPValidationError",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def import_openapi_spec_without_preload_content(
-        self,
-        integration_id: StrictStr,
-        workspace_id: StrictStr,
-        file: Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """Import Openapi Spec
-
-
-        :param integration_id: (required)
-        :type integration_id: str
-        :param workspace_id: (required)
-        :type workspace_id: str
-        :param file: (required)
-        :type file: bytearray
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._import_openapi_spec_serialize(
-            integration_id=integration_id,
-            workspace_id=workspace_id,
-            file=file,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiIntegrationResponse",
-            '422': "HTTPValidationError",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _import_openapi_spec_serialize(
-        self,
-        integration_id,
-        workspace_id,
-        file,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if integration_id is not None:
-            _path_params['integration_id'] = integration_id
-        # process the query parameters
-        if workspace_id is not None:
-            
-            _query_params.append(('workspace_id', workspace_id))
-            
-        # process the header parameters
-        # process the form parameters
-        if file is not None:
-            _files['file'] = file
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'multipart/form-data'
-                    ]
-                )
-            )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'APIKeyHeader', 
-            'HTTPBearer'
-        ]
-
-        return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/v2/integrations/api_integrations/{integration_id}/import/openapi-file',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def import_openapi_spec_from_url(
-        self,
-        integration_id: StrictStr,
-        workspace_id: StrictStr,
-        api_integration_open_api_import_request: ApiIntegrationOpenApiImportRequest,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiIntegrationResponse:
-        """Import Openapi Spec From Url
-
-
-        :param integration_id: (required)
-        :type integration_id: str
-        :param workspace_id: (required)
-        :type workspace_id: str
-        :param api_integration_open_api_import_request: (required)
-        :type api_integration_open_api_import_request: ApiIntegrationOpenApiImportRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._import_openapi_spec_from_url_serialize(
-            integration_id=integration_id,
-            workspace_id=workspace_id,
-            api_integration_open_api_import_request=api_integration_open_api_import_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiIntegrationResponse",
-            '422': "HTTPValidationError",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def import_openapi_spec_from_url_with_http_info(
-        self,
-        integration_id: StrictStr,
-        workspace_id: StrictStr,
-        api_integration_open_api_import_request: ApiIntegrationOpenApiImportRequest,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ApiIntegrationResponse]:
-        """Import Openapi Spec From Url
-
-
-        :param integration_id: (required)
-        :type integration_id: str
-        :param workspace_id: (required)
-        :type workspace_id: str
-        :param api_integration_open_api_import_request: (required)
-        :type api_integration_open_api_import_request: ApiIntegrationOpenApiImportRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._import_openapi_spec_from_url_serialize(
-            integration_id=integration_id,
-            workspace_id=workspace_id,
-            api_integration_open_api_import_request=api_integration_open_api_import_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiIntegrationResponse",
-            '422': "HTTPValidationError",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def import_openapi_spec_from_url_without_preload_content(
-        self,
-        integration_id: StrictStr,
-        workspace_id: StrictStr,
-        api_integration_open_api_import_request: ApiIntegrationOpenApiImportRequest,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """Import Openapi Spec From Url
-
-
-        :param integration_id: (required)
-        :type integration_id: str
-        :param workspace_id: (required)
-        :type workspace_id: str
-        :param api_integration_open_api_import_request: (required)
-        :type api_integration_open_api_import_request: ApiIntegrationOpenApiImportRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._import_openapi_spec_from_url_serialize(
-            integration_id=integration_id,
-            workspace_id=workspace_id,
-            api_integration_open_api_import_request=api_integration_open_api_import_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiIntegrationResponse",
-            '422': "HTTPValidationError",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _import_openapi_spec_from_url_serialize(
-        self,
-        integration_id,
-        workspace_id,
-        api_integration_open_api_import_request,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if integration_id is not None:
-            _path_params['integration_id'] = integration_id
-        # process the query parameters
-        if workspace_id is not None:
-            
-            _query_params.append(('workspace_id', workspace_id))
-            
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-        if api_integration_open_api_import_request is not None:
-            _body_params = api_integration_open_api_import_request
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
-            )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'APIKeyHeader', 
-            'HTTPBearer'
-        ]
-
-        return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/v2/integrations/api_integrations/{integration_id}/import/openapi-url',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def remove_api_integration(
-        self,
-        integration_id: StrictStr,
-        workspace_id: StrictStr,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Completed:
-        """Remove Api Integration
-
-
-        :param integration_id: (required)
-        :type integration_id: str
-        :param workspace_id: (required)
-        :type workspace_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._remove_api_integration_serialize(
-            integration_id=integration_id,
-            workspace_id=workspace_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Completed",
-            '422': "HTTPValidationError",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def remove_api_integration_with_http_info(
-        self,
-        integration_id: StrictStr,
-        workspace_id: StrictStr,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Completed]:
-        """Remove Api Integration
-
-
-        :param integration_id: (required)
-        :type integration_id: str
-        :param workspace_id: (required)
-        :type workspace_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._remove_api_integration_serialize(
-            integration_id=integration_id,
-            workspace_id=workspace_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Completed",
-            '422': "HTTPValidationError",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def remove_api_integration_without_preload_content(
-        self,
-        integration_id: StrictStr,
-        workspace_id: StrictStr,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """Remove Api Integration
-
-
-        :param integration_id: (required)
-        :type integration_id: str
-        :param workspace_id: (required)
-        :type workspace_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._remove_api_integration_serialize(
-            integration_id=integration_id,
-            workspace_id=workspace_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Completed",
-            '422': "HTTPValidationError",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _remove_api_integration_serialize(
-        self,
-        integration_id,
-        workspace_id,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if integration_id is not None:
-            _path_params['integration_id'] = integration_id
-        # process the query parameters
-        if workspace_id is not None:
-            
-            _query_params.append(('workspace_id', workspace_id))
-            
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'APIKeyHeader', 
-            'HTTPBearer'
-        ]
-
-        return self.api_client.param_serialize(
-            method='DELETE',
-            resource_path='/v2/integrations/api_integrations/{integration_id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def remove_api_integration_endpoint(
-        self,
-        integration_id: StrictStr,
-        endpoint_id: StrictStr,
-        workspace_id: StrictStr,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Completed:
-        """Remove Api Integration Endpoint
-
-
-        :param integration_id: (required)
-        :type integration_id: str
-        :param endpoint_id: (required)
-        :type endpoint_id: str
-        :param workspace_id: (required)
-        :type workspace_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._remove_api_integration_endpoint_serialize(
-            integration_id=integration_id,
-            endpoint_id=endpoint_id,
-            workspace_id=workspace_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Completed",
-            '422': "HTTPValidationError",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def remove_api_integration_endpoint_with_http_info(
-        self,
-        integration_id: StrictStr,
-        endpoint_id: StrictStr,
-        workspace_id: StrictStr,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Completed]:
-        """Remove Api Integration Endpoint
-
-
-        :param integration_id: (required)
-        :type integration_id: str
-        :param endpoint_id: (required)
-        :type endpoint_id: str
-        :param workspace_id: (required)
-        :type workspace_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._remove_api_integration_endpoint_serialize(
-            integration_id=integration_id,
-            endpoint_id=endpoint_id,
-            workspace_id=workspace_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Completed",
-            '422': "HTTPValidationError",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def remove_api_integration_endpoint_without_preload_content(
-        self,
-        integration_id: StrictStr,
-        endpoint_id: StrictStr,
-        workspace_id: StrictStr,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """Remove Api Integration Endpoint
-
-
-        :param integration_id: (required)
-        :type integration_id: str
-        :param endpoint_id: (required)
-        :type endpoint_id: str
-        :param workspace_id: (required)
-        :type workspace_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._remove_api_integration_endpoint_serialize(
-            integration_id=integration_id,
-            endpoint_id=endpoint_id,
-            workspace_id=workspace_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Completed",
-            '422': "HTTPValidationError",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _remove_api_integration_endpoint_serialize(
-        self,
-        integration_id,
-        endpoint_id,
-        workspace_id,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if integration_id is not None:
-            _path_params['integration_id'] = integration_id
-        if endpoint_id is not None:
-            _path_params['endpoint_id'] = endpoint_id
-        # process the query parameters
-        if workspace_id is not None:
-            
-            _query_params.append(('workspace_id', workspace_id))
-            
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'APIKeyHeader', 
-            'HTTPBearer'
-        ]
-
-        return self.api_client.param_serialize(
-            method='DELETE',
-            resource_path='/v2/integrations/api_integrations/{integration_id}/endpoints/{endpoint_id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def update_api_integration(
-        self,
-        integration_id: StrictStr,
-        workspace_id: StrictStr,
-        api_integration_update_request: ApiIntegrationUpdateRequest,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiIntegrationResponse:
-        """Update Api Integration
-
-
-        :param integration_id: (required)
-        :type integration_id: str
-        :param workspace_id: (required)
-        :type workspace_id: str
-        :param api_integration_update_request: (required)
-        :type api_integration_update_request: ApiIntegrationUpdateRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._update_api_integration_serialize(
-            integration_id=integration_id,
-            workspace_id=workspace_id,
-            api_integration_update_request=api_integration_update_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiIntegrationResponse",
-            '422': "HTTPValidationError",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def update_api_integration_with_http_info(
-        self,
-        integration_id: StrictStr,
-        workspace_id: StrictStr,
-        api_integration_update_request: ApiIntegrationUpdateRequest,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ApiIntegrationResponse]:
-        """Update Api Integration
-
-
-        :param integration_id: (required)
-        :type integration_id: str
-        :param workspace_id: (required)
-        :type workspace_id: str
-        :param api_integration_update_request: (required)
-        :type api_integration_update_request: ApiIntegrationUpdateRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._update_api_integration_serialize(
-            integration_id=integration_id,
-            workspace_id=workspace_id,
-            api_integration_update_request=api_integration_update_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiIntegrationResponse",
-            '422': "HTTPValidationError",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def update_api_integration_without_preload_content(
-        self,
-        integration_id: StrictStr,
-        workspace_id: StrictStr,
-        api_integration_update_request: ApiIntegrationUpdateRequest,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """Update Api Integration
-
-
-        :param integration_id: (required)
-        :type integration_id: str
-        :param workspace_id: (required)
-        :type workspace_id: str
-        :param api_integration_update_request: (required)
-        :type api_integration_update_request: ApiIntegrationUpdateRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._update_api_integration_serialize(
-            integration_id=integration_id,
-            workspace_id=workspace_id,
-            api_integration_update_request=api_integration_update_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiIntegrationResponse",
-            '422': "HTTPValidationError",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _update_api_integration_serialize(
-        self,
-        integration_id,
-        workspace_id,
-        api_integration_update_request,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if integration_id is not None:
-            _path_params['integration_id'] = integration_id
-        # process the query parameters
-        if workspace_id is not None:
-            
-            _query_params.append(('workspace_id', workspace_id))
-            
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-        if api_integration_update_request is not None:
-            _body_params = api_integration_update_request
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
-            )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'APIKeyHeader', 
-            'HTTPBearer'
-        ]
-
-        return self.api_client.param_serialize(
-            method='PUT',
-            resource_path='/v2/integrations/api_integrations/{integration_id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def update_api_integration_endpoint(
-        self,
-        integration_id: StrictStr,
-        endpoint_id: StrictStr,
-        workspace_id: StrictStr,
-        api_endpoint_update_request: ApiEndpointUpdateRequest,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiEndpointResponse:
-        """Update Api Integration Endpoint
-
-
-        :param integration_id: (required)
-        :type integration_id: str
-        :param endpoint_id: (required)
-        :type endpoint_id: str
-        :param workspace_id: (required)
-        :type workspace_id: str
-        :param api_endpoint_update_request: (required)
-        :type api_endpoint_update_request: ApiEndpointUpdateRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._update_api_integration_endpoint_serialize(
-            integration_id=integration_id,
-            endpoint_id=endpoint_id,
-            workspace_id=workspace_id,
-            api_endpoint_update_request=api_endpoint_update_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiEndpointResponse",
-            '422': "HTTPValidationError",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def update_api_integration_endpoint_with_http_info(
-        self,
-        integration_id: StrictStr,
-        endpoint_id: StrictStr,
-        workspace_id: StrictStr,
-        api_endpoint_update_request: ApiEndpointUpdateRequest,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ApiEndpointResponse]:
-        """Update Api Integration Endpoint
-
-
-        :param integration_id: (required)
-        :type integration_id: str
-        :param endpoint_id: (required)
-        :type endpoint_id: str
-        :param workspace_id: (required)
-        :type workspace_id: str
-        :param api_endpoint_update_request: (required)
-        :type api_endpoint_update_request: ApiEndpointUpdateRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._update_api_integration_endpoint_serialize(
-            integration_id=integration_id,
-            endpoint_id=endpoint_id,
-            workspace_id=workspace_id,
-            api_endpoint_update_request=api_endpoint_update_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiEndpointResponse",
-            '422': "HTTPValidationError",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def update_api_integration_endpoint_without_preload_content(
-        self,
-        integration_id: StrictStr,
-        endpoint_id: StrictStr,
-        workspace_id: StrictStr,
-        api_endpoint_update_request: ApiEndpointUpdateRequest,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """Update Api Integration Endpoint
-
-
-        :param integration_id: (required)
-        :type integration_id: str
-        :param endpoint_id: (required)
-        :type endpoint_id: str
-        :param workspace_id: (required)
-        :type workspace_id: str
-        :param api_endpoint_update_request: (required)
-        :type api_endpoint_update_request: ApiEndpointUpdateRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._update_api_integration_endpoint_serialize(
-            integration_id=integration_id,
-            endpoint_id=endpoint_id,
-            workspace_id=workspace_id,
-            api_endpoint_update_request=api_endpoint_update_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiEndpointResponse",
-            '422': "HTTPValidationError",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _update_api_integration_endpoint_serialize(
-        self,
-        integration_id,
-        endpoint_id,
-        workspace_id,
-        api_endpoint_update_request,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if integration_id is not None:
-            _path_params['integration_id'] = integration_id
-        if endpoint_id is not None:
-            _path_params['endpoint_id'] = endpoint_id
-        # process the query parameters
-        if workspace_id is not None:
-            
-            _query_params.append(('workspace_id', workspace_id))
-            
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-        if api_endpoint_update_request is not None:
-            _body_params = api_endpoint_update_request
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
-            )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'APIKeyHeader', 
-            'HTTPBearer'
-        ]
-
-        return self.api_client.param_serialize(
-            method='PUT',
-            resource_path='/v2/integrations/api_integrations/{integration_id}/endpoints/{endpoint_id}',
+            resource_path='/v2/integrations/{slug}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

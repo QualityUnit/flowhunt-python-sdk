@@ -26,17 +26,17 @@ class TestIntegrationsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_create_api_integration(self) -> None:
-        """Test case for create_api_integration
+    def test_create_integration(self) -> None:
+        """Test case for create_integration
 
-        Create Api Integration
+        Create Integration
         """
         pass
 
-    def test_create_api_integration_endpoint(self) -> None:
-        """Test case for create_api_integration_endpoint
+    def test_delete_integration(self) -> None:
+        """Test case for delete_integration
 
-        Create Api Integration Endpoint
+        Delete Integration
         """
         pass
 
@@ -47,80 +47,38 @@ class TestIntegrationsApi(unittest.TestCase):
         """
         pass
 
-    def test_get_api_integration(self) -> None:
-        """Test case for get_api_integration
+    def test_get_integration(self) -> None:
+        """Test case for get_integration
 
-        Get Api Integration
+        Get Integration
         """
         pass
 
-    def test_get_api_integration_auth_methods(self) -> None:
-        """Test case for get_api_integration_auth_methods
+    def test_get_slack_channels(self) -> None:
+        """Test case for get_slack_channels
 
-        Get Api Integration Auth Methods
+        Get Slack Channels
         """
         pass
 
-    def test_get_api_integration_endpoints(self) -> None:
-        """Test case for get_api_integration_endpoints
+    def test_get_slack_workspaces(self) -> None:
+        """Test case for get_slack_workspaces
 
-        Get Api Integration Endpoints
+        Get Slack Workspaces
         """
         pass
 
-    def test_get_api_integrations(self) -> None:
-        """Test case for get_api_integrations
+    def test_integration_callback(self) -> None:
+        """Test case for integration_callback
 
-        Get Api Integrations
+        Integration Callback
         """
         pass
 
-    def test_get_my_integrations(self) -> None:
-        """Test case for get_my_integrations
+    def test_search_integrations(self) -> None:
+        """Test case for search_integrations
 
-        Get My Integrations
-        """
-        pass
-
-    def test_import_openapi_spec(self) -> None:
-        """Test case for import_openapi_spec
-
-        Import Openapi Spec
-        """
-        pass
-
-    def test_import_openapi_spec_from_url(self) -> None:
-        """Test case for import_openapi_spec_from_url
-
-        Import Openapi Spec From Url
-        """
-        pass
-
-    def test_remove_api_integration(self) -> None:
-        """Test case for remove_api_integration
-
-        Remove Api Integration
-        """
-        pass
-
-    def test_remove_api_integration_endpoint(self) -> None:
-        """Test case for remove_api_integration_endpoint
-
-        Remove Api Integration Endpoint
-        """
-        pass
-
-    def test_update_api_integration(self) -> None:
-        """Test case for update_api_integration
-
-        Update Api Integration
-        """
-        pass
-
-    def test_update_api_integration_endpoint(self) -> None:
-        """Test case for update_api_integration_endpoint
-
-        Update Api Integration Endpoint
+        Search Integrations
         """
         pass
 

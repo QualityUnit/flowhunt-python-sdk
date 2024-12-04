@@ -14,10 +14,10 @@
 
 import unittest
 
-from flowhunt.models.api_integration_search_request import ApiIntegrationSearchRequest
+from flowhunt.models.slack_channel_response import SlackChannelResponse
 
-class TestApiIntegrationSearchRequest(unittest.TestCase):
-    """ApiIntegrationSearchRequest unit test stubs"""
+class TestSlackChannelResponse(unittest.TestCase):
+    """SlackChannelResponse unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,26 +25,28 @@ class TestApiIntegrationSearchRequest(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> ApiIntegrationSearchRequest:
-        """Test ApiIntegrationSearchRequest
+    def make_instance(self, include_optional) -> SlackChannelResponse:
+        """Test SlackChannelResponse
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `ApiIntegrationSearchRequest`
+        # uncomment below to create an instance of `SlackChannelResponse`
         """
-        model = ApiIntegrationSearchRequest()
+        model = SlackChannelResponse()
         if include_optional:
-            return ApiIntegrationSearchRequest(
-                name = '',
-                description = ''
+            return SlackChannelResponse(
+                channel_id = '',
+                channel_name = ''
             )
         else:
-            return ApiIntegrationSearchRequest(
+            return SlackChannelResponse(
+                channel_id = '',
+                channel_name = '',
         )
         """
 
-    def testApiIntegrationSearchRequest(self):
-        """Test ApiIntegrationSearchRequest"""
+    def testSlackChannelResponse(self):
+        """Test SlackChannelResponse"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

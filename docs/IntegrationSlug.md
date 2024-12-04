@@ -3,11 +3,15 @@
 
 ## Enum
 
-* `API_INTEGRATION` (value: `'api_integration'`)
+* `SHOPIFY_INTEGRATION` (value: `'shopify_integration'`)
+
+* `SLACK_INTEGRATION` (value: `'slack_integration'`)
+
+* `HUBSPOT_INTEGRATION` (value: `'hubspot_integration'`)
 
 * `LIVEAGENT_INTEGRATION` (value: `'liveagent_integration'`)
 
-* `HUBSPOT_INTEGRATION` (value: `'hubspot_integration'`)
+* `HUBSPOT_WIDGET_INTEGRATION` (value: `'hubspot_widget_integration'`)
 
 * `LIVECHAT_INTEGRATION` (value: `'livechat_integration'`)
 

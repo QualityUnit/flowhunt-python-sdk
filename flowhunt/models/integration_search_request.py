@@ -17,9 +17,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from flowhunt.models.integration_slug import IntegrationSlug
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,8 +26,8 @@ class IntegrationSearchRequest(BaseModel):
     """
     IntegrationSearchRequest
     """ # noqa: E501
-    slug: Optional[IntegrationSlug] = None
-    __properties: ClassVar[List[str]] = ["slug"]
+    integration_name: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["integration_name"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -69,10 +68,10 @@ class IntegrationSearchRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if slug (nullable) is None
+        # set to None if integration_name (nullable) is None
         # and model_fields_set contains the field
-        if self.slug is None and "slug" in self.model_fields_set:
-            _dict['slug'] = None
+        if self.integration_name is None and "integration_name" in self.model_fields_set:
+            _dict['integration_name'] = None
 
         return _dict
 
@@ -86,7 +85,7 @@ class IntegrationSearchRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "slug": obj.get("slug")
+            "integration_name": obj.get("integration_name")
         })
         return _obj
 

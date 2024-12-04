@@ -54,6 +54,13 @@ class TestSERPApi(unittest.TestCase):
         """
         pass
 
+    def test_serp_cluster_delete_all(self) -> None:
+        """Test case for serp_cluster_delete_all
+
+        Serp Cluster Delete All
+        """
+        pass
+
     def test_serp_cluster_delete_group(self) -> None:
         """Test case for serp_cluster_delete_group
 
@@ -65,6 +72,13 @@ class TestSERPApi(unittest.TestCase):
         """Test case for serp_cluster_delete_query
 
         Serp Cluster Delete Query
+        """
+        pass
+
+    def test_serp_cluster_get_bulk_query_intersections(self) -> None:
+        """Test case for serp_cluster_get_bulk_query_intersections
+
+        Serp Cluster Get Bulk Query Intersections
         """
         pass
 

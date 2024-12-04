@@ -35,7 +35,7 @@ class TestIntegrationSearchRequest(unittest.TestCase):
         model = IntegrationSearchRequest()
         if include_optional:
             return IntegrationSearchRequest(
-                slug = 'api_integration'
+                integration_name = ''
             )
         else:
             return IntegrationSearchRequest(

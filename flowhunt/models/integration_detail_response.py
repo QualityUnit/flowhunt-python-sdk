@@ -19,7 +19,7 @@ import json
 
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,9 +28,11 @@ class IntegrationDetailResponse(BaseModel):
     IntegrationDetailResponse
     """ # noqa: E501
     slug: StrictStr = Field(description="The type of the integration.")
-    integration_id: StrictStr = Field(description="The ID of the integration.")
+    integration_id: Optional[StrictStr] = None
+    integration_name: StrictStr = Field(description="The name of the integration.")
     created_at: datetime = Field(description="The creation date of the integration.")
-    __properties: ClassVar[List[str]] = ["slug", "integration_id", "created_at"]
+    metadata: Optional[Any] = Field(default=None, description="The metadata of the integration.")
+    __properties: ClassVar[List[str]] = ["slug", "integration_id", "integration_name", "created_at", "metadata"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -71,6 +73,14 @@ class IntegrationDetailResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of metadata
+        if self.metadata:
+            _dict['metadata'] = self.metadata.to_dict()
+        # set to None if metadata (nullable) is None
+        # and model_fields_set contains the field
+        if self.metadata is None and "metadata" in self.model_fields_set:
+            _dict['metadata'] = None
+
         return _dict
 
     @classmethod
@@ -85,7 +95,9 @@ class IntegrationDetailResponse(BaseModel):
         _obj = cls.model_validate({
             "slug": obj.get("slug"),
             "integration_id": obj.get("integration_id"),
-            "created_at": obj.get("created_at")
+            "integration_name": obj.get("integration_name"),
+            "created_at": obj.get("created_at"),
+            "metadata": AnyOf.from_dict(obj["metadata"]) if obj.get("metadata") is not None else None
         })
         return _obj
 

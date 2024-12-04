@@ -14,10 +14,10 @@
 
 import unittest
 
-from flowhunt.models.api_endpoint_search_request import ApiEndpointSearchRequest
+from flowhunt.models.integration_flow_response import IntegrationFlowResponse
 
-class TestApiEndpointSearchRequest(unittest.TestCase):
-    """ApiEndpointSearchRequest unit test stubs"""
+class TestIntegrationFlowResponse(unittest.TestCase):
+    """IntegrationFlowResponse unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,26 +25,26 @@ class TestApiEndpointSearchRequest(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> ApiEndpointSearchRequest:
-        """Test ApiEndpointSearchRequest
+    def make_instance(self, include_optional) -> IntegrationFlowResponse:
+        """Test IntegrationFlowResponse
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `ApiEndpointSearchRequest`
+        # uncomment below to create an instance of `IntegrationFlowResponse`
         """
-        model = ApiEndpointSearchRequest()
+        model = IntegrationFlowResponse()
         if include_optional:
-            return ApiEndpointSearchRequest(
-                path = '0',
-                method = 'GET'
+            return IntegrationFlowResponse(
+                redirect_to = 'https://api.com'
             )
         else:
-            return ApiEndpointSearchRequest(
+            return IntegrationFlowResponse(
+                redirect_to = 'https://api.com',
         )
         """
 
-    def testApiEndpointSearchRequest(self):
-        """Test ApiEndpointSearchRequest"""
+    def testIntegrationFlowResponse(self):
+        """Test IntegrationFlowResponse"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

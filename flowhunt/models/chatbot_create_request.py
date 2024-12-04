@@ -17,9 +17,10 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
+from flowhunt.models.chatbot_status import ChatbotStatus
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -30,20 +31,13 @@ class ChatbotCreateRequest(BaseModel):
     title: Annotated[str, Field(strict=True, max_length=100)]
     description: Optional[StrictStr] = None
     flow_id: Optional[StrictStr] = Field(default=None, description="Chatbot Flow ID")
-    status: Annotated[str, Field(strict=True, max_length=1)]
+    status: ChatbotStatus
     url_suffix: Optional[Annotated[str, Field(strict=True, max_length=100)]] = None
     theme: Optional[Annotated[str, Field(strict=True, max_length=1)]] = None
     max_window_size: Optional[Annotated[str, Field(strict=True, max_length=32)]] = None
     msg_rpm: Optional[StrictInt] = None
     msg_ip_rpm: Optional[StrictInt] = None
     __properties: ClassVar[List[str]] = ["title", "description", "flow_id", "status", "url_suffix", "theme", "max_window_size", "msg_rpm", "msg_ip_rpm"]
-
-    @field_validator('status')
-    def status_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['A', 'I']):
-            raise ValueError("must be one of enum values ('A', 'I')")
-        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

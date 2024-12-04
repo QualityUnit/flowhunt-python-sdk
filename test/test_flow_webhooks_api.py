@@ -26,6 +26,13 @@ class TestFlowWebhooksApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
+    def test_execute_third_party_webhook(self) -> None:
+        """Test case for execute_third_party_webhook
+
+        Execute Third Party Webhook
+        """
+        pass
+
     def test_execute_webhook(self) -> None:
         """Test case for execute_webhook
 

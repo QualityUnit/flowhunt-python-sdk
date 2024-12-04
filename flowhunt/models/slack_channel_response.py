@@ -17,20 +17,18 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
-class ApiIntegrationCreateRequest(BaseModel):
+class SlackChannelResponse(BaseModel):
     """
-    ApiIntegrationCreateRequest
+    SlackChannelResponse
     """ # noqa: E501
-    servers: List[StrictStr] = Field(description="The servers of the API integration.")
-    name: Annotated[str, Field(strict=True, max_length=255)] = Field(description="The name of the API integration.")
-    description: StrictStr = Field(description="The description of the API integration.")
-    __properties: ClassVar[List[str]] = ["servers", "name", "description"]
+    channel_id: StrictStr
+    channel_name: StrictStr
+    __properties: ClassVar[List[str]] = ["channel_id", "channel_name"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -50,7 +48,7 @@ class ApiIntegrationCreateRequest(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of ApiIntegrationCreateRequest from a JSON string"""
+        """Create an instance of SlackChannelResponse from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -75,7 +73,7 @@ class ApiIntegrationCreateRequest(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of ApiIntegrationCreateRequest from a dict"""
+        """Create an instance of SlackChannelResponse from a dict"""
         if obj is None:
             return None
 
@@ -83,9 +81,8 @@ class ApiIntegrationCreateRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "servers": obj.get("servers"),
-            "name": obj.get("name"),
-            "description": obj.get("description")
+            "channel_id": obj.get("channel_id"),
+            "channel_name": obj.get("channel_name")
         })
         return _obj
 

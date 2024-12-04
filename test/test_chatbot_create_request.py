@@ -38,7 +38,7 @@ class TestChatbotCreateRequest(unittest.TestCase):
                 title = 'Tenant 1',
                 description = '',
                 flow_id = '',
-                status = 'A',
+                status = A,
                 url_suffix = '',
                 theme = '',
                 max_window_size = '',
@@ -48,7 +48,7 @@ class TestChatbotCreateRequest(unittest.TestCase):
         else:
             return ChatbotCreateRequest(
                 title = 'Tenant 1',
-                status = 'A',
+                status = A,
         )
         """
 

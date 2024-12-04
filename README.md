@@ -142,6 +142,7 @@ Class | Method | HTTP request | Description
 *FlowSessionsApi* | [**get_chatbot_session_view**](docs/FlowSessionsApi.md#get_chatbot_session_view) | **GET** /v2/chatbots/sessions/{session_id} | Get Chatbot Session View
 *FlowSessionsApi* | [**search_chatbot_sessions_view**](docs/FlowSessionsApi.md#search_chatbot_sessions_view) | **POST** /v2/chatbots/sessions/search | Search Chatbot Sessions View
 *FlowSessionsApi* | [**update_chatbot_session_view**](docs/FlowSessionsApi.md#update_chatbot_session_view) | **PUT** /v2/chatbots/sessions/{session_id} | Update Chatbot Session View
+*FlowWebhooksApi* | [**execute_third_party_webhook**](docs/FlowWebhooksApi.md#execute_third_party_webhook) | **POST** /v2/flows/webhooks/third_party_integrations/{trigger_type} | Execute Third Party Webhook
 *FlowWebhooksApi* | [**execute_webhook**](docs/FlowWebhooksApi.md#execute_webhook) | **POST** /v2/flows/webhooks/{chatbot_id} | Execute Webhook
 *FlowWebhooksApi* | [**execute_webhook_from_flow**](docs/FlowWebhooksApi.md#execute_webhook_from_flow) | **POST** /v2/flows/webhooks/from_flow/{flow_id} | Execute Webhook From Flow
 *FlowWebhooksApi* | [**poll_webhook_response**](docs/FlowWebhooksApi.md#poll_webhook_response) | **POST** /v2/flows/webhooks/invocation_response/{message_id} | Poll Webhook Response
@@ -184,20 +185,14 @@ Class | Method | HTTP request | Description
 *ImagesApi* | [**convert_image**](docs/ImagesApi.md#convert_image) | **POST** /v2/images/convert | Convert Image
 *ImagesApi* | [**get_screenshot**](docs/ImagesApi.md#get_screenshot) | **POST** /v2/images/screenshot | Get Screenshot
 *ImagesApi* | [**optimize_image**](docs/ImagesApi.md#optimize_image) | **POST** /v2/images/optimize | Optimize Image
-*IntegrationsApi* | [**create_api_integration**](docs/IntegrationsApi.md#create_api_integration) | **POST** /v2/integrations/api_integrations/create | Create Api Integration
-*IntegrationsApi* | [**create_api_integration_endpoint**](docs/IntegrationsApi.md#create_api_integration_endpoint) | **POST** /v2/integrations/api_integrations/{integration_id}/endpoints/create | Create Api Integration Endpoint
+*IntegrationsApi* | [**create_integration**](docs/IntegrationsApi.md#create_integration) | **POST** /v2/integrations/{slug}/integrate | Create Integration
+*IntegrationsApi* | [**delete_integration**](docs/IntegrationsApi.md#delete_integration) | **DELETE** /v2/integrations/{slug}/{integration_id} | Delete Integration
 *IntegrationsApi* | [**get_all_integrations**](docs/IntegrationsApi.md#get_all_integrations) | **GET** /v2/integrations/all | Get All Integrations
-*IntegrationsApi* | [**get_api_integration**](docs/IntegrationsApi.md#get_api_integration) | **GET** /v2/integrations/api_integrations/ | Get Api Integration
-*IntegrationsApi* | [**get_api_integration_auth_methods**](docs/IntegrationsApi.md#get_api_integration_auth_methods) | **GET** /v2/integrations/api_integrations/auth_methods | Get Api Integration Auth Methods
-*IntegrationsApi* | [**get_api_integration_endpoints**](docs/IntegrationsApi.md#get_api_integration_endpoints) | **POST** /v2/integrations/api_integrations/{integration_id}/endpoints | Get Api Integration Endpoints
-*IntegrationsApi* | [**get_api_integrations**](docs/IntegrationsApi.md#get_api_integrations) | **POST** /v2/integrations/api_integrations/ | Get Api Integrations
-*IntegrationsApi* | [**get_my_integrations**](docs/IntegrationsApi.md#get_my_integrations) | **POST** /v2/integrations/ | Get My Integrations
-*IntegrationsApi* | [**import_openapi_spec**](docs/IntegrationsApi.md#import_openapi_spec) | **POST** /v2/integrations/api_integrations/{integration_id}/import/openapi-file | Import Openapi Spec
-*IntegrationsApi* | [**import_openapi_spec_from_url**](docs/IntegrationsApi.md#import_openapi_spec_from_url) | **POST** /v2/integrations/api_integrations/{integration_id}/import/openapi-url | Import Openapi Spec From Url
-*IntegrationsApi* | [**remove_api_integration**](docs/IntegrationsApi.md#remove_api_integration) | **DELETE** /v2/integrations/api_integrations/{integration_id} | Remove Api Integration
-*IntegrationsApi* | [**remove_api_integration_endpoint**](docs/IntegrationsApi.md#remove_api_integration_endpoint) | **DELETE** /v2/integrations/api_integrations/{integration_id}/endpoints/{endpoint_id} | Remove Api Integration Endpoint
-*IntegrationsApi* | [**update_api_integration**](docs/IntegrationsApi.md#update_api_integration) | **PUT** /v2/integrations/api_integrations/{integration_id} | Update Api Integration
-*IntegrationsApi* | [**update_api_integration_endpoint**](docs/IntegrationsApi.md#update_api_integration_endpoint) | **PUT** /v2/integrations/api_integrations/{integration_id}/endpoints/{endpoint_id} | Update Api Integration Endpoint
+*IntegrationsApi* | [**get_integration**](docs/IntegrationsApi.md#get_integration) | **GET** /v2/integrations/{slug}/{integration_id} | Get Integration
+*IntegrationsApi* | [**get_slack_channels**](docs/IntegrationsApi.md#get_slack_channels) | **GET** /v2/integrations/slack/{slack_team_id}/channels | Get Slack Channels
+*IntegrationsApi* | [**get_slack_workspaces**](docs/IntegrationsApi.md#get_slack_workspaces) | **GET** /v2/integrations/slack/ | Get Slack Workspaces
+*IntegrationsApi* | [**integration_callback**](docs/IntegrationsApi.md#integration_callback) | **GET** /v2/integrations/{slug}/callback | Integration Callback
+*IntegrationsApi* | [**search_integrations**](docs/IntegrationsApi.md#search_integrations) | **POST** /v2/integrations/{slug} | Search Integrations
 *MediaApi* | [**get_transcript**](docs/MediaApi.md#get_transcript) | **POST** /v2/media/transcript | Get Transcript
 *MediaApi* | [**get_transcript_result**](docs/MediaApi.md#get_transcript_result) | **POST** /v2/media/transcript_status | Get Transcript Result
 *MediaApi* | [**get_youtube_transcript**](docs/MediaApi.md#get_youtube_transcript) | **POST** /v2/media/youtube/transcript | Get Youtube Transcript
@@ -213,8 +208,10 @@ Class | Method | HTTP request | Description
 *SERPApi* | [**search_cluster_query**](docs/SERPApi.md#search_cluster_query) | **POST** /v2/serp/cluster/{group_id}/search | Search Cluster Query
 *SERPApi* | [**serp_cluster_add_group**](docs/SERPApi.md#serp_cluster_add_group) | **POST** /v2/serp/cluster/create | Serp Cluster Add Group
 *SERPApi* | [**serp_cluster_add_queries**](docs/SERPApi.md#serp_cluster_add_queries) | **POST** /v2/serp/cluster/add_queries | Serp Cluster Add Queries
+*SERPApi* | [**serp_cluster_delete_all**](docs/SERPApi.md#serp_cluster_delete_all) | **DELETE** /v2/serp/cluster/delete_all | Serp Cluster Delete All
 *SERPApi* | [**serp_cluster_delete_group**](docs/SERPApi.md#serp_cluster_delete_group) | **DELETE** /v2/serp/cluster/{group_id} | Serp Cluster Delete Group
 *SERPApi* | [**serp_cluster_delete_query**](docs/SERPApi.md#serp_cluster_delete_query) | **DELETE** /v2/serp/cluster/{group_id}/{query_id} | Serp Cluster Delete Query
+*SERPApi* | [**serp_cluster_get_bulk_query_intersections**](docs/SERPApi.md#serp_cluster_get_bulk_query_intersections) | **POST** /v2/serp/cluster/bulk_query_intersections | Serp Cluster Get Bulk Query Intersections
 *SERPApi* | [**serp_cluster_get_query_intersections**](docs/SERPApi.md#serp_cluster_get_query_intersections) | **POST** /v2/serp/cluster/query_intersections | Serp Cluster Get Query Intersections
 *SERPApi* | [**serp_search**](docs/SERPApi.md#serp_search) | **POST** /v2/serp/serp/search | Serp Search
 *SERPApi* | [**serp_volumes**](docs/SERPApi.md#serp_volumes) | **POST** /v2/serp/serp/volumes | Serp Volumes
@@ -236,6 +233,8 @@ Class | Method | HTTP request | Description
 *SemanticSearchApi* | [**get_similar_docs_by_query**](docs/SemanticSearchApi.md#get_similar_docs_by_query) | **POST** /v2/similarities/query/live | Get Similar Docs By Query
 *SemanticSearchApi* | [**schedule_similar_docs_by_doc_id**](docs/SemanticSearchApi.md#schedule_similar_docs_by_doc_id) | **POST** /v2/similarities/document | Schedule Similar Docs By Doc Id
 *SemanticSearchApi* | [**schedule_similar_docs_by_query**](docs/SemanticSearchApi.md#schedule_similar_docs_by_query) | **POST** /v2/similarities/query | Schedule Similar Docs By Query
+*SlackApi* | [**get_slack_channels_0**](docs/SlackApi.md#get_slack_channels_0) | **GET** /v2/integrations/slack/{slack_team_id}/channels | Get Slack Channels
+*SlackApi* | [**get_slack_workspaces_0**](docs/SlackApi.md#get_slack_workspaces_0) | **GET** /v2/integrations/slack/ | Get Slack Workspaces
 *TagsApi* | [**create_tag**](docs/TagsApi.md#create_tag) | **POST** /v2/tags/create | Create Tag
 *TagsApi* | [**delete_tag**](docs/TagsApi.md#delete_tag) | **DELETE** /v2/tags/{tag_id} | Delete Tag
 *TagsApi* | [**search_tags**](docs/TagsApi.md#search_tags) | **POST** /v2/tags/search | Search Tags
@@ -254,30 +253,17 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
  - [AllFlowsSearchRequest](docs/AllFlowsSearchRequest.md)
- - [ApiEndpointCreateRequest](docs/ApiEndpointCreateRequest.md)
- - [ApiEndpointResponse](docs/ApiEndpointResponse.md)
- - [ApiEndpointSearchRequest](docs/ApiEndpointSearchRequest.md)
- - [ApiEndpointUpdateRequest](docs/ApiEndpointUpdateRequest.md)
- - [ApiIntegrationAuthType](docs/ApiIntegrationAuthType.md)
- - [ApiIntegrationAuthenticationMethod](docs/ApiIntegrationAuthenticationMethod.md)
- - [ApiIntegrationCreateRequest](docs/ApiIntegrationCreateRequest.md)
- - [ApiIntegrationOpenApiImportRequest](docs/ApiIntegrationOpenApiImportRequest.md)
- - [ApiIntegrationResponse](docs/ApiIntegrationResponse.md)
- - [ApiIntegrationSearchRequest](docs/ApiIntegrationSearchRequest.md)
- - [ApiIntegrationUpdateRequest](docs/ApiIntegrationUpdateRequest.md)
  - [ApiKeyCreateRequest](docs/ApiKeyCreateRequest.md)
  - [ApiKeyResponse](docs/ApiKeyResponse.md)
  - [ApiKeySearchRequest](docs/ApiKeySearchRequest.md)
  - [ApiKeyUpdateRequest](docs/ApiKeyUpdateRequest.md)
- - [ApiMethod](docs/ApiMethod.md)
  - [AppUrlInput](docs/AppUrlInput.md)
  - [AppUrlOutput](docs/AppUrlOutput.md)
  - [BoolChar](docs/BoolChar.md)
  - [ChatbotCreateRequest](docs/ChatbotCreateRequest.md)
  - [ChatbotResponse](docs/ChatbotResponse.md)
  - [ChatbotSearchRequest](docs/ChatbotSearchRequest.md)
- - [ChatbotStatusInput](docs/ChatbotStatusInput.md)
- - [ChatbotStatusOutput](docs/ChatbotStatusOutput.md)
+ - [ChatbotStatus](docs/ChatbotStatus.md)
  - [ChatbotUpdateRequest](docs/ChatbotUpdateRequest.md)
  - [CheckoutCreateRequest](docs/CheckoutCreateRequest.md)
  - [ColumnDataType](docs/ColumnDataType.md)
@@ -357,6 +343,7 @@ Class | Method | HTTP request | Description
  - [ImageOptimizeRequest](docs/ImageOptimizeRequest.md)
  - [IntegrationCategory](docs/IntegrationCategory.md)
  - [IntegrationDetailResponse](docs/IntegrationDetailResponse.md)
+ - [IntegrationFlowResponse](docs/IntegrationFlowResponse.md)
  - [IntegrationResponse](docs/IntegrationResponse.md)
  - [IntegrationSearchRequest](docs/IntegrationSearchRequest.md)
  - [IntegrationSlug](docs/IntegrationSlug.md)
@@ -404,6 +391,8 @@ Class | Method | HTTP request | Description
  - [SerpSearchRequest](docs/SerpSearchRequest.md)
  - [SerpSearchRequests](docs/SerpSearchRequests.md)
  - [SerpVolumeRequest](docs/SerpVolumeRequest.md)
+ - [SlackChannelResponse](docs/SlackChannelResponse.md)
+ - [SlackWorkspaceResponse](docs/SlackWorkspaceResponse.md)
  - [SubscriptionPlan](docs/SubscriptionPlan.md)
  - [TagCreateRequest](docs/TagCreateRequest.md)
  - [TagResponse](docs/TagResponse.md)

@@ -36,13 +36,15 @@ class TestIntegrationDetailResponse(unittest.TestCase):
         if include_optional:
             return IntegrationDetailResponse(
                 slug = 'api_integration',
-                integration_id = '123e4567-e89b-12d3-a456-426614174000',
-                created_at = '2021-01-01T00:00:00Z'
+                integration_id = '',
+                integration_name = 'API Integration',
+                created_at = '2021-01-01T00:00:00Z',
+                metadata = {meta=data}
             )
         else:
             return IntegrationDetailResponse(
                 slug = 'api_integration',
-                integration_id = '123e4567-e89b-12d3-a456-426614174000',
+                integration_name = 'API Integration',
                 created_at = '2021-01-01T00:00:00Z',
         )
         """

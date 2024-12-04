@@ -6,8 +6,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **slug** | **str** | The type of the integration. | 
-**integration_id** | **str** | The ID of the integration. | 
+**integration_id** | **str** |  | [optional] 
+**integration_name** | **str** | The name of the integration. | 
 **created_at** | **datetime** | The creation date of the integration. | 
+**metadata** | [**AnyOf**](AnyOf.md) | The metadata of the integration. | [optional] 
 
 ## Example
 

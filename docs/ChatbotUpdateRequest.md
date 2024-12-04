@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **title** | **str** |  | [optional] 
 **description** | **str** |  | [optional] 
 **flow_id** | **str** |  | [optional] 
-**status** | **str** |  | [optional] 
+**status** | [**ChatbotStatus**](ChatbotStatus.md) |  | [optional] 
 **url_suffix** | **str** |  | [optional] 
 **theme** | **str** |  | [optional] 
 **max_window_size** | **str** |  | [optional] 

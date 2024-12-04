@@ -4,10 +4,78 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**execute_third_party_webhook**](FlowWebhooksApi.md#execute_third_party_webhook) | **POST** /v2/flows/webhooks/third_party_integrations/{trigger_type} | Execute Third Party Webhook
 [**execute_webhook**](FlowWebhooksApi.md#execute_webhook) | **POST** /v2/flows/webhooks/{chatbot_id} | Execute Webhook
 [**execute_webhook_from_flow**](FlowWebhooksApi.md#execute_webhook_from_flow) | **POST** /v2/flows/webhooks/from_flow/{flow_id} | Execute Webhook From Flow
 [**poll_webhook_response**](FlowWebhooksApi.md#poll_webhook_response) | **POST** /v2/flows/webhooks/invocation_response/{message_id} | Poll Webhook Response
 
+
+# **execute_third_party_webhook**
+> object execute_third_party_webhook(trigger_type)
+
+Execute Third Party Webhook
+
+### Example
+
+
+```python
+import flowhunt
+from flowhunt.models.trigger_type import TriggerType
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.FlowWebhooksApi(api_client)
+    trigger_type = flowhunt.TriggerType() # TriggerType | 
+
+    try:
+        # Execute Third Party Webhook
+        api_response = api_instance.execute_third_party_webhook(trigger_type)
+        print("The response of FlowWebhooksApi->execute_third_party_webhook:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling FlowWebhooksApi->execute_third_party_webhook: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **trigger_type** | [**TriggerType**](.md)|  | 
+
+### Return type
+
+**object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **execute_webhook**
 > FlowSessionInvocationResponse execute_webhook(chatbot_id, workspace_id, trigger_type)

@@ -17,18 +17,17 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
-class ApiIntegrationSearchRequest(BaseModel):
+class IntegrationFlowResponse(BaseModel):
     """
-    ApiIntegrationSearchRequest
+    IntegrationFlowResponse
     """ # noqa: E501
-    name: Optional[StrictStr] = None
-    description: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["name", "description"]
+    redirect_to: StrictStr = Field(description="The URL to redirect to.")
+    __properties: ClassVar[List[str]] = ["redirect_to"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -48,7 +47,7 @@ class ApiIntegrationSearchRequest(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of ApiIntegrationSearchRequest from a JSON string"""
+        """Create an instance of IntegrationFlowResponse from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -69,21 +68,11 @@ class ApiIntegrationSearchRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if name (nullable) is None
-        # and model_fields_set contains the field
-        if self.name is None and "name" in self.model_fields_set:
-            _dict['name'] = None
-
-        # set to None if description (nullable) is None
-        # and model_fields_set contains the field
-        if self.description is None and "description" in self.model_fields_set:
-            _dict['description'] = None
-
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of ApiIntegrationSearchRequest from a dict"""
+        """Create an instance of IntegrationFlowResponse from a dict"""
         if obj is None:
             return None
 
@@ -91,8 +80,7 @@ class ApiIntegrationSearchRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "name": obj.get("name"),
-            "description": obj.get("description")
+            "redirect_to": obj.get("redirect_to")
         })
         return _obj
 

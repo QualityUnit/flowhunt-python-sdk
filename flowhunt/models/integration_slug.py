@@ -26,9 +26,11 @@ class IntegrationSlug(str, Enum):
     """
     allowed enum values
     """
-    API_INTEGRATION = 'api_integration'
-    LIVEAGENT_INTEGRATION = 'liveagent_integration'
+    SHOPIFY_INTEGRATION = 'shopify_integration'
+    SLACK_INTEGRATION = 'slack_integration'
     HUBSPOT_INTEGRATION = 'hubspot_integration'
+    LIVEAGENT_INTEGRATION = 'liveagent_integration'
+    HUBSPOT_WIDGET_INTEGRATION = 'hubspot_widget_integration'
     LIVECHAT_INTEGRATION = 'livechat_integration'
     SMARTSUPP_INTEGRATION = 'smartsupp_integration'
     FRESHCHAT_INTEGRATION = 'freshchat_integration'

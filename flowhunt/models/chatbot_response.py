@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from flowhunt.models.chatbot_status_output import ChatbotStatusOutput
+from flowhunt.models.chatbot_status import ChatbotStatus
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -32,7 +32,7 @@ class ChatbotResponse(BaseModel):
     title: StrictStr = Field(description="Tenant name")
     description: Optional[StrictStr] = None
     flow_id: StrictStr = Field(description="Flow ID")
-    status: Optional[ChatbotStatusOutput]
+    status: Optional[ChatbotStatus]
     url_suffix: Optional[StrictStr] = None
     theme: Optional[StrictStr] = None
     max_window_size: Optional[StrictStr] = None

@@ -21,6 +21,7 @@ from flowhunt.api.serp_api import SERPApi
 from flowhunt.api.schedules_api import SchedulesApi
 from flowhunt.api.secrets_api import SecretsApi
 from flowhunt.api.semantic_search_api import SemanticSearchApi
+from flowhunt.api.slack_api import SlackApi
 from flowhunt.api.tags_api import TagsApi
 from flowhunt.api.workspaces_api import WorkspacesApi
 

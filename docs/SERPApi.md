@@ -8,8 +8,10 @@ Method | HTTP request | Description
 [**search_cluster_query**](SERPApi.md#search_cluster_query) | **POST** /v2/serp/cluster/{group_id}/search | Search Cluster Query
 [**serp_cluster_add_group**](SERPApi.md#serp_cluster_add_group) | **POST** /v2/serp/cluster/create | Serp Cluster Add Group
 [**serp_cluster_add_queries**](SERPApi.md#serp_cluster_add_queries) | **POST** /v2/serp/cluster/add_queries | Serp Cluster Add Queries
+[**serp_cluster_delete_all**](SERPApi.md#serp_cluster_delete_all) | **DELETE** /v2/serp/cluster/delete_all | Serp Cluster Delete All
 [**serp_cluster_delete_group**](SERPApi.md#serp_cluster_delete_group) | **DELETE** /v2/serp/cluster/{group_id} | Serp Cluster Delete Group
 [**serp_cluster_delete_query**](SERPApi.md#serp_cluster_delete_query) | **DELETE** /v2/serp/cluster/{group_id}/{query_id} | Serp Cluster Delete Query
+[**serp_cluster_get_bulk_query_intersections**](SERPApi.md#serp_cluster_get_bulk_query_intersections) | **POST** /v2/serp/cluster/bulk_query_intersections | Serp Cluster Get Bulk Query Intersections
 [**serp_cluster_get_query_intersections**](SERPApi.md#serp_cluster_get_query_intersections) | **POST** /v2/serp/cluster/query_intersections | Serp Cluster Get Query Intersections
 [**serp_search**](SERPApi.md#serp_search) | **POST** /v2/serp/serp/search | Serp Search
 [**serp_volumes**](SERPApi.md#serp_volumes) | **POST** /v2/serp/serp/volumes | Serp Volumes
@@ -366,6 +368,90 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **serp_cluster_delete_all**
+> Completed serp_cluster_delete_all(workspace_id)
+
+Serp Cluster Delete All
+
+### Example
+
+* Api Key Authentication (APIKeyHeader):
+* Bearer Authentication (HTTPBearer):
+
+```python
+import flowhunt
+from flowhunt.models.completed import Completed
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: APIKeyHeader
+configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
+
+# Configure Bearer authorization: HTTPBearer
+configuration = flowhunt.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.SERPApi(api_client)
+    workspace_id = 'workspace_id_example' # str | 
+
+    try:
+        # Serp Cluster Delete All
+        api_response = api_instance.serp_cluster_delete_all(workspace_id)
+        print("The response of SERPApi->serp_cluster_delete_all:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling SERPApi->serp_cluster_delete_all: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **workspace_id** | **str**|  | 
+
+### Return type
+
+[**Completed**](Completed.md)
+
+### Authorization
+
+[APIKeyHeader](../README.md#APIKeyHeader), [HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **serp_cluster_delete_group**
 > Completed serp_cluster_delete_group(group_id, workspace_id)
 
@@ -529,6 +615,93 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **serp_cluster_get_bulk_query_intersections**
+> List[TaskResponse] serp_cluster_get_bulk_query_intersections(workspace_id, serp_cluster_query_intersections_request)
+
+Serp Cluster Get Bulk Query Intersections
+
+### Example
+
+* Api Key Authentication (APIKeyHeader):
+* Bearer Authentication (HTTPBearer):
+
+```python
+import flowhunt
+from flowhunt.models.serp_cluster_query_intersections_request import SerpClusterQueryIntersectionsRequest
+from flowhunt.models.task_response import TaskResponse
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: APIKeyHeader
+configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
+
+# Configure Bearer authorization: HTTPBearer
+configuration = flowhunt.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.SERPApi(api_client)
+    workspace_id = 'workspace_id_example' # str | 
+    serp_cluster_query_intersections_request = [flowhunt.SerpClusterQueryIntersectionsRequest()] # List[SerpClusterQueryIntersectionsRequest] | 
+
+    try:
+        # Serp Cluster Get Bulk Query Intersections
+        api_response = api_instance.serp_cluster_get_bulk_query_intersections(workspace_id, serp_cluster_query_intersections_request)
+        print("The response of SERPApi->serp_cluster_get_bulk_query_intersections:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling SERPApi->serp_cluster_get_bulk_query_intersections: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **workspace_id** | **str**|  | 
+ **serp_cluster_query_intersections_request** | [**List[SerpClusterQueryIntersectionsRequest]**](SerpClusterQueryIntersectionsRequest.md)|  | 
+
+### Return type
+
+[**List[TaskResponse]**](TaskResponse.md)
+
+### Authorization
+
+[APIKeyHeader](../README.md#APIKeyHeader), [HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details
