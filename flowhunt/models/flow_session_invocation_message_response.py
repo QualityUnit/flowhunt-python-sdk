@@ -29,12 +29,11 @@ class FlowSessionInvocationMessageResponse(BaseModel):
     """
     FlowSessionInvocationMessageResponse
     """ # noqa: E501
-    message_id: StrictStr = Field(description="Message ID")
     response_status: FlowSessionStatus = Field(description="Response status")
     loading_indicator: Optional[Dict[str, FlowLoadingIndicator]] = None
     intermediate_results: Optional[Dict[str, TaskOutput]] = None
     final_response: Optional[List[StrictStr]] = None
-    __properties: ClassVar[List[str]] = ["message_id", "response_status", "loading_indicator", "intermediate_results", "final_response"]
+    __properties: ClassVar[List[str]] = ["response_status", "loading_indicator", "intermediate_results", "final_response"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -116,7 +115,6 @@ class FlowSessionInvocationMessageResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "message_id": obj.get("message_id"),
             "response_status": obj.get("response_status"),
             "loading_indicator": dict(
                 (_k, FlowLoadingIndicator.from_dict(_v))

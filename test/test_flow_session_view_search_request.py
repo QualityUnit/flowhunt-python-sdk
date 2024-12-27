@@ -41,8 +41,14 @@ class TestFlowSessionViewSearchRequest(unittest.TestCase):
                     ''
                     ],
                 limit = 56,
-                created_at_start = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                created_at_end = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f')
+                created_at_filter = None,
+                last_message_at_filter = None,
+                duration_filter = None,
+                msg_count_filter = None,
+                credits_filter = None,
+                chatbot_name = '',
+                flow_name = '',
+                ipaddress_filter = None
             )
         else:
             return FlowSessionViewSearchRequest(

@@ -75,6 +75,13 @@ class TestDocumentsApi(unittest.TestCase):
         """
         pass
 
+    def test_import_faq(self) -> None:
+        """Test case for import_faq
+
+        Import Faq
+        """
+        pass
+
     def test_search_document_categories(self) -> None:
         """Test case for search_document_categories
 

@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **message_id** | **str** | Message ID | 
+**created_at** | **str** | Created at | 
 
 ## Example
 

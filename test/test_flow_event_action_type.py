@@ -14,10 +14,10 @@
 
 import unittest
 
-from flowhunt.models.flow_message_role import FlowMessageRole
+from flowhunt.models.flow_event_action_type import FlowEventActionType
 
-class TestFlowMessageRole(unittest.TestCase):
-    """FlowMessageRole unit test stubs"""
+class TestFlowEventActionType(unittest.TestCase):
+    """FlowEventActionType unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,9 +25,9 @@ class TestFlowMessageRole(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testFlowMessageRole(self):
-        """Test FlowMessageRole"""
-        # inst = FlowMessageRole()
+    def testFlowEventActionType(self):
+        """Test FlowEventActionType"""
+        # inst = FlowEventActionType()
 
 if __name__ == '__main__':
     unittest.main()

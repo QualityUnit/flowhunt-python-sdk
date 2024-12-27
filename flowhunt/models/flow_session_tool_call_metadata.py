@@ -22,13 +22,14 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
-class FlowSessionInvocationResponse(BaseModel):
+class FlowSessionToolCallMetadata(BaseModel):
     """
-    FlowSessionInvocationResponse
+    FlowSessionToolCallMetadata
     """ # noqa: E501
-    message_id: StrictStr = Field(description="Message ID")
-    created_at: StrictStr = Field(description="Created at")
-    __properties: ClassVar[List[str]] = ["message_id", "created_at"]
+    tool_name: StrictStr = Field(description="Tool name")
+    agent_query: StrictStr = Field(description="Search query")
+    tool_response: StrictStr = Field(description="Tool response")
+    __properties: ClassVar[List[str]] = ["tool_name", "agent_query", "tool_response"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -48,7 +49,7 @@ class FlowSessionInvocationResponse(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of FlowSessionInvocationResponse from a JSON string"""
+        """Create an instance of FlowSessionToolCallMetadata from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -73,7 +74,7 @@ class FlowSessionInvocationResponse(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of FlowSessionInvocationResponse from a dict"""
+        """Create an instance of FlowSessionToolCallMetadata from a dict"""
         if obj is None:
             return None
 
@@ -81,8 +82,9 @@ class FlowSessionInvocationResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "message_id": obj.get("message_id"),
-            "created_at": obj.get("created_at")
+            "tool_name": obj.get("tool_name"),
+            "agent_query": obj.get("agent_query"),
+            "tool_response": obj.get("tool_response")
         })
         return _obj
 

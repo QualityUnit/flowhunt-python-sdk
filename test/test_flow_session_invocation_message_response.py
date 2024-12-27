@@ -35,7 +35,6 @@ class TestFlowSessionInvocationMessageResponse(unittest.TestCase):
         model = FlowSessionInvocationMessageResponse()
         if include_optional:
             return FlowSessionInvocationMessageResponse(
-                message_id = 'a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11',
                 response_status = success,
                 loading_indicator = {
                     'key' : flowhunt.models.flow_loading_indicator.FlowLoadingIndicator(
@@ -63,7 +62,6 @@ class TestFlowSessionInvocationMessageResponse(unittest.TestCase):
             )
         else:
             return FlowSessionInvocationMessageResponse(
-                message_id = 'a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11',
                 response_status = success,
         )
         """

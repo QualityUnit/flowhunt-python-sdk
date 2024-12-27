@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **search_flow_messages**
-> List[FlowMessageResponse] search_flow_messages(session_id, workspace_id)
+> List[FlowSessionEvent] search_flow_messages(session_id, workspace_id)
 
 Search Flow Messages
 
@@ -19,7 +19,7 @@ Search Flow Messages
 
 ```python
 import flowhunt
-from flowhunt.models.flow_message_response import FlowMessageResponse
+from flowhunt.models.flow_session_event import FlowSessionEvent
 from flowhunt.rest import ApiException
 from pprint import pprint
 
@@ -73,7 +73,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[FlowMessageResponse]**](FlowMessageResponse.md)
+[**List[FlowSessionEvent]**](FlowSessionEvent.md)
 
 ### Authorization
 

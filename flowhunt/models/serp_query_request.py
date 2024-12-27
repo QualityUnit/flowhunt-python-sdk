@@ -17,18 +17,21 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, ConfigDict, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
-class FlowSessionInvocationResponse(BaseModel):
+class SerpQueryRequest(BaseModel):
     """
-    FlowSessionInvocationResponse
+    SerpQueryRequest
     """ # noqa: E501
-    message_id: StrictStr = Field(description="Message ID")
-    created_at: StrictStr = Field(description="Created at")
-    __properties: ClassVar[List[str]] = ["message_id", "created_at"]
+    post_back_url: Optional[StrictStr] = None
+    query: Optional[StrictStr] = None
+    country: Optional[StrictStr] = None
+    language: Optional[StrictStr] = None
+    location: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["post_back_url", "query", "country", "language", "location"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -48,7 +51,7 @@ class FlowSessionInvocationResponse(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of FlowSessionInvocationResponse from a JSON string"""
+        """Create an instance of SerpQueryRequest from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -69,11 +72,36 @@ class FlowSessionInvocationResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # set to None if post_back_url (nullable) is None
+        # and model_fields_set contains the field
+        if self.post_back_url is None and "post_back_url" in self.model_fields_set:
+            _dict['post_back_url'] = None
+
+        # set to None if query (nullable) is None
+        # and model_fields_set contains the field
+        if self.query is None and "query" in self.model_fields_set:
+            _dict['query'] = None
+
+        # set to None if country (nullable) is None
+        # and model_fields_set contains the field
+        if self.country is None and "country" in self.model_fields_set:
+            _dict['country'] = None
+
+        # set to None if language (nullable) is None
+        # and model_fields_set contains the field
+        if self.language is None and "language" in self.model_fields_set:
+            _dict['language'] = None
+
+        # set to None if location (nullable) is None
+        # and model_fields_set contains the field
+        if self.location is None and "location" in self.model_fields_set:
+            _dict['location'] = None
+
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of FlowSessionInvocationResponse from a dict"""
+        """Create an instance of SerpQueryRequest from a dict"""
         if obj is None:
             return None
 
@@ -81,8 +109,11 @@ class FlowSessionInvocationResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "message_id": obj.get("message_id"),
-            "created_at": obj.get("created_at")
+            "post_back_url": obj.get("post_back_url"),
+            "query": obj.get("query"),
+            "country": obj.get("country"),
+            "language": obj.get("language"),
+            "location": obj.get("location")
         })
         return _obj
 

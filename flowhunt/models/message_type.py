@@ -18,23 +18,21 @@ from enum import Enum
 from typing_extensions import Self
 
 
-class TriggerType(str, Enum):
+class MessageType(str, Enum):
     """
-    TriggerType
+    MessageType
     """
 
     """
     allowed enum values
     """
-    ON_CHAT_OPEN = 'on_chat_open'
-    CUSTOM_TRIGGER = 'custom_trigger'
-    CHAT_INPUT = 'chat_input'
-    SLACK_MESSAGE_RECEIVED = 'slack_message_received'
-    SLACK_SHORTCUTS = 'slack_shortcuts'
+    AI = 'ai'
+    HUMAN = 'human'
+    SYSTEM = 'system'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
-        """Create an instance of TriggerType from a JSON string"""
+        """Create an instance of MessageType from a JSON string"""
         return cls(json.loads(json_str))
 
 

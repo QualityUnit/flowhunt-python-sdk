@@ -35,11 +35,13 @@ class TestFlowSessionInvocationResponse(unittest.TestCase):
         model = FlowSessionInvocationResponse()
         if include_optional:
             return FlowSessionInvocationResponse(
-                message_id = 'a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11'
+                message_id = 'a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11',
+                created_at = ''
             )
         else:
             return FlowSessionInvocationResponse(
                 message_id = 'a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11',
+                created_at = '',
         )
         """
 

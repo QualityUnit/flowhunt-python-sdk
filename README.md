@@ -129,6 +129,7 @@ Class | Method | HTTP request | Description
 *DocumentsApi* | [**delete_faq**](docs/DocumentsApi.md#delete_faq) | **DELETE** /v2/documents/faqs/{faq_id} | Delete Faq
 *DocumentsApi* | [**download_binary_document**](docs/DocumentsApi.md#download_binary_document) | **GET** /v2/documents/download/binary/{doc_id} | Download Binary Document
 *DocumentsApi* | [**download_text_document**](docs/DocumentsApi.md#download_text_document) | **GET** /v2/documents/download/text/{doc_id} | Download Text Document
+*DocumentsApi* | [**import_faq**](docs/DocumentsApi.md#import_faq) | **POST** /v2/documents/faqs/import | Import Faq
 *DocumentsApi* | [**search_document_categories**](docs/DocumentsApi.md#search_document_categories) | **POST** /v2/documents/categories/search | Search Document Categories
 *DocumentsApi* | [**search_documents**](docs/DocumentsApi.md#search_documents) | **POST** /v2/documents/search | Search Documents
 *DocumentsApi* | [**search_faqs**](docs/DocumentsApi.md#search_faqs) | **POST** /v2/documents/faqs/search | Search Faqs
@@ -162,7 +163,7 @@ Class | Method | HTTP request | Description
 *FlowsApi* | [**invoke_flow**](docs/FlowsApi.md#invoke_flow) | **POST** /v2/flows/{flow_id}/invoke | Invoke Flow
 *FlowsApi* | [**invoke_flow_response**](docs/FlowsApi.md#invoke_flow_response) | **POST** /v2/flows/sessions/{session_id}/invoke | Invoke Flow Response
 *FlowsApi* | [**invoke_flow_singleton**](docs/FlowsApi.md#invoke_flow_singleton) | **POST** /v2/flows/{flow_id}/invoke_singleton | Invoke Flow Singleton
-*FlowsApi* | [**poll_flow_response**](docs/FlowsApi.md#poll_flow_response) | **POST** /v2/flows/sessions/{session_id}/invocation_response/{message_id} | Poll Flow Response
+*FlowsApi* | [**poll_flow_response**](docs/FlowsApi.md#poll_flow_response) | **POST** /v2/flows/sessions/{session_id}/invocation_response/{from_timestamp} | Poll Flow Response
 *FlowsApi* | [**search**](docs/FlowsApi.md#search) | **POST** /v2/flows/ | Search
 *FlowsApi* | [**search_all**](docs/FlowsApi.md#search_all) | **POST** /v2/flows/all | Search All
 *FlowsApi* | [**search_flow_categories**](docs/FlowsApi.md#search_flow_categories) | **POST** /v2/flows/categories/search | Search Flow Categories
@@ -208,6 +209,7 @@ Class | Method | HTTP request | Description
 *SERPApi* | [**search_cluster_query**](docs/SERPApi.md#search_cluster_query) | **POST** /v2/serp/cluster/{group_id}/search | Search Cluster Query
 *SERPApi* | [**serp_cluster_add_group**](docs/SERPApi.md#serp_cluster_add_group) | **POST** /v2/serp/cluster/create | Serp Cluster Add Group
 *SERPApi* | [**serp_cluster_add_queries**](docs/SERPApi.md#serp_cluster_add_queries) | **POST** /v2/serp/cluster/add_queries | Serp Cluster Add Queries
+*SERPApi* | [**serp_cluster_bulk_delete_queries**](docs/SERPApi.md#serp_cluster_bulk_delete_queries) | **DELETE** /v2/serp/cluster/{group_id}/bulk_delete | Serp Cluster Bulk Delete Queries
 *SERPApi* | [**serp_cluster_delete_all**](docs/SERPApi.md#serp_cluster_delete_all) | **DELETE** /v2/serp/cluster/delete_all | Serp Cluster Delete All
 *SERPApi* | [**serp_cluster_delete_group**](docs/SERPApi.md#serp_cluster_delete_group) | **DELETE** /v2/serp/cluster/{group_id} | Serp Cluster Delete Group
 *SERPApi* | [**serp_cluster_delete_query**](docs/SERPApi.md#serp_cluster_delete_query) | **DELETE** /v2/serp/cluster/{group_id}/{query_id} | Serp Cluster Delete Query
@@ -301,23 +303,27 @@ Class | Method | HTTP request | Description
  - [FlowConfig](docs/FlowConfig.md)
  - [FlowCreate](docs/FlowCreate.md)
  - [FlowDetailResponse](docs/FlowDetailResponse.md)
+ - [FlowEventActionType](docs/FlowEventActionType.md)
  - [FlowInvokeRequest](docs/FlowInvokeRequest.md)
  - [FlowLoadingIndicator](docs/FlowLoadingIndicator.md)
- - [FlowMessageResponse](docs/FlowMessageResponse.md)
- - [FlowMessageRole](docs/FlowMessageRole.md)
  - [FlowRequestChatRole](docs/FlowRequestChatRole.md)
  - [FlowResponse](docs/FlowResponse.md)
  - [FlowSearchRequest](docs/FlowSearchRequest.md)
  - [FlowSessionAttachmentResponse](docs/FlowSessionAttachmentResponse.md)
  - [FlowSessionCreateFromFlowRequest](docs/FlowSessionCreateFromFlowRequest.md)
  - [FlowSessionCreateRequest](docs/FlowSessionCreateRequest.md)
+ - [FlowSessionEvent](docs/FlowSessionEvent.md)
  - [FlowSessionInvocationMessageResponse](docs/FlowSessionInvocationMessageResponse.md)
  - [FlowSessionInvocationResponse](docs/FlowSessionInvocationResponse.md)
  - [FlowSessionInvokeRequest](docs/FlowSessionInvokeRequest.md)
+ - [FlowSessionLoadingMetadata](docs/FlowSessionLoadingMetadata.md)
  - [FlowSessionMessage](docs/FlowSessionMessage.md)
+ - [FlowSessionMessageMetadata](docs/FlowSessionMessageMetadata.md)
  - [FlowSessionResponse](docs/FlowSessionResponse.md)
  - [FlowSessionStatus](docs/FlowSessionStatus.md)
  - [FlowSessionStreamRequest](docs/FlowSessionStreamRequest.md)
+ - [FlowSessionTaskResponseMetadata](docs/FlowSessionTaskResponseMetadata.md)
+ - [FlowSessionToolCallMetadata](docs/FlowSessionToolCallMetadata.md)
  - [FlowSessionViewResponse](docs/FlowSessionViewResponse.md)
  - [FlowSessionViewSearchRequest](docs/FlowSessionViewSearchRequest.md)
  - [FlowSessionViewUpdateRequest](docs/FlowSessionViewUpdateRequest.md)
@@ -348,6 +354,8 @@ Class | Method | HTTP request | Description
  - [IntegrationSearchRequest](docs/IntegrationSearchRequest.md)
  - [IntegrationSlug](docs/IntegrationSlug.md)
  - [LoginUserRequest](docs/LoginUserRequest.md)
+ - [MessageType](docs/MessageType.md)
+ - [Metadata](docs/Metadata.md)
  - [NewPasswordRequest](docs/NewPasswordRequest.md)
  - [OutputFormat](docs/OutputFormat.md)
  - [PlanResponse](docs/PlanResponse.md)
@@ -388,6 +396,7 @@ Class | Method | HTTP request | Description
  - [SerpClusterGroupSearchRequest](docs/SerpClusterGroupSearchRequest.md)
  - [SerpClusterQueryIntersectionsRequest](docs/SerpClusterQueryIntersectionsRequest.md)
  - [SerpClusterQueryResponse](docs/SerpClusterQueryResponse.md)
+ - [SerpQueryRequest](docs/SerpQueryRequest.md)
  - [SerpSearchRequest](docs/SerpSearchRequest.md)
  - [SerpSearchRequests](docs/SerpSearchRequests.md)
  - [SerpVolumeRequest](docs/SerpVolumeRequest.md)

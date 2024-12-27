@@ -17,7 +17,6 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
 from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
@@ -31,9 +30,15 @@ class FlowSessionViewSearchRequest(BaseModel):
     flow_id: Optional[StrictStr] = None
     tags: Optional[List[StrictStr]] = None
     limit: Optional[StrictInt] = None
-    created_at_start: Optional[datetime] = None
-    created_at_end: Optional[datetime] = None
-    __properties: ClassVar[List[str]] = ["chatbot_id", "flow_id", "tags", "limit", "created_at_start", "created_at_end"]
+    created_at_filter: Optional[Dict[str, Any]] = None
+    last_message_at_filter: Optional[Dict[str, Any]] = None
+    duration_filter: Optional[Dict[str, Any]] = None
+    msg_count_filter: Optional[Dict[str, Any]] = None
+    credits_filter: Optional[Dict[str, Any]] = None
+    chatbot_name: Optional[StrictStr] = None
+    flow_name: Optional[StrictStr] = None
+    ipaddress_filter: Optional[Dict[str, Any]] = None
+    __properties: ClassVar[List[str]] = ["chatbot_id", "flow_id", "tags", "limit", "created_at_filter", "last_message_at_filter", "duration_filter", "msg_count_filter", "credits_filter", "chatbot_name", "flow_name", "ipaddress_filter"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -94,15 +99,45 @@ class FlowSessionViewSearchRequest(BaseModel):
         if self.limit is None and "limit" in self.model_fields_set:
             _dict['limit'] = None
 
-        # set to None if created_at_start (nullable) is None
+        # set to None if created_at_filter (nullable) is None
         # and model_fields_set contains the field
-        if self.created_at_start is None and "created_at_start" in self.model_fields_set:
-            _dict['created_at_start'] = None
+        if self.created_at_filter is None and "created_at_filter" in self.model_fields_set:
+            _dict['created_at_filter'] = None
 
-        # set to None if created_at_end (nullable) is None
+        # set to None if last_message_at_filter (nullable) is None
         # and model_fields_set contains the field
-        if self.created_at_end is None and "created_at_end" in self.model_fields_set:
-            _dict['created_at_end'] = None
+        if self.last_message_at_filter is None and "last_message_at_filter" in self.model_fields_set:
+            _dict['last_message_at_filter'] = None
+
+        # set to None if duration_filter (nullable) is None
+        # and model_fields_set contains the field
+        if self.duration_filter is None and "duration_filter" in self.model_fields_set:
+            _dict['duration_filter'] = None
+
+        # set to None if msg_count_filter (nullable) is None
+        # and model_fields_set contains the field
+        if self.msg_count_filter is None and "msg_count_filter" in self.model_fields_set:
+            _dict['msg_count_filter'] = None
+
+        # set to None if credits_filter (nullable) is None
+        # and model_fields_set contains the field
+        if self.credits_filter is None and "credits_filter" in self.model_fields_set:
+            _dict['credits_filter'] = None
+
+        # set to None if chatbot_name (nullable) is None
+        # and model_fields_set contains the field
+        if self.chatbot_name is None and "chatbot_name" in self.model_fields_set:
+            _dict['chatbot_name'] = None
+
+        # set to None if flow_name (nullable) is None
+        # and model_fields_set contains the field
+        if self.flow_name is None and "flow_name" in self.model_fields_set:
+            _dict['flow_name'] = None
+
+        # set to None if ipaddress_filter (nullable) is None
+        # and model_fields_set contains the field
+        if self.ipaddress_filter is None and "ipaddress_filter" in self.model_fields_set:
+            _dict['ipaddress_filter'] = None
 
         return _dict
 
@@ -120,8 +155,14 @@ class FlowSessionViewSearchRequest(BaseModel):
             "flow_id": obj.get("flow_id"),
             "tags": obj.get("tags"),
             "limit": obj.get("limit"),
-            "created_at_start": obj.get("created_at_start"),
-            "created_at_end": obj.get("created_at_end")
+            "created_at_filter": obj.get("created_at_filter"),
+            "last_message_at_filter": obj.get("last_message_at_filter"),
+            "duration_filter": obj.get("duration_filter"),
+            "msg_count_filter": obj.get("msg_count_filter"),
+            "credits_filter": obj.get("credits_filter"),
+            "chatbot_name": obj.get("chatbot_name"),
+            "flow_name": obj.get("flow_name"),
+            "ipaddress_filter": obj.get("ipaddress_filter")
         })
         return _obj
 

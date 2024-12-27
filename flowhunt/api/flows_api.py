@@ -31,7 +31,7 @@ from flowhunt.models.flow_search_request import FlowSearchRequest
 from flowhunt.models.flow_session_attachment_response import FlowSessionAttachmentResponse
 from flowhunt.models.flow_session_create_from_flow_request import FlowSessionCreateFromFlowRequest
 from flowhunt.models.flow_session_create_request import FlowSessionCreateRequest
-from flowhunt.models.flow_session_invocation_message_response import FlowSessionInvocationMessageResponse
+from flowhunt.models.flow_session_event import FlowSessionEvent
 from flowhunt.models.flow_session_invocation_response import FlowSessionInvocationResponse
 from flowhunt.models.flow_session_invoke_request import FlowSessionInvokeRequest
 from flowhunt.models.flow_session_response import FlowSessionResponse
@@ -4580,7 +4580,7 @@ class FlowsApi:
     def poll_flow_response(
         self,
         session_id: StrictStr,
-        message_id: StrictStr,
+        from_timestamp: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4593,14 +4593,14 @@ class FlowsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> FlowSessionInvocationMessageResponse:
+    ) -> List[FlowSessionEvent]:
         """Poll Flow Response
 
 
         :param session_id: (required)
         :type session_id: str
-        :param message_id: (required)
-        :type message_id: str
+        :param from_timestamp: (required)
+        :type from_timestamp: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4625,7 +4625,7 @@ class FlowsApi:
 
         _param = self._poll_flow_response_serialize(
             session_id=session_id,
-            message_id=message_id,
+            from_timestamp=from_timestamp,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4633,7 +4633,7 @@ class FlowsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FlowSessionInvocationMessageResponse",
+            '200': "List[FlowSessionEvent]",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -4651,7 +4651,7 @@ class FlowsApi:
     def poll_flow_response_with_http_info(
         self,
         session_id: StrictStr,
-        message_id: StrictStr,
+        from_timestamp: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4664,14 +4664,14 @@ class FlowsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[FlowSessionInvocationMessageResponse]:
+    ) -> ApiResponse[List[FlowSessionEvent]]:
         """Poll Flow Response
 
 
         :param session_id: (required)
         :type session_id: str
-        :param message_id: (required)
-        :type message_id: str
+        :param from_timestamp: (required)
+        :type from_timestamp: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4696,7 +4696,7 @@ class FlowsApi:
 
         _param = self._poll_flow_response_serialize(
             session_id=session_id,
-            message_id=message_id,
+            from_timestamp=from_timestamp,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4704,7 +4704,7 @@ class FlowsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FlowSessionInvocationMessageResponse",
+            '200': "List[FlowSessionEvent]",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -4722,7 +4722,7 @@ class FlowsApi:
     def poll_flow_response_without_preload_content(
         self,
         session_id: StrictStr,
-        message_id: StrictStr,
+        from_timestamp: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4741,8 +4741,8 @@ class FlowsApi:
 
         :param session_id: (required)
         :type session_id: str
-        :param message_id: (required)
-        :type message_id: str
+        :param from_timestamp: (required)
+        :type from_timestamp: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4767,7 +4767,7 @@ class FlowsApi:
 
         _param = self._poll_flow_response_serialize(
             session_id=session_id,
-            message_id=message_id,
+            from_timestamp=from_timestamp,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4775,7 +4775,7 @@ class FlowsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FlowSessionInvocationMessageResponse",
+            '200': "List[FlowSessionEvent]",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -4788,7 +4788,7 @@ class FlowsApi:
     def _poll_flow_response_serialize(
         self,
         session_id,
-        message_id,
+        from_timestamp,
         _request_auth,
         _content_type,
         _headers,
@@ -4812,8 +4812,8 @@ class FlowsApi:
         # process the path parameters
         if session_id is not None:
             _path_params['session_id'] = session_id
-        if message_id is not None:
-            _path_params['message_id'] = message_id
+        if from_timestamp is not None:
+            _path_params['from_timestamp'] = from_timestamp
         # process the query parameters
         # process the header parameters
         # process the form parameters
@@ -4835,7 +4835,7 @@ class FlowsApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/v2/flows/sessions/{session_id}/invocation_response/{message_id}',
+            resource_path='/v2/flows/sessions/{session_id}/invocation_response/{from_timestamp}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

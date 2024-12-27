@@ -18,22 +18,23 @@ from enum import Enum
 from typing_extensions import Self
 
 
-class FlowMessageRole(str, Enum):
+class FlowEventActionType(str, Enum):
     """
-    FlowMessageRole
+    FlowEventActionType
     """
 
     """
     allowed enum values
     """
-    A = 'A'
-    U = 'U'
-    S = 'S'
-    D = 'D'
+    LOADING = 'loading'
+    MESSAGE = 'message'
+    TOOL_CALL = 'tool_call'
+    TASK_RESPONSE = 'task_response'
+    FAILED = 'failed'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
-        """Create an instance of FlowMessageRole from a JSON string"""
+        """Create an instance of FlowEventActionType from a JSON string"""
         return cls(json.loads(json_str))
 
 

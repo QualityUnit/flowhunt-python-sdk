@@ -18,7 +18,7 @@ from typing_extensions import Annotated
 
 from pydantic import StrictStr
 from typing import List
-from flowhunt.models.flow_message_response import FlowMessageResponse
+from flowhunt.models.flow_session_event import FlowSessionEvent
 
 from flowhunt.api_client import ApiClient, RequestSerialized
 from flowhunt.api_response import ApiResponse
@@ -55,7 +55,7 @@ class FlowMessagesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[FlowMessageResponse]:
+    ) -> List[FlowSessionEvent]:
         """Search Flow Messages
 
 
@@ -95,7 +95,7 @@ class FlowMessagesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[FlowMessageResponse]",
+            '200': "List[FlowSessionEvent]",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -126,7 +126,7 @@ class FlowMessagesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[FlowMessageResponse]]:
+    ) -> ApiResponse[List[FlowSessionEvent]]:
         """Search Flow Messages
 
 
@@ -166,7 +166,7 @@ class FlowMessagesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[FlowMessageResponse]",
+            '200': "List[FlowSessionEvent]",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -237,7 +237,7 @@ class FlowMessagesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[FlowMessageResponse]",
+            '200': "List[FlowSessionEvent]",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(

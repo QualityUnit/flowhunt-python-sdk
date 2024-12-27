@@ -18,17 +18,21 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
-class FlowSessionInvocationResponse(BaseModel):
+class FlowSessionLoadingMetadata(BaseModel):
     """
-    FlowSessionInvocationResponse
+    FlowSessionLoadingMetadata
     """ # noqa: E501
     message_id: StrictStr = Field(description="Message ID")
-    created_at: StrictStr = Field(description="Created at")
-    __properties: ClassVar[List[str]] = ["message_id", "created_at"]
+    tool_name: StrictStr = Field(description="Tool name")
+    loading_desc: StrictStr = Field(description="Loading description")
+    icon: Optional[StrictStr] = None
+    color: Optional[StrictStr] = None
+    detailed_description: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["message_id", "tool_name", "loading_desc", "icon", "color", "detailed_description"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -48,7 +52,7 @@ class FlowSessionInvocationResponse(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of FlowSessionInvocationResponse from a JSON string"""
+        """Create an instance of FlowSessionLoadingMetadata from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -69,11 +73,26 @@ class FlowSessionInvocationResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # set to None if icon (nullable) is None
+        # and model_fields_set contains the field
+        if self.icon is None and "icon" in self.model_fields_set:
+            _dict['icon'] = None
+
+        # set to None if color (nullable) is None
+        # and model_fields_set contains the field
+        if self.color is None and "color" in self.model_fields_set:
+            _dict['color'] = None
+
+        # set to None if detailed_description (nullable) is None
+        # and model_fields_set contains the field
+        if self.detailed_description is None and "detailed_description" in self.model_fields_set:
+            _dict['detailed_description'] = None
+
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of FlowSessionInvocationResponse from a dict"""
+        """Create an instance of FlowSessionLoadingMetadata from a dict"""
         if obj is None:
             return None
 
@@ -82,7 +101,11 @@ class FlowSessionInvocationResponse(BaseModel):
 
         _obj = cls.model_validate({
             "message_id": obj.get("message_id"),
-            "created_at": obj.get("created_at")
+            "tool_name": obj.get("tool_name"),
+            "loading_desc": obj.get("loading_desc"),
+            "icon": obj.get("icon"),
+            "color": obj.get("color"),
+            "detailed_description": obj.get("detailed_description")
         })
         return _obj
 

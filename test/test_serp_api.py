@@ -54,6 +54,13 @@ class TestSERPApi(unittest.TestCase):
         """
         pass
 
+    def test_serp_cluster_bulk_delete_queries(self) -> None:
+        """Test case for serp_cluster_bulk_delete_queries
+
+        Serp Cluster Bulk Delete Queries
+        """
+        pass
+
     def test_serp_cluster_delete_all(self) -> None:
         """Test case for serp_cluster_delete_all
 

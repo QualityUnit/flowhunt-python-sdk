@@ -20,7 +20,7 @@ Method | HTTP request | Description
 [**invoke_flow**](FlowsApi.md#invoke_flow) | **POST** /v2/flows/{flow_id}/invoke | Invoke Flow
 [**invoke_flow_response**](FlowsApi.md#invoke_flow_response) | **POST** /v2/flows/sessions/{session_id}/invoke | Invoke Flow Response
 [**invoke_flow_singleton**](FlowsApi.md#invoke_flow_singleton) | **POST** /v2/flows/{flow_id}/invoke_singleton | Invoke Flow Singleton
-[**poll_flow_response**](FlowsApi.md#poll_flow_response) | **POST** /v2/flows/sessions/{session_id}/invocation_response/{message_id} | Poll Flow Response
+[**poll_flow_response**](FlowsApi.md#poll_flow_response) | **POST** /v2/flows/sessions/{session_id}/invocation_response/{from_timestamp} | Poll Flow Response
 [**search**](FlowsApi.md#search) | **POST** /v2/flows/ | Search
 [**search_all**](FlowsApi.md#search_all) | **POST** /v2/flows/all | Search All
 [**search_flow_categories**](FlowsApi.md#search_flow_categories) | **POST** /v2/flows/categories/search | Search Flow Categories
@@ -1340,7 +1340,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **poll_flow_response**
-> FlowSessionInvocationMessageResponse poll_flow_response(session_id, message_id)
+> List[FlowSessionEvent] poll_flow_response(session_id, from_timestamp)
 
 Poll Flow Response
 
@@ -1349,7 +1349,7 @@ Poll Flow Response
 
 ```python
 import flowhunt
-from flowhunt.models.flow_session_invocation_message_response import FlowSessionInvocationMessageResponse
+from flowhunt.models.flow_session_event import FlowSessionEvent
 from flowhunt.rest import ApiException
 from pprint import pprint
 
@@ -1365,11 +1365,11 @@ with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = flowhunt.FlowsApi(api_client)
     session_id = 'session_id_example' # str | 
-    message_id = 'message_id_example' # str | 
+    from_timestamp = 'from_timestamp_example' # str | 
 
     try:
         # Poll Flow Response
-        api_response = api_instance.poll_flow_response(session_id, message_id)
+        api_response = api_instance.poll_flow_response(session_id, from_timestamp)
         print("The response of FlowsApi->poll_flow_response:\n")
         pprint(api_response)
     except Exception as e:
@@ -1384,11 +1384,11 @@ with flowhunt.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **session_id** | **str**|  | 
- **message_id** | **str**|  | 
+ **from_timestamp** | **str**|  | 
 
 ### Return type
 
-[**FlowSessionInvocationMessageResponse**](FlowSessionInvocationMessageResponse.md)
+[**List[FlowSessionEvent]**](FlowSessionEvent.md)
 
 ### Authorization
 

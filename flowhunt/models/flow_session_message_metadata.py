@@ -17,24 +17,18 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
-from flowhunt.models.flow_message_role import FlowMessageRole
 from typing import Optional, Set
 from typing_extensions import Self
 
-class FlowMessageResponse(BaseModel):
+class FlowSessionMessageMetadata(BaseModel):
     """
-    FlowMessageResponse
+    FlowSessionMessageMetadata
     """ # noqa: E501
     message_id: StrictStr = Field(description="Message ID")
-    session_id: StrictStr = Field(description="Session ID")
-    role: FlowMessageRole = Field(description="Chat role")
-    created_at: datetime = Field(description="Created at")
     message: StrictStr = Field(description="Message")
-    credits: StrictInt = Field(description="Credits")
-    __properties: ClassVar[List[str]] = ["message_id", "session_id", "role", "created_at", "message", "credits"]
+    __properties: ClassVar[List[str]] = ["message_id", "message"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -54,7 +48,7 @@ class FlowMessageResponse(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of FlowMessageResponse from a JSON string"""
+        """Create an instance of FlowSessionMessageMetadata from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -79,7 +73,7 @@ class FlowMessageResponse(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of FlowMessageResponse from a dict"""
+        """Create an instance of FlowSessionMessageMetadata from a dict"""
         if obj is None:
             return None
 
@@ -88,11 +82,7 @@ class FlowMessageResponse(BaseModel):
 
         _obj = cls.model_validate({
             "message_id": obj.get("message_id"),
-            "session_id": obj.get("session_id"),
-            "role": obj.get("role"),
-            "created_at": obj.get("created_at"),
-            "message": obj.get("message"),
-            "credits": obj.get("credits")
+            "message": obj.get("message")
         })
         return _obj
 

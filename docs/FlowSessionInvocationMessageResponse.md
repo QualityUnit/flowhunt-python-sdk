@@ -5,7 +5,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**message_id** | **str** | Message ID | 
 **response_status** | [**FlowSessionStatus**](FlowSessionStatus.md) | Response status | 
 **loading_indicator** | [**Dict[str, FlowLoadingIndicator]**](FlowLoadingIndicator.md) |  | [optional] 
 **intermediate_results** | [**Dict[str, TaskOutput]**](TaskOutput.md) |  | [optional] 

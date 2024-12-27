@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**delete_faq**](DocumentsApi.md#delete_faq) | **DELETE** /v2/documents/faqs/{faq_id} | Delete Faq
 [**download_binary_document**](DocumentsApi.md#download_binary_document) | **GET** /v2/documents/download/binary/{doc_id} | Download Binary Document
 [**download_text_document**](DocumentsApi.md#download_text_document) | **GET** /v2/documents/download/text/{doc_id} | Download Text Document
+[**import_faq**](DocumentsApi.md#import_faq) | **POST** /v2/documents/faqs/import | Import Faq
 [**search_document_categories**](DocumentsApi.md#search_document_categories) | **POST** /v2/documents/categories/search | Search Document Categories
 [**search_documents**](DocumentsApi.md#search_documents) | **POST** /v2/documents/search | Search Documents
 [**search_faqs**](DocumentsApi.md#search_faqs) | **POST** /v2/documents/faqs/search | Search Faqs
@@ -613,6 +614,92 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **import_faq**
+> List[FaqResponse] import_faq(workspace_id, file)
+
+Import Faq
+
+### Example
+
+* Api Key Authentication (APIKeyHeader):
+* Bearer Authentication (HTTPBearer):
+
+```python
+import flowhunt
+from flowhunt.models.faq_response import FaqResponse
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: APIKeyHeader
+configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
+
+# Configure Bearer authorization: HTTPBearer
+configuration = flowhunt.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.DocumentsApi(api_client)
+    workspace_id = 'workspace_id_example' # str | 
+    file = None # bytearray | 
+
+    try:
+        # Import Faq
+        api_response = api_instance.import_faq(workspace_id, file)
+        print("The response of DocumentsApi->import_faq:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DocumentsApi->import_faq: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **workspace_id** | **str**|  | 
+ **file** | **bytearray**|  | 
+
+### Return type
+
+[**List[FaqResponse]**](FaqResponse.md)
+
+### Authorization
+
+[APIKeyHeader](../README.md#APIKeyHeader), [HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/json
 
 ### HTTP response details
