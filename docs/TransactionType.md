@@ -37,6 +37,12 @@
 
 * `N` (value: `'N'`)
 
+* `FT_I` (value: `'FT_I'`)
+
+* `DDG` (value: `'DDG'`)
+
+* `CGD` (value: `'CGD'`)
+
 * `SEQUENTIAL_AGENT` (value: `'SEQUENTIAL_AGENT'`)
 
 * `SELF_MANAGED_AGENT` (value: `'SELF_MANAGED_AGENT'`)

@@ -18,40 +18,19 @@ from enum import Enum
 from typing_extensions import Self
 
 
-class DocumentType(str, Enum):
+class ImageFTModelName(str, Enum):
     """
-    DocumentType
+    ImageFTModelName
     """
 
     """
     allowed enum values
     """
-    PDF = 'PDF'
-    DOCX = 'DOCX'
-    MD = 'MD'
-    TXT = 'TXT'
-    HTML = 'HTML'
-    YT = 'YT'
-    UN = 'UN'
-    MP3 = 'MP3'
-    FLAC = 'FLAC'
-    MP4 = 'MP4'
-    MPEG = 'MPEG'
-    MPGA = 'MPGA'
-    M4A = 'M4A'
-    OGG = 'OGG'
-    WAV = 'WAV'
-    WEBM = 'WEBM'
-    JPEG = 'JPEG'
-    JPG = 'JPG'
-    PNG = 'PNG'
-    GIF = 'GIF'
-    WEBP = 'WEBP'
-    GOOGLE_DOCS = 'GOOGLE_DOCS'
+    FLUX = 'flux'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
-        """Create an instance of DocumentType from a JSON string"""
+        """Create an instance of ImageFTModelName from a JSON string"""
         return cls(json.loads(json_str))
 
 

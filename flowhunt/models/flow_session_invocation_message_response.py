@@ -20,6 +20,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from flowhunt.models.flow_loading_indicator import FlowLoadingIndicator
+from flowhunt.models.flow_session_event import FlowSessionEvent
 from flowhunt.models.flow_session_status import FlowSessionStatus
 from flowhunt.models.task_output import TaskOutput
 from typing import Optional, Set
@@ -33,7 +34,8 @@ class FlowSessionInvocationMessageResponse(BaseModel):
     loading_indicator: Optional[Dict[str, FlowLoadingIndicator]] = None
     intermediate_results: Optional[Dict[str, TaskOutput]] = None
     final_response: Optional[List[StrictStr]] = None
-    __properties: ClassVar[List[str]] = ["response_status", "loading_indicator", "intermediate_results", "final_response"]
+    events: Optional[List[FlowSessionEvent]] = None
+    __properties: ClassVar[List[str]] = ["response_status", "loading_indicator", "intermediate_results", "final_response", "events"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -88,6 +90,13 @@ class FlowSessionInvocationMessageResponse(BaseModel):
                 if self.intermediate_results[_key_intermediate_results]:
                     _field_dict[_key_intermediate_results] = self.intermediate_results[_key_intermediate_results].to_dict()
             _dict['intermediate_results'] = _field_dict
+        # override the default output from pydantic by calling `to_dict()` of each item in events (list)
+        _items = []
+        if self.events:
+            for _item_events in self.events:
+                if _item_events:
+                    _items.append(_item_events.to_dict())
+            _dict['events'] = _items
         # set to None if loading_indicator (nullable) is None
         # and model_fields_set contains the field
         if self.loading_indicator is None and "loading_indicator" in self.model_fields_set:
@@ -102,6 +111,11 @@ class FlowSessionInvocationMessageResponse(BaseModel):
         # and model_fields_set contains the field
         if self.final_response is None and "final_response" in self.model_fields_set:
             _dict['final_response'] = None
+
+        # set to None if events (nullable) is None
+        # and model_fields_set contains the field
+        if self.events is None and "events" in self.model_fields_set:
+            _dict['events'] = None
 
         return _dict
 
@@ -128,7 +142,8 @@ class FlowSessionInvocationMessageResponse(BaseModel):
             )
             if obj.get("intermediate_results") is not None
             else None,
-            "final_response": obj.get("final_response")
+            "final_response": obj.get("final_response"),
+            "events": [FlowSessionEvent.from_dict(_item) for _item in obj["events"]] if obj.get("events") is not None else None
         })
         return _obj
 

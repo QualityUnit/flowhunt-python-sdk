@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **loading_indicator** | [**Dict[str, FlowLoadingIndicator]**](FlowLoadingIndicator.md) |  | [optional] 
 **intermediate_results** | [**Dict[str, TaskOutput]**](TaskOutput.md) |  | [optional] 
 **final_response** | **List[str]** |  | [optional] 
+**events** | [**List[FlowSessionEvent]**](FlowSessionEvent.md) |  | [optional] 
 
 ## Example
 

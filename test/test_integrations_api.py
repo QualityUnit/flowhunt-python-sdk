@@ -47,6 +47,13 @@ class TestIntegrationsApi(unittest.TestCase):
         """
         pass
 
+    def test_get_drive_documents(self) -> None:
+        """Test case for get_drive_documents
+
+        Get Drive Documents
+        """
+        pass
+
     def test_get_integration(self) -> None:
         """Test case for get_integration
 

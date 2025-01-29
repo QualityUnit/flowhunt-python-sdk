@@ -138,6 +138,13 @@ Class | Method | HTTP request | Description
 *DocumentsApi* | [**update_faq**](docs/DocumentsApi.md#update_faq) | **PUT** /v2/documents/faqs/{faq_id} | Update Faq
 *DocumentsApi* | [**upload_document**](docs/DocumentsApi.md#upload_document) | **POST** /v2/documents/upload/{cat_id} | Upload Document
 *DocumentsApi* | [**upload_from_url_document**](docs/DocumentsApi.md#upload_from_url_document) | **POST** /v2/documents/upload-from-url/{cat_id} | Upload From Url Document
+*FineTuningsApi* | [**create_image_ft**](docs/FineTuningsApi.md#create_image_ft) | **POST** /v2/fine_tunings/images/ | Create Image Ft
+*FineTuningsApi* | [**delete_image_ft**](docs/FineTuningsApi.md#delete_image_ft) | **DELETE** /v2/fine_tunings/images/{ft_id} | Delete Image Ft
+*FineTuningsApi* | [**handle_replicate_webhook**](docs/FineTuningsApi.md#handle_replicate_webhook) | **POST** /v2/fine_tunings/webhooks/replicate | Handle Replicate Webhook
+*FineTuningsApi* | [**search_image_fts**](docs/FineTuningsApi.md#search_image_fts) | **POST** /v2/fine_tunings/images/search | Search Image Fts
+*FineTuningsApi* | [**train_image_ft**](docs/FineTuningsApi.md#train_image_ft) | **POST** /v2/fine_tunings/images/{ft_id}/train | Train Image Ft
+*FineTuningsApi* | [**update_image_ft**](docs/FineTuningsApi.md#update_image_ft) | **PUT** /v2/fine_tunings/images/{ft_id} | Update Image Ft
+*FineTuningsApi* | [**upload_image_ft**](docs/FineTuningsApi.md#upload_image_ft) | **POST** /v2/fine_tunings/images/{ft_id}/upload | Upload Image Ft
 *FlowMessagesApi* | [**search_flow_messages**](docs/FlowMessagesApi.md#search_flow_messages) | **POST** /v2/chatbots/search/{session_id} | Search Flow Messages
 *FlowSessionsApi* | [**delete_chatbot_session_view**](docs/FlowSessionsApi.md#delete_chatbot_session_view) | **DELETE** /v2/chatbots/sessions/{session_id} | Delete Chatbot Session View
 *FlowSessionsApi* | [**get_chatbot_session_view**](docs/FlowSessionsApi.md#get_chatbot_session_view) | **GET** /v2/chatbots/sessions/{session_id} | Get Chatbot Session View
@@ -171,6 +178,7 @@ Class | Method | HTTP request | Description
 *FlowsApi* | [**update_flow**](docs/FlowsApi.md#update_flow) | **PUT** /v2/flows/{flow_id} | Update Flow
 *FlowsApi* | [**update_flow_category**](docs/FlowsApi.md#update_flow_category) | **PUT** /v2/flows/categories/{cat_id} | Update Flow Category
 *FlowsApi* | [**upload_attachments**](docs/FlowsApi.md#upload_attachments) | **POST** /v2/flows/sessions/{session_id}/attachments | Upload Attachments
+*GoogleApi* | [**get_drive_documents_0**](docs/GoogleApi.md#get_drive_documents_0) | **POST** /v2/integrations/google/{integration_slug}/drive/files | Get Drive Documents
 *GridsApi* | [**create_column**](docs/GridsApi.md#create_column) | **POST** /v2/grids/{grid_id}/create | Create Column
 *GridsApi* | [**create_grid**](docs/GridsApi.md#create_grid) | **POST** /v2/grids/create | Create Grid
 *GridsApi* | [**create_grid_row**](docs/GridsApi.md#create_grid_row) | **POST** /v2/grids/{grid_id}/create_row | Create Grid Row
@@ -189,6 +197,7 @@ Class | Method | HTTP request | Description
 *IntegrationsApi* | [**create_integration**](docs/IntegrationsApi.md#create_integration) | **POST** /v2/integrations/{slug}/integrate | Create Integration
 *IntegrationsApi* | [**delete_integration**](docs/IntegrationsApi.md#delete_integration) | **DELETE** /v2/integrations/{slug}/{integration_id} | Delete Integration
 *IntegrationsApi* | [**get_all_integrations**](docs/IntegrationsApi.md#get_all_integrations) | **GET** /v2/integrations/all | Get All Integrations
+*IntegrationsApi* | [**get_drive_documents**](docs/IntegrationsApi.md#get_drive_documents) | **POST** /v2/integrations/google/{integration_slug}/drive/files | Get Drive Documents
 *IntegrationsApi* | [**get_integration**](docs/IntegrationsApi.md#get_integration) | **GET** /v2/integrations/{slug}/{integration_id} | Get Integration
 *IntegrationsApi* | [**get_slack_channels**](docs/IntegrationsApi.md#get_slack_channels) | **GET** /v2/integrations/slack/{slack_team_id}/channels | Get Slack Channels
 *IntegrationsApi* | [**get_slack_workspaces**](docs/IntegrationsApi.md#get_slack_workspaces) | **GET** /v2/integrations/slack/ | Get Slack Workspaces
@@ -290,6 +299,7 @@ Class | Method | HTTP request | Description
  - [DocumentStatus](docs/DocumentStatus.md)
  - [DocumentType](docs/DocumentType.md)
  - [DocumentUpdateRequest](docs/DocumentUpdateRequest.md)
+ - [FTType](docs/FTType.md)
  - [FaqCreateRequest](docs/FaqCreateRequest.md)
  - [FaqResponse](docs/FaqResponse.md)
  - [FaqSearchRequest](docs/FaqSearchRequest.md)
@@ -328,6 +338,9 @@ Class | Method | HTTP request | Description
  - [FlowSessionViewSearchRequest](docs/FlowSessionViewSearchRequest.md)
  - [FlowSessionViewUpdateRequest](docs/FlowSessionViewUpdateRequest.md)
  - [FlowType](docs/FlowType.md)
+ - [GoogleDriveFileResponse](docs/GoogleDriveFileResponse.md)
+ - [GoogleDriveSearchQuery](docs/GoogleDriveSearchQuery.md)
+ - [GoogleDriveSearchResponse](docs/GoogleDriveSearchResponse.md)
  - [GridCellStatus](docs/GridCellStatus.md)
  - [GridColumnCreateRequest](docs/GridColumnCreateRequest.md)
  - [GridColumnResponse](docs/GridColumnResponse.md)
@@ -346,6 +359,12 @@ Class | Method | HTTP request | Description
  - [HTTPValidationError](docs/HTTPValidationError.md)
  - [Health](docs/Health.md)
  - [ImageConvertRequest](docs/ImageConvertRequest.md)
+ - [ImageFTCreateRequest](docs/ImageFTCreateRequest.md)
+ - [ImageFTModelName](docs/ImageFTModelName.md)
+ - [ImageFTResponse](docs/ImageFTResponse.md)
+ - [ImageFTSearchRequest](docs/ImageFTSearchRequest.md)
+ - [ImageFTTrainRequest](docs/ImageFTTrainRequest.md)
+ - [ImageFTUpdateRequest](docs/ImageFTUpdateRequest.md)
  - [ImageOptimizeRequest](docs/ImageOptimizeRequest.md)
  - [IntegrationCategory](docs/IntegrationCategory.md)
  - [IntegrationDetailResponse](docs/IntegrationDetailResponse.md)

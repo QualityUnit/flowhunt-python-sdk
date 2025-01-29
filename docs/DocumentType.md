@@ -45,6 +45,8 @@
 
 * `WEBP` (value: `'WEBP'`)
 
+* `GOOGLE_DOCS` (value: `'GOOGLE_DOCS'`)
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

@@ -1,186 +1,22 @@
-# flowhunt.IntegrationsApi
+# flowhunt.FineTuningsApi
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_integration**](IntegrationsApi.md#create_integration) | **POST** /v2/integrations/{slug}/integrate | Create Integration
-[**delete_integration**](IntegrationsApi.md#delete_integration) | **DELETE** /v2/integrations/{slug}/{integration_id} | Delete Integration
-[**get_all_integrations**](IntegrationsApi.md#get_all_integrations) | **GET** /v2/integrations/all | Get All Integrations
-[**get_drive_documents**](IntegrationsApi.md#get_drive_documents) | **POST** /v2/integrations/google/{integration_slug}/drive/files | Get Drive Documents
-[**get_integration**](IntegrationsApi.md#get_integration) | **GET** /v2/integrations/{slug}/{integration_id} | Get Integration
-[**get_slack_channels**](IntegrationsApi.md#get_slack_channels) | **GET** /v2/integrations/slack/{slack_team_id}/channels | Get Slack Channels
-[**get_slack_workspaces**](IntegrationsApi.md#get_slack_workspaces) | **GET** /v2/integrations/slack/ | Get Slack Workspaces
-[**integration_callback**](IntegrationsApi.md#integration_callback) | **GET** /v2/integrations/{slug}/callback | Integration Callback
-[**search_integrations**](IntegrationsApi.md#search_integrations) | **POST** /v2/integrations/{slug} | Search Integrations
+[**create_image_ft**](FineTuningsApi.md#create_image_ft) | **POST** /v2/fine_tunings/images/ | Create Image Ft
+[**delete_image_ft**](FineTuningsApi.md#delete_image_ft) | **DELETE** /v2/fine_tunings/images/{ft_id} | Delete Image Ft
+[**handle_replicate_webhook**](FineTuningsApi.md#handle_replicate_webhook) | **POST** /v2/fine_tunings/webhooks/replicate | Handle Replicate Webhook
+[**search_image_fts**](FineTuningsApi.md#search_image_fts) | **POST** /v2/fine_tunings/images/search | Search Image Fts
+[**train_image_ft**](FineTuningsApi.md#train_image_ft) | **POST** /v2/fine_tunings/images/{ft_id}/train | Train Image Ft
+[**update_image_ft**](FineTuningsApi.md#update_image_ft) | **PUT** /v2/fine_tunings/images/{ft_id} | Update Image Ft
+[**upload_image_ft**](FineTuningsApi.md#upload_image_ft) | **POST** /v2/fine_tunings/images/{ft_id}/upload | Upload Image Ft
 
 
-# **create_integration**
-> IntegrationFlowResponse create_integration(slug, workspace_id)
+# **create_image_ft**
+> ImageFTResponse create_image_ft(workspace_id, image_ft_create_request)
 
-Create Integration
-
-### Example
-
-* Bearer Authentication (HTTPBearer):
-
-```python
-import flowhunt
-from flowhunt.models.integration_flow_response import IntegrationFlowResponse
-from flowhunt.models.integration_slug import IntegrationSlug
-from flowhunt.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt.Configuration(
-    host = "http://localhost"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure Bearer authorization: HTTPBearer
-configuration = flowhunt.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
-)
-
-# Enter a context with an instance of the API client
-with flowhunt.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = flowhunt.IntegrationsApi(api_client)
-    slug = flowhunt.IntegrationSlug() # IntegrationSlug | 
-    workspace_id = 'workspace_id_example' # str | 
-
-    try:
-        # Create Integration
-        api_response = api_instance.create_integration(slug, workspace_id)
-        print("The response of IntegrationsApi->create_integration:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling IntegrationsApi->create_integration: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **slug** | [**IntegrationSlug**](.md)|  | 
- **workspace_id** | **str**|  | 
-
-### Return type
-
-[**IntegrationFlowResponse**](IntegrationFlowResponse.md)
-
-### Authorization
-
-[HTTPBearer](../README.md#HTTPBearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful Response |  -  |
-**422** | Validation Error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **delete_integration**
-> Completed delete_integration(slug, integration_id, workspace_id)
-
-Delete Integration
-
-### Example
-
-* Bearer Authentication (HTTPBearer):
-
-```python
-import flowhunt
-from flowhunt.models.completed import Completed
-from flowhunt.models.integration_slug import IntegrationSlug
-from flowhunt.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt.Configuration(
-    host = "http://localhost"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure Bearer authorization: HTTPBearer
-configuration = flowhunt.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
-)
-
-# Enter a context with an instance of the API client
-with flowhunt.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = flowhunt.IntegrationsApi(api_client)
-    slug = flowhunt.IntegrationSlug() # IntegrationSlug | 
-    integration_id = 'integration_id_example' # str | 
-    workspace_id = 'workspace_id_example' # str | 
-
-    try:
-        # Delete Integration
-        api_response = api_instance.delete_integration(slug, integration_id, workspace_id)
-        print("The response of IntegrationsApi->delete_integration:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling IntegrationsApi->delete_integration: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **slug** | [**IntegrationSlug**](.md)|  | 
- **integration_id** | **str**|  | 
- **workspace_id** | **str**|  | 
-
-### Return type
-
-[**Completed**](Completed.md)
-
-### Authorization
-
-[HTTPBearer](../README.md#HTTPBearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful Response |  -  |
-**422** | Validation Error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **get_all_integrations**
-> List[IntegrationResponse] get_all_integrations(workspace_id)
-
-Get All Integrations
+Create Image Ft
 
 ### Example
 
@@ -189,7 +25,8 @@ Get All Integrations
 
 ```python
 import flowhunt
-from flowhunt.models.integration_response import IntegrationResponse
+from flowhunt.models.image_ft_create_request import ImageFTCreateRequest
+from flowhunt.models.image_ft_response import ImageFTResponse
 from flowhunt.rest import ApiException
 from pprint import pprint
 
@@ -218,16 +55,17 @@ configuration = flowhunt.Configuration(
 # Enter a context with an instance of the API client
 with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt.IntegrationsApi(api_client)
+    api_instance = flowhunt.FineTuningsApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
+    image_ft_create_request = flowhunt.ImageFTCreateRequest() # ImageFTCreateRequest | 
 
     try:
-        # Get All Integrations
-        api_response = api_instance.get_all_integrations(workspace_id)
-        print("The response of IntegrationsApi->get_all_integrations:\n")
+        # Create Image Ft
+        api_response = api_instance.create_image_ft(workspace_id, image_ft_create_request)
+        print("The response of FineTuningsApi->create_image_ft:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling IntegrationsApi->get_all_integrations: %s\n" % e)
+        print("Exception when calling FineTuningsApi->create_image_ft: %s\n" % e)
 ```
 
 
@@ -238,97 +76,15 @@ with flowhunt.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **workspace_id** | **str**|  | 
+ **image_ft_create_request** | [**ImageFTCreateRequest**](ImageFTCreateRequest.md)|  | 
 
 ### Return type
 
-[**List[IntegrationResponse]**](IntegrationResponse.md)
+[**ImageFTResponse**](ImageFTResponse.md)
 
 ### Authorization
 
 [APIKeyHeader](../README.md#APIKeyHeader), [HTTPBearer](../README.md#HTTPBearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful Response |  -  |
-**422** | Validation Error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **get_drive_documents**
-> GoogleDriveSearchResponse get_drive_documents(integration_slug, workspace_id, google_drive_search_query)
-
-Get Drive Documents
-
-### Example
-
-* Bearer Authentication (HTTPBearer):
-
-```python
-import flowhunt
-from flowhunt.models.google_drive_search_query import GoogleDriveSearchQuery
-from flowhunt.models.google_drive_search_response import GoogleDriveSearchResponse
-from flowhunt.models.integration_slug import IntegrationSlug
-from flowhunt.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt.Configuration(
-    host = "http://localhost"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure Bearer authorization: HTTPBearer
-configuration = flowhunt.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
-)
-
-# Enter a context with an instance of the API client
-with flowhunt.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = flowhunt.IntegrationsApi(api_client)
-    integration_slug = flowhunt.IntegrationSlug() # IntegrationSlug | 
-    workspace_id = 'workspace_id_example' # str | 
-    google_drive_search_query = flowhunt.GoogleDriveSearchQuery() # GoogleDriveSearchQuery | 
-
-    try:
-        # Get Drive Documents
-        api_response = api_instance.get_drive_documents(integration_slug, workspace_id, google_drive_search_query)
-        print("The response of IntegrationsApi->get_drive_documents:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling IntegrationsApi->get_drive_documents: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **integration_slug** | [**IntegrationSlug**](.md)|  | 
- **workspace_id** | **str**|  | 
- **google_drive_search_query** | [**GoogleDriveSearchQuery**](GoogleDriveSearchQuery.md)|  | 
-
-### Return type
-
-[**GoogleDriveSearchResponse**](GoogleDriveSearchResponse.md)
-
-### Authorization
-
-[HTTPBearer](../README.md#HTTPBearer)
 
 ### HTTP request headers
 
@@ -344,92 +100,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_integration**
-> IntegrationDetailResponse get_integration(slug, integration_id, workspace_id)
+# **delete_image_ft**
+> Completed delete_image_ft(ft_id, workspace_id)
 
-Get Integration
-
-### Example
-
-* Bearer Authentication (HTTPBearer):
-
-```python
-import flowhunt
-from flowhunt.models.integration_detail_response import IntegrationDetailResponse
-from flowhunt.models.integration_slug import IntegrationSlug
-from flowhunt.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt.Configuration(
-    host = "http://localhost"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure Bearer authorization: HTTPBearer
-configuration = flowhunt.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
-)
-
-# Enter a context with an instance of the API client
-with flowhunt.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = flowhunt.IntegrationsApi(api_client)
-    slug = flowhunt.IntegrationSlug() # IntegrationSlug | 
-    integration_id = 'integration_id_example' # str | 
-    workspace_id = 'workspace_id_example' # str | 
-
-    try:
-        # Get Integration
-        api_response = api_instance.get_integration(slug, integration_id, workspace_id)
-        print("The response of IntegrationsApi->get_integration:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling IntegrationsApi->get_integration: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **slug** | [**IntegrationSlug**](.md)|  | 
- **integration_id** | **str**|  | 
- **workspace_id** | **str**|  | 
-
-### Return type
-
-[**IntegrationDetailResponse**](IntegrationDetailResponse.md)
-
-### Authorization
-
-[HTTPBearer](../README.md#HTTPBearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful Response |  -  |
-**422** | Validation Error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **get_slack_channels**
-> List[SlackChannelResponse] get_slack_channels(slack_team_id, workspace_id)
-
-Get Slack Channels
+Delete Image Ft
 
 ### Example
 
@@ -438,7 +112,7 @@ Get Slack Channels
 
 ```python
 import flowhunt
-from flowhunt.models.slack_channel_response import SlackChannelResponse
+from flowhunt.models.completed import Completed
 from flowhunt.rest import ApiException
 from pprint import pprint
 
@@ -467,17 +141,17 @@ configuration = flowhunt.Configuration(
 # Enter a context with an instance of the API client
 with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt.IntegrationsApi(api_client)
-    slack_team_id = 'slack_team_id_example' # str | 
+    api_instance = flowhunt.FineTuningsApi(api_client)
+    ft_id = 'ft_id_example' # str | 
     workspace_id = 'workspace_id_example' # str | 
 
     try:
-        # Get Slack Channels
-        api_response = api_instance.get_slack_channels(slack_team_id, workspace_id)
-        print("The response of IntegrationsApi->get_slack_channels:\n")
+        # Delete Image Ft
+        api_response = api_instance.delete_image_ft(ft_id, workspace_id)
+        print("The response of FineTuningsApi->delete_image_ft:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling IntegrationsApi->get_slack_channels: %s\n" % e)
+        print("Exception when calling FineTuningsApi->delete_image_ft: %s\n" % e)
 ```
 
 
@@ -487,12 +161,12 @@ with flowhunt.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **slack_team_id** | **str**|  | 
+ **ft_id** | **str**|  | 
  **workspace_id** | **str**|  | 
 
 ### Return type
 
-[**List[SlackChannelResponse]**](SlackChannelResponse.md)
+[**Completed**](Completed.md)
 
 ### Authorization
 
@@ -512,19 +186,17 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_slack_workspaces**
-> List[SlackWorkspaceResponse] get_slack_workspaces(workspace_id)
+# **handle_replicate_webhook**
+> Completed handle_replicate_webhook(workspace_id, ft_id)
 
-Get Slack Workspaces
+Handle Replicate Webhook
 
 ### Example
 
-* Api Key Authentication (APIKeyHeader):
-* Bearer Authentication (HTTPBearer):
 
 ```python
 import flowhunt
-from flowhunt.models.slack_workspace_response import SlackWorkspaceResponse
+from flowhunt.models.completed import Completed
 from flowhunt.rest import ApiException
 from pprint import pprint
 
@@ -534,35 +206,21 @@ configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: APIKeyHeader
-configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
-
-# Configure Bearer authorization: HTTPBearer
-configuration = flowhunt.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
-)
 
 # Enter a context with an instance of the API client
 with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt.IntegrationsApi(api_client)
+    api_instance = flowhunt.FineTuningsApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
+    ft_id = 'ft_id_example' # str | 
 
     try:
-        # Get Slack Workspaces
-        api_response = api_instance.get_slack_workspaces(workspace_id)
-        print("The response of IntegrationsApi->get_slack_workspaces:\n")
+        # Handle Replicate Webhook
+        api_response = api_instance.handle_replicate_webhook(workspace_id, ft_id)
+        print("The response of FineTuningsApi->handle_replicate_webhook:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling IntegrationsApi->get_slack_workspaces: %s\n" % e)
+        print("Exception when calling FineTuningsApi->handle_replicate_webhook: %s\n" % e)
 ```
 
 
@@ -573,77 +231,11 @@ with flowhunt.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **workspace_id** | **str**|  | 
+ **ft_id** | **str**|  | 
 
 ### Return type
 
-[**List[SlackWorkspaceResponse]**](SlackWorkspaceResponse.md)
-
-### Authorization
-
-[APIKeyHeader](../README.md#APIKeyHeader), [HTTPBearer](../README.md#HTTPBearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful Response |  -  |
-**422** | Validation Error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **integration_callback**
-> object integration_callback(slug)
-
-Integration Callback
-
-### Example
-
-
-```python
-import flowhunt
-from flowhunt.models.integration_slug import IntegrationSlug
-from flowhunt.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt.Configuration(
-    host = "http://localhost"
-)
-
-
-# Enter a context with an instance of the API client
-with flowhunt.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = flowhunt.IntegrationsApi(api_client)
-    slug = flowhunt.IntegrationSlug() # IntegrationSlug | 
-
-    try:
-        # Integration Callback
-        api_response = api_instance.integration_callback(slug)
-        print("The response of IntegrationsApi->integration_callback:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling IntegrationsApi->integration_callback: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **slug** | [**IntegrationSlug**](.md)|  | 
-
-### Return type
-
-**object**
+[**Completed**](Completed.md)
 
 ### Authorization
 
@@ -663,20 +255,20 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **search_integrations**
-> IntegrationResponse search_integrations(slug, workspace_id, integration_search_request)
+# **search_image_fts**
+> List[ImageFTResponse] search_image_fts(workspace_id, image_ft_search_request)
 
-Search Integrations
+Search Image Fts
 
 ### Example
 
+* Api Key Authentication (APIKeyHeader):
 * Bearer Authentication (HTTPBearer):
 
 ```python
 import flowhunt
-from flowhunt.models.integration_response import IntegrationResponse
-from flowhunt.models.integration_search_request import IntegrationSearchRequest
-from flowhunt.models.integration_slug import IntegrationSlug
+from flowhunt.models.image_ft_response import ImageFTResponse
+from flowhunt.models.image_ft_search_request import ImageFTSearchRequest
 from flowhunt.rest import ApiException
 from pprint import pprint
 
@@ -691,6 +283,12 @@ configuration = flowhunt.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: APIKeyHeader
+configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
+
 # Configure Bearer authorization: HTTPBearer
 configuration = flowhunt.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
@@ -699,18 +297,17 @@ configuration = flowhunt.Configuration(
 # Enter a context with an instance of the API client
 with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = flowhunt.IntegrationsApi(api_client)
-    slug = flowhunt.IntegrationSlug() # IntegrationSlug | 
+    api_instance = flowhunt.FineTuningsApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
-    integration_search_request = flowhunt.IntegrationSearchRequest() # IntegrationSearchRequest | 
+    image_ft_search_request = flowhunt.ImageFTSearchRequest() # ImageFTSearchRequest | 
 
     try:
-        # Search Integrations
-        api_response = api_instance.search_integrations(slug, workspace_id, integration_search_request)
-        print("The response of IntegrationsApi->search_integrations:\n")
+        # Search Image Fts
+        api_response = api_instance.search_image_fts(workspace_id, image_ft_search_request)
+        print("The response of FineTuningsApi->search_image_fts:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling IntegrationsApi->search_integrations: %s\n" % e)
+        print("Exception when calling FineTuningsApi->search_image_fts: %s\n" % e)
 ```
 
 
@@ -720,21 +317,286 @@ with flowhunt.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **slug** | [**IntegrationSlug**](.md)|  | 
  **workspace_id** | **str**|  | 
- **integration_search_request** | [**IntegrationSearchRequest**](IntegrationSearchRequest.md)|  | 
+ **image_ft_search_request** | [**ImageFTSearchRequest**](ImageFTSearchRequest.md)|  | 
 
 ### Return type
 
-[**IntegrationResponse**](IntegrationResponse.md)
+[**List[ImageFTResponse]**](ImageFTResponse.md)
 
 ### Authorization
 
-[HTTPBearer](../README.md#HTTPBearer)
+[APIKeyHeader](../README.md#APIKeyHeader), [HTTPBearer](../README.md#HTTPBearer)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **train_image_ft**
+> ImageFTResponse train_image_ft(ft_id, workspace_id, image_ft_train_request)
+
+Train Image Ft
+
+### Example
+
+* Api Key Authentication (APIKeyHeader):
+* Bearer Authentication (HTTPBearer):
+
+```python
+import flowhunt
+from flowhunt.models.image_ft_response import ImageFTResponse
+from flowhunt.models.image_ft_train_request import ImageFTTrainRequest
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: APIKeyHeader
+configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
+
+# Configure Bearer authorization: HTTPBearer
+configuration = flowhunt.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.FineTuningsApi(api_client)
+    ft_id = 'ft_id_example' # str | 
+    workspace_id = 'workspace_id_example' # str | 
+    image_ft_train_request = flowhunt.ImageFTTrainRequest() # ImageFTTrainRequest | 
+
+    try:
+        # Train Image Ft
+        api_response = api_instance.train_image_ft(ft_id, workspace_id, image_ft_train_request)
+        print("The response of FineTuningsApi->train_image_ft:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling FineTuningsApi->train_image_ft: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ft_id** | **str**|  | 
+ **workspace_id** | **str**|  | 
+ **image_ft_train_request** | [**ImageFTTrainRequest**](ImageFTTrainRequest.md)|  | 
+
+### Return type
+
+[**ImageFTResponse**](ImageFTResponse.md)
+
+### Authorization
+
+[APIKeyHeader](../README.md#APIKeyHeader), [HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_image_ft**
+> ImageFTResponse update_image_ft(ft_id, workspace_id, image_ft_update_request)
+
+Update Image Ft
+
+### Example
+
+* Api Key Authentication (APIKeyHeader):
+* Bearer Authentication (HTTPBearer):
+
+```python
+import flowhunt
+from flowhunt.models.image_ft_response import ImageFTResponse
+from flowhunt.models.image_ft_update_request import ImageFTUpdateRequest
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: APIKeyHeader
+configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
+
+# Configure Bearer authorization: HTTPBearer
+configuration = flowhunt.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.FineTuningsApi(api_client)
+    ft_id = 'ft_id_example' # str | 
+    workspace_id = 'workspace_id_example' # str | 
+    image_ft_update_request = flowhunt.ImageFTUpdateRequest() # ImageFTUpdateRequest | 
+
+    try:
+        # Update Image Ft
+        api_response = api_instance.update_image_ft(ft_id, workspace_id, image_ft_update_request)
+        print("The response of FineTuningsApi->update_image_ft:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling FineTuningsApi->update_image_ft: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ft_id** | **str**|  | 
+ **workspace_id** | **str**|  | 
+ **image_ft_update_request** | [**ImageFTUpdateRequest**](ImageFTUpdateRequest.md)|  | 
+
+### Return type
+
+[**ImageFTResponse**](ImageFTResponse.md)
+
+### Authorization
+
+[APIKeyHeader](../README.md#APIKeyHeader), [HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **upload_image_ft**
+> ImageFTResponse upload_image_ft(ft_id, workspace_id, file)
+
+Upload Image Ft
+
+### Example
+
+* Api Key Authentication (APIKeyHeader):
+* Bearer Authentication (HTTPBearer):
+
+```python
+import flowhunt
+from flowhunt.models.image_ft_response import ImageFTResponse
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: APIKeyHeader
+configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
+
+# Configure Bearer authorization: HTTPBearer
+configuration = flowhunt.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.FineTuningsApi(api_client)
+    ft_id = 'ft_id_example' # str | 
+    workspace_id = 'workspace_id_example' # str | 
+    file = None # bytearray | 
+
+    try:
+        # Upload Image Ft
+        api_response = api_instance.upload_image_ft(ft_id, workspace_id, file)
+        print("The response of FineTuningsApi->upload_image_ft:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling FineTuningsApi->upload_image_ft: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ft_id** | **str**|  | 
+ **workspace_id** | **str**|  | 
+ **file** | **bytearray**|  | 
+
+### Return type
+
+[**ImageFTResponse**](ImageFTResponse.md)
+
+### Authorization
+
+[APIKeyHeader](../README.md#APIKeyHeader), [HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/json
 
 ### HTTP response details

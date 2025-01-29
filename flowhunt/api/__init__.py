@@ -7,10 +7,12 @@ from flowhunt.api.billing_api import BillingApi
 from flowhunt.api.chatbots_api import ChatbotsApi
 from flowhunt.api.credits_api import CreditsApi
 from flowhunt.api.documents_api import DocumentsApi
+from flowhunt.api.fine_tunings_api import FineTuningsApi
 from flowhunt.api.flow_messages_api import FlowMessagesApi
 from flowhunt.api.flow_sessions_api import FlowSessionsApi
 from flowhunt.api.flow_webhooks_api import FlowWebhooksApi
 from flowhunt.api.flows_api import FlowsApi
+from flowhunt.api.google_api import GoogleApi
 from flowhunt.api.grids_api import GridsApi
 from flowhunt.api.health_api import HealthApi
 from flowhunt.api.images_api import ImagesApi

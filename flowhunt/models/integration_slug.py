@@ -35,6 +35,14 @@ class IntegrationSlug(str, Enum):
     SMARTSUPP_INTEGRATION = 'smartsupp_integration'
     FRESHCHAT_INTEGRATION = 'freshchat_integration'
     TAWK_INTEGRATION = 'tawk_integration'
+    GOOGLE_INTEGRATION = 'google_integration'
+    GOOGLE_CALENDAR_INTEGRATION = 'google_calendar_integration'
+    GOOGLE_ADS_INTEGRATION = 'google_ads_integration'
+    GOOGLE_DOCS_INTEGRATION = 'google_docs_integration'
+    GOOGLE_DRIVE_INTEGRATION = 'google_drive_integration'
+    GOOGLE_SHEETS_INTEGRATION = 'google_sheets_integration'
+    GOOGLE_TASKS_INTEGRATION = 'google_tasks_integration'
+    GOOGLE_MEET_INTEGRATION = 'google_meet_integration'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
