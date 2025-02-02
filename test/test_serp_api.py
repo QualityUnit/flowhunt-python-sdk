@@ -68,10 +68,10 @@ class TestSERPApi(unittest.TestCase):
         """
         pass
 
-    def test_serp_cluster_get_bulk_query_intersections(self) -> None:
-        """Test case for serp_cluster_get_bulk_query_intersections
+    def test_serp_cluster_get_graph_nodes(self) -> None:
+        """Test case for serp_cluster_get_graph_nodes
 
-        Serp Cluster Get Bulk Query Intersections
+        Serp Cluster Get Graph Nodes
         """
         pass
 
@@ -86,6 +86,13 @@ class TestSERPApi(unittest.TestCase):
         """Test case for serp_cluster_get_related_keywords_to_query
 
         Serp Cluster Get Related Keywords To Query
+        """
+        pass
+
+    def test_serp_cluster_split_to_sub_clusters(self) -> None:
+        """Test case for serp_cluster_split_to_sub_clusters
+
+        Serp Cluster Split To Sub Clusters
         """
         pass
 

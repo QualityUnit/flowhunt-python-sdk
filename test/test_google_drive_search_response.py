@@ -38,20 +38,34 @@ class TestGoogleDriveSearchResponse(unittest.TestCase):
                 next_page_token = '',
                 files = [
                     flowhunt.models.google_drive_file_response.GoogleDriveFileResponse(
+                        document_id = '', 
+                        name = '', 
                         kind = '', 
+                        viewed_by_me = True, 
+                        created_time = '', 
                         mime_type = '', 
-                        id = '', 
-                        name = '', )
+                        has_thumbnail = True, 
+                        thumbnail_link = '', 
+                        size = '', 
+                        icon_link = '', 
+                        web_view_link = '', )
                     ]
             )
         else:
             return GoogleDriveSearchResponse(
                 files = [
                     flowhunt.models.google_drive_file_response.GoogleDriveFileResponse(
+                        document_id = '', 
+                        name = '', 
                         kind = '', 
+                        viewed_by_me = True, 
+                        created_time = '', 
                         mime_type = '', 
-                        id = '', 
-                        name = '', )
+                        has_thumbnail = True, 
+                        thumbnail_link = '', 
+                        size = '', 
+                        icon_link = '', 
+                        web_view_link = '', )
                     ],
         )
         """

@@ -5,10 +5,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**kind** | **str** |  | [optional] 
-**mime_type** | **str** |  | [optional] 
-**id** | **str** |  | [optional] 
-**name** | **str** |  | [optional] 
+**document_id** | **str** | Document ID | 
+**name** | **str** | Name | 
+**kind** | **str** | Kind of document retrieved | 
+**viewed_by_me** | **bool** | Viewed by me | 
+**created_time** | **str** | Created time | 
+**mime_type** | **str** | Mime type | 
+**has_thumbnail** | **bool** | Has thumbnail | 
+**thumbnail_link** | **str** |  | [optional] 
+**size** | **str** | Size | 
+**icon_link** | **str** |  | [optional] 
+**web_view_link** | **str** |  | [optional] 
 
 ## Example
 

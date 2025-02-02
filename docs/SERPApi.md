@@ -10,9 +10,10 @@ Method | HTTP request | Description
 [**serp_cluster_delete_customer**](SERPApi.md#serp_cluster_delete_customer) | **DELETE** /v2/serp/clusters/{customer_id} | Serp Cluster Delete Customer
 [**serp_cluster_delete_group**](SERPApi.md#serp_cluster_delete_group) | **DELETE** /v2/serp/clusters/{customer_id}/{campaign_id}/{group_id} | Serp Cluster Delete Group
 [**serp_cluster_delete_group_queries**](SERPApi.md#serp_cluster_delete_group_queries) | **DELETE** /v2/serp/clusters/{customer_id}/{campaign_id}/{group_id}/delete_queries | Serp Cluster Delete Group Queries
-[**serp_cluster_get_bulk_query_intersections**](SERPApi.md#serp_cluster_get_bulk_query_intersections) | **POST** /v2/serp/clusters/intersections | Serp Cluster Get Bulk Query Intersections
+[**serp_cluster_get_graph_nodes**](SERPApi.md#serp_cluster_get_graph_nodes) | **POST** /v2/serp/clusters/graph_nodes | Serp Cluster Get Graph Nodes
 [**serp_cluster_get_matching_groups_to_query**](SERPApi.md#serp_cluster_get_matching_groups_to_query) | **POST** /v2/serp/clusters/recommended_groups | Serp Cluster Get Matching Groups To Query
 [**serp_cluster_get_related_keywords_to_query**](SERPApi.md#serp_cluster_get_related_keywords_to_query) | **POST** /v2/serp/clusters/related_keywords | Serp Cluster Get Related Keywords To Query
+[**serp_cluster_split_to_sub_clusters**](SERPApi.md#serp_cluster_split_to_sub_clusters) | **POST** /v2/serp/clusters/split_sub_clusters | Serp Cluster Split To Sub Clusters
 [**serp_search**](SERPApi.md#serp_search) | **POST** /v2/serp/serp/search | Serp Search
 [**serp_volumes**](SERPApi.md#serp_volumes) | **POST** /v2/serp/serp/volumes | Serp Volumes
 [**serp_volumes_pingback**](SERPApi.md#serp_volumes_pingback) | **GET** /v2/serp/serp/volumes/pingback/{id}/{tag} | Serp Volumes Pingback
@@ -555,10 +556,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **serp_cluster_get_bulk_query_intersections**
-> List[SerpKeywordRelation] serp_cluster_get_bulk_query_intersections(workspace_id, serp_cluster_group_intersections_request)
+# **serp_cluster_get_graph_nodes**
+> List[SerpKeywordRelation] serp_cluster_get_graph_nodes(workspace_id, serp_cluster_group_intersections_request)
 
-Serp Cluster Get Bulk Query Intersections
+Serp Cluster Get Graph Nodes
 
 ### Example
 
@@ -602,12 +603,12 @@ with flowhunt.ApiClient(configuration) as api_client:
     serp_cluster_group_intersections_request = flowhunt.SerpClusterGroupIntersectionsRequest() # SerpClusterGroupIntersectionsRequest | 
 
     try:
-        # Serp Cluster Get Bulk Query Intersections
-        api_response = api_instance.serp_cluster_get_bulk_query_intersections(workspace_id, serp_cluster_group_intersections_request)
-        print("The response of SERPApi->serp_cluster_get_bulk_query_intersections:\n")
+        # Serp Cluster Get Graph Nodes
+        api_response = api_instance.serp_cluster_get_graph_nodes(workspace_id, serp_cluster_group_intersections_request)
+        print("The response of SERPApi->serp_cluster_get_graph_nodes:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling SERPApi->serp_cluster_get_bulk_query_intersections: %s\n" % e)
+        print("Exception when calling SERPApi->serp_cluster_get_graph_nodes: %s\n" % e)
 ```
 
 
@@ -797,6 +798,92 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**List[SerpKeywordRelation]**](SerpKeywordRelation.md)
+
+### Authorization
+
+[APIKeyHeader](../README.md#APIKeyHeader), [HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **serp_cluster_split_to_sub_clusters**
+> List[List[str]] serp_cluster_split_to_sub_clusters(workspace_id, serp_cluster_group_sub_clusters_request)
+
+Serp Cluster Split To Sub Clusters
+
+### Example
+
+* Api Key Authentication (APIKeyHeader):
+* Bearer Authentication (HTTPBearer):
+
+```python
+import flowhunt
+from flowhunt.models.serp_cluster_group_sub_clusters_request import SerpClusterGroupSubClustersRequest
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: APIKeyHeader
+configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
+
+# Configure Bearer authorization: HTTPBearer
+configuration = flowhunt.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.SERPApi(api_client)
+    workspace_id = 'workspace_id_example' # str | 
+    serp_cluster_group_sub_clusters_request = flowhunt.SerpClusterGroupSubClustersRequest() # SerpClusterGroupSubClustersRequest | 
+
+    try:
+        # Serp Cluster Split To Sub Clusters
+        api_response = api_instance.serp_cluster_split_to_sub_clusters(workspace_id, serp_cluster_group_sub_clusters_request)
+        print("The response of SERPApi->serp_cluster_split_to_sub_clusters:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling SERPApi->serp_cluster_split_to_sub_clusters: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **workspace_id** | **str**|  | 
+ **serp_cluster_group_sub_clusters_request** | [**SerpClusterGroupSubClustersRequest**](SerpClusterGroupSubClustersRequest.md)|  | 
+
+### Return type
+
+**List[List[str]]**
 
 ### Authorization
 

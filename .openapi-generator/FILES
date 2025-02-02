@@ -194,6 +194,7 @@ docs/SerpClusterAddQueryRequests.md
 docs/SerpClusterBestGroupsRequest.md
 docs/SerpClusterGroupIntersectionsRequest.md
 docs/SerpClusterGroupSearchRequest.md
+docs/SerpClusterGroupSubClustersRequest.md
 docs/SerpClusterKeywordIntersectionsRequest.md
 docs/SerpClusterKeywordResponse.md
 docs/SerpGroupIntersection.md
@@ -445,6 +446,7 @@ flowhunt/models/serp_cluster_add_query_requests.py
 flowhunt/models/serp_cluster_best_groups_request.py
 flowhunt/models/serp_cluster_group_intersections_request.py
 flowhunt/models/serp_cluster_group_search_request.py
+flowhunt/models/serp_cluster_group_sub_clusters_request.py
 flowhunt/models/serp_cluster_keyword_intersections_request.py
 flowhunt/models/serp_cluster_keyword_response.py
 flowhunt/models/serp_group_intersection.py
@@ -692,6 +694,7 @@ test/test_serp_cluster_add_query_requests.py
 test/test_serp_cluster_best_groups_request.py
 test/test_serp_cluster_group_intersections_request.py
 test/test_serp_cluster_group_search_request.py
+test/test_serp_cluster_group_sub_clusters_request.py
 test/test_serp_cluster_keyword_intersections_request.py
 test/test_serp_cluster_keyword_response.py
 test/test_serp_group_intersection.py

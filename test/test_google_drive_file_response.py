@@ -35,13 +35,28 @@ class TestGoogleDriveFileResponse(unittest.TestCase):
         model = GoogleDriveFileResponse()
         if include_optional:
             return GoogleDriveFileResponse(
+                document_id = '',
+                name = '',
                 kind = '',
+                viewed_by_me = True,
+                created_time = '',
                 mime_type = '',
-                id = '',
-                name = ''
+                has_thumbnail = True,
+                thumbnail_link = '',
+                size = '',
+                icon_link = '',
+                web_view_link = ''
             )
         else:
             return GoogleDriveFileResponse(
+                document_id = '',
+                name = '',
+                kind = '',
+                viewed_by_me = True,
+                created_time = '',
+                mime_type = '',
+                has_thumbnail = True,
+                size = '',
         )
         """
 

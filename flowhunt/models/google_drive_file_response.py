@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -26,11 +26,18 @@ class GoogleDriveFileResponse(BaseModel):
     """
     GoogleDriveFileResponse
     """ # noqa: E501
-    kind: Optional[StrictStr] = None
-    mime_type: Optional[StrictStr] = None
-    id: Optional[StrictStr] = None
-    name: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["kind", "mime_type", "id", "name"]
+    document_id: StrictStr = Field(description="Document ID")
+    name: StrictStr = Field(description="Name")
+    kind: StrictStr = Field(description="Kind of document retrieved")
+    viewed_by_me: StrictBool = Field(description="Viewed by me")
+    created_time: StrictStr = Field(description="Created time")
+    mime_type: StrictStr = Field(description="Mime type")
+    has_thumbnail: StrictBool = Field(description="Has thumbnail")
+    thumbnail_link: Optional[StrictStr] = None
+    size: StrictStr = Field(description="Size")
+    icon_link: Optional[StrictStr] = None
+    web_view_link: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["document_id", "name", "kind", "viewed_by_me", "created_time", "mime_type", "has_thumbnail", "thumbnail_link", "size", "icon_link", "web_view_link"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -71,25 +78,20 @@ class GoogleDriveFileResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if kind (nullable) is None
+        # set to None if thumbnail_link (nullable) is None
         # and model_fields_set contains the field
-        if self.kind is None and "kind" in self.model_fields_set:
-            _dict['kind'] = None
+        if self.thumbnail_link is None and "thumbnail_link" in self.model_fields_set:
+            _dict['thumbnail_link'] = None
 
-        # set to None if mime_type (nullable) is None
+        # set to None if icon_link (nullable) is None
         # and model_fields_set contains the field
-        if self.mime_type is None and "mime_type" in self.model_fields_set:
-            _dict['mime_type'] = None
+        if self.icon_link is None and "icon_link" in self.model_fields_set:
+            _dict['icon_link'] = None
 
-        # set to None if id (nullable) is None
+        # set to None if web_view_link (nullable) is None
         # and model_fields_set contains the field
-        if self.id is None and "id" in self.model_fields_set:
-            _dict['id'] = None
-
-        # set to None if name (nullable) is None
-        # and model_fields_set contains the field
-        if self.name is None and "name" in self.model_fields_set:
-            _dict['name'] = None
+        if self.web_view_link is None and "web_view_link" in self.model_fields_set:
+            _dict['web_view_link'] = None
 
         return _dict
 
@@ -103,10 +105,17 @@ class GoogleDriveFileResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "document_id": obj.get("document_id"),
+            "name": obj.get("name"),
             "kind": obj.get("kind"),
+            "viewed_by_me": obj.get("viewed_by_me"),
+            "created_time": obj.get("created_time"),
             "mime_type": obj.get("mime_type"),
-            "id": obj.get("id"),
-            "name": obj.get("name")
+            "has_thumbnail": obj.get("has_thumbnail"),
+            "thumbnail_link": obj.get("thumbnail_link"),
+            "size": obj.get("size"),
+            "icon_link": obj.get("icon_link"),
+            "web_view_link": obj.get("web_view_link")
         })
         return _obj
 

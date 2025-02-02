@@ -183,6 +183,7 @@ Class | Method | HTTP request | Description
 *FlowsApi* | [**update_flow_category**](docs/FlowsApi.md#update_flow_category) | **PUT** /v2/flows/categories/{cat_id} | Update Flow Category
 *FlowsApi* | [**update_flow_cron**](docs/FlowsApi.md#update_flow_cron) | **PUT** /v2/flows/crons/{flow_id}/{cron_id} | Update Flow Cron
 *FlowsApi* | [**upload_attachments**](docs/FlowsApi.md#upload_attachments) | **POST** /v2/flows/sessions/{session_id}/attachments | Upload Attachments
+*GoogleApi* | [**get_drive_document_detail_0**](docs/GoogleApi.md#get_drive_document_detail_0) | **POST** /v2/integrations/google/drive/files/{document_id} | Get Drive Document Detail
 *GoogleApi* | [**get_drive_documents_0**](docs/GoogleApi.md#get_drive_documents_0) | **POST** /v2/integrations/google/{integration_slug}/drive/files | Get Drive Documents
 *GoogleAdsApi* | [**analyze_not_assigned_keywords**](docs/GoogleAdsApi.md#analyze_not_assigned_keywords) | **POST** /v2/integrations/google_ads/analyze_not_assigned_keywords | Analyze Not Assigned Keywords
 *GoogleAdsApi* | [**get_google_ads_campaigns**](docs/GoogleAdsApi.md#get_google_ads_campaigns) | **POST** /v2/integrations/google_ads/{customer_id}/campaigns | Get Google Ads Campaigns
@@ -213,6 +214,7 @@ Class | Method | HTTP request | Description
 *IntegrationsApi* | [**create_integration**](docs/IntegrationsApi.md#create_integration) | **POST** /v2/integrations/{slug}/integrate | Create Integration
 *IntegrationsApi* | [**delete_integration**](docs/IntegrationsApi.md#delete_integration) | **DELETE** /v2/integrations/{slug}/{integration_id} | Delete Integration
 *IntegrationsApi* | [**get_all_integrations**](docs/IntegrationsApi.md#get_all_integrations) | **GET** /v2/integrations/all | Get All Integrations
+*IntegrationsApi* | [**get_drive_document_detail**](docs/IntegrationsApi.md#get_drive_document_detail) | **POST** /v2/integrations/google/drive/files/{document_id} | Get Drive Document Detail
 *IntegrationsApi* | [**get_drive_documents**](docs/IntegrationsApi.md#get_drive_documents) | **POST** /v2/integrations/google/{integration_slug}/drive/files | Get Drive Documents
 *IntegrationsApi* | [**get_integration**](docs/IntegrationsApi.md#get_integration) | **GET** /v2/integrations/{slug}/{integration_id} | Get Integration
 *IntegrationsApi* | [**get_slack_channels**](docs/IntegrationsApi.md#get_slack_channels) | **GET** /v2/integrations/slack/{slack_team_id}/channels | Get Slack Channels
@@ -236,9 +238,10 @@ Class | Method | HTTP request | Description
 *SERPApi* | [**serp_cluster_delete_customer**](docs/SERPApi.md#serp_cluster_delete_customer) | **DELETE** /v2/serp/clusters/{customer_id} | Serp Cluster Delete Customer
 *SERPApi* | [**serp_cluster_delete_group**](docs/SERPApi.md#serp_cluster_delete_group) | **DELETE** /v2/serp/clusters/{customer_id}/{campaign_id}/{group_id} | Serp Cluster Delete Group
 *SERPApi* | [**serp_cluster_delete_group_queries**](docs/SERPApi.md#serp_cluster_delete_group_queries) | **DELETE** /v2/serp/clusters/{customer_id}/{campaign_id}/{group_id}/delete_queries | Serp Cluster Delete Group Queries
-*SERPApi* | [**serp_cluster_get_bulk_query_intersections**](docs/SERPApi.md#serp_cluster_get_bulk_query_intersections) | **POST** /v2/serp/clusters/intersections | Serp Cluster Get Bulk Query Intersections
+*SERPApi* | [**serp_cluster_get_graph_nodes**](docs/SERPApi.md#serp_cluster_get_graph_nodes) | **POST** /v2/serp/clusters/graph_nodes | Serp Cluster Get Graph Nodes
 *SERPApi* | [**serp_cluster_get_matching_groups_to_query**](docs/SERPApi.md#serp_cluster_get_matching_groups_to_query) | **POST** /v2/serp/clusters/recommended_groups | Serp Cluster Get Matching Groups To Query
 *SERPApi* | [**serp_cluster_get_related_keywords_to_query**](docs/SERPApi.md#serp_cluster_get_related_keywords_to_query) | **POST** /v2/serp/clusters/related_keywords | Serp Cluster Get Related Keywords To Query
+*SERPApi* | [**serp_cluster_split_to_sub_clusters**](docs/SERPApi.md#serp_cluster_split_to_sub_clusters) | **POST** /v2/serp/clusters/split_sub_clusters | Serp Cluster Split To Sub Clusters
 *SERPApi* | [**serp_search**](docs/SERPApi.md#serp_search) | **POST** /v2/serp/serp/search | Serp Search
 *SERPApi* | [**serp_volumes**](docs/SERPApi.md#serp_volumes) | **POST** /v2/serp/serp/volumes | Serp Volumes
 *SERPApi* | [**serp_volumes_pingback**](docs/SERPApi.md#serp_volumes_pingback) | **GET** /v2/serp/serp/volumes/pingback/{id}/{tag} | Serp Volumes Pingback
@@ -445,6 +448,7 @@ Class | Method | HTTP request | Description
  - [SerpClusterBestGroupsRequest](docs/SerpClusterBestGroupsRequest.md)
  - [SerpClusterGroupIntersectionsRequest](docs/SerpClusterGroupIntersectionsRequest.md)
  - [SerpClusterGroupSearchRequest](docs/SerpClusterGroupSearchRequest.md)
+ - [SerpClusterGroupSubClustersRequest](docs/SerpClusterGroupSubClustersRequest.md)
  - [SerpClusterKeywordIntersectionsRequest](docs/SerpClusterKeywordIntersectionsRequest.md)
  - [SerpClusterKeywordResponse](docs/SerpClusterKeywordResponse.md)
  - [SerpGroupIntersection](docs/SerpGroupIntersection.md)
