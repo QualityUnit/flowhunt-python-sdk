@@ -17,21 +17,27 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from datetime import datetime
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from flowhunt.models.google_ads_action_type import GoogleAdsActionType
 from typing import Optional, Set
 from typing_extensions import Self
 
-class SerpClusterQueryResponse(BaseModel):
+class GoogleAdsCustomerResponse(BaseModel):
     """
-    SerpClusterQueryResponse
+    GoogleAdsCustomerResponse
     """ # noqa: E501
-    query_id: StrictStr = Field(description="Query ID")
-    query: StrictStr = Field(description="Query")
-    country: Optional[StrictStr] = None
-    language: Optional[StrictStr] = None
-    location: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["query_id", "query", "country", "language", "location"]
+    workspace_id: StrictStr = Field(description="Workspace ID")
+    customer_id: StrictInt = Field(description="Google Ads Customer ID")
+    customer_name: StrictStr = Field(description="Google Ads Customer Name")
+    language_code: StrictStr = Field(description="Language Code")
+    country: StrictStr = Field(description="Country Code")
+    min_queries: StrictInt = Field(description="Minimum Queries")
+    cluster_strength: StrictInt = Field(description="Cluster Strength")
+    last_update: Optional[datetime] = None
+    action_type: GoogleAdsActionType = Field(description="Action Type")
+    __properties: ClassVar[List[str]] = ["workspace_id", "customer_id", "customer_name", "language_code", "country", "min_queries", "cluster_strength", "last_update", "action_type"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -51,7 +57,7 @@ class SerpClusterQueryResponse(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of SerpClusterQueryResponse from a JSON string"""
+        """Create an instance of GoogleAdsCustomerResponse from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -72,26 +78,16 @@ class SerpClusterQueryResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if country (nullable) is None
+        # set to None if last_update (nullable) is None
         # and model_fields_set contains the field
-        if self.country is None and "country" in self.model_fields_set:
-            _dict['country'] = None
-
-        # set to None if language (nullable) is None
-        # and model_fields_set contains the field
-        if self.language is None and "language" in self.model_fields_set:
-            _dict['language'] = None
-
-        # set to None if location (nullable) is None
-        # and model_fields_set contains the field
-        if self.location is None and "location" in self.model_fields_set:
-            _dict['location'] = None
+        if self.last_update is None and "last_update" in self.model_fields_set:
+            _dict['last_update'] = None
 
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of SerpClusterQueryResponse from a dict"""
+        """Create an instance of GoogleAdsCustomerResponse from a dict"""
         if obj is None:
             return None
 
@@ -99,11 +95,15 @@ class SerpClusterQueryResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "query_id": obj.get("query_id"),
-            "query": obj.get("query"),
+            "workspace_id": obj.get("workspace_id"),
+            "customer_id": obj.get("customer_id"),
+            "customer_name": obj.get("customer_name"),
+            "language_code": obj.get("language_code"),
             "country": obj.get("country"),
-            "language": obj.get("language"),
-            "location": obj.get("location")
+            "min_queries": obj.get("min_queries"),
+            "cluster_strength": obj.get("cluster_strength"),
+            "last_update": obj.get("last_update"),
+            "action_type": obj.get("action_type")
         })
         return _obj
 

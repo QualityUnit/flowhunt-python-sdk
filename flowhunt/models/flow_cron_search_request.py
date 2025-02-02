@@ -17,18 +17,23 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from datetime import datetime
+from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
+from flowhunt.models.flow_cron_status import FlowCronStatus
 from typing import Optional, Set
 from typing_extensions import Self
 
-class SerpClusterAddGroupRequest(BaseModel):
+class FlowCronSearchRequest(BaseModel):
     """
-    SerpClusterAddGroupRequest
+    FlowCronSearchRequest
     """ # noqa: E501
-    group_name: Optional[StrictStr] = Field(default='', description="Group name of cluster")
-    group_id: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["group_name", "group_id"]
+    status: Optional[FlowCronStatus] = None
+    next_run_to: Optional[datetime] = None
+    next_run_from: Optional[datetime] = None
+    last_run_to: Optional[datetime] = None
+    last_run_from: Optional[datetime] = None
+    __properties: ClassVar[List[str]] = ["status", "next_run_to", "next_run_from", "last_run_to", "last_run_from"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -48,7 +53,7 @@ class SerpClusterAddGroupRequest(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of SerpClusterAddGroupRequest from a JSON string"""
+        """Create an instance of FlowCronSearchRequest from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -69,16 +74,36 @@ class SerpClusterAddGroupRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if group_id (nullable) is None
+        # set to None if status (nullable) is None
         # and model_fields_set contains the field
-        if self.group_id is None and "group_id" in self.model_fields_set:
-            _dict['group_id'] = None
+        if self.status is None and "status" in self.model_fields_set:
+            _dict['status'] = None
+
+        # set to None if next_run_to (nullable) is None
+        # and model_fields_set contains the field
+        if self.next_run_to is None and "next_run_to" in self.model_fields_set:
+            _dict['next_run_to'] = None
+
+        # set to None if next_run_from (nullable) is None
+        # and model_fields_set contains the field
+        if self.next_run_from is None and "next_run_from" in self.model_fields_set:
+            _dict['next_run_from'] = None
+
+        # set to None if last_run_to (nullable) is None
+        # and model_fields_set contains the field
+        if self.last_run_to is None and "last_run_to" in self.model_fields_set:
+            _dict['last_run_to'] = None
+
+        # set to None if last_run_from (nullable) is None
+        # and model_fields_set contains the field
+        if self.last_run_from is None and "last_run_from" in self.model_fields_set:
+            _dict['last_run_from'] = None
 
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of SerpClusterAddGroupRequest from a dict"""
+        """Create an instance of FlowCronSearchRequest from a dict"""
         if obj is None:
             return None
 
@@ -86,8 +111,11 @@ class SerpClusterAddGroupRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "group_name": obj.get("group_name") if obj.get("group_name") is not None else '',
-            "group_id": obj.get("group_id")
+            "status": obj.get("status"),
+            "next_run_to": obj.get("next_run_to"),
+            "next_run_from": obj.get("next_run_from"),
+            "last_run_to": obj.get("last_run_to"),
+            "last_run_from": obj.get("last_run_from")
         })
         return _obj
 

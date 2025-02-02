@@ -35,7 +35,10 @@ class TestSerpClusterGroupSearchRequest(unittest.TestCase):
         model = SerpClusterGroupSearchRequest()
         if include_optional:
             return SerpClusterGroupSearchRequest(
-                search = ''
+                search = '',
+                customer_id = 56,
+                campaign_id = 56,
+                group_id = 56
             )
         else:
             return SerpClusterGroupSearchRequest(

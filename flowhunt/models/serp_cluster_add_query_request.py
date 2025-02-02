@@ -19,6 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from flowhunt.models.serp_keyword import SerpKeyword
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,14 +28,12 @@ class SerpClusterAddQueryRequest(BaseModel):
     SerpClusterAddQueryRequest
     """ # noqa: E501
     post_back_url: Optional[StrictStr] = None
-    query: Optional[StrictStr] = None
-    country: Optional[StrictStr] = None
-    language: Optional[StrictStr] = None
-    location: Optional[StrictStr] = None
+    queries: List[SerpKeyword] = Field(description="List of queries")
+    customer_id: Optional[StrictInt] = Field(default=None, description="Customer ID of cluster")
+    campaign_id: Optional[StrictInt] = Field(default=None, description="Campaign ID of cluster")
+    group_id: Optional[StrictInt] = Field(default=None, description="Group ID of cluster - will be generated if not provided")
     group_name: Optional[StrictStr] = Field(default='', description="Group name of cluster")
-    group_id: Optional[StrictStr] = None
-    count_urls: Optional[StrictInt] = None
-    __properties: ClassVar[List[str]] = ["post_back_url", "query", "country", "language", "location", "group_name", "group_id", "count_urls"]
+    __properties: ClassVar[List[str]] = ["post_back_url", "queries", "customer_id", "campaign_id", "group_id", "group_name"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -75,40 +74,17 @@ class SerpClusterAddQueryRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of each item in queries (list)
+        _items = []
+        if self.queries:
+            for _item_queries in self.queries:
+                if _item_queries:
+                    _items.append(_item_queries.to_dict())
+            _dict['queries'] = _items
         # set to None if post_back_url (nullable) is None
         # and model_fields_set contains the field
         if self.post_back_url is None and "post_back_url" in self.model_fields_set:
             _dict['post_back_url'] = None
-
-        # set to None if query (nullable) is None
-        # and model_fields_set contains the field
-        if self.query is None and "query" in self.model_fields_set:
-            _dict['query'] = None
-
-        # set to None if country (nullable) is None
-        # and model_fields_set contains the field
-        if self.country is None and "country" in self.model_fields_set:
-            _dict['country'] = None
-
-        # set to None if language (nullable) is None
-        # and model_fields_set contains the field
-        if self.language is None and "language" in self.model_fields_set:
-            _dict['language'] = None
-
-        # set to None if location (nullable) is None
-        # and model_fields_set contains the field
-        if self.location is None and "location" in self.model_fields_set:
-            _dict['location'] = None
-
-        # set to None if group_id (nullable) is None
-        # and model_fields_set contains the field
-        if self.group_id is None and "group_id" in self.model_fields_set:
-            _dict['group_id'] = None
-
-        # set to None if count_urls (nullable) is None
-        # and model_fields_set contains the field
-        if self.count_urls is None and "count_urls" in self.model_fields_set:
-            _dict['count_urls'] = None
 
         return _dict
 
@@ -123,13 +99,11 @@ class SerpClusterAddQueryRequest(BaseModel):
 
         _obj = cls.model_validate({
             "post_back_url": obj.get("post_back_url"),
-            "query": obj.get("query"),
-            "country": obj.get("country"),
-            "language": obj.get("language"),
-            "location": obj.get("location"),
-            "group_name": obj.get("group_name") if obj.get("group_name") is not None else '',
+            "queries": [SerpKeyword.from_dict(_item) for _item in obj["queries"]] if obj.get("queries") is not None else None,
+            "customer_id": obj.get("customer_id"),
+            "campaign_id": obj.get("campaign_id"),
             "group_id": obj.get("group_id"),
-            "count_urls": obj.get("count_urls")
+            "group_name": obj.get("group_name") if obj.get("group_name") is not None else ''
         })
         return _obj
 

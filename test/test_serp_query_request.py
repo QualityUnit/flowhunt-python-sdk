@@ -36,13 +36,25 @@ class TestSerpQueryRequest(unittest.TestCase):
         if include_optional:
             return SerpQueryRequest(
                 post_back_url = '',
-                query = '',
-                country = '',
-                language = '',
-                location = ''
+                queries = [
+                    flowhunt.models.serp_keyword.SerpKeyword(
+                        keyword_id = '', 
+                        keyword = '', 
+                        language = '', 
+                        country = '', 
+                        search_engine = 'G', )
+                    ]
             )
         else:
             return SerpQueryRequest(
+                queries = [
+                    flowhunt.models.serp_keyword.SerpKeyword(
+                        keyword_id = '', 
+                        keyword = '', 
+                        language = '', 
+                        country = '', 
+                        search_engine = 'G', )
+                    ],
         )
         """
 

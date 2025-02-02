@@ -26,24 +26,10 @@ class TestSERPApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_search_cluster_group(self) -> None:
-        """Test case for search_cluster_group
-
-        Search Cluster Group
-        """
-        pass
-
     def test_search_cluster_query(self) -> None:
         """Test case for search_cluster_query
 
         Search Cluster Query
-        """
-        pass
-
-    def test_serp_cluster_add_group(self) -> None:
-        """Test case for serp_cluster_add_group
-
-        Serp Cluster Add Group
         """
         pass
 
@@ -54,17 +40,17 @@ class TestSERPApi(unittest.TestCase):
         """
         pass
 
-    def test_serp_cluster_bulk_delete_queries(self) -> None:
-        """Test case for serp_cluster_bulk_delete_queries
+    def test_serp_cluster_delete_campaign(self) -> None:
+        """Test case for serp_cluster_delete_campaign
 
-        Serp Cluster Bulk Delete Queries
+        Serp Cluster Delete Campaign
         """
         pass
 
-    def test_serp_cluster_delete_all(self) -> None:
-        """Test case for serp_cluster_delete_all
+    def test_serp_cluster_delete_customer(self) -> None:
+        """Test case for serp_cluster_delete_customer
 
-        Serp Cluster Delete All
+        Serp Cluster Delete Customer
         """
         pass
 
@@ -75,10 +61,10 @@ class TestSERPApi(unittest.TestCase):
         """
         pass
 
-    def test_serp_cluster_delete_query(self) -> None:
-        """Test case for serp_cluster_delete_query
+    def test_serp_cluster_delete_group_queries(self) -> None:
+        """Test case for serp_cluster_delete_group_queries
 
-        Serp Cluster Delete Query
+        Serp Cluster Delete Group Queries
         """
         pass
 
@@ -89,10 +75,17 @@ class TestSERPApi(unittest.TestCase):
         """
         pass
 
-    def test_serp_cluster_get_query_intersections(self) -> None:
-        """Test case for serp_cluster_get_query_intersections
+    def test_serp_cluster_get_matching_groups_to_query(self) -> None:
+        """Test case for serp_cluster_get_matching_groups_to_query
 
-        Serp Cluster Get Query Intersections
+        Serp Cluster Get Matching Groups To Query
+        """
+        pass
+
+    def test_serp_cluster_get_related_keywords_to_query(self) -> None:
+        """Test case for serp_cluster_get_related_keywords_to_query
+
+        Serp Cluster Get Related Keywords To Query
         """
         pass
 

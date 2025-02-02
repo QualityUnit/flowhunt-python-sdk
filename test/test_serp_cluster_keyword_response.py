@@ -14,10 +14,10 @@
 
 import unittest
 
-from flowhunt.models.serp_cluster_query_response import SerpClusterQueryResponse
+from flowhunt.models.serp_cluster_keyword_response import SerpClusterKeywordResponse
 
-class TestSerpClusterQueryResponse(unittest.TestCase):
-    """SerpClusterQueryResponse unit test stubs"""
+class TestSerpClusterKeywordResponse(unittest.TestCase):
+    """SerpClusterKeywordResponse unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,31 +25,30 @@ class TestSerpClusterQueryResponse(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> SerpClusterQueryResponse:
-        """Test SerpClusterQueryResponse
+    def make_instance(self, include_optional) -> SerpClusterKeywordResponse:
+        """Test SerpClusterKeywordResponse
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `SerpClusterQueryResponse`
+        # uncomment below to create an instance of `SerpClusterKeywordResponse`
         """
-        model = SerpClusterQueryResponse()
+        model = SerpClusterKeywordResponse()
         if include_optional:
-            return SerpClusterQueryResponse(
-                query_id = '',
-                query = '',
+            return SerpClusterKeywordResponse(
+                keyword_id = '',
+                keyword = '',
                 country = '',
-                language = '',
-                location = ''
+                language = ''
             )
         else:
-            return SerpClusterQueryResponse(
-                query_id = '',
-                query = '',
+            return SerpClusterKeywordResponse(
+                keyword_id = '',
+                keyword = '',
         )
         """
 
-    def testSerpClusterQueryResponse(self):
-        """Test SerpClusterQueryResponse"""
+    def testSerpClusterKeywordResponse(self):
+        """Test SerpClusterKeywordResponse"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

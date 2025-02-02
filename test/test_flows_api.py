@@ -47,6 +47,13 @@ class TestFlowsApi(unittest.TestCase):
         """
         pass
 
+    def test_create_flow_cron(self) -> None:
+        """Test case for create_flow_cron
+
+        Create Flow Cron
+        """
+        pass
+
     def test_create_flow_session(self) -> None:
         """Test case for create_flow_session
 
@@ -72,6 +79,20 @@ class TestFlowsApi(unittest.TestCase):
         """Test case for delete_flow_category
 
         Delete Flow Category
+        """
+        pass
+
+    def test_delete_flow_cron(self) -> None:
+        """Test case for delete_flow_cron
+
+        Delete Flow Cron
+        """
+        pass
+
+    def test_execute_flow_cron(self) -> None:
+        """Test case for execute_flow_cron
+
+        Execute Flow Cron
         """
         pass
 
@@ -166,6 +187,13 @@ class TestFlowsApi(unittest.TestCase):
         """
         pass
 
+    def test_search_flow_crons(self) -> None:
+        """Test case for search_flow_crons
+
+        Search Flow Crons
+        """
+        pass
+
     def test_stream_flow_response(self) -> None:
         """Test case for stream_flow_response
 
@@ -184,6 +212,13 @@ class TestFlowsApi(unittest.TestCase):
         """Test case for update_flow_category
 
         Update Flow Category
+        """
+        pass
+
+    def test_update_flow_cron(self) -> None:
+        """Test case for update_flow_cron
+
+        Update Flow Cron
         """
         pass
 

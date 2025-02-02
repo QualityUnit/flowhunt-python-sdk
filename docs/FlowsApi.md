@@ -7,10 +7,13 @@ Method | HTTP request | Description
 [**create_chatbot_session**](FlowsApi.md#create_chatbot_session) | **POST** /v2/flows/sessions/create | Create Chatbot Session
 [**create_flow**](FlowsApi.md#create_flow) | **POST** /v2/flows/create | Create Flow
 [**create_flow_category**](FlowsApi.md#create_flow_category) | **POST** /v2/flows/categories/create | Create Flow Category
+[**create_flow_cron**](FlowsApi.md#create_flow_cron) | **POST** /v2/flows/crons/create | Create Flow Cron
 [**create_flow_session**](FlowsApi.md#create_flow_session) | **POST** /v2/flows/sessions/from_flow/create | Create Flow Session
 [**delete_attachment**](FlowsApi.md#delete_attachment) | **DELETE** /v2/flows/sessions/{session_id}/attachments/{file_id} | Delete Attachment
 [**delete_flow**](FlowsApi.md#delete_flow) | **DELETE** /v2/flows/{flow_id} | Delete Flow
 [**delete_flow_category**](FlowsApi.md#delete_flow_category) | **DELETE** /v2/flows/categories/{cat_id} | Delete Flow Category
+[**delete_flow_cron**](FlowsApi.md#delete_flow_cron) | **DELETE** /v2/flows/crons/{flow_id}/{cron_id} | Delete Flow Cron
+[**execute_flow_cron**](FlowsApi.md#execute_flow_cron) | **POST** /v2/flows/crons/{flow_id}/{cron_id}/execute | Execute Flow Cron
 [**get**](FlowsApi.md#get) | **GET** /v2/flows/{flow_id} | Get
 [**get_all_components**](FlowsApi.md#get_all_components) | **GET** /v2/flows/components/all | Get All Components
 [**get_attachments**](FlowsApi.md#get_attachments) | **GET** /v2/flows/sessions/{session_id}/attachments | Get Attachments
@@ -24,9 +27,11 @@ Method | HTTP request | Description
 [**search**](FlowsApi.md#search) | **POST** /v2/flows/ | Search
 [**search_all**](FlowsApi.md#search_all) | **POST** /v2/flows/all | Search All
 [**search_flow_categories**](FlowsApi.md#search_flow_categories) | **POST** /v2/flows/categories/search | Search Flow Categories
+[**search_flow_crons**](FlowsApi.md#search_flow_crons) | **POST** /v2/flows/crons/search | Search Flow Crons
 [**stream_flow_response**](FlowsApi.md#stream_flow_response) | **POST** /v2/flows/sessions/{session_id}/stream | Stream Flow Response
 [**update_flow**](FlowsApi.md#update_flow) | **PUT** /v2/flows/{flow_id} | Update Flow
 [**update_flow_category**](FlowsApi.md#update_flow_category) | **PUT** /v2/flows/categories/{cat_id} | Update Flow Category
+[**update_flow_cron**](FlowsApi.md#update_flow_cron) | **PUT** /v2/flows/crons/{flow_id}/{cron_id} | Update Flow Cron
 [**upload_attachments**](FlowsApi.md#upload_attachments) | **POST** /v2/flows/sessions/{session_id}/attachments | Upload Attachments
 
 
@@ -255,6 +260,93 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**FlowCategoryResponse**](FlowCategoryResponse.md)
+
+### Authorization
+
+[APIKeyHeader](../README.md#APIKeyHeader), [HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **create_flow_cron**
+> FlowCronResponse create_flow_cron(workspace_id, flow_cron_create_request)
+
+Create Flow Cron
+
+### Example
+
+* Api Key Authentication (APIKeyHeader):
+* Bearer Authentication (HTTPBearer):
+
+```python
+import flowhunt
+from flowhunt.models.flow_cron_create_request import FlowCronCreateRequest
+from flowhunt.models.flow_cron_response import FlowCronResponse
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: APIKeyHeader
+configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
+
+# Configure Bearer authorization: HTTPBearer
+configuration = flowhunt.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.FlowsApi(api_client)
+    workspace_id = 'workspace_id_example' # str | 
+    flow_cron_create_request = flowhunt.FlowCronCreateRequest() # FlowCronCreateRequest | 
+
+    try:
+        # Create Flow Cron
+        api_response = api_instance.create_flow_cron(workspace_id, flow_cron_create_request)
+        print("The response of FlowsApi->create_flow_cron:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling FlowsApi->create_flow_cron: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **workspace_id** | **str**|  | 
+ **flow_cron_create_request** | [**FlowCronCreateRequest**](FlowCronCreateRequest.md)|  | 
+
+### Return type
+
+[**FlowCronResponse**](FlowCronResponse.md)
 
 ### Authorization
 
@@ -583,6 +675,182 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Completed**](Completed.md)
+
+### Authorization
+
+[APIKeyHeader](../README.md#APIKeyHeader), [HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_flow_cron**
+> Completed delete_flow_cron(flow_id, cron_id, workspace_id)
+
+Delete Flow Cron
+
+### Example
+
+* Api Key Authentication (APIKeyHeader):
+* Bearer Authentication (HTTPBearer):
+
+```python
+import flowhunt
+from flowhunt.models.completed import Completed
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: APIKeyHeader
+configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
+
+# Configure Bearer authorization: HTTPBearer
+configuration = flowhunt.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.FlowsApi(api_client)
+    flow_id = 'flow_id_example' # str | 
+    cron_id = 'cron_id_example' # str | 
+    workspace_id = 'workspace_id_example' # str | 
+
+    try:
+        # Delete Flow Cron
+        api_response = api_instance.delete_flow_cron(flow_id, cron_id, workspace_id)
+        print("The response of FlowsApi->delete_flow_cron:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling FlowsApi->delete_flow_cron: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **flow_id** | **str**|  | 
+ **cron_id** | **str**|  | 
+ **workspace_id** | **str**|  | 
+
+### Return type
+
+[**Completed**](Completed.md)
+
+### Authorization
+
+[APIKeyHeader](../README.md#APIKeyHeader), [HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **execute_flow_cron**
+> TaskResponse execute_flow_cron(cron_id, flow_id, workspace_id)
+
+Execute Flow Cron
+
+### Example
+
+* Api Key Authentication (APIKeyHeader):
+* Bearer Authentication (HTTPBearer):
+
+```python
+import flowhunt
+from flowhunt.models.task_response import TaskResponse
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: APIKeyHeader
+configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
+
+# Configure Bearer authorization: HTTPBearer
+configuration = flowhunt.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.FlowsApi(api_client)
+    cron_id = 'cron_id_example' # str | 
+    flow_id = 'flow_id_example' # str | 
+    workspace_id = 'workspace_id_example' # str | 
+
+    try:
+        # Execute Flow Cron
+        api_response = api_instance.execute_flow_cron(cron_id, flow_id, workspace_id)
+        print("The response of FlowsApi->execute_flow_cron:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling FlowsApi->execute_flow_cron: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **cron_id** | **str**|  | 
+ **flow_id** | **str**|  | 
+ **workspace_id** | **str**|  | 
+
+### Return type
+
+[**TaskResponse**](TaskResponse.md)
 
 ### Authorization
 
@@ -1669,6 +1937,93 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **search_flow_crons**
+> List[FlowCronResponse] search_flow_crons(workspace_id, flow_cron_search_request)
+
+Search Flow Crons
+
+### Example
+
+* Api Key Authentication (APIKeyHeader):
+* Bearer Authentication (HTTPBearer):
+
+```python
+import flowhunt
+from flowhunt.models.flow_cron_response import FlowCronResponse
+from flowhunt.models.flow_cron_search_request import FlowCronSearchRequest
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: APIKeyHeader
+configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
+
+# Configure Bearer authorization: HTTPBearer
+configuration = flowhunt.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.FlowsApi(api_client)
+    workspace_id = 'workspace_id_example' # str | 
+    flow_cron_search_request = flowhunt.FlowCronSearchRequest() # FlowCronSearchRequest | 
+
+    try:
+        # Search Flow Crons
+        api_response = api_instance.search_flow_crons(workspace_id, flow_cron_search_request)
+        print("The response of FlowsApi->search_flow_crons:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling FlowsApi->search_flow_crons: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **workspace_id** | **str**|  | 
+ **flow_cron_search_request** | [**FlowCronSearchRequest**](FlowCronSearchRequest.md)|  | 
+
+### Return type
+
+[**List[FlowCronResponse]**](FlowCronResponse.md)
+
+### Authorization
+
+[APIKeyHeader](../README.md#APIKeyHeader), [HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **stream_flow_response**
 > object stream_flow_response(session_id, flow_session_stream_request)
 
@@ -1897,6 +2252,97 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**FlowCategoryResponse**](FlowCategoryResponse.md)
+
+### Authorization
+
+[APIKeyHeader](../README.md#APIKeyHeader), [HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_flow_cron**
+> FlowCronResponse update_flow_cron(cron_id, flow_id, workspace_id, flow_cron_update_request)
+
+Update Flow Cron
+
+### Example
+
+* Api Key Authentication (APIKeyHeader):
+* Bearer Authentication (HTTPBearer):
+
+```python
+import flowhunt
+from flowhunt.models.flow_cron_response import FlowCronResponse
+from flowhunt.models.flow_cron_update_request import FlowCronUpdateRequest
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: APIKeyHeader
+configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
+
+# Configure Bearer authorization: HTTPBearer
+configuration = flowhunt.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.FlowsApi(api_client)
+    cron_id = 'cron_id_example' # str | 
+    flow_id = 'flow_id_example' # str | 
+    workspace_id = 'workspace_id_example' # str | 
+    flow_cron_update_request = flowhunt.FlowCronUpdateRequest() # FlowCronUpdateRequest | 
+
+    try:
+        # Update Flow Cron
+        api_response = api_instance.update_flow_cron(cron_id, flow_id, workspace_id, flow_cron_update_request)
+        print("The response of FlowsApi->update_flow_cron:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling FlowsApi->update_flow_cron: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **cron_id** | **str**|  | 
+ **flow_id** | **str**|  | 
+ **workspace_id** | **str**|  | 
+ **flow_cron_update_request** | [**FlowCronUpdateRequest**](FlowCronUpdateRequest.md)|  | 
+
+### Return type
+
+[**FlowCronResponse**](FlowCronResponse.md)
 
 ### Authorization
 

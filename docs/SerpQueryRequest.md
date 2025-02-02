@@ -6,10 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **post_back_url** | **str** |  | [optional] 
-**query** | **str** |  | [optional] 
-**country** | **str** |  | [optional] 
-**language** | **str** |  | [optional] 
-**location** | **str** |  | [optional] 
+**queries** | [**List[SerpKeyword]**](SerpKeyword.md) | List of queries | 
 
 ## Example
 

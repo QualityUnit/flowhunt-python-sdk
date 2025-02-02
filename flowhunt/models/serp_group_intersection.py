@@ -17,18 +17,22 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
-class SerpClusterGroupResponse(BaseModel):
+class SerpGroupIntersection(BaseModel):
     """
-    SerpClusterGroupResponse
+    SerpGroupIntersection
     """ # noqa: E501
-    group_id: Optional[StrictStr] = Field(default='', description="Group ID")
-    group_name: Optional[StrictStr] = Field(default='', description="Group name")
-    __properties: ClassVar[List[str]] = ["group_id", "group_name"]
+    workspace_id: StrictStr
+    customer_id: StrictInt
+    campaign_id: StrictInt
+    group_id: StrictInt
+    unique_group_id: Optional[StrictStr] = None
+    intersections_count: StrictInt
+    __properties: ClassVar[List[str]] = ["workspace_id", "customer_id", "campaign_id", "group_id", "unique_group_id", "intersections_count"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -48,7 +52,7 @@ class SerpClusterGroupResponse(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of SerpClusterGroupResponse from a JSON string"""
+        """Create an instance of SerpGroupIntersection from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -69,11 +73,16 @@ class SerpClusterGroupResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # set to None if unique_group_id (nullable) is None
+        # and model_fields_set contains the field
+        if self.unique_group_id is None and "unique_group_id" in self.model_fields_set:
+            _dict['unique_group_id'] = None
+
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of SerpClusterGroupResponse from a dict"""
+        """Create an instance of SerpGroupIntersection from a dict"""
         if obj is None:
             return None
 
@@ -81,8 +90,12 @@ class SerpClusterGroupResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "group_id": obj.get("group_id") if obj.get("group_id") is not None else '',
-            "group_name": obj.get("group_name") if obj.get("group_name") is not None else ''
+            "workspace_id": obj.get("workspace_id"),
+            "customer_id": obj.get("customer_id"),
+            "campaign_id": obj.get("campaign_id"),
+            "group_id": obj.get("group_id"),
+            "unique_group_id": obj.get("unique_group_id"),
+            "intersections_count": obj.get("intersections_count")
         })
         return _obj
 

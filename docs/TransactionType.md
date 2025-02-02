@@ -5,6 +5,8 @@
 
 * `G` (value: `'G'`)
 
+* `K` (value: `'K'`)
+
 * `V` (value: `'V'`)
 
 * `S` (value: `'S'`)
@@ -42,6 +44,8 @@
 * `DDG` (value: `'DDG'`)
 
 * `CGD` (value: `'CGD'`)
+
+* `CGS` (value: `'CGS'`)
 
 * `SEQUENTIAL_AGENT` (value: `'SEQUENTIAL_AGENT'`)
 

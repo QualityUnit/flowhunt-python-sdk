@@ -36,16 +36,29 @@ class TestSerpClusterAddQueryRequest(unittest.TestCase):
         if include_optional:
             return SerpClusterAddQueryRequest(
                 post_back_url = '',
-                query = '',
-                country = '',
-                language = '',
-                location = '',
-                group_name = '',
-                group_id = '',
-                count_urls = 56
+                queries = [
+                    flowhunt.models.serp_keyword.SerpKeyword(
+                        keyword_id = '', 
+                        keyword = '', 
+                        language = '', 
+                        country = '', 
+                        search_engine = 'G', )
+                    ],
+                customer_id = 56,
+                campaign_id = 56,
+                group_id = 56,
+                group_name = ''
             )
         else:
             return SerpClusterAddQueryRequest(
+                queries = [
+                    flowhunt.models.serp_keyword.SerpKeyword(
+                        keyword_id = '', 
+                        keyword = '', 
+                        language = '', 
+                        country = '', 
+                        search_engine = 'G', )
+                    ],
         )
         """
 

@@ -27,6 +27,7 @@ class TransactionType(str, Enum):
     allowed enum values
     """
     G = 'G'
+    K = 'K'
     V = 'V'
     S = 'S'
     T = 'T'
@@ -46,6 +47,7 @@ class TransactionType(str, Enum):
     FT_I = 'FT_I'
     DDG = 'DDG'
     CGD = 'CGD'
+    CGS = 'CGS'
     SEQUENTIAL_AGENT = 'SEQUENTIAL_AGENT'
     SELF_MANAGED_AGENT = 'SELF_MANAGED_AGENT'
     TOOL_ARXIV = 'TOOL_ARXIV'

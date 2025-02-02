@@ -157,10 +157,13 @@ Class | Method | HTTP request | Description
 *FlowsApi* | [**create_chatbot_session**](docs/FlowsApi.md#create_chatbot_session) | **POST** /v2/flows/sessions/create | Create Chatbot Session
 *FlowsApi* | [**create_flow**](docs/FlowsApi.md#create_flow) | **POST** /v2/flows/create | Create Flow
 *FlowsApi* | [**create_flow_category**](docs/FlowsApi.md#create_flow_category) | **POST** /v2/flows/categories/create | Create Flow Category
+*FlowsApi* | [**create_flow_cron**](docs/FlowsApi.md#create_flow_cron) | **POST** /v2/flows/crons/create | Create Flow Cron
 *FlowsApi* | [**create_flow_session**](docs/FlowsApi.md#create_flow_session) | **POST** /v2/flows/sessions/from_flow/create | Create Flow Session
 *FlowsApi* | [**delete_attachment**](docs/FlowsApi.md#delete_attachment) | **DELETE** /v2/flows/sessions/{session_id}/attachments/{file_id} | Delete Attachment
 *FlowsApi* | [**delete_flow**](docs/FlowsApi.md#delete_flow) | **DELETE** /v2/flows/{flow_id} | Delete Flow
 *FlowsApi* | [**delete_flow_category**](docs/FlowsApi.md#delete_flow_category) | **DELETE** /v2/flows/categories/{cat_id} | Delete Flow Category
+*FlowsApi* | [**delete_flow_cron**](docs/FlowsApi.md#delete_flow_cron) | **DELETE** /v2/flows/crons/{flow_id}/{cron_id} | Delete Flow Cron
+*FlowsApi* | [**execute_flow_cron**](docs/FlowsApi.md#execute_flow_cron) | **POST** /v2/flows/crons/{flow_id}/{cron_id}/execute | Execute Flow Cron
 *FlowsApi* | [**get**](docs/FlowsApi.md#get) | **GET** /v2/flows/{flow_id} | Get
 *FlowsApi* | [**get_all_components**](docs/FlowsApi.md#get_all_components) | **GET** /v2/flows/components/all | Get All Components
 *FlowsApi* | [**get_attachments**](docs/FlowsApi.md#get_attachments) | **GET** /v2/flows/sessions/{session_id}/attachments | Get Attachments
@@ -174,11 +177,24 @@ Class | Method | HTTP request | Description
 *FlowsApi* | [**search**](docs/FlowsApi.md#search) | **POST** /v2/flows/ | Search
 *FlowsApi* | [**search_all**](docs/FlowsApi.md#search_all) | **POST** /v2/flows/all | Search All
 *FlowsApi* | [**search_flow_categories**](docs/FlowsApi.md#search_flow_categories) | **POST** /v2/flows/categories/search | Search Flow Categories
+*FlowsApi* | [**search_flow_crons**](docs/FlowsApi.md#search_flow_crons) | **POST** /v2/flows/crons/search | Search Flow Crons
 *FlowsApi* | [**stream_flow_response**](docs/FlowsApi.md#stream_flow_response) | **POST** /v2/flows/sessions/{session_id}/stream | Stream Flow Response
 *FlowsApi* | [**update_flow**](docs/FlowsApi.md#update_flow) | **PUT** /v2/flows/{flow_id} | Update Flow
 *FlowsApi* | [**update_flow_category**](docs/FlowsApi.md#update_flow_category) | **PUT** /v2/flows/categories/{cat_id} | Update Flow Category
+*FlowsApi* | [**update_flow_cron**](docs/FlowsApi.md#update_flow_cron) | **PUT** /v2/flows/crons/{flow_id}/{cron_id} | Update Flow Cron
 *FlowsApi* | [**upload_attachments**](docs/FlowsApi.md#upload_attachments) | **POST** /v2/flows/sessions/{session_id}/attachments | Upload Attachments
 *GoogleApi* | [**get_drive_documents_0**](docs/GoogleApi.md#get_drive_documents_0) | **POST** /v2/integrations/google/{integration_slug}/drive/files | Get Drive Documents
+*GoogleAdsApi* | [**analyze_not_assigned_keywords**](docs/GoogleAdsApi.md#analyze_not_assigned_keywords) | **POST** /v2/integrations/google_ads/analyze_not_assigned_keywords | Analyze Not Assigned Keywords
+*GoogleAdsApi* | [**get_google_ads_campaigns**](docs/GoogleAdsApi.md#get_google_ads_campaigns) | **POST** /v2/integrations/google_ads/{customer_id}/campaigns | Get Google Ads Campaigns
+*GoogleAdsApi* | [**get_google_ads_customers**](docs/GoogleAdsApi.md#get_google_ads_customers) | **POST** /v2/integrations/google_ads/customers | Get Google Ads Customers
+*GoogleAdsApi* | [**get_google_ads_groups**](docs/GoogleAdsApi.md#get_google_ads_groups) | **POST** /v2/integrations/google_ads/{customer_id}/campaigns/{campaign_id}/groups | Get Google Ads Groups
+*GoogleAdsApi* | [**import_all_google_ads_groups**](docs/GoogleAdsApi.md#import_all_google_ads_groups) | **POST** /v2/integrations/google_ads/{customer_id}/campaigns/import_all_groups | Import All Google Ads Groups
+*GoogleAdsApi* | [**import_google_ads_campaigns**](docs/GoogleAdsApi.md#import_google_ads_campaigns) | **POST** /v2/integrations/google_ads/{customer_id}/campaigns/import | Import Google Ads Campaigns
+*GoogleAdsApi* | [**import_google_ads_customers**](docs/GoogleAdsApi.md#import_google_ads_customers) | **POST** /v2/integrations/google_ads/customers/import | Import Google Ads Customers
+*GoogleAdsApi* | [**import_google_ads_groups**](docs/GoogleAdsApi.md#import_google_ads_groups) | **POST** /v2/integrations/google_ads/{customer_id}/campaigns/{campaign_id}/groups/import | Import Google Ads Groups
+*GoogleAdsApi* | [**update_google_ads_campaign**](docs/GoogleAdsApi.md#update_google_ads_campaign) | **PUT** /v2/integrations/google_ads/{customer_id}/campaigns/{campaign_id} | Update Google Ads Campaign
+*GoogleAdsApi* | [**update_google_ads_customer_update**](docs/GoogleAdsApi.md#update_google_ads_customer_update) | **PUT** /v2/integrations/google_ads/customers/{customer_id} | Update Google Ads Customer Update
+*GoogleAdsApi* | [**update_google_ads_group**](docs/GoogleAdsApi.md#update_google_ads_group) | **PUT** /v2/integrations/google_ads/{customer_id}/campaigns/{campaign_id}/groups/{group_id} | Update Google Ads Group
 *GridsApi* | [**create_column**](docs/GridsApi.md#create_column) | **POST** /v2/grids/{grid_id}/create | Create Column
 *GridsApi* | [**create_grid**](docs/GridsApi.md#create_grid) | **POST** /v2/grids/create | Create Grid
 *GridsApi* | [**create_grid_row**](docs/GridsApi.md#create_grid_row) | **POST** /v2/grids/{grid_id}/create_row | Create Grid Row
@@ -214,16 +230,15 @@ Class | Method | HTTP request | Description
 *PromptsApi* | [**search_prompts**](docs/PromptsApi.md#search_prompts) | **POST** /v2/prompts/search | Search Prompts
 *PromptsApi* | [**update_prompt**](docs/PromptsApi.md#update_prompt) | **PUT** /v2/prompts/{prompt_id} | Update Prompt
 *PromptsApi* | [**update_prompt_category**](docs/PromptsApi.md#update_prompt_category) | **PUT** /v2/prompts/categories/{cat_id} | Update Prompt Category
-*SERPApi* | [**search_cluster_group**](docs/SERPApi.md#search_cluster_group) | **POST** /v2/serp/cluster/search | Search Cluster Group
-*SERPApi* | [**search_cluster_query**](docs/SERPApi.md#search_cluster_query) | **POST** /v2/serp/cluster/{group_id}/search | Search Cluster Query
-*SERPApi* | [**serp_cluster_add_group**](docs/SERPApi.md#serp_cluster_add_group) | **POST** /v2/serp/cluster/create | Serp Cluster Add Group
-*SERPApi* | [**serp_cluster_add_queries**](docs/SERPApi.md#serp_cluster_add_queries) | **POST** /v2/serp/cluster/add_queries | Serp Cluster Add Queries
-*SERPApi* | [**serp_cluster_bulk_delete_queries**](docs/SERPApi.md#serp_cluster_bulk_delete_queries) | **DELETE** /v2/serp/cluster/{group_id}/bulk_delete | Serp Cluster Bulk Delete Queries
-*SERPApi* | [**serp_cluster_delete_all**](docs/SERPApi.md#serp_cluster_delete_all) | **DELETE** /v2/serp/cluster/delete_all | Serp Cluster Delete All
-*SERPApi* | [**serp_cluster_delete_group**](docs/SERPApi.md#serp_cluster_delete_group) | **DELETE** /v2/serp/cluster/{group_id} | Serp Cluster Delete Group
-*SERPApi* | [**serp_cluster_delete_query**](docs/SERPApi.md#serp_cluster_delete_query) | **DELETE** /v2/serp/cluster/{group_id}/{query_id} | Serp Cluster Delete Query
-*SERPApi* | [**serp_cluster_get_bulk_query_intersections**](docs/SERPApi.md#serp_cluster_get_bulk_query_intersections) | **POST** /v2/serp/cluster/bulk_query_intersections | Serp Cluster Get Bulk Query Intersections
-*SERPApi* | [**serp_cluster_get_query_intersections**](docs/SERPApi.md#serp_cluster_get_query_intersections) | **POST** /v2/serp/cluster/query_intersections | Serp Cluster Get Query Intersections
+*SERPApi* | [**search_cluster_query**](docs/SERPApi.md#search_cluster_query) | **POST** /v2/serp/clusters/keywords | Search Cluster Query
+*SERPApi* | [**serp_cluster_add_queries**](docs/SERPApi.md#serp_cluster_add_queries) | **POST** /v2/serp/clusters/{customer_id}/{campaign_id}/{group_id}/add_keywords | Serp Cluster Add Queries
+*SERPApi* | [**serp_cluster_delete_campaign**](docs/SERPApi.md#serp_cluster_delete_campaign) | **DELETE** /v2/serp/clusters/{customer_id}/{campaign_id} | Serp Cluster Delete Campaign
+*SERPApi* | [**serp_cluster_delete_customer**](docs/SERPApi.md#serp_cluster_delete_customer) | **DELETE** /v2/serp/clusters/{customer_id} | Serp Cluster Delete Customer
+*SERPApi* | [**serp_cluster_delete_group**](docs/SERPApi.md#serp_cluster_delete_group) | **DELETE** /v2/serp/clusters/{customer_id}/{campaign_id}/{group_id} | Serp Cluster Delete Group
+*SERPApi* | [**serp_cluster_delete_group_queries**](docs/SERPApi.md#serp_cluster_delete_group_queries) | **DELETE** /v2/serp/clusters/{customer_id}/{campaign_id}/{group_id}/delete_queries | Serp Cluster Delete Group Queries
+*SERPApi* | [**serp_cluster_get_bulk_query_intersections**](docs/SERPApi.md#serp_cluster_get_bulk_query_intersections) | **POST** /v2/serp/clusters/intersections | Serp Cluster Get Bulk Query Intersections
+*SERPApi* | [**serp_cluster_get_matching_groups_to_query**](docs/SERPApi.md#serp_cluster_get_matching_groups_to_query) | **POST** /v2/serp/clusters/recommended_groups | Serp Cluster Get Matching Groups To Query
+*SERPApi* | [**serp_cluster_get_related_keywords_to_query**](docs/SERPApi.md#serp_cluster_get_related_keywords_to_query) | **POST** /v2/serp/clusters/related_keywords | Serp Cluster Get Related Keywords To Query
 *SERPApi* | [**serp_search**](docs/SERPApi.md#serp_search) | **POST** /v2/serp/serp/search | Serp Search
 *SERPApi* | [**serp_volumes**](docs/SERPApi.md#serp_volumes) | **POST** /v2/serp/serp/volumes | Serp Volumes
 *SERPApi* | [**serp_volumes_pingback**](docs/SERPApi.md#serp_volumes_pingback) | **GET** /v2/serp/serp/volumes/pingback/{id}/{tag} | Serp Volumes Pingback
@@ -312,6 +327,11 @@ Class | Method | HTTP request | Description
  - [FlowCategorySearchRequest](docs/FlowCategorySearchRequest.md)
  - [FlowConfig](docs/FlowConfig.md)
  - [FlowCreate](docs/FlowCreate.md)
+ - [FlowCronCreateRequest](docs/FlowCronCreateRequest.md)
+ - [FlowCronResponse](docs/FlowCronResponse.md)
+ - [FlowCronSearchRequest](docs/FlowCronSearchRequest.md)
+ - [FlowCronStatus](docs/FlowCronStatus.md)
+ - [FlowCronUpdateRequest](docs/FlowCronUpdateRequest.md)
  - [FlowDetailResponse](docs/FlowDetailResponse.md)
  - [FlowEventActionType](docs/FlowEventActionType.md)
  - [FlowInvokeRequest](docs/FlowInvokeRequest.md)
@@ -338,6 +358,18 @@ Class | Method | HTTP request | Description
  - [FlowSessionViewSearchRequest](docs/FlowSessionViewSearchRequest.md)
  - [FlowSessionViewUpdateRequest](docs/FlowSessionViewUpdateRequest.md)
  - [FlowType](docs/FlowType.md)
+ - [GoogleAdsActionType](docs/GoogleAdsActionType.md)
+ - [GoogleAdsCampaignResponse](docs/GoogleAdsCampaignResponse.md)
+ - [GoogleAdsCampaignStatus](docs/GoogleAdsCampaignStatus.md)
+ - [GoogleAdsCampaignUpdateRequest](docs/GoogleAdsCampaignUpdateRequest.md)
+ - [GoogleAdsCampaignsResponse](docs/GoogleAdsCampaignsResponse.md)
+ - [GoogleAdsCustomerResponse](docs/GoogleAdsCustomerResponse.md)
+ - [GoogleAdsCustomerUpdateRequest](docs/GoogleAdsCustomerUpdateRequest.md)
+ - [GoogleAdsCustomersResponse](docs/GoogleAdsCustomersResponse.md)
+ - [GoogleAdsGroupResponse](docs/GoogleAdsGroupResponse.md)
+ - [GoogleAdsGroupStatus](docs/GoogleAdsGroupStatus.md)
+ - [GoogleAdsGroupUpdateRequest](docs/GoogleAdsGroupUpdateRequest.md)
+ - [GoogleAdsGroupsResponse](docs/GoogleAdsGroupsResponse.md)
  - [GoogleDriveFileResponse](docs/GoogleDriveFileResponse.md)
  - [GoogleDriveSearchQuery](docs/GoogleDriveSearchQuery.md)
  - [GoogleDriveSearchResponse](docs/GoogleDriveSearchResponse.md)
@@ -408,14 +440,18 @@ Class | Method | HTTP request | Description
  - [SecretResponse](docs/SecretResponse.md)
  - [SecretSearchRequest](docs/SecretSearchRequest.md)
  - [SecretUpdateRequest](docs/SecretUpdateRequest.md)
- - [SerpClusterAddGroupRequest](docs/SerpClusterAddGroupRequest.md)
  - [SerpClusterAddQueryRequest](docs/SerpClusterAddQueryRequest.md)
  - [SerpClusterAddQueryRequests](docs/SerpClusterAddQueryRequests.md)
- - [SerpClusterGroupResponse](docs/SerpClusterGroupResponse.md)
+ - [SerpClusterBestGroupsRequest](docs/SerpClusterBestGroupsRequest.md)
+ - [SerpClusterGroupIntersectionsRequest](docs/SerpClusterGroupIntersectionsRequest.md)
  - [SerpClusterGroupSearchRequest](docs/SerpClusterGroupSearchRequest.md)
- - [SerpClusterQueryIntersectionsRequest](docs/SerpClusterQueryIntersectionsRequest.md)
- - [SerpClusterQueryResponse](docs/SerpClusterQueryResponse.md)
+ - [SerpClusterKeywordIntersectionsRequest](docs/SerpClusterKeywordIntersectionsRequest.md)
+ - [SerpClusterKeywordResponse](docs/SerpClusterKeywordResponse.md)
+ - [SerpGroupIntersection](docs/SerpGroupIntersection.md)
+ - [SerpKeyword](docs/SerpKeyword.md)
+ - [SerpKeywordRelation](docs/SerpKeywordRelation.md)
  - [SerpQueryRequest](docs/SerpQueryRequest.md)
+ - [SerpSearchEngineType](docs/SerpSearchEngineType.md)
  - [SerpSearchRequest](docs/SerpSearchRequest.md)
  - [SerpSearchRequests](docs/SerpSearchRequests.md)
  - [SerpVolumeRequest](docs/SerpVolumeRequest.md)

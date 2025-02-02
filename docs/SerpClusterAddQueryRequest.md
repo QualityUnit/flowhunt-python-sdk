@@ -6,13 +6,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **post_back_url** | **str** |  | [optional] 
-**query** | **str** |  | [optional] 
-**country** | **str** |  | [optional] 
-**language** | **str** |  | [optional] 
-**location** | **str** |  | [optional] 
+**queries** | [**List[SerpKeyword]**](SerpKeyword.md) | List of queries | 
+**customer_id** | **int** | Customer ID of cluster | [optional] 
+**campaign_id** | **int** | Campaign ID of cluster | [optional] 
+**group_id** | **int** | Group ID of cluster - will be generated if not provided | [optional] 
 **group_name** | **str** | Group name of cluster | [optional] [default to '']
-**group_id** | **str** |  | [optional] 
-**count_urls** | **int** |  | [optional] 
 
 ## Example
 

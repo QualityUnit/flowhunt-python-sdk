@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -27,7 +27,10 @@ class SerpClusterGroupSearchRequest(BaseModel):
     SerpClusterGroupSearchRequest
     """ # noqa: E501
     search: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["search"]
+    customer_id: Optional[StrictInt] = None
+    campaign_id: Optional[StrictInt] = None
+    group_id: Optional[StrictInt] = None
+    __properties: ClassVar[List[str]] = ["search", "customer_id", "campaign_id", "group_id"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -73,6 +76,21 @@ class SerpClusterGroupSearchRequest(BaseModel):
         if self.search is None and "search" in self.model_fields_set:
             _dict['search'] = None
 
+        # set to None if customer_id (nullable) is None
+        # and model_fields_set contains the field
+        if self.customer_id is None and "customer_id" in self.model_fields_set:
+            _dict['customer_id'] = None
+
+        # set to None if campaign_id (nullable) is None
+        # and model_fields_set contains the field
+        if self.campaign_id is None and "campaign_id" in self.model_fields_set:
+            _dict['campaign_id'] = None
+
+        # set to None if group_id (nullable) is None
+        # and model_fields_set contains the field
+        if self.group_id is None and "group_id" in self.model_fields_set:
+            _dict['group_id'] = None
+
         return _dict
 
     @classmethod
@@ -85,7 +103,10 @@ class SerpClusterGroupSearchRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "search": obj.get("search")
+            "search": obj.get("search"),
+            "customer_id": obj.get("customer_id"),
+            "campaign_id": obj.get("campaign_id"),
+            "group_id": obj.get("group_id")
         })
         return _obj
 

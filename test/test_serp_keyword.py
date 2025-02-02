@@ -14,10 +14,10 @@
 
 import unittest
 
-from flowhunt.models.serp_cluster_add_group_request import SerpClusterAddGroupRequest
+from flowhunt.models.serp_keyword import SerpKeyword
 
-class TestSerpClusterAddGroupRequest(unittest.TestCase):
-    """SerpClusterAddGroupRequest unit test stubs"""
+class TestSerpKeyword(unittest.TestCase):
+    """SerpKeyword unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,26 +25,30 @@ class TestSerpClusterAddGroupRequest(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> SerpClusterAddGroupRequest:
-        """Test SerpClusterAddGroupRequest
+    def make_instance(self, include_optional) -> SerpKeyword:
+        """Test SerpKeyword
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `SerpClusterAddGroupRequest`
+        # uncomment below to create an instance of `SerpKeyword`
         """
-        model = SerpClusterAddGroupRequest()
+        model = SerpKeyword()
         if include_optional:
-            return SerpClusterAddGroupRequest(
-                group_name = '',
-                group_id = ''
+            return SerpKeyword(
+                keyword_id = '',
+                keyword = '',
+                language = '',
+                country = '',
+                search_engine = 'G'
             )
         else:
-            return SerpClusterAddGroupRequest(
+            return SerpKeyword(
+                keyword = '',
         )
         """
 
-    def testSerpClusterAddGroupRequest(self):
-        """Test SerpClusterAddGroupRequest"""
+    def testSerpKeyword(self):
+        """Test SerpKeyword"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

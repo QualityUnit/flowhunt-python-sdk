@@ -14,10 +14,10 @@
 
 import unittest
 
-from flowhunt.models.serp_cluster_group_response import SerpClusterGroupResponse
+from flowhunt.models.flow_cron_update_request import FlowCronUpdateRequest
 
-class TestSerpClusterGroupResponse(unittest.TestCase):
-    """SerpClusterGroupResponse unit test stubs"""
+class TestFlowCronUpdateRequest(unittest.TestCase):
+    """FlowCronUpdateRequest unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,26 +25,28 @@ class TestSerpClusterGroupResponse(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> SerpClusterGroupResponse:
-        """Test SerpClusterGroupResponse
+    def make_instance(self, include_optional) -> FlowCronUpdateRequest:
+        """Test FlowCronUpdateRequest
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `SerpClusterGroupResponse`
+        # uncomment below to create an instance of `FlowCronUpdateRequest`
         """
-        model = SerpClusterGroupResponse()
+        model = FlowCronUpdateRequest()
         if include_optional:
-            return SerpClusterGroupResponse(
-                group_id = '',
-                group_name = ''
+            return FlowCronUpdateRequest(
+                status = 'E',
+                input_text = '',
+                variables = None,
+                interval_settings = ''
             )
         else:
-            return SerpClusterGroupResponse(
+            return FlowCronUpdateRequest(
         )
         """
 
-    def testSerpClusterGroupResponse(self):
-        """Test SerpClusterGroupResponse"""
+    def testFlowCronUpdateRequest(self):
+        """Test FlowCronUpdateRequest"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

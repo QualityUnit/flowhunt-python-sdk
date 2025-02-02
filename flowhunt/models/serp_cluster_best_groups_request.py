@@ -17,25 +17,26 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from flowhunt.models.serp_search_engine_type import SerpSearchEngineType
 from typing import Optional, Set
 from typing_extensions import Self
 
-class SerpClusterQueryIntersectionsRequest(BaseModel):
+class SerpClusterBestGroupsRequest(BaseModel):
     """
-    SerpClusterQueryIntersectionsRequest
+    SerpClusterBestGroupsRequest
     """ # noqa: E501
-    post_back_url: Optional[StrictStr] = None
-    query: Optional[StrictStr] = None
-    country: Optional[StrictStr] = None
+    keyword_id: Optional[StrictStr] = None
+    keyword: StrictStr = Field(description="Keyword to search")
     language: Optional[StrictStr] = None
-    location: Optional[StrictStr] = None
-    group_name: Optional[StrictStr] = Field(default='', description="Group name of cluster")
-    group_id: Optional[StrictStr] = None
-    live_mode: Optional[StrictBool] = None
-    max_position: Optional[StrictInt] = None
-    __properties: ClassVar[List[str]] = ["post_back_url", "query", "country", "language", "location", "group_name", "group_id", "live_mode", "max_position"]
+    country: Optional[StrictStr] = None
+    search_engine: Optional[SerpSearchEngineType] = None
+    customer_id: StrictInt = Field(description="Customer ID of cluster")
+    campaign_id: Optional[StrictInt] = None
+    min_cluster_strength: Optional[StrictInt] = None
+    min_queries_count: Optional[StrictInt] = None
+    __properties: ClassVar[List[str]] = ["keyword_id", "keyword", "language", "country", "search_engine", "customer_id", "campaign_id", "min_cluster_strength", "min_queries_count"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -55,7 +56,7 @@ class SerpClusterQueryIntersectionsRequest(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of SerpClusterQueryIntersectionsRequest from a JSON string"""
+        """Create an instance of SerpClusterBestGroupsRequest from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -76,51 +77,46 @@ class SerpClusterQueryIntersectionsRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if post_back_url (nullable) is None
+        # set to None if keyword_id (nullable) is None
         # and model_fields_set contains the field
-        if self.post_back_url is None and "post_back_url" in self.model_fields_set:
-            _dict['post_back_url'] = None
-
-        # set to None if query (nullable) is None
-        # and model_fields_set contains the field
-        if self.query is None and "query" in self.model_fields_set:
-            _dict['query'] = None
-
-        # set to None if country (nullable) is None
-        # and model_fields_set contains the field
-        if self.country is None and "country" in self.model_fields_set:
-            _dict['country'] = None
+        if self.keyword_id is None and "keyword_id" in self.model_fields_set:
+            _dict['keyword_id'] = None
 
         # set to None if language (nullable) is None
         # and model_fields_set contains the field
         if self.language is None and "language" in self.model_fields_set:
             _dict['language'] = None
 
-        # set to None if location (nullable) is None
+        # set to None if country (nullable) is None
         # and model_fields_set contains the field
-        if self.location is None and "location" in self.model_fields_set:
-            _dict['location'] = None
+        if self.country is None and "country" in self.model_fields_set:
+            _dict['country'] = None
 
-        # set to None if group_id (nullable) is None
+        # set to None if search_engine (nullable) is None
         # and model_fields_set contains the field
-        if self.group_id is None and "group_id" in self.model_fields_set:
-            _dict['group_id'] = None
+        if self.search_engine is None and "search_engine" in self.model_fields_set:
+            _dict['search_engine'] = None
 
-        # set to None if live_mode (nullable) is None
+        # set to None if campaign_id (nullable) is None
         # and model_fields_set contains the field
-        if self.live_mode is None and "live_mode" in self.model_fields_set:
-            _dict['live_mode'] = None
+        if self.campaign_id is None and "campaign_id" in self.model_fields_set:
+            _dict['campaign_id'] = None
 
-        # set to None if max_position (nullable) is None
+        # set to None if min_cluster_strength (nullable) is None
         # and model_fields_set contains the field
-        if self.max_position is None and "max_position" in self.model_fields_set:
-            _dict['max_position'] = None
+        if self.min_cluster_strength is None and "min_cluster_strength" in self.model_fields_set:
+            _dict['min_cluster_strength'] = None
+
+        # set to None if min_queries_count (nullable) is None
+        # and model_fields_set contains the field
+        if self.min_queries_count is None and "min_queries_count" in self.model_fields_set:
+            _dict['min_queries_count'] = None
 
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of SerpClusterQueryIntersectionsRequest from a dict"""
+        """Create an instance of SerpClusterBestGroupsRequest from a dict"""
         if obj is None:
             return None
 
@@ -128,15 +124,15 @@ class SerpClusterQueryIntersectionsRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "post_back_url": obj.get("post_back_url"),
-            "query": obj.get("query"),
-            "country": obj.get("country"),
+            "keyword_id": obj.get("keyword_id"),
+            "keyword": obj.get("keyword"),
             "language": obj.get("language"),
-            "location": obj.get("location"),
-            "group_name": obj.get("group_name") if obj.get("group_name") is not None else '',
-            "group_id": obj.get("group_id"),
-            "live_mode": obj.get("live_mode"),
-            "max_position": obj.get("max_position")
+            "country": obj.get("country"),
+            "search_engine": obj.get("search_engine"),
+            "customer_id": obj.get("customer_id"),
+            "campaign_id": obj.get("campaign_id"),
+            "min_cluster_strength": obj.get("min_cluster_strength"),
+            "min_queries_count": obj.get("min_queries_count")
         })
         return _obj
 

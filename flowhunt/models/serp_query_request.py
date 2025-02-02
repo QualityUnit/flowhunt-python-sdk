@@ -17,8 +17,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from flowhunt.models.serp_keyword import SerpKeyword
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,11 +28,8 @@ class SerpQueryRequest(BaseModel):
     SerpQueryRequest
     """ # noqa: E501
     post_back_url: Optional[StrictStr] = None
-    query: Optional[StrictStr] = None
-    country: Optional[StrictStr] = None
-    language: Optional[StrictStr] = None
-    location: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["post_back_url", "query", "country", "language", "location"]
+    queries: List[SerpKeyword] = Field(description="List of queries")
+    __properties: ClassVar[List[str]] = ["post_back_url", "queries"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -72,30 +70,17 @@ class SerpQueryRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of each item in queries (list)
+        _items = []
+        if self.queries:
+            for _item_queries in self.queries:
+                if _item_queries:
+                    _items.append(_item_queries.to_dict())
+            _dict['queries'] = _items
         # set to None if post_back_url (nullable) is None
         # and model_fields_set contains the field
         if self.post_back_url is None and "post_back_url" in self.model_fields_set:
             _dict['post_back_url'] = None
-
-        # set to None if query (nullable) is None
-        # and model_fields_set contains the field
-        if self.query is None and "query" in self.model_fields_set:
-            _dict['query'] = None
-
-        # set to None if country (nullable) is None
-        # and model_fields_set contains the field
-        if self.country is None and "country" in self.model_fields_set:
-            _dict['country'] = None
-
-        # set to None if language (nullable) is None
-        # and model_fields_set contains the field
-        if self.language is None and "language" in self.model_fields_set:
-            _dict['language'] = None
-
-        # set to None if location (nullable) is None
-        # and model_fields_set contains the field
-        if self.location is None and "location" in self.model_fields_set:
-            _dict['location'] = None
 
         return _dict
 
@@ -110,10 +95,7 @@ class SerpQueryRequest(BaseModel):
 
         _obj = cls.model_validate({
             "post_back_url": obj.get("post_back_url"),
-            "query": obj.get("query"),
-            "country": obj.get("country"),
-            "language": obj.get("language"),
-            "location": obj.get("location")
+            "queries": [SerpKeyword.from_dict(_item) for _item in obj["queries"]] if obj.get("queries") is not None else None
         })
         return _obj
 
