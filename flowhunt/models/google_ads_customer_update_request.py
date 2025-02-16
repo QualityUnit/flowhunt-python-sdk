@@ -17,8 +17,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
 from flowhunt.models.google_ads_action_type import GoogleAdsActionType
 from typing import Optional, Set
 from typing_extensions import Self
@@ -27,12 +27,15 @@ class GoogleAdsCustomerUpdateRequest(BaseModel):
     """
     GoogleAdsCustomerUpdateRequest
     """ # noqa: E501
-    language_code: StrictStr = Field(description="Language code")
-    country: StrictStr = Field(description="Country")
-    min_queries: StrictInt = Field(description="Min queries")
-    cluster_strength: StrictInt = Field(description="Cluster strength")
-    action_type: GoogleAdsActionType = Field(description="Action type")
-    __properties: ClassVar[List[str]] = ["language_code", "country", "min_queries", "cluster_strength", "action_type"]
+    language_code: Optional[StrictStr] = None
+    country: Optional[StrictStr] = None
+    min_queries: Optional[StrictInt] = None
+    cluster_strength: Optional[StrictInt] = None
+    min_impressions: Optional[StrictInt] = None
+    min_clicks: Optional[StrictInt] = None
+    cron_settings: Optional[StrictStr] = None
+    action_type: Optional[GoogleAdsActionType] = None
+    __properties: ClassVar[List[str]] = ["language_code", "country", "min_queries", "cluster_strength", "min_impressions", "min_clicks", "cron_settings", "action_type"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -73,6 +76,46 @@ class GoogleAdsCustomerUpdateRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # set to None if language_code (nullable) is None
+        # and model_fields_set contains the field
+        if self.language_code is None and "language_code" in self.model_fields_set:
+            _dict['language_code'] = None
+
+        # set to None if country (nullable) is None
+        # and model_fields_set contains the field
+        if self.country is None and "country" in self.model_fields_set:
+            _dict['country'] = None
+
+        # set to None if min_queries (nullable) is None
+        # and model_fields_set contains the field
+        if self.min_queries is None and "min_queries" in self.model_fields_set:
+            _dict['min_queries'] = None
+
+        # set to None if cluster_strength (nullable) is None
+        # and model_fields_set contains the field
+        if self.cluster_strength is None and "cluster_strength" in self.model_fields_set:
+            _dict['cluster_strength'] = None
+
+        # set to None if min_impressions (nullable) is None
+        # and model_fields_set contains the field
+        if self.min_impressions is None and "min_impressions" in self.model_fields_set:
+            _dict['min_impressions'] = None
+
+        # set to None if min_clicks (nullable) is None
+        # and model_fields_set contains the field
+        if self.min_clicks is None and "min_clicks" in self.model_fields_set:
+            _dict['min_clicks'] = None
+
+        # set to None if cron_settings (nullable) is None
+        # and model_fields_set contains the field
+        if self.cron_settings is None and "cron_settings" in self.model_fields_set:
+            _dict['cron_settings'] = None
+
+        # set to None if action_type (nullable) is None
+        # and model_fields_set contains the field
+        if self.action_type is None and "action_type" in self.model_fields_set:
+            _dict['action_type'] = None
+
         return _dict
 
     @classmethod
@@ -89,6 +132,9 @@ class GoogleAdsCustomerUpdateRequest(BaseModel):
             "country": obj.get("country"),
             "min_queries": obj.get("min_queries"),
             "cluster_strength": obj.get("cluster_strength"),
+            "min_impressions": obj.get("min_impressions"),
+            "min_clicks": obj.get("min_clicks"),
+            "cron_settings": obj.get("cron_settings"),
             "action_type": obj.get("action_type")
         })
         return _obj

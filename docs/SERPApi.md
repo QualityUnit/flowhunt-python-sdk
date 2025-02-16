@@ -818,7 +818,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **serp_cluster_split_to_sub_clusters**
-> List[List[str]] serp_cluster_split_to_sub_clusters(workspace_id, serp_cluster_group_sub_clusters_request)
+> List[SerpSubclusterKeywordsResponse] serp_cluster_split_to_sub_clusters(workspace_id, serp_cluster_group_sub_clusters_request)
 
 Serp Cluster Split To Sub Clusters
 
@@ -830,6 +830,7 @@ Serp Cluster Split To Sub Clusters
 ```python
 import flowhunt
 from flowhunt.models.serp_cluster_group_sub_clusters_request import SerpClusterGroupSubClustersRequest
+from flowhunt.models.serp_subcluster_keywords_response import SerpSubclusterKeywordsResponse
 from flowhunt.rest import ApiException
 from pprint import pprint
 
@@ -883,7 +884,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**List[List[str]]**
+[**List[SerpSubclusterKeywordsResponse]**](SerpSubclusterKeywordsResponse.md)
 
 ### Authorization
 

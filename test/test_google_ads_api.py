@@ -33,6 +33,20 @@ class TestGoogleAdsApi(unittest.TestCase):
         """
         pass
 
+    def test_get_conversion_tracking_code_examples(self) -> None:
+        """Test case for get_conversion_tracking_code_examples
+
+        Get Conversion Tracking Code Examples
+        """
+        pass
+
+    def test_get_conversion_tracking_settings(self) -> None:
+        """Test case for get_conversion_tracking_settings
+
+        Get Conversion Tracking Settings
+        """
+        pass
+
     def test_get_google_ads_campaigns(self) -> None:
         """Test case for get_google_ads_campaigns
 
@@ -54,10 +68,10 @@ class TestGoogleAdsApi(unittest.TestCase):
         """
         pass
 
-    def test_import_all_google_ads_groups(self) -> None:
-        """Test case for import_all_google_ads_groups
+    def test_get_source_tracking_code_examples(self) -> None:
+        """Test case for get_source_tracking_code_examples
 
-        Import All Google Ads Groups
+        Get Source Tracking Code Examples
         """
         pass
 
@@ -79,6 +93,13 @@ class TestGoogleAdsApi(unittest.TestCase):
         """Test case for import_google_ads_groups
 
         Import Google Ads Groups
+        """
+        pass
+
+    def test_list_conversion_actions(self) -> None:
+        """Test case for list_conversion_actions
+
+        List Conversion Actions
         """
         pass
 

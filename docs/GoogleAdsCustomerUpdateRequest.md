@@ -5,11 +5,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**language_code** | **str** | Language code | 
-**country** | **str** | Country | 
-**min_queries** | **int** | Min queries | 
-**cluster_strength** | **int** | Cluster strength | 
-**action_type** | [**GoogleAdsActionType**](GoogleAdsActionType.md) | Action type | 
+**language_code** | **str** |  | [optional] 
+**country** | **str** |  | [optional] 
+**min_queries** | **int** |  | [optional] 
+**cluster_strength** | **int** |  | [optional] 
+**min_impressions** | **int** |  | [optional] 
+**min_clicks** | **int** |  | [optional] 
+**cron_settings** | **str** |  | [optional] 
+**action_type** | [**GoogleAdsActionType**](GoogleAdsActionType.md) |  | [optional] 
 
 ## Example
 

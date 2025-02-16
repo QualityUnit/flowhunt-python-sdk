@@ -10,6 +10,8 @@ Name | Type | Description | Notes
 **next_run_from** | **datetime** |  | [optional] 
 **last_run_to** | **datetime** |  | [optional] 
 **last_run_from** | **datetime** |  | [optional] 
+**flow_id** | **str** |  | [optional] 
+**cron_name** | **str** |  | [optional] 
 
 ## Example
 

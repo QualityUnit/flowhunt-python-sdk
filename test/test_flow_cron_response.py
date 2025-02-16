@@ -42,7 +42,8 @@ class TestFlowCronResponse(unittest.TestCase):
                 status = 'E',
                 input_text = '',
                 interval_settings = '',
-                variables = None
+                variables = None,
+                cron_name = ''
             )
         else:
             return FlowCronResponse(
@@ -50,6 +51,7 @@ class TestFlowCronResponse(unittest.TestCase):
                 cron_id = '',
                 status = 'E',
                 interval_settings = '',
+                cron_name = '',
         )
         """
 

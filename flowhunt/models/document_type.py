@@ -48,6 +48,7 @@ class DocumentType(str, Enum):
     GIF = 'GIF'
     WEBP = 'WEBP'
     GOOGLE_DOCS = 'GOOGLE_DOCS'
+    GOOGLE_SHEETS = 'GOOGLE_SHEETS'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

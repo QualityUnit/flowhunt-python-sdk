@@ -47,6 +47,7 @@ class TestYoutubeTranscriptResponse(unittest.TestCase):
                     lang = '', 
                     content_type = '', 
                     encoding = '', 
+                    apparent_encoding = '', 
                     description = '', 
                     content = '', 
                     metadata = flowhunt.models.metadata.metadata(), 

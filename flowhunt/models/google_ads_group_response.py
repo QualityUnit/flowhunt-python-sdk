@@ -39,9 +39,7 @@ class GoogleAdsGroupResponse(BaseModel):
     action_type: GoogleAdsActionType = Field(description="Action Type")
     language_code: Optional[StrictStr] = None
     country: Optional[StrictStr] = None
-    min_queries: Optional[StrictInt] = None
-    cluster_strength: Optional[StrictInt] = None
-    __properties: ClassVar[List[str]] = ["workspace_id", "customer_id", "campaign_id", "group_id", "group_name", "group_status", "last_update", "action_type", "language_code", "country", "min_queries", "cluster_strength"]
+    __properties: ClassVar[List[str]] = ["workspace_id", "customer_id", "campaign_id", "group_id", "group_name", "group_status", "last_update", "action_type", "language_code", "country"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -97,16 +95,6 @@ class GoogleAdsGroupResponse(BaseModel):
         if self.country is None and "country" in self.model_fields_set:
             _dict['country'] = None
 
-        # set to None if min_queries (nullable) is None
-        # and model_fields_set contains the field
-        if self.min_queries is None and "min_queries" in self.model_fields_set:
-            _dict['min_queries'] = None
-
-        # set to None if cluster_strength (nullable) is None
-        # and model_fields_set contains the field
-        if self.cluster_strength is None and "cluster_strength" in self.model_fields_set:
-            _dict['cluster_strength'] = None
-
         return _dict
 
     @classmethod
@@ -128,9 +116,7 @@ class GoogleAdsGroupResponse(BaseModel):
             "last_update": obj.get("last_update"),
             "action_type": obj.get("action_type"),
             "language_code": obj.get("language_code"),
-            "country": obj.get("country"),
-            "min_queries": obj.get("min_queries"),
-            "cluster_strength": obj.get("cluster_strength")
+            "country": obj.get("country")
         })
         return _obj
 

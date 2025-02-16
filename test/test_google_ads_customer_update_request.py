@@ -39,15 +39,13 @@ class TestGoogleAdsCustomerUpdateRequest(unittest.TestCase):
                 country = '',
                 min_queries = 56,
                 cluster_strength = 56,
+                min_impressions = 56,
+                min_clicks = 56,
+                cron_settings = '',
                 action_type = 'I'
             )
         else:
             return GoogleAdsCustomerUpdateRequest(
-                language_code = '',
-                country = '',
-                min_queries = 56,
-                cluster_strength = 56,
-                action_type = 'I',
         )
         """
 

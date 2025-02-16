@@ -36,11 +36,9 @@ class GoogleAdsCampaignResponse(BaseModel):
     campaign_status: GoogleAdsCampaignStatus = Field(description="Campaign Status")
     language_code: Optional[StrictStr] = None
     country: Optional[StrictStr] = None
-    min_queries: Optional[StrictInt] = None
-    cluster_strength: Optional[StrictInt] = None
     last_update: Optional[datetime] = None
     action_type: GoogleAdsActionType = Field(description="Action Type")
-    __properties: ClassVar[List[str]] = ["workspace_id", "customer_id", "campaign_id", "campaign_name", "campaign_status", "language_code", "country", "min_queries", "cluster_strength", "last_update", "action_type"]
+    __properties: ClassVar[List[str]] = ["workspace_id", "customer_id", "campaign_id", "campaign_name", "campaign_status", "language_code", "country", "last_update", "action_type"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -91,16 +89,6 @@ class GoogleAdsCampaignResponse(BaseModel):
         if self.country is None and "country" in self.model_fields_set:
             _dict['country'] = None
 
-        # set to None if min_queries (nullable) is None
-        # and model_fields_set contains the field
-        if self.min_queries is None and "min_queries" in self.model_fields_set:
-            _dict['min_queries'] = None
-
-        # set to None if cluster_strength (nullable) is None
-        # and model_fields_set contains the field
-        if self.cluster_strength is None and "cluster_strength" in self.model_fields_set:
-            _dict['cluster_strength'] = None
-
         # set to None if last_update (nullable) is None
         # and model_fields_set contains the field
         if self.last_update is None and "last_update" in self.model_fields_set:
@@ -125,8 +113,6 @@ class GoogleAdsCampaignResponse(BaseModel):
             "campaign_status": obj.get("campaign_status"),
             "language_code": obj.get("language_code"),
             "country": obj.get("country"),
-            "min_queries": obj.get("min_queries"),
-            "cluster_strength": obj.get("cluster_strength"),
             "last_update": obj.get("last_update"),
             "action_type": obj.get("action_type")
         })

@@ -12,7 +12,11 @@ Name | Type | Description | Notes
 **country** | **str** | Country Code | 
 **min_queries** | **int** | Minimum Queries | 
 **cluster_strength** | **int** | Cluster Strength | 
+**min_impressions** | **int** | Minimum Impressions | 
+**min_clicks** | **int** | Minimum Clicks | 
 **last_update** | **datetime** |  | [optional] 
+**next_update** | **datetime** |  | [optional] 
+**cron_settings** | **str** |  | [optional] 
 **action_type** | [**GoogleAdsActionType**](GoogleAdsActionType.md) | Action Type | 
 
 ## Example

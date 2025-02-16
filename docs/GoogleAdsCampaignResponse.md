@@ -12,8 +12,6 @@ Name | Type | Description | Notes
 **campaign_status** | [**GoogleAdsCampaignStatus**](GoogleAdsCampaignStatus.md) | Campaign Status | 
 **language_code** | **str** |  | [optional] 
 **country** | **str** |  | [optional] 
-**min_queries** | **int** |  | [optional] 
-**cluster_strength** | **int** |  | [optional] 
 **last_update** | **datetime** |  | [optional] 
 **action_type** | [**GoogleAdsActionType**](GoogleAdsActionType.md) | Action Type | 
 

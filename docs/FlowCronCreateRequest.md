@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **input_text** | **str** |  | [optional] 
 **variables** | **object** |  | [optional] 
 **interval_settings** | **str** |  | 
+**cron_name** | **str** |  | 
 
 ## Example
 

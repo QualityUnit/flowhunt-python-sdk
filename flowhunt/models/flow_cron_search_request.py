@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from flowhunt.models.flow_cron_status import FlowCronStatus
 from typing import Optional, Set
@@ -33,7 +33,9 @@ class FlowCronSearchRequest(BaseModel):
     next_run_from: Optional[datetime] = None
     last_run_to: Optional[datetime] = None
     last_run_from: Optional[datetime] = None
-    __properties: ClassVar[List[str]] = ["status", "next_run_to", "next_run_from", "last_run_to", "last_run_from"]
+    flow_id: Optional[StrictStr] = None
+    cron_name: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["status", "next_run_to", "next_run_from", "last_run_to", "last_run_from", "flow_id", "cron_name"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -99,6 +101,16 @@ class FlowCronSearchRequest(BaseModel):
         if self.last_run_from is None and "last_run_from" in self.model_fields_set:
             _dict['last_run_from'] = None
 
+        # set to None if flow_id (nullable) is None
+        # and model_fields_set contains the field
+        if self.flow_id is None and "flow_id" in self.model_fields_set:
+            _dict['flow_id'] = None
+
+        # set to None if cron_name (nullable) is None
+        # and model_fields_set contains the field
+        if self.cron_name is None and "cron_name" in self.model_fields_set:
+            _dict['cron_name'] = None
+
         return _dict
 
     @classmethod
@@ -115,7 +127,9 @@ class FlowCronSearchRequest(BaseModel):
             "next_run_to": obj.get("next_run_to"),
             "next_run_from": obj.get("next_run_from"),
             "last_run_to": obj.get("last_run_to"),
-            "last_run_from": obj.get("last_run_from")
+            "last_run_from": obj.get("last_run_from"),
+            "flow_id": obj.get("flow_id"),
+            "cron_name": obj.get("cron_name")
         })
         return _obj
 

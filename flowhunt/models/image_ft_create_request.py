@@ -17,9 +17,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
-from flowhunt.models.image_ft_model_name import ImageFTModelName
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,8 +27,12 @@ class ImageFTCreateRequest(BaseModel):
     ImageFTCreateRequest
     """ # noqa: E501
     name: StrictStr = Field(description="Fine tuning name")
-    model_name: ImageFTModelName = Field(description="Model name")
-    __properties: ClassVar[List[str]] = ["name", "model_name"]
+    trigger_word: StrictStr = Field(description="Trigger word")
+    steps: Optional[StrictInt] = None
+    lora_rank: Optional[StrictInt] = None
+    training_images: List[StrictStr] = Field(description="Training images")
+    cover_image: StrictStr = Field(description="Cover image")
+    __properties: ClassVar[List[str]] = ["name", "trigger_word", "steps", "lora_rank", "training_images", "cover_image"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -70,6 +73,16 @@ class ImageFTCreateRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # set to None if steps (nullable) is None
+        # and model_fields_set contains the field
+        if self.steps is None and "steps" in self.model_fields_set:
+            _dict['steps'] = None
+
+        # set to None if lora_rank (nullable) is None
+        # and model_fields_set contains the field
+        if self.lora_rank is None and "lora_rank" in self.model_fields_set:
+            _dict['lora_rank'] = None
+
         return _dict
 
     @classmethod
@@ -83,7 +96,11 @@ class ImageFTCreateRequest(BaseModel):
 
         _obj = cls.model_validate({
             "name": obj.get("name"),
-            "model_name": obj.get("model_name")
+            "trigger_word": obj.get("trigger_word"),
+            "steps": obj.get("steps"),
+            "lora_rank": obj.get("lora_rank"),
+            "training_images": obj.get("training_images"),
+            "cover_image": obj.get("cover_image")
         })
         return _obj
 

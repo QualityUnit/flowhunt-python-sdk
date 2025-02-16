@@ -35,7 +35,8 @@ class TestApiKeyUpdateRequest(unittest.TestCase):
         model = ApiKeyUpdateRequest()
         if include_optional:
             return ApiKeyUpdateRequest(
-                display_name = 'My API Key'
+                display_name = 'My API Key',
+                valid_to = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f')
             )
         else:
             return ApiKeyUpdateRequest(

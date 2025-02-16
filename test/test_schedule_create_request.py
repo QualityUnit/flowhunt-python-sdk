@@ -46,7 +46,8 @@ class TestScheduleCreateRequest(unittest.TestCase):
                 with_browser = 'Y',
                 follow_links = 'Y',
                 with_proxy_rotation = 'Y',
-                disallow_urls = ''
+                disallow_urls = '',
+                filter_urls = ''
             )
         else:
             return ScheduleCreateRequest(

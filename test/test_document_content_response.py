@@ -47,6 +47,7 @@ class TestDocumentContentResponse(unittest.TestCase):
                     lang = '', 
                     content_type = '', 
                     encoding = '', 
+                    apparent_encoding = '', 
                     description = '', 
                     content = [
                         [

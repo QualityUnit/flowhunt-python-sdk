@@ -32,7 +32,8 @@ class ApiKeyResponse(BaseModel):
     display_name: StrictStr = Field(description="Name of the API key")
     mask: StrictStr = Field(description="Masked API Key")
     last_used: Optional[datetime] = None
-    __properties: ClassVar[List[str]] = ["workspace_id", "api_key_id", "display_name", "mask", "last_used"]
+    valid_to: Optional[datetime] = None
+    __properties: ClassVar[List[str]] = ["workspace_id", "api_key_id", "display_name", "mask", "last_used", "valid_to"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -78,6 +79,11 @@ class ApiKeyResponse(BaseModel):
         if self.last_used is None and "last_used" in self.model_fields_set:
             _dict['last_used'] = None
 
+        # set to None if valid_to (nullable) is None
+        # and model_fields_set contains the field
+        if self.valid_to is None and "valid_to" in self.model_fields_set:
+            _dict['valid_to'] = None
+
         return _dict
 
     @classmethod
@@ -94,7 +100,8 @@ class ApiKeyResponse(BaseModel):
             "api_key_id": obj.get("api_key_id"),
             "display_name": obj.get("display_name"),
             "mask": obj.get("mask"),
-            "last_used": obj.get("last_used")
+            "last_used": obj.get("last_used"),
+            "valid_to": obj.get("valid_to")
         })
         return _obj
 

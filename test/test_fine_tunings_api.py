@@ -33,10 +33,38 @@ class TestFineTuningsApi(unittest.TestCase):
         """
         pass
 
+    def test_delete_file_ft(self) -> None:
+        """Test case for delete_file_ft
+
+        Delete File Ft
+        """
+        pass
+
     def test_delete_image_ft(self) -> None:
         """Test case for delete_image_ft
 
         Delete Image Ft
+        """
+        pass
+
+    def test_generate_images(self) -> None:
+        """Test case for generate_images
+
+        Generate Images
+        """
+        pass
+
+    def test_get_file_ft(self) -> None:
+        """Test case for get_file_ft
+
+        Get File Ft
+        """
+        pass
+
+    def test_get_inference_results(self) -> None:
+        """Test case for get_inference_results
+
+        Get Inference Results
         """
         pass
 
@@ -54,10 +82,10 @@ class TestFineTuningsApi(unittest.TestCase):
         """
         pass
 
-    def test_train_image_ft(self) -> None:
-        """Test case for train_image_ft
+    def test_search_inference_history(self) -> None:
+        """Test case for search_inference_history
 
-        Train Image Ft
+        Search Inference History
         """
         pass
 

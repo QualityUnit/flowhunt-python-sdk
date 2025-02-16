@@ -37,6 +37,7 @@ class DocumentContent(BaseModel):
     lang: Optional[StrictStr] = None
     content_type: Optional[StrictStr] = None
     encoding: Optional[StrictStr] = None
+    apparent_encoding: Optional[StrictStr] = None
     description: Optional[StrictStr] = None
     content: Optional[List[Annotated[List[Any], Field(min_length=2, max_length=2)]]] = None
     metadata: Optional[Dict[str, Any]] = None
@@ -50,7 +51,7 @@ class DocumentContent(BaseModel):
     keywords: Optional[List[StrictStr]] = None
     doc_type: Optional[DocumentType] = None
     credits: Optional[StrictInt] = None
-    __properties: ClassVar[List[str]] = ["url", "img_url", "status_code", "created_at", "published_at", "title", "lang", "content_type", "encoding", "description", "content", "metadata", "alt_content", "content_hash", "author", "channel_id", "channel_url", "channel_title", "duration", "keywords", "doc_type", "credits"]
+    __properties: ClassVar[List[str]] = ["url", "img_url", "status_code", "created_at", "published_at", "title", "lang", "content_type", "encoding", "apparent_encoding", "description", "content", "metadata", "alt_content", "content_hash", "author", "channel_id", "channel_url", "channel_title", "duration", "keywords", "doc_type", "credits"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -135,6 +136,11 @@ class DocumentContent(BaseModel):
         # and model_fields_set contains the field
         if self.encoding is None and "encoding" in self.model_fields_set:
             _dict['encoding'] = None
+
+        # set to None if apparent_encoding (nullable) is None
+        # and model_fields_set contains the field
+        if self.apparent_encoding is None and "apparent_encoding" in self.model_fields_set:
+            _dict['apparent_encoding'] = None
 
         # set to None if description (nullable) is None
         # and model_fields_set contains the field
@@ -222,6 +228,7 @@ class DocumentContent(BaseModel):
             "lang": obj.get("lang"),
             "content_type": obj.get("content_type"),
             "encoding": obj.get("encoding"),
+            "apparent_encoding": obj.get("apparent_encoding"),
             "description": obj.get("description"),
             "content": obj.get("content"),
             "metadata": obj.get("metadata"),

@@ -37,16 +37,12 @@ class TestGoogleAdsCampaignUpdateRequest(unittest.TestCase):
             return GoogleAdsCampaignUpdateRequest(
                 language_code = '',
                 country = '',
-                min_queries = 56,
-                cluster_strength = 56,
                 action_type = 'I'
             )
         else:
             return GoogleAdsCampaignUpdateRequest(
                 language_code = '',
                 country = '',
-                min_queries = 56,
-                cluster_strength = 56,
                 action_type = 'I',
         )
         """

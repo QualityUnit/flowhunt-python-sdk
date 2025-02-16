@@ -17,13 +17,20 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 from pydantic import StrictBytes, StrictStr
-from typing import List, Tuple, Union
+from typing import Any, List, Tuple, Union
 from flowhunt.models.completed import Completed
+from flowhunt.models.ft_type import FTType
+from flowhunt.models.file_upload_response import FileUploadResponse
 from flowhunt.models.image_ft_create_request import ImageFTCreateRequest
 from flowhunt.models.image_ft_response import ImageFTResponse
 from flowhunt.models.image_ft_search_request import ImageFTSearchRequest
-from flowhunt.models.image_ft_train_request import ImageFTTrainRequest
 from flowhunt.models.image_ft_update_request import ImageFTUpdateRequest
+from flowhunt.models.image_inference_request import ImageInferenceRequest
+from flowhunt.models.image_inference_response import ImageInferenceResponse
+from flowhunt.models.image_inference_result_response import ImageInferenceResultResponse
+from flowhunt.models.image_inference_schedule_response import ImageInferenceScheduleResponse
+from flowhunt.models.inference_file_type import InferenceFileType
+from flowhunt.models.inference_history_search_request import InferenceHistorySearchRequest
 
 from flowhunt.api_client import ApiClient, RequestSerialized
 from flowhunt.api_response import ApiResponse
@@ -336,6 +343,285 @@ class FineTuningsApi:
 
 
     @validate_call
+    def delete_file_ft(
+        self,
+        file_key: StrictStr,
+        workspace_id: StrictStr,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> object:
+        """Delete File Ft
+
+
+        :param file_key: (required)
+        :type file_key: str
+        :param workspace_id: (required)
+        :type workspace_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._delete_file_ft_serialize(
+            file_key=file_key,
+            workspace_id=workspace_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "object",
+            '422': "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def delete_file_ft_with_http_info(
+        self,
+        file_key: StrictStr,
+        workspace_id: StrictStr,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[object]:
+        """Delete File Ft
+
+
+        :param file_key: (required)
+        :type file_key: str
+        :param workspace_id: (required)
+        :type workspace_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._delete_file_ft_serialize(
+            file_key=file_key,
+            workspace_id=workspace_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "object",
+            '422': "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def delete_file_ft_without_preload_content(
+        self,
+        file_key: StrictStr,
+        workspace_id: StrictStr,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Delete File Ft
+
+
+        :param file_key: (required)
+        :type file_key: str
+        :param workspace_id: (required)
+        :type workspace_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._delete_file_ft_serialize(
+            file_key=file_key,
+            workspace_id=workspace_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "object",
+            '422': "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _delete_file_ft_serialize(
+        self,
+        file_key,
+        workspace_id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if file_key is not None:
+            _path_params['file_key'] = file_key
+        # process the query parameters
+        if workspace_id is not None:
+            
+            _query_params.append(('workspace_id', workspace_id))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'APIKeyHeader', 
+            'HTTPBearer'
+        ]
+
+        return self.api_client.param_serialize(
+            method='DELETE',
+            resource_path='/v2/fine_tunings/files/{file_key}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
     def delete_image_ft(
         self,
         ft_id: StrictStr,
@@ -599,6 +885,873 @@ class FineTuningsApi:
         return self.api_client.param_serialize(
             method='DELETE',
             resource_path='/v2/fine_tunings/images/{ft_id}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def generate_images(
+        self,
+        workspace_id: StrictStr,
+        image_inference_request: ImageInferenceRequest,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ImageInferenceScheduleResponse:
+        """Generate Images
+
+
+        :param workspace_id: (required)
+        :type workspace_id: str
+        :param image_inference_request: (required)
+        :type image_inference_request: ImageInferenceRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._generate_images_serialize(
+            workspace_id=workspace_id,
+            image_inference_request=image_inference_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "ImageInferenceScheduleResponse",
+            '422': "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def generate_images_with_http_info(
+        self,
+        workspace_id: StrictStr,
+        image_inference_request: ImageInferenceRequest,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[ImageInferenceScheduleResponse]:
+        """Generate Images
+
+
+        :param workspace_id: (required)
+        :type workspace_id: str
+        :param image_inference_request: (required)
+        :type image_inference_request: ImageInferenceRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._generate_images_serialize(
+            workspace_id=workspace_id,
+            image_inference_request=image_inference_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "ImageInferenceScheduleResponse",
+            '422': "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def generate_images_without_preload_content(
+        self,
+        workspace_id: StrictStr,
+        image_inference_request: ImageInferenceRequest,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Generate Images
+
+
+        :param workspace_id: (required)
+        :type workspace_id: str
+        :param image_inference_request: (required)
+        :type image_inference_request: ImageInferenceRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._generate_images_serialize(
+            workspace_id=workspace_id,
+            image_inference_request=image_inference_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "ImageInferenceScheduleResponse",
+            '422': "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _generate_images_serialize(
+        self,
+        workspace_id,
+        image_inference_request,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        if workspace_id is not None:
+            
+            _query_params.append(('workspace_id', workspace_id))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if image_inference_request is not None:
+            _body_params = image_inference_request
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'APIKeyHeader', 
+            'HTTPBearer'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/v2/fine_tunings/inference/images',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def get_file_ft(
+        self,
+        file_key: StrictStr,
+        workspace_id: StrictStr,
+        file_type: InferenceFileType,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> object:
+        """Get File Ft
+
+
+        :param file_key: (required)
+        :type file_key: str
+        :param workspace_id: (required)
+        :type workspace_id: str
+        :param file_type: (required)
+        :type file_type: InferenceFileType
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_file_ft_serialize(
+            file_key=file_key,
+            workspace_id=workspace_id,
+            file_type=file_type,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "object",
+            '422': "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def get_file_ft_with_http_info(
+        self,
+        file_key: StrictStr,
+        workspace_id: StrictStr,
+        file_type: InferenceFileType,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[object]:
+        """Get File Ft
+
+
+        :param file_key: (required)
+        :type file_key: str
+        :param workspace_id: (required)
+        :type workspace_id: str
+        :param file_type: (required)
+        :type file_type: InferenceFileType
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_file_ft_serialize(
+            file_key=file_key,
+            workspace_id=workspace_id,
+            file_type=file_type,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "object",
+            '422': "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def get_file_ft_without_preload_content(
+        self,
+        file_key: StrictStr,
+        workspace_id: StrictStr,
+        file_type: InferenceFileType,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Get File Ft
+
+
+        :param file_key: (required)
+        :type file_key: str
+        :param workspace_id: (required)
+        :type workspace_id: str
+        :param file_type: (required)
+        :type file_type: InferenceFileType
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_file_ft_serialize(
+            file_key=file_key,
+            workspace_id=workspace_id,
+            file_type=file_type,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "object",
+            '422': "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _get_file_ft_serialize(
+        self,
+        file_key,
+        workspace_id,
+        file_type,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if file_key is not None:
+            _path_params['file_key'] = file_key
+        # process the query parameters
+        if workspace_id is not None:
+            
+            _query_params.append(('workspace_id', workspace_id))
+            
+        if file_type is not None:
+            
+            _query_params.append(('file_type', file_type.value))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'APIKeyHeader', 
+            'HTTPBearer'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/v2/fine_tunings/files/{file_key}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def get_inference_results(
+        self,
+        inference_id: StrictStr,
+        workspace_id: StrictStr,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ImageInferenceResultResponse:
+        """Get Inference Results
+
+
+        :param inference_id: (required)
+        :type inference_id: str
+        :param workspace_id: (required)
+        :type workspace_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_inference_results_serialize(
+            inference_id=inference_id,
+            workspace_id=workspace_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "ImageInferenceResultResponse",
+            '422': "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def get_inference_results_with_http_info(
+        self,
+        inference_id: StrictStr,
+        workspace_id: StrictStr,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[ImageInferenceResultResponse]:
+        """Get Inference Results
+
+
+        :param inference_id: (required)
+        :type inference_id: str
+        :param workspace_id: (required)
+        :type workspace_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_inference_results_serialize(
+            inference_id=inference_id,
+            workspace_id=workspace_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "ImageInferenceResultResponse",
+            '422': "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def get_inference_results_without_preload_content(
+        self,
+        inference_id: StrictStr,
+        workspace_id: StrictStr,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Get Inference Results
+
+
+        :param inference_id: (required)
+        :type inference_id: str
+        :param workspace_id: (required)
+        :type workspace_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_inference_results_serialize(
+            inference_id=inference_id,
+            workspace_id=workspace_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "ImageInferenceResultResponse",
+            '422': "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _get_inference_results_serialize(
+        self,
+        inference_id,
+        workspace_id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if inference_id is not None:
+            _path_params['inference_id'] = inference_id
+        # process the query parameters
+        if workspace_id is not None:
+            
+            _query_params.append(('workspace_id', workspace_id))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'APIKeyHeader', 
+            'HTTPBearer'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/v2/fine_tunings/inference/results/{inference_id}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1186,11 +2339,10 @@ class FineTuningsApi:
 
 
     @validate_call
-    def train_image_ft(
+    def search_inference_history(
         self,
-        ft_id: StrictStr,
         workspace_id: StrictStr,
-        image_ft_train_request: ImageFTTrainRequest,
+        inference_history_search_request: InferenceHistorySearchRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1203,16 +2355,14 @@ class FineTuningsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ImageFTResponse:
-        """Train Image Ft
+    ) -> List[ImageInferenceResponse]:
+        """Search Inference History
 
 
-        :param ft_id: (required)
-        :type ft_id: str
         :param workspace_id: (required)
         :type workspace_id: str
-        :param image_ft_train_request: (required)
-        :type image_ft_train_request: ImageFTTrainRequest
+        :param inference_history_search_request: (required)
+        :type inference_history_search_request: InferenceHistorySearchRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1235,10 +2385,9 @@ class FineTuningsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._train_image_ft_serialize(
-            ft_id=ft_id,
+        _param = self._search_inference_history_serialize(
             workspace_id=workspace_id,
-            image_ft_train_request=image_ft_train_request,
+            inference_history_search_request=inference_history_search_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1246,7 +2395,7 @@ class FineTuningsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ImageFTResponse",
+            '200': "List[ImageInferenceResponse]",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -1261,11 +2410,10 @@ class FineTuningsApi:
 
 
     @validate_call
-    def train_image_ft_with_http_info(
+    def search_inference_history_with_http_info(
         self,
-        ft_id: StrictStr,
         workspace_id: StrictStr,
-        image_ft_train_request: ImageFTTrainRequest,
+        inference_history_search_request: InferenceHistorySearchRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1278,16 +2426,14 @@ class FineTuningsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ImageFTResponse]:
-        """Train Image Ft
+    ) -> ApiResponse[List[ImageInferenceResponse]]:
+        """Search Inference History
 
 
-        :param ft_id: (required)
-        :type ft_id: str
         :param workspace_id: (required)
         :type workspace_id: str
-        :param image_ft_train_request: (required)
-        :type image_ft_train_request: ImageFTTrainRequest
+        :param inference_history_search_request: (required)
+        :type inference_history_search_request: InferenceHistorySearchRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1310,10 +2456,9 @@ class FineTuningsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._train_image_ft_serialize(
-            ft_id=ft_id,
+        _param = self._search_inference_history_serialize(
             workspace_id=workspace_id,
-            image_ft_train_request=image_ft_train_request,
+            inference_history_search_request=inference_history_search_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1321,7 +2466,7 @@ class FineTuningsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ImageFTResponse",
+            '200': "List[ImageInferenceResponse]",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -1336,11 +2481,10 @@ class FineTuningsApi:
 
 
     @validate_call
-    def train_image_ft_without_preload_content(
+    def search_inference_history_without_preload_content(
         self,
-        ft_id: StrictStr,
         workspace_id: StrictStr,
-        image_ft_train_request: ImageFTTrainRequest,
+        inference_history_search_request: InferenceHistorySearchRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1354,15 +2498,13 @@ class FineTuningsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Train Image Ft
+        """Search Inference History
 
 
-        :param ft_id: (required)
-        :type ft_id: str
         :param workspace_id: (required)
         :type workspace_id: str
-        :param image_ft_train_request: (required)
-        :type image_ft_train_request: ImageFTTrainRequest
+        :param inference_history_search_request: (required)
+        :type inference_history_search_request: InferenceHistorySearchRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1385,10 +2527,9 @@ class FineTuningsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._train_image_ft_serialize(
-            ft_id=ft_id,
+        _param = self._search_inference_history_serialize(
             workspace_id=workspace_id,
-            image_ft_train_request=image_ft_train_request,
+            inference_history_search_request=inference_history_search_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1396,7 +2537,7 @@ class FineTuningsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ImageFTResponse",
+            '200': "List[ImageInferenceResponse]",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -1406,11 +2547,10 @@ class FineTuningsApi:
         return response_data.response
 
 
-    def _train_image_ft_serialize(
+    def _search_inference_history_serialize(
         self,
-        ft_id,
         workspace_id,
-        image_ft_train_request,
+        inference_history_search_request,
         _request_auth,
         _content_type,
         _headers,
@@ -1432,8 +2572,6 @@ class FineTuningsApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if ft_id is not None:
-            _path_params['ft_id'] = ft_id
         # process the query parameters
         if workspace_id is not None:
             
@@ -1442,8 +2580,8 @@ class FineTuningsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if image_ft_train_request is not None:
-            _body_params = image_ft_train_request
+        if inference_history_search_request is not None:
+            _body_params = inference_history_search_request
 
 
         # set the HTTP header `Accept`
@@ -1476,7 +2614,7 @@ class FineTuningsApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/v2/fine_tunings/images/{ft_id}/train',
+            resource_path='/v2/fine_tunings/inference/history',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1802,7 +2940,7 @@ class FineTuningsApi:
     @validate_call
     def upload_image_ft(
         self,
-        ft_id: StrictStr,
+        ft_type: FTType,
         workspace_id: StrictStr,
         file: Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]],
         _request_timeout: Union[
@@ -1817,12 +2955,12 @@ class FineTuningsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ImageFTResponse:
+    ) -> FileUploadResponse:
         """Upload Image Ft
 
 
-        :param ft_id: (required)
-        :type ft_id: str
+        :param ft_type: (required)
+        :type ft_type: FTType
         :param workspace_id: (required)
         :type workspace_id: str
         :param file: (required)
@@ -1850,7 +2988,7 @@ class FineTuningsApi:
         """ # noqa: E501
 
         _param = self._upload_image_ft_serialize(
-            ft_id=ft_id,
+            ft_type=ft_type,
             workspace_id=workspace_id,
             file=file,
             _request_auth=_request_auth,
@@ -1860,7 +2998,7 @@ class FineTuningsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ImageFTResponse",
+            '200': "FileUploadResponse",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -1877,7 +3015,7 @@ class FineTuningsApi:
     @validate_call
     def upload_image_ft_with_http_info(
         self,
-        ft_id: StrictStr,
+        ft_type: FTType,
         workspace_id: StrictStr,
         file: Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]],
         _request_timeout: Union[
@@ -1892,12 +3030,12 @@ class FineTuningsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ImageFTResponse]:
+    ) -> ApiResponse[FileUploadResponse]:
         """Upload Image Ft
 
 
-        :param ft_id: (required)
-        :type ft_id: str
+        :param ft_type: (required)
+        :type ft_type: FTType
         :param workspace_id: (required)
         :type workspace_id: str
         :param file: (required)
@@ -1925,7 +3063,7 @@ class FineTuningsApi:
         """ # noqa: E501
 
         _param = self._upload_image_ft_serialize(
-            ft_id=ft_id,
+            ft_type=ft_type,
             workspace_id=workspace_id,
             file=file,
             _request_auth=_request_auth,
@@ -1935,7 +3073,7 @@ class FineTuningsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ImageFTResponse",
+            '200': "FileUploadResponse",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -1952,7 +3090,7 @@ class FineTuningsApi:
     @validate_call
     def upload_image_ft_without_preload_content(
         self,
-        ft_id: StrictStr,
+        ft_type: FTType,
         workspace_id: StrictStr,
         file: Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]],
         _request_timeout: Union[
@@ -1971,8 +3109,8 @@ class FineTuningsApi:
         """Upload Image Ft
 
 
-        :param ft_id: (required)
-        :type ft_id: str
+        :param ft_type: (required)
+        :type ft_type: FTType
         :param workspace_id: (required)
         :type workspace_id: str
         :param file: (required)
@@ -2000,7 +3138,7 @@ class FineTuningsApi:
         """ # noqa: E501
 
         _param = self._upload_image_ft_serialize(
-            ft_id=ft_id,
+            ft_type=ft_type,
             workspace_id=workspace_id,
             file=file,
             _request_auth=_request_auth,
@@ -2010,7 +3148,7 @@ class FineTuningsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ImageFTResponse",
+            '200': "FileUploadResponse",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -2022,7 +3160,7 @@ class FineTuningsApi:
 
     def _upload_image_ft_serialize(
         self,
-        ft_id,
+        ft_type,
         workspace_id,
         file,
         _request_auth,
@@ -2046,8 +3184,8 @@ class FineTuningsApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if ft_id is not None:
-            _path_params['ft_id'] = ft_id
+        if ft_type is not None:
+            _path_params['ft_type'] = ft_type.value
         # process the query parameters
         if workspace_id is not None:
             
@@ -2090,7 +3228,7 @@ class FineTuningsApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/v2/fine_tunings/images/{ft_id}/upload',
+            resource_path='/v2/fine_tunings/files/{ft_type}/upload',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

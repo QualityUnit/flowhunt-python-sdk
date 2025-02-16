@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **input_text** | **str** |  | [optional] 
 **interval_settings** | **str** |  | 
 **variables** | **object** |  | [optional] 
+**cron_name** | **str** |  | 
 
 ## Example
 

@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **follow_links** | [**BoolChar**](BoolChar.md) |  | [optional] 
 **with_proxy_rotation** | [**BoolChar**](BoolChar.md) |  | [optional] 
 **disallow_urls** | **str** |  | [optional] 
+**filter_urls** | **str** |  | [optional] 
 
 ## Example
 

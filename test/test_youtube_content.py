@@ -44,6 +44,7 @@ class TestYoutubeContent(unittest.TestCase):
                 lang = '',
                 content_type = '',
                 encoding = '',
+                apparent_encoding = '',
                 description = '',
                 content = '',
                 metadata = None,

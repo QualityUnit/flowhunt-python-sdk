@@ -35,11 +35,17 @@ class TestImageFTUpdateRequest(unittest.TestCase):
         model = ImageFTUpdateRequest()
         if include_optional:
             return ImageFTUpdateRequest(
-                name = 'Fine tuning 1'
+                name = 'Fine tuning 1',
+                steps = 56,
+                lora_rank = 56,
+                training_images = [image1.jpg, image2.jpg],
+                cover_image = 'cover.jpg'
             )
         else:
             return ImageFTUpdateRequest(
                 name = 'Fine tuning 1',
+                training_images = [image1.jpg, image2.jpg],
+                cover_image = 'cover.jpg',
         )
         """
 

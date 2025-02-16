@@ -31,7 +31,8 @@ class FlowCronUpdateRequest(BaseModel):
     input_text: Optional[StrictStr] = None
     variables: Optional[Dict[str, Any]] = None
     interval_settings: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["status", "input_text", "variables", "interval_settings"]
+    cron_name: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["status", "input_text", "variables", "interval_settings", "cron_name"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -92,6 +93,11 @@ class FlowCronUpdateRequest(BaseModel):
         if self.interval_settings is None and "interval_settings" in self.model_fields_set:
             _dict['interval_settings'] = None
 
+        # set to None if cron_name (nullable) is None
+        # and model_fields_set contains the field
+        if self.cron_name is None and "cron_name" in self.model_fields_set:
+            _dict['cron_name'] = None
+
         return _dict
 
     @classmethod
@@ -107,7 +113,8 @@ class FlowCronUpdateRequest(BaseModel):
             "status": obj.get("status"),
             "input_text": obj.get("input_text"),
             "variables": obj.get("variables"),
-            "interval_settings": obj.get("interval_settings")
+            "interval_settings": obj.get("interval_settings"),
+            "cron_name": obj.get("cron_name")
         })
         return _obj
 

@@ -47,6 +47,14 @@
 
 * `CGS` (value: `'CGS'`)
 
+* `RGS` (value: `'RGS'`)
+
+* `UGS` (value: `'UGS'`)
+
+* `IGI` (value: `'IGI'`)
+
+* `TR` (value: `'TR'`)
+
 * `SEQUENTIAL_AGENT` (value: `'SEQUENTIAL_AGENT'`)
 
 * `SELF_MANAGED_AGENT` (value: `'SELF_MANAGED_AGENT'`)

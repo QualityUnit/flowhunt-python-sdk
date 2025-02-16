@@ -46,9 +46,7 @@ class TestGoogleAdsGroupsResponse(unittest.TestCase):
                         last_update = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         action_type = 'I', 
                         language_code = '', 
-                        country = '', 
-                        min_queries = 56, 
-                        cluster_strength = 56, )
+                        country = '', )
                     ]
             )
         else:
@@ -64,9 +62,7 @@ class TestGoogleAdsGroupsResponse(unittest.TestCase):
                         last_update = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         action_type = 'I', 
                         language_code = '', 
-                        country = '', 
-                        min_queries = 56, 
-                        cluster_strength = 56, )
+                        country = '', )
                     ],
         )
         """

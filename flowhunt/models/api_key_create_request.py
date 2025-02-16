@@ -17,8 +17,9 @@ import pprint
 import re  # noqa: F401
 import json
 
+from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,7 +28,8 @@ class ApiKeyCreateRequest(BaseModel):
     ApiKeyCreateRequest
     """ # noqa: E501
     display_name: StrictStr = Field(description="User defined name of the API key")
-    __properties: ClassVar[List[str]] = ["display_name"]
+    valid_to: Optional[datetime] = None
+    __properties: ClassVar[List[str]] = ["display_name", "valid_to"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -68,6 +70,11 @@ class ApiKeyCreateRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # set to None if valid_to (nullable) is None
+        # and model_fields_set contains the field
+        if self.valid_to is None and "valid_to" in self.model_fields_set:
+            _dict['valid_to'] = None
+
         return _dict
 
     @classmethod
@@ -80,7 +87,8 @@ class ApiKeyCreateRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "display_name": obj.get("display_name")
+            "display_name": obj.get("display_name"),
+            "valid_to": obj.get("valid_to")
         })
         return _obj
 

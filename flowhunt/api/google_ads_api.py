@@ -17,16 +17,25 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 from pydantic import StrictInt, StrictStr
+from typing import List
 from flowhunt.models.completed import Completed
+from flowhunt.models.google_ads_analyze_keywords_request import GoogleAdsAnalyzeKeywordsRequest
 from flowhunt.models.google_ads_campaign_response import GoogleAdsCampaignResponse
 from flowhunt.models.google_ads_campaign_update_request import GoogleAdsCampaignUpdateRequest
 from flowhunt.models.google_ads_campaigns_response import GoogleAdsCampaignsResponse
+from flowhunt.models.google_ads_campaigns_search_request import GoogleAdsCampaignsSearchRequest
+from flowhunt.models.google_ads_conversion_actions_response import GoogleAdsConversionActionsResponse
+from flowhunt.models.google_ads_conversion_tracking_code_examples_response import GoogleAdsConversionTrackingCodeExamplesResponse
+from flowhunt.models.google_ads_conversion_tracking_settings_response import GoogleAdsConversionTrackingSettingsResponse
 from flowhunt.models.google_ads_customer_response import GoogleAdsCustomerResponse
 from flowhunt.models.google_ads_customer_update_request import GoogleAdsCustomerUpdateRequest
 from flowhunt.models.google_ads_customers_response import GoogleAdsCustomersResponse
+from flowhunt.models.google_ads_customers_search_request import GoogleAdsCustomersSearchRequest
 from flowhunt.models.google_ads_group_response import GoogleAdsGroupResponse
 from flowhunt.models.google_ads_group_update_request import GoogleAdsGroupUpdateRequest
 from flowhunt.models.google_ads_groups_response import GoogleAdsGroupsResponse
+from flowhunt.models.google_ads_groups_search_request import GoogleAdsGroupsSearchRequest
+from flowhunt.models.google_ads_source_tracking_code_examples_response import GoogleAdsSourceTrackingCodeExamplesResponse
 
 from flowhunt.api_client import ApiClient, RequestSerialized
 from flowhunt.api_response import ApiResponse
@@ -50,6 +59,7 @@ class GoogleAdsApi:
     def analyze_not_assigned_keywords(
         self,
         workspace_id: StrictStr,
+        google_ads_analyze_keywords_request: GoogleAdsAnalyzeKeywordsRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -68,6 +78,8 @@ class GoogleAdsApi:
 
         :param workspace_id: (required)
         :type workspace_id: str
+        :param google_ads_analyze_keywords_request: (required)
+        :type google_ads_analyze_keywords_request: GoogleAdsAnalyzeKeywordsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -92,6 +104,7 @@ class GoogleAdsApi:
 
         _param = self._analyze_not_assigned_keywords_serialize(
             workspace_id=workspace_id,
+            google_ads_analyze_keywords_request=google_ads_analyze_keywords_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -117,6 +130,7 @@ class GoogleAdsApi:
     def analyze_not_assigned_keywords_with_http_info(
         self,
         workspace_id: StrictStr,
+        google_ads_analyze_keywords_request: GoogleAdsAnalyzeKeywordsRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -135,6 +149,8 @@ class GoogleAdsApi:
 
         :param workspace_id: (required)
         :type workspace_id: str
+        :param google_ads_analyze_keywords_request: (required)
+        :type google_ads_analyze_keywords_request: GoogleAdsAnalyzeKeywordsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -159,6 +175,7 @@ class GoogleAdsApi:
 
         _param = self._analyze_not_assigned_keywords_serialize(
             workspace_id=workspace_id,
+            google_ads_analyze_keywords_request=google_ads_analyze_keywords_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -184,6 +201,7 @@ class GoogleAdsApi:
     def analyze_not_assigned_keywords_without_preload_content(
         self,
         workspace_id: StrictStr,
+        google_ads_analyze_keywords_request: GoogleAdsAnalyzeKeywordsRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -202,6 +220,8 @@ class GoogleAdsApi:
 
         :param workspace_id: (required)
         :type workspace_id: str
+        :param google_ads_analyze_keywords_request: (required)
+        :type google_ads_analyze_keywords_request: GoogleAdsAnalyzeKeywordsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -226,6 +246,7 @@ class GoogleAdsApi:
 
         _param = self._analyze_not_assigned_keywords_serialize(
             workspace_id=workspace_id,
+            google_ads_analyze_keywords_request=google_ads_analyze_keywords_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -246,6 +267,7 @@ class GoogleAdsApi:
     def _analyze_not_assigned_keywords_serialize(
         self,
         workspace_id,
+        google_ads_analyze_keywords_request,
         _request_auth,
         _content_type,
         _headers,
@@ -275,6 +297,8 @@ class GoogleAdsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
+        if google_ads_analyze_keywords_request is not None:
+            _body_params = google_ads_analyze_keywords_request
 
 
         # set the HTTP header `Accept`
@@ -285,6 +309,19 @@ class GoogleAdsApi:
                 ]
             )
 
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -311,7 +348,7 @@ class GoogleAdsApi:
 
 
     @validate_call
-    def get_google_ads_campaigns(
+    def get_conversion_tracking_code_examples(
         self,
         customer_id: StrictInt,
         workspace_id: StrictStr,
@@ -327,9 +364,10 @@ class GoogleAdsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GoogleAdsCampaignsResponse:
-        """Get Google Ads Campaigns
+    ) -> GoogleAdsConversionTrackingCodeExamplesResponse:
+        """Get Conversion Tracking Code Examples
 
+        Get example tracking code for each conversion action in the Google Ads account.
 
         :param customer_id: (required)
         :type customer_id: int
@@ -357,7 +395,7 @@ class GoogleAdsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_google_ads_campaigns_serialize(
+        _param = self._get_conversion_tracking_code_examples_serialize(
             customer_id=customer_id,
             workspace_id=workspace_id,
             _request_auth=_request_auth,
@@ -367,7 +405,7 @@ class GoogleAdsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GoogleAdsCampaignsResponse",
+            '200': "GoogleAdsConversionTrackingCodeExamplesResponse",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -382,7 +420,7 @@ class GoogleAdsApi:
 
 
     @validate_call
-    def get_google_ads_campaigns_with_http_info(
+    def get_conversion_tracking_code_examples_with_http_info(
         self,
         customer_id: StrictInt,
         workspace_id: StrictStr,
@@ -398,9 +436,10 @@ class GoogleAdsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GoogleAdsCampaignsResponse]:
-        """Get Google Ads Campaigns
+    ) -> ApiResponse[GoogleAdsConversionTrackingCodeExamplesResponse]:
+        """Get Conversion Tracking Code Examples
 
+        Get example tracking code for each conversion action in the Google Ads account.
 
         :param customer_id: (required)
         :type customer_id: int
@@ -428,7 +467,7 @@ class GoogleAdsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_google_ads_campaigns_serialize(
+        _param = self._get_conversion_tracking_code_examples_serialize(
             customer_id=customer_id,
             workspace_id=workspace_id,
             _request_auth=_request_auth,
@@ -438,7 +477,7 @@ class GoogleAdsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GoogleAdsCampaignsResponse",
+            '200': "GoogleAdsConversionTrackingCodeExamplesResponse",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -453,7 +492,7 @@ class GoogleAdsApi:
 
 
     @validate_call
-    def get_google_ads_campaigns_without_preload_content(
+    def get_conversion_tracking_code_examples_without_preload_content(
         self,
         customer_id: StrictInt,
         workspace_id: StrictStr,
@@ -470,8 +509,9 @@ class GoogleAdsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Get Google Ads Campaigns
+        """Get Conversion Tracking Code Examples
 
+        Get example tracking code for each conversion action in the Google Ads account.
 
         :param customer_id: (required)
         :type customer_id: int
@@ -499,7 +539,7 @@ class GoogleAdsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_google_ads_campaigns_serialize(
+        _param = self._get_conversion_tracking_code_examples_serialize(
             customer_id=customer_id,
             workspace_id=workspace_id,
             _request_auth=_request_auth,
@@ -509,7 +549,7 @@ class GoogleAdsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GoogleAdsCampaignsResponse",
+            '200': "GoogleAdsConversionTrackingCodeExamplesResponse",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -519,7 +559,7 @@ class GoogleAdsApi:
         return response_data.response
 
 
-    def _get_google_ads_campaigns_serialize(
+    def _get_conversion_tracking_code_examples_serialize(
         self,
         customer_id,
         workspace_id,
@@ -573,7 +613,7 @@ class GoogleAdsApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/v2/integrations/google_ads/{customer_id}/campaigns',
+            resource_path='/v2/integrations/google_ads/conversion-tracking-code/{customer_id}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -590,8 +630,9 @@ class GoogleAdsApi:
 
 
     @validate_call
-    def get_google_ads_customers(
+    def get_conversion_tracking_settings(
         self,
+        customer_id: StrictInt,
         workspace_id: StrictStr,
         _request_timeout: Union[
             None,
@@ -605,10 +646,12 @@ class GoogleAdsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GoogleAdsCustomersResponse:
-        """Get Google Ads Customers
+    ) -> List[GoogleAdsConversionTrackingSettingsResponse]:
+        """Get Conversion Tracking Settings
 
 
+        :param customer_id: (required)
+        :type customer_id: int
         :param workspace_id: (required)
         :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -633,7 +676,8 @@ class GoogleAdsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_google_ads_customers_serialize(
+        _param = self._get_conversion_tracking_settings_serialize(
+            customer_id=customer_id,
             workspace_id=workspace_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -642,7 +686,7 @@ class GoogleAdsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GoogleAdsCustomersResponse",
+            '200': "List[GoogleAdsConversionTrackingSettingsResponse]",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -657,8 +701,9 @@ class GoogleAdsApi:
 
 
     @validate_call
-    def get_google_ads_customers_with_http_info(
+    def get_conversion_tracking_settings_with_http_info(
         self,
+        customer_id: StrictInt,
         workspace_id: StrictStr,
         _request_timeout: Union[
             None,
@@ -672,10 +717,12 @@ class GoogleAdsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GoogleAdsCustomersResponse]:
-        """Get Google Ads Customers
+    ) -> ApiResponse[List[GoogleAdsConversionTrackingSettingsResponse]]:
+        """Get Conversion Tracking Settings
 
 
+        :param customer_id: (required)
+        :type customer_id: int
         :param workspace_id: (required)
         :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -700,7 +747,8 @@ class GoogleAdsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_google_ads_customers_serialize(
+        _param = self._get_conversion_tracking_settings_serialize(
+            customer_id=customer_id,
             workspace_id=workspace_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -709,7 +757,7 @@ class GoogleAdsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GoogleAdsCustomersResponse",
+            '200': "List[GoogleAdsConversionTrackingSettingsResponse]",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -724,8 +772,9 @@ class GoogleAdsApi:
 
 
     @validate_call
-    def get_google_ads_customers_without_preload_content(
+    def get_conversion_tracking_settings_without_preload_content(
         self,
+        customer_id: StrictInt,
         workspace_id: StrictStr,
         _request_timeout: Union[
             None,
@@ -740,9 +789,11 @@ class GoogleAdsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Get Google Ads Customers
+        """Get Conversion Tracking Settings
 
 
+        :param customer_id: (required)
+        :type customer_id: int
         :param workspace_id: (required)
         :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -767,7 +818,8 @@ class GoogleAdsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_google_ads_customers_serialize(
+        _param = self._get_conversion_tracking_settings_serialize(
+            customer_id=customer_id,
             workspace_id=workspace_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -776,7 +828,7 @@ class GoogleAdsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GoogleAdsCustomersResponse",
+            '200': "List[GoogleAdsConversionTrackingSettingsResponse]",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -786,9 +838,289 @@ class GoogleAdsApi:
         return response_data.response
 
 
-    def _get_google_ads_customers_serialize(
+    def _get_conversion_tracking_settings_serialize(
+        self,
+        customer_id,
+        workspace_id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if customer_id is not None:
+            _path_params['customer_id'] = customer_id
+        # process the query parameters
+        if workspace_id is not None:
+            
+            _query_params.append(('workspace_id', workspace_id))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'APIKeyHeader', 
+            'HTTPBearer'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/v2/integrations/google_ads/conversion-tracking-settings/{customer_id}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def get_google_ads_campaigns(
+        self,
+        workspace_id: StrictStr,
+        google_ads_campaigns_search_request: GoogleAdsCampaignsSearchRequest,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> GoogleAdsCampaignsResponse:
+        """Get Google Ads Campaigns
+
+
+        :param workspace_id: (required)
+        :type workspace_id: str
+        :param google_ads_campaigns_search_request: (required)
+        :type google_ads_campaigns_search_request: GoogleAdsCampaignsSearchRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_google_ads_campaigns_serialize(
+            workspace_id=workspace_id,
+            google_ads_campaigns_search_request=google_ads_campaigns_search_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GoogleAdsCampaignsResponse",
+            '422': "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def get_google_ads_campaigns_with_http_info(
+        self,
+        workspace_id: StrictStr,
+        google_ads_campaigns_search_request: GoogleAdsCampaignsSearchRequest,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[GoogleAdsCampaignsResponse]:
+        """Get Google Ads Campaigns
+
+
+        :param workspace_id: (required)
+        :type workspace_id: str
+        :param google_ads_campaigns_search_request: (required)
+        :type google_ads_campaigns_search_request: GoogleAdsCampaignsSearchRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_google_ads_campaigns_serialize(
+            workspace_id=workspace_id,
+            google_ads_campaigns_search_request=google_ads_campaigns_search_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GoogleAdsCampaignsResponse",
+            '422': "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def get_google_ads_campaigns_without_preload_content(
+        self,
+        workspace_id: StrictStr,
+        google_ads_campaigns_search_request: GoogleAdsCampaignsSearchRequest,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Get Google Ads Campaigns
+
+
+        :param workspace_id: (required)
+        :type workspace_id: str
+        :param google_ads_campaigns_search_request: (required)
+        :type google_ads_campaigns_search_request: GoogleAdsCampaignsSearchRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_google_ads_campaigns_serialize(
+            workspace_id=workspace_id,
+            google_ads_campaigns_search_request=google_ads_campaigns_search_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GoogleAdsCampaignsResponse",
+            '422': "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _get_google_ads_campaigns_serialize(
         self,
         workspace_id,
+        google_ads_campaigns_search_request,
         _request_auth,
         _content_type,
         _headers,
@@ -818,6 +1150,8 @@ class GoogleAdsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
+        if google_ads_campaigns_search_request is not None:
+            _body_params = google_ads_campaigns_search_request
 
 
         # set the HTTP header `Accept`
@@ -828,6 +1162,311 @@ class GoogleAdsApi:
                 ]
             )
 
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'APIKeyHeader', 
+            'HTTPBearer'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/v2/integrations/google_ads/campaigns',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def get_google_ads_customers(
+        self,
+        workspace_id: StrictStr,
+        google_ads_customers_search_request: GoogleAdsCustomersSearchRequest,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> GoogleAdsCustomersResponse:
+        """Get Google Ads Customers
+
+
+        :param workspace_id: (required)
+        :type workspace_id: str
+        :param google_ads_customers_search_request: (required)
+        :type google_ads_customers_search_request: GoogleAdsCustomersSearchRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_google_ads_customers_serialize(
+            workspace_id=workspace_id,
+            google_ads_customers_search_request=google_ads_customers_search_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GoogleAdsCustomersResponse",
+            '422': "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def get_google_ads_customers_with_http_info(
+        self,
+        workspace_id: StrictStr,
+        google_ads_customers_search_request: GoogleAdsCustomersSearchRequest,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[GoogleAdsCustomersResponse]:
+        """Get Google Ads Customers
+
+
+        :param workspace_id: (required)
+        :type workspace_id: str
+        :param google_ads_customers_search_request: (required)
+        :type google_ads_customers_search_request: GoogleAdsCustomersSearchRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_google_ads_customers_serialize(
+            workspace_id=workspace_id,
+            google_ads_customers_search_request=google_ads_customers_search_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GoogleAdsCustomersResponse",
+            '422': "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def get_google_ads_customers_without_preload_content(
+        self,
+        workspace_id: StrictStr,
+        google_ads_customers_search_request: GoogleAdsCustomersSearchRequest,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Get Google Ads Customers
+
+
+        :param workspace_id: (required)
+        :type workspace_id: str
+        :param google_ads_customers_search_request: (required)
+        :type google_ads_customers_search_request: GoogleAdsCustomersSearchRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_google_ads_customers_serialize(
+            workspace_id=workspace_id,
+            google_ads_customers_search_request=google_ads_customers_search_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GoogleAdsCustomersResponse",
+            '422': "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _get_google_ads_customers_serialize(
+        self,
+        workspace_id,
+        google_ads_customers_search_request,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        if workspace_id is not None:
+            
+            _query_params.append(('workspace_id', workspace_id))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if google_ads_customers_search_request is not None:
+            _body_params = google_ads_customers_search_request
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -856,9 +1495,8 @@ class GoogleAdsApi:
     @validate_call
     def get_google_ads_groups(
         self,
-        customer_id: StrictInt,
-        campaign_id: StrictInt,
         workspace_id: StrictStr,
+        google_ads_groups_search_request: GoogleAdsGroupsSearchRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -875,12 +1513,10 @@ class GoogleAdsApi:
         """Get Google Ads Groups
 
 
-        :param customer_id: (required)
-        :type customer_id: int
-        :param campaign_id: (required)
-        :type campaign_id: int
         :param workspace_id: (required)
         :type workspace_id: str
+        :param google_ads_groups_search_request: (required)
+        :type google_ads_groups_search_request: GoogleAdsGroupsSearchRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -904,9 +1540,8 @@ class GoogleAdsApi:
         """ # noqa: E501
 
         _param = self._get_google_ads_groups_serialize(
-            customer_id=customer_id,
-            campaign_id=campaign_id,
             workspace_id=workspace_id,
+            google_ads_groups_search_request=google_ads_groups_search_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -931,9 +1566,8 @@ class GoogleAdsApi:
     @validate_call
     def get_google_ads_groups_with_http_info(
         self,
-        customer_id: StrictInt,
-        campaign_id: StrictInt,
         workspace_id: StrictStr,
+        google_ads_groups_search_request: GoogleAdsGroupsSearchRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -950,12 +1584,10 @@ class GoogleAdsApi:
         """Get Google Ads Groups
 
 
-        :param customer_id: (required)
-        :type customer_id: int
-        :param campaign_id: (required)
-        :type campaign_id: int
         :param workspace_id: (required)
         :type workspace_id: str
+        :param google_ads_groups_search_request: (required)
+        :type google_ads_groups_search_request: GoogleAdsGroupsSearchRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -979,9 +1611,8 @@ class GoogleAdsApi:
         """ # noqa: E501
 
         _param = self._get_google_ads_groups_serialize(
-            customer_id=customer_id,
-            campaign_id=campaign_id,
             workspace_id=workspace_id,
+            google_ads_groups_search_request=google_ads_groups_search_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1006,9 +1637,8 @@ class GoogleAdsApi:
     @validate_call
     def get_google_ads_groups_without_preload_content(
         self,
-        customer_id: StrictInt,
-        campaign_id: StrictInt,
         workspace_id: StrictStr,
+        google_ads_groups_search_request: GoogleAdsGroupsSearchRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1025,12 +1655,10 @@ class GoogleAdsApi:
         """Get Google Ads Groups
 
 
-        :param customer_id: (required)
-        :type customer_id: int
-        :param campaign_id: (required)
-        :type campaign_id: int
         :param workspace_id: (required)
         :type workspace_id: str
+        :param google_ads_groups_search_request: (required)
+        :type google_ads_groups_search_request: GoogleAdsGroupsSearchRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1054,9 +1682,8 @@ class GoogleAdsApi:
         """ # noqa: E501
 
         _param = self._get_google_ads_groups_serialize(
-            customer_id=customer_id,
-            campaign_id=campaign_id,
             workspace_id=workspace_id,
+            google_ads_groups_search_request=google_ads_groups_search_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1076,9 +1703,8 @@ class GoogleAdsApi:
 
     def _get_google_ads_groups_serialize(
         self,
-        customer_id,
-        campaign_id,
         workspace_id,
+        google_ads_groups_search_request,
         _request_auth,
         _content_type,
         _headers,
@@ -1100,10 +1726,6 @@ class GoogleAdsApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if customer_id is not None:
-            _path_params['customer_id'] = customer_id
-        if campaign_id is not None:
-            _path_params['campaign_id'] = campaign_id
         # process the query parameters
         if workspace_id is not None:
             
@@ -1112,6 +1734,8 @@ class GoogleAdsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
+        if google_ads_groups_search_request is not None:
+            _body_params = google_ads_groups_search_request
 
 
         # set the HTTP header `Accept`
@@ -1122,6 +1746,19 @@ class GoogleAdsApi:
                 ]
             )
 
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -1131,7 +1768,7 @@ class GoogleAdsApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/v2/integrations/google_ads/{customer_id}/campaigns/{campaign_id}/groups',
+            resource_path='/v2/integrations/google_ads/groups',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1148,9 +1785,8 @@ class GoogleAdsApi:
 
 
     @validate_call
-    def import_all_google_ads_groups(
+    def get_source_tracking_code_examples(
         self,
-        customer_id: StrictInt,
         workspace_id: StrictStr,
         _request_timeout: Union[
             None,
@@ -1164,12 +1800,11 @@ class GoogleAdsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GoogleAdsGroupsResponse:
-        """Import All Google Ads Groups
+    ) -> GoogleAdsSourceTrackingCodeExamplesResponse:
+        """Get Source Tracking Code Examples
 
+        Get example tracking code for each customer in the workspace.
 
-        :param customer_id: (required)
-        :type customer_id: int
         :param workspace_id: (required)
         :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -1194,8 +1829,7 @@ class GoogleAdsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._import_all_google_ads_groups_serialize(
-            customer_id=customer_id,
+        _param = self._get_source_tracking_code_examples_serialize(
             workspace_id=workspace_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1204,7 +1838,7 @@ class GoogleAdsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GoogleAdsGroupsResponse",
+            '200': "GoogleAdsSourceTrackingCodeExamplesResponse",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -1219,9 +1853,8 @@ class GoogleAdsApi:
 
 
     @validate_call
-    def import_all_google_ads_groups_with_http_info(
+    def get_source_tracking_code_examples_with_http_info(
         self,
-        customer_id: StrictInt,
         workspace_id: StrictStr,
         _request_timeout: Union[
             None,
@@ -1235,12 +1868,11 @@ class GoogleAdsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GoogleAdsGroupsResponse]:
-        """Import All Google Ads Groups
+    ) -> ApiResponse[GoogleAdsSourceTrackingCodeExamplesResponse]:
+        """Get Source Tracking Code Examples
 
+        Get example tracking code for each customer in the workspace.
 
-        :param customer_id: (required)
-        :type customer_id: int
         :param workspace_id: (required)
         :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -1265,8 +1897,7 @@ class GoogleAdsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._import_all_google_ads_groups_serialize(
-            customer_id=customer_id,
+        _param = self._get_source_tracking_code_examples_serialize(
             workspace_id=workspace_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1275,7 +1906,7 @@ class GoogleAdsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GoogleAdsGroupsResponse",
+            '200': "GoogleAdsSourceTrackingCodeExamplesResponse",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -1290,9 +1921,8 @@ class GoogleAdsApi:
 
 
     @validate_call
-    def import_all_google_ads_groups_without_preload_content(
+    def get_source_tracking_code_examples_without_preload_content(
         self,
-        customer_id: StrictInt,
         workspace_id: StrictStr,
         _request_timeout: Union[
             None,
@@ -1307,11 +1937,10 @@ class GoogleAdsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Import All Google Ads Groups
+        """Get Source Tracking Code Examples
 
+        Get example tracking code for each customer in the workspace.
 
-        :param customer_id: (required)
-        :type customer_id: int
         :param workspace_id: (required)
         :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -1336,8 +1965,7 @@ class GoogleAdsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._import_all_google_ads_groups_serialize(
-            customer_id=customer_id,
+        _param = self._get_source_tracking_code_examples_serialize(
             workspace_id=workspace_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1346,7 +1974,7 @@ class GoogleAdsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GoogleAdsGroupsResponse",
+            '200': "GoogleAdsSourceTrackingCodeExamplesResponse",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -1356,9 +1984,8 @@ class GoogleAdsApi:
         return response_data.response
 
 
-    def _import_all_google_ads_groups_serialize(
+    def _get_source_tracking_code_examples_serialize(
         self,
-        customer_id,
         workspace_id,
         _request_auth,
         _content_type,
@@ -1381,8 +2008,6 @@ class GoogleAdsApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if customer_id is not None:
-            _path_params['customer_id'] = customer_id
         # process the query parameters
         if workspace_id is not None:
             
@@ -1410,7 +2035,7 @@ class GoogleAdsApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/v2/integrations/google_ads/{customer_id}/campaigns/import_all_groups',
+            resource_path='/v2/integrations/google_ads/source-tracking-code',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1429,8 +2054,8 @@ class GoogleAdsApi:
     @validate_call
     def import_google_ads_campaigns(
         self,
-        customer_id: StrictInt,
         workspace_id: StrictStr,
+        google_ads_campaigns_search_request: GoogleAdsCampaignsSearchRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1447,10 +2072,10 @@ class GoogleAdsApi:
         """Import Google Ads Campaigns
 
 
-        :param customer_id: (required)
-        :type customer_id: int
         :param workspace_id: (required)
         :type workspace_id: str
+        :param google_ads_campaigns_search_request: (required)
+        :type google_ads_campaigns_search_request: GoogleAdsCampaignsSearchRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1474,8 +2099,8 @@ class GoogleAdsApi:
         """ # noqa: E501
 
         _param = self._import_google_ads_campaigns_serialize(
-            customer_id=customer_id,
             workspace_id=workspace_id,
+            google_ads_campaigns_search_request=google_ads_campaigns_search_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1500,8 +2125,8 @@ class GoogleAdsApi:
     @validate_call
     def import_google_ads_campaigns_with_http_info(
         self,
-        customer_id: StrictInt,
         workspace_id: StrictStr,
+        google_ads_campaigns_search_request: GoogleAdsCampaignsSearchRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1518,10 +2143,10 @@ class GoogleAdsApi:
         """Import Google Ads Campaigns
 
 
-        :param customer_id: (required)
-        :type customer_id: int
         :param workspace_id: (required)
         :type workspace_id: str
+        :param google_ads_campaigns_search_request: (required)
+        :type google_ads_campaigns_search_request: GoogleAdsCampaignsSearchRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1545,8 +2170,8 @@ class GoogleAdsApi:
         """ # noqa: E501
 
         _param = self._import_google_ads_campaigns_serialize(
-            customer_id=customer_id,
             workspace_id=workspace_id,
+            google_ads_campaigns_search_request=google_ads_campaigns_search_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1571,8 +2196,8 @@ class GoogleAdsApi:
     @validate_call
     def import_google_ads_campaigns_without_preload_content(
         self,
-        customer_id: StrictInt,
         workspace_id: StrictStr,
+        google_ads_campaigns_search_request: GoogleAdsCampaignsSearchRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1589,10 +2214,10 @@ class GoogleAdsApi:
         """Import Google Ads Campaigns
 
 
-        :param customer_id: (required)
-        :type customer_id: int
         :param workspace_id: (required)
         :type workspace_id: str
+        :param google_ads_campaigns_search_request: (required)
+        :type google_ads_campaigns_search_request: GoogleAdsCampaignsSearchRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1616,8 +2241,8 @@ class GoogleAdsApi:
         """ # noqa: E501
 
         _param = self._import_google_ads_campaigns_serialize(
-            customer_id=customer_id,
             workspace_id=workspace_id,
+            google_ads_campaigns_search_request=google_ads_campaigns_search_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1637,8 +2262,8 @@ class GoogleAdsApi:
 
     def _import_google_ads_campaigns_serialize(
         self,
-        customer_id,
         workspace_id,
+        google_ads_campaigns_search_request,
         _request_auth,
         _content_type,
         _headers,
@@ -1660,8 +2285,6 @@ class GoogleAdsApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if customer_id is not None:
-            _path_params['customer_id'] = customer_id
         # process the query parameters
         if workspace_id is not None:
             
@@ -1670,6 +2293,8 @@ class GoogleAdsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
+        if google_ads_campaigns_search_request is not None:
+            _body_params = google_ads_campaigns_search_request
 
 
         # set the HTTP header `Accept`
@@ -1680,6 +2305,19 @@ class GoogleAdsApi:
                 ]
             )
 
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -1689,7 +2327,7 @@ class GoogleAdsApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/v2/integrations/google_ads/{customer_id}/campaigns/import',
+            resource_path='/v2/integrations/google_ads/campaigns/import',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1972,9 +2610,8 @@ class GoogleAdsApi:
     @validate_call
     def import_google_ads_groups(
         self,
-        customer_id: StrictInt,
-        campaign_id: StrictInt,
         workspace_id: StrictStr,
+        google_ads_groups_search_request: GoogleAdsGroupsSearchRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1991,12 +2628,10 @@ class GoogleAdsApi:
         """Import Google Ads Groups
 
 
-        :param customer_id: (required)
-        :type customer_id: int
-        :param campaign_id: (required)
-        :type campaign_id: int
         :param workspace_id: (required)
         :type workspace_id: str
+        :param google_ads_groups_search_request: (required)
+        :type google_ads_groups_search_request: GoogleAdsGroupsSearchRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2020,9 +2655,8 @@ class GoogleAdsApi:
         """ # noqa: E501
 
         _param = self._import_google_ads_groups_serialize(
-            customer_id=customer_id,
-            campaign_id=campaign_id,
             workspace_id=workspace_id,
+            google_ads_groups_search_request=google_ads_groups_search_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2047,9 +2681,8 @@ class GoogleAdsApi:
     @validate_call
     def import_google_ads_groups_with_http_info(
         self,
-        customer_id: StrictInt,
-        campaign_id: StrictInt,
         workspace_id: StrictStr,
+        google_ads_groups_search_request: GoogleAdsGroupsSearchRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2066,12 +2699,10 @@ class GoogleAdsApi:
         """Import Google Ads Groups
 
 
-        :param customer_id: (required)
-        :type customer_id: int
-        :param campaign_id: (required)
-        :type campaign_id: int
         :param workspace_id: (required)
         :type workspace_id: str
+        :param google_ads_groups_search_request: (required)
+        :type google_ads_groups_search_request: GoogleAdsGroupsSearchRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2095,9 +2726,8 @@ class GoogleAdsApi:
         """ # noqa: E501
 
         _param = self._import_google_ads_groups_serialize(
-            customer_id=customer_id,
-            campaign_id=campaign_id,
             workspace_id=workspace_id,
+            google_ads_groups_search_request=google_ads_groups_search_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2122,9 +2752,8 @@ class GoogleAdsApi:
     @validate_call
     def import_google_ads_groups_without_preload_content(
         self,
-        customer_id: StrictInt,
-        campaign_id: StrictInt,
         workspace_id: StrictStr,
+        google_ads_groups_search_request: GoogleAdsGroupsSearchRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2141,10 +2770,158 @@ class GoogleAdsApi:
         """Import Google Ads Groups
 
 
+        :param workspace_id: (required)
+        :type workspace_id: str
+        :param google_ads_groups_search_request: (required)
+        :type google_ads_groups_search_request: GoogleAdsGroupsSearchRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._import_google_ads_groups_serialize(
+            workspace_id=workspace_id,
+            google_ads_groups_search_request=google_ads_groups_search_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GoogleAdsGroupsResponse",
+            '422': "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _import_google_ads_groups_serialize(
+        self,
+        workspace_id,
+        google_ads_groups_search_request,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        if workspace_id is not None:
+            
+            _query_params.append(('workspace_id', workspace_id))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if google_ads_groups_search_request is not None:
+            _body_params = google_ads_groups_search_request
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'APIKeyHeader', 
+            'HTTPBearer'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/v2/integrations/google_ads/groups/import',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def list_conversion_actions(
+        self,
+        customer_id: StrictInt,
+        workspace_id: StrictStr,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> GoogleAdsConversionActionsResponse:
+        """List Conversion Actions
+
+
         :param customer_id: (required)
         :type customer_id: int
-        :param campaign_id: (required)
-        :type campaign_id: int
         :param workspace_id: (required)
         :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -2169,9 +2946,8 @@ class GoogleAdsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._import_google_ads_groups_serialize(
+        _param = self._list_conversion_actions_serialize(
             customer_id=customer_id,
-            campaign_id=campaign_id,
             workspace_id=workspace_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2180,7 +2956,149 @@ class GoogleAdsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GoogleAdsGroupsResponse",
+            '200': "GoogleAdsConversionActionsResponse",
+            '422': "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def list_conversion_actions_with_http_info(
+        self,
+        customer_id: StrictInt,
+        workspace_id: StrictStr,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[GoogleAdsConversionActionsResponse]:
+        """List Conversion Actions
+
+
+        :param customer_id: (required)
+        :type customer_id: int
+        :param workspace_id: (required)
+        :type workspace_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._list_conversion_actions_serialize(
+            customer_id=customer_id,
+            workspace_id=workspace_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GoogleAdsConversionActionsResponse",
+            '422': "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def list_conversion_actions_without_preload_content(
+        self,
+        customer_id: StrictInt,
+        workspace_id: StrictStr,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """List Conversion Actions
+
+
+        :param customer_id: (required)
+        :type customer_id: int
+        :param workspace_id: (required)
+        :type workspace_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._list_conversion_actions_serialize(
+            customer_id=customer_id,
+            workspace_id=workspace_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GoogleAdsConversionActionsResponse",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -2190,10 +3108,9 @@ class GoogleAdsApi:
         return response_data.response
 
 
-    def _import_google_ads_groups_serialize(
+    def _list_conversion_actions_serialize(
         self,
         customer_id,
-        campaign_id,
         workspace_id,
         _request_auth,
         _content_type,
@@ -2218,8 +3135,6 @@ class GoogleAdsApi:
         # process the path parameters
         if customer_id is not None:
             _path_params['customer_id'] = customer_id
-        if campaign_id is not None:
-            _path_params['campaign_id'] = campaign_id
         # process the query parameters
         if workspace_id is not None:
             
@@ -2247,7 +3162,7 @@ class GoogleAdsApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/v2/integrations/google_ads/{customer_id}/campaigns/{campaign_id}/groups/import',
+            resource_path='/v2/integrations/google_ads/conversion-actions/{customer_id}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2569,7 +3484,7 @@ class GoogleAdsApi:
 
         return self.api_client.param_serialize(
             method='PUT',
-            resource_path='/v2/integrations/google_ads/{customer_id}/campaigns/{campaign_id}',
+            resource_path='/v2/integrations/google_ads/campaigns/{customer_id}/{campaign_id}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3213,7 +4128,7 @@ class GoogleAdsApi:
 
         return self.api_client.param_serialize(
             method='PUT',
-            resource_path='/v2/integrations/google_ads/{customer_id}/campaigns/{campaign_id}/groups/{group_id}',
+            resource_path='/v2/integrations/google_ads/groups/{customer_id}/{campaign_id}/{group_id}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

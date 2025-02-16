@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **display_name** | **str** | Name of the API key | 
 **mask** | **str** | Masked API Key | 
 **last_used** | **datetime** |  | [optional] 
+**valid_to** | **datetime** |  | [optional] 
 
 ## Example
 

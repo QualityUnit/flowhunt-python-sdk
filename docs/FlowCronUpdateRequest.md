@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **input_text** | **str** |  | [optional] 
 **variables** | **object** |  | [optional] 
 **interval_settings** | **str** |  | [optional] 
+**cron_name** | **str** |  | [optional] 
 
 ## Example
 

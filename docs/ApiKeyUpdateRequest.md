@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **display_name** | **str** | User defined name of the API key | 
+**valid_to** | **datetime** |  | [optional] 
 
 ## Example
 

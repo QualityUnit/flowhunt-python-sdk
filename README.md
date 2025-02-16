@@ -139,12 +139,16 @@ Class | Method | HTTP request | Description
 *DocumentsApi* | [**upload_document**](docs/DocumentsApi.md#upload_document) | **POST** /v2/documents/upload/{cat_id} | Upload Document
 *DocumentsApi* | [**upload_from_url_document**](docs/DocumentsApi.md#upload_from_url_document) | **POST** /v2/documents/upload-from-url/{cat_id} | Upload From Url Document
 *FineTuningsApi* | [**create_image_ft**](docs/FineTuningsApi.md#create_image_ft) | **POST** /v2/fine_tunings/images/ | Create Image Ft
+*FineTuningsApi* | [**delete_file_ft**](docs/FineTuningsApi.md#delete_file_ft) | **DELETE** /v2/fine_tunings/files/{file_key} | Delete File Ft
 *FineTuningsApi* | [**delete_image_ft**](docs/FineTuningsApi.md#delete_image_ft) | **DELETE** /v2/fine_tunings/images/{ft_id} | Delete Image Ft
+*FineTuningsApi* | [**generate_images**](docs/FineTuningsApi.md#generate_images) | **POST** /v2/fine_tunings/inference/images | Generate Images
+*FineTuningsApi* | [**get_file_ft**](docs/FineTuningsApi.md#get_file_ft) | **GET** /v2/fine_tunings/files/{file_key} | Get File Ft
+*FineTuningsApi* | [**get_inference_results**](docs/FineTuningsApi.md#get_inference_results) | **GET** /v2/fine_tunings/inference/results/{inference_id} | Get Inference Results
 *FineTuningsApi* | [**handle_replicate_webhook**](docs/FineTuningsApi.md#handle_replicate_webhook) | **POST** /v2/fine_tunings/webhooks/replicate | Handle Replicate Webhook
 *FineTuningsApi* | [**search_image_fts**](docs/FineTuningsApi.md#search_image_fts) | **POST** /v2/fine_tunings/images/search | Search Image Fts
-*FineTuningsApi* | [**train_image_ft**](docs/FineTuningsApi.md#train_image_ft) | **POST** /v2/fine_tunings/images/{ft_id}/train | Train Image Ft
+*FineTuningsApi* | [**search_inference_history**](docs/FineTuningsApi.md#search_inference_history) | **POST** /v2/fine_tunings/inference/history | Search Inference History
 *FineTuningsApi* | [**update_image_ft**](docs/FineTuningsApi.md#update_image_ft) | **PUT** /v2/fine_tunings/images/{ft_id} | Update Image Ft
-*FineTuningsApi* | [**upload_image_ft**](docs/FineTuningsApi.md#upload_image_ft) | **POST** /v2/fine_tunings/images/{ft_id}/upload | Upload Image Ft
+*FineTuningsApi* | [**upload_image_ft**](docs/FineTuningsApi.md#upload_image_ft) | **POST** /v2/fine_tunings/files/{ft_type}/upload | Upload Image Ft
 *FlowMessagesApi* | [**search_flow_messages**](docs/FlowMessagesApi.md#search_flow_messages) | **POST** /v2/chatbots/search/{session_id} | Search Flow Messages
 *FlowSessionsApi* | [**delete_chatbot_session_view**](docs/FlowSessionsApi.md#delete_chatbot_session_view) | **DELETE** /v2/chatbots/sessions/{session_id} | Delete Chatbot Session View
 *FlowSessionsApi* | [**get_chatbot_session_view**](docs/FlowSessionsApi.md#get_chatbot_session_view) | **GET** /v2/chatbots/sessions/{session_id} | Get Chatbot Session View
@@ -183,19 +187,21 @@ Class | Method | HTTP request | Description
 *FlowsApi* | [**update_flow_category**](docs/FlowsApi.md#update_flow_category) | **PUT** /v2/flows/categories/{cat_id} | Update Flow Category
 *FlowsApi* | [**update_flow_cron**](docs/FlowsApi.md#update_flow_cron) | **PUT** /v2/flows/crons/{flow_id}/{cron_id} | Update Flow Cron
 *FlowsApi* | [**upload_attachments**](docs/FlowsApi.md#upload_attachments) | **POST** /v2/flows/sessions/{session_id}/attachments | Upload Attachments
-*GoogleApi* | [**get_drive_document_detail_0**](docs/GoogleApi.md#get_drive_document_detail_0) | **POST** /v2/integrations/google/drive/files/{document_id} | Get Drive Document Detail
-*GoogleApi* | [**get_drive_documents_0**](docs/GoogleApi.md#get_drive_documents_0) | **POST** /v2/integrations/google/{integration_slug}/drive/files | Get Drive Documents
+*GoogleApi* | [**get_picker_token_0**](docs/GoogleApi.md#get_picker_token_0) | **GET** /v2/integrations/google/picker_token | Get Picker Token
 *GoogleAdsApi* | [**analyze_not_assigned_keywords**](docs/GoogleAdsApi.md#analyze_not_assigned_keywords) | **POST** /v2/integrations/google_ads/analyze_not_assigned_keywords | Analyze Not Assigned Keywords
-*GoogleAdsApi* | [**get_google_ads_campaigns**](docs/GoogleAdsApi.md#get_google_ads_campaigns) | **POST** /v2/integrations/google_ads/{customer_id}/campaigns | Get Google Ads Campaigns
+*GoogleAdsApi* | [**get_conversion_tracking_code_examples**](docs/GoogleAdsApi.md#get_conversion_tracking_code_examples) | **POST** /v2/integrations/google_ads/conversion-tracking-code/{customer_id} | Get Conversion Tracking Code Examples
+*GoogleAdsApi* | [**get_conversion_tracking_settings**](docs/GoogleAdsApi.md#get_conversion_tracking_settings) | **POST** /v2/integrations/google_ads/conversion-tracking-settings/{customer_id} | Get Conversion Tracking Settings
+*GoogleAdsApi* | [**get_google_ads_campaigns**](docs/GoogleAdsApi.md#get_google_ads_campaigns) | **POST** /v2/integrations/google_ads/campaigns | Get Google Ads Campaigns
 *GoogleAdsApi* | [**get_google_ads_customers**](docs/GoogleAdsApi.md#get_google_ads_customers) | **POST** /v2/integrations/google_ads/customers | Get Google Ads Customers
-*GoogleAdsApi* | [**get_google_ads_groups**](docs/GoogleAdsApi.md#get_google_ads_groups) | **POST** /v2/integrations/google_ads/{customer_id}/campaigns/{campaign_id}/groups | Get Google Ads Groups
-*GoogleAdsApi* | [**import_all_google_ads_groups**](docs/GoogleAdsApi.md#import_all_google_ads_groups) | **POST** /v2/integrations/google_ads/{customer_id}/campaigns/import_all_groups | Import All Google Ads Groups
-*GoogleAdsApi* | [**import_google_ads_campaigns**](docs/GoogleAdsApi.md#import_google_ads_campaigns) | **POST** /v2/integrations/google_ads/{customer_id}/campaigns/import | Import Google Ads Campaigns
+*GoogleAdsApi* | [**get_google_ads_groups**](docs/GoogleAdsApi.md#get_google_ads_groups) | **POST** /v2/integrations/google_ads/groups | Get Google Ads Groups
+*GoogleAdsApi* | [**get_source_tracking_code_examples**](docs/GoogleAdsApi.md#get_source_tracking_code_examples) | **POST** /v2/integrations/google_ads/source-tracking-code | Get Source Tracking Code Examples
+*GoogleAdsApi* | [**import_google_ads_campaigns**](docs/GoogleAdsApi.md#import_google_ads_campaigns) | **POST** /v2/integrations/google_ads/campaigns/import | Import Google Ads Campaigns
 *GoogleAdsApi* | [**import_google_ads_customers**](docs/GoogleAdsApi.md#import_google_ads_customers) | **POST** /v2/integrations/google_ads/customers/import | Import Google Ads Customers
-*GoogleAdsApi* | [**import_google_ads_groups**](docs/GoogleAdsApi.md#import_google_ads_groups) | **POST** /v2/integrations/google_ads/{customer_id}/campaigns/{campaign_id}/groups/import | Import Google Ads Groups
-*GoogleAdsApi* | [**update_google_ads_campaign**](docs/GoogleAdsApi.md#update_google_ads_campaign) | **PUT** /v2/integrations/google_ads/{customer_id}/campaigns/{campaign_id} | Update Google Ads Campaign
+*GoogleAdsApi* | [**import_google_ads_groups**](docs/GoogleAdsApi.md#import_google_ads_groups) | **POST** /v2/integrations/google_ads/groups/import | Import Google Ads Groups
+*GoogleAdsApi* | [**list_conversion_actions**](docs/GoogleAdsApi.md#list_conversion_actions) | **POST** /v2/integrations/google_ads/conversion-actions/{customer_id} | List Conversion Actions
+*GoogleAdsApi* | [**update_google_ads_campaign**](docs/GoogleAdsApi.md#update_google_ads_campaign) | **PUT** /v2/integrations/google_ads/campaigns/{customer_id}/{campaign_id} | Update Google Ads Campaign
 *GoogleAdsApi* | [**update_google_ads_customer_update**](docs/GoogleAdsApi.md#update_google_ads_customer_update) | **PUT** /v2/integrations/google_ads/customers/{customer_id} | Update Google Ads Customer Update
-*GoogleAdsApi* | [**update_google_ads_group**](docs/GoogleAdsApi.md#update_google_ads_group) | **PUT** /v2/integrations/google_ads/{customer_id}/campaigns/{campaign_id}/groups/{group_id} | Update Google Ads Group
+*GoogleAdsApi* | [**update_google_ads_group**](docs/GoogleAdsApi.md#update_google_ads_group) | **PUT** /v2/integrations/google_ads/groups/{customer_id}/{campaign_id}/{group_id} | Update Google Ads Group
 *GridsApi* | [**create_column**](docs/GridsApi.md#create_column) | **POST** /v2/grids/{grid_id}/create | Create Column
 *GridsApi* | [**create_grid**](docs/GridsApi.md#create_grid) | **POST** /v2/grids/create | Create Grid
 *GridsApi* | [**create_grid_row**](docs/GridsApi.md#create_grid_row) | **POST** /v2/grids/{grid_id}/create_row | Create Grid Row
@@ -214,9 +220,8 @@ Class | Method | HTTP request | Description
 *IntegrationsApi* | [**create_integration**](docs/IntegrationsApi.md#create_integration) | **POST** /v2/integrations/{slug}/integrate | Create Integration
 *IntegrationsApi* | [**delete_integration**](docs/IntegrationsApi.md#delete_integration) | **DELETE** /v2/integrations/{slug}/{integration_id} | Delete Integration
 *IntegrationsApi* | [**get_all_integrations**](docs/IntegrationsApi.md#get_all_integrations) | **GET** /v2/integrations/all | Get All Integrations
-*IntegrationsApi* | [**get_drive_document_detail**](docs/IntegrationsApi.md#get_drive_document_detail) | **POST** /v2/integrations/google/drive/files/{document_id} | Get Drive Document Detail
-*IntegrationsApi* | [**get_drive_documents**](docs/IntegrationsApi.md#get_drive_documents) | **POST** /v2/integrations/google/{integration_slug}/drive/files | Get Drive Documents
 *IntegrationsApi* | [**get_integration**](docs/IntegrationsApi.md#get_integration) | **GET** /v2/integrations/{slug}/{integration_id} | Get Integration
+*IntegrationsApi* | [**get_picker_token**](docs/IntegrationsApi.md#get_picker_token) | **GET** /v2/integrations/google/picker_token | Get Picker Token
 *IntegrationsApi* | [**get_slack_channels**](docs/IntegrationsApi.md#get_slack_channels) | **GET** /v2/integrations/slack/{slack_team_id}/channels | Get Slack Channels
 *IntegrationsApi* | [**get_slack_workspaces**](docs/IntegrationsApi.md#get_slack_workspaces) | **GET** /v2/integrations/slack/ | Get Slack Workspaces
 *IntegrationsApi* | [**integration_callback**](docs/IntegrationsApi.md#integration_callback) | **GET** /v2/integrations/{slug}/callback | Integration Callback
@@ -268,6 +273,12 @@ Class | Method | HTTP request | Description
 *TagsApi* | [**delete_tag**](docs/TagsApi.md#delete_tag) | **DELETE** /v2/tags/{tag_id} | Delete Tag
 *TagsApi* | [**search_tags**](docs/TagsApi.md#search_tags) | **POST** /v2/tags/search | Search Tags
 *TagsApi* | [**update_tag**](docs/TagsApi.md#update_tag) | **PUT** /v2/tags/{tag_id} | Update Tag
+*TrackingApi* | [**search_events**](docs/TrackingApi.md#search_events) | **POST** /v2/tracking/events | Search Events
+*TrackingApi* | [**search_links**](docs/TrackingApi.md#search_links) | **POST** /v2/tracking/links | Search Links
+*TrackingApi* | [**search_sources**](docs/TrackingApi.md#search_sources) | **POST** /v2/tracking/sources | Search Sources
+*TrackingApi* | [**track_click**](docs/TrackingApi.md#track_click) | **POST** /v2/tracking/clk | Track Click
+*TrackingApi* | [**track_event**](docs/TrackingApi.md#track_event) | **POST** /v2/tracking/evnt | Track Event
+*TrackingApi* | [**track_link**](docs/TrackingApi.md#track_link) | **POST** /v2/tracking/lnk | Track Link
 *WorkspacesApi* | [**add_workspace_user**](docs/WorkspacesApi.md#add_workspace_user) | **POST** /v2/workspaces/{workspace_id}/add-member | Add Workspace User
 *WorkspacesApi* | [**create_workspace**](docs/WorkspacesApi.md#create_workspace) | **POST** /v2/workspaces/create | Create Workspace
 *WorkspacesApi* | [**delete_workspace**](docs/WorkspacesApi.md#delete_workspace) | **DELETE** /v2/workspaces/{workspace_id} | Delete Workspace
@@ -288,6 +299,8 @@ Class | Method | HTTP request | Description
  - [ApiKeyUpdateRequest](docs/ApiKeyUpdateRequest.md)
  - [AppUrlInput](docs/AppUrlInput.md)
  - [AppUrlOutput](docs/AppUrlOutput.md)
+ - [AspecRatio](docs/AspecRatio.md)
+ - [BaseFoundationModel](docs/BaseFoundationModel.md)
  - [BoolChar](docs/BoolChar.md)
  - [ChatbotCreateRequest](docs/ChatbotCreateRequest.md)
  - [ChatbotResponse](docs/ChatbotResponse.md)
@@ -317,6 +330,7 @@ Class | Method | HTTP request | Description
  - [DocumentStatus](docs/DocumentStatus.md)
  - [DocumentType](docs/DocumentType.md)
  - [DocumentUpdateRequest](docs/DocumentUpdateRequest.md)
+ - [FTStatus](docs/FTStatus.md)
  - [FTType](docs/FTType.md)
  - [FaqCreateRequest](docs/FaqCreateRequest.md)
  - [FaqResponse](docs/FaqResponse.md)
@@ -325,6 +339,7 @@ Class | Method | HTTP request | Description
  - [FaqType](docs/FaqType.md)
  - [FaqUpdateRequest](docs/FaqUpdateRequest.md)
  - [FeatureResponse](docs/FeatureResponse.md)
+ - [FileUploadResponse](docs/FileUploadResponse.md)
  - [FlowCategoryCreateRequest](docs/FlowCategoryCreateRequest.md)
  - [FlowCategoryResponse](docs/FlowCategoryResponse.md)
  - [FlowCategorySearchRequest](docs/FlowCategorySearchRequest.md)
@@ -362,20 +377,30 @@ Class | Method | HTTP request | Description
  - [FlowSessionViewUpdateRequest](docs/FlowSessionViewUpdateRequest.md)
  - [FlowType](docs/FlowType.md)
  - [GoogleAdsActionType](docs/GoogleAdsActionType.md)
+ - [GoogleAdsAnalyzeKeywordsRequest](docs/GoogleAdsAnalyzeKeywordsRequest.md)
  - [GoogleAdsCampaignResponse](docs/GoogleAdsCampaignResponse.md)
  - [GoogleAdsCampaignStatus](docs/GoogleAdsCampaignStatus.md)
  - [GoogleAdsCampaignUpdateRequest](docs/GoogleAdsCampaignUpdateRequest.md)
  - [GoogleAdsCampaignsResponse](docs/GoogleAdsCampaignsResponse.md)
+ - [GoogleAdsCampaignsSearchRequest](docs/GoogleAdsCampaignsSearchRequest.md)
+ - [GoogleAdsConversionAction](docs/GoogleAdsConversionAction.md)
+ - [GoogleAdsConversionActionsResponse](docs/GoogleAdsConversionActionsResponse.md)
+ - [GoogleAdsConversionTrackingCodeExample](docs/GoogleAdsConversionTrackingCodeExample.md)
+ - [GoogleAdsConversionTrackingCodeExamplesResponse](docs/GoogleAdsConversionTrackingCodeExamplesResponse.md)
+ - [GoogleAdsConversionTrackingSettingsResponse](docs/GoogleAdsConversionTrackingSettingsResponse.md)
+ - [GoogleAdsConversionTrackingStatusEnum](docs/GoogleAdsConversionTrackingStatusEnum.md)
  - [GoogleAdsCustomerResponse](docs/GoogleAdsCustomerResponse.md)
  - [GoogleAdsCustomerUpdateRequest](docs/GoogleAdsCustomerUpdateRequest.md)
  - [GoogleAdsCustomersResponse](docs/GoogleAdsCustomersResponse.md)
+ - [GoogleAdsCustomersSearchRequest](docs/GoogleAdsCustomersSearchRequest.md)
  - [GoogleAdsGroupResponse](docs/GoogleAdsGroupResponse.md)
  - [GoogleAdsGroupStatus](docs/GoogleAdsGroupStatus.md)
  - [GoogleAdsGroupUpdateRequest](docs/GoogleAdsGroupUpdateRequest.md)
  - [GoogleAdsGroupsResponse](docs/GoogleAdsGroupsResponse.md)
- - [GoogleDriveFileResponse](docs/GoogleDriveFileResponse.md)
- - [GoogleDriveSearchQuery](docs/GoogleDriveSearchQuery.md)
- - [GoogleDriveSearchResponse](docs/GoogleDriveSearchResponse.md)
+ - [GoogleAdsGroupsSearchRequest](docs/GoogleAdsGroupsSearchRequest.md)
+ - [GoogleAdsSourceTrackingCodeExample](docs/GoogleAdsSourceTrackingCodeExample.md)
+ - [GoogleAdsSourceTrackingCodeExamplesResponse](docs/GoogleAdsSourceTrackingCodeExamplesResponse.md)
+ - [GooglePickerTokenResponse](docs/GooglePickerTokenResponse.md)
  - [GridCellStatus](docs/GridCellStatus.md)
  - [GridColumnCreateRequest](docs/GridColumnCreateRequest.md)
  - [GridColumnResponse](docs/GridColumnResponse.md)
@@ -395,12 +420,16 @@ Class | Method | HTTP request | Description
  - [Health](docs/Health.md)
  - [ImageConvertRequest](docs/ImageConvertRequest.md)
  - [ImageFTCreateRequest](docs/ImageFTCreateRequest.md)
- - [ImageFTModelName](docs/ImageFTModelName.md)
  - [ImageFTResponse](docs/ImageFTResponse.md)
  - [ImageFTSearchRequest](docs/ImageFTSearchRequest.md)
- - [ImageFTTrainRequest](docs/ImageFTTrainRequest.md)
  - [ImageFTUpdateRequest](docs/ImageFTUpdateRequest.md)
+ - [ImageInferenceRequest](docs/ImageInferenceRequest.md)
+ - [ImageInferenceResponse](docs/ImageInferenceResponse.md)
+ - [ImageInferenceResultResponse](docs/ImageInferenceResultResponse.md)
+ - [ImageInferenceScheduleResponse](docs/ImageInferenceScheduleResponse.md)
  - [ImageOptimizeRequest](docs/ImageOptimizeRequest.md)
+ - [InferenceFileType](docs/InferenceFileType.md)
+ - [InferenceHistorySearchRequest](docs/InferenceHistorySearchRequest.md)
  - [IntegrationCategory](docs/IntegrationCategory.md)
  - [IntegrationDetailResponse](docs/IntegrationDetailResponse.md)
  - [IntegrationFlowResponse](docs/IntegrationFlowResponse.md)
@@ -458,6 +487,7 @@ Class | Method | HTTP request | Description
  - [SerpSearchEngineType](docs/SerpSearchEngineType.md)
  - [SerpSearchRequest](docs/SerpSearchRequest.md)
  - [SerpSearchRequests](docs/SerpSearchRequests.md)
+ - [SerpSubclusterKeywordsResponse](docs/SerpSubclusterKeywordsResponse.md)
  - [SerpVolumeRequest](docs/SerpVolumeRequest.md)
  - [SlackChannelResponse](docs/SlackChannelResponse.md)
  - [SlackWorkspaceResponse](docs/SlackWorkspaceResponse.md)
@@ -471,6 +501,23 @@ Class | Method | HTTP request | Description
  - [TaskStatus](docs/TaskStatus.md)
  - [ThridPartyLoginRequest](docs/ThridPartyLoginRequest.md)
  - [Token](docs/Token.md)
+ - [TrackingClickIdNames](docs/TrackingClickIdNames.md)
+ - [TrackingEventCreateRequest](docs/TrackingEventCreateRequest.md)
+ - [TrackingEventCreateRequests](docs/TrackingEventCreateRequests.md)
+ - [TrackingEventData](docs/TrackingEventData.md)
+ - [TrackingEventResponse](docs/TrackingEventResponse.md)
+ - [TrackingEventSearchRequest](docs/TrackingEventSearchRequest.md)
+ - [TrackingEventsResponse](docs/TrackingEventsResponse.md)
+ - [TrackingLinkCreateRequest](docs/TrackingLinkCreateRequest.md)
+ - [TrackingLinkResponse](docs/TrackingLinkResponse.md)
+ - [TrackingLinkSearchRequest](docs/TrackingLinkSearchRequest.md)
+ - [TrackingLinksCreateRequest](docs/TrackingLinksCreateRequest.md)
+ - [TrackingLinksResponse](docs/TrackingLinksResponse.md)
+ - [TrackingSourceCreateRequest](docs/TrackingSourceCreateRequest.md)
+ - [TrackingSourceResponse](docs/TrackingSourceResponse.md)
+ - [TrackingSourceSearchRequest](docs/TrackingSourceSearchRequest.md)
+ - [TrackingSourceTypes](docs/TrackingSourceTypes.md)
+ - [TrackingSourcesResponse](docs/TrackingSourcesResponse.md)
  - [TransactionType](docs/TransactionType.md)
  - [TranscriptTaskRequest](docs/TranscriptTaskRequest.md)
  - [TriggerResponse](docs/TriggerResponse.md)

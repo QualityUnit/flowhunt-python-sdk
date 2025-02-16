@@ -44,8 +44,6 @@ class TestGoogleAdsCampaignsResponse(unittest.TestCase):
                         campaign_status = 0, 
                         language_code = '', 
                         country = '', 
-                        min_queries = 56, 
-                        cluster_strength = 56, 
                         last_update = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         action_type = 'I', )
                     ]
@@ -61,8 +59,6 @@ class TestGoogleAdsCampaignsResponse(unittest.TestCase):
                         campaign_status = 0, 
                         language_code = '', 
                         country = '', 
-                        min_queries = 56, 
-                        cluster_strength = 56, 
                         last_update = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         action_type = 'I', )
                     ],

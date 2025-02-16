@@ -35,9 +35,13 @@ class GoogleAdsCustomerResponse(BaseModel):
     country: StrictStr = Field(description="Country Code")
     min_queries: StrictInt = Field(description="Minimum Queries")
     cluster_strength: StrictInt = Field(description="Cluster Strength")
+    min_impressions: StrictInt = Field(description="Minimum Impressions")
+    min_clicks: StrictInt = Field(description="Minimum Clicks")
     last_update: Optional[datetime] = None
+    next_update: Optional[datetime] = None
+    cron_settings: Optional[StrictStr] = None
     action_type: GoogleAdsActionType = Field(description="Action Type")
-    __properties: ClassVar[List[str]] = ["workspace_id", "customer_id", "customer_name", "language_code", "country", "min_queries", "cluster_strength", "last_update", "action_type"]
+    __properties: ClassVar[List[str]] = ["workspace_id", "customer_id", "customer_name", "language_code", "country", "min_queries", "cluster_strength", "min_impressions", "min_clicks", "last_update", "next_update", "cron_settings", "action_type"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -83,6 +87,16 @@ class GoogleAdsCustomerResponse(BaseModel):
         if self.last_update is None and "last_update" in self.model_fields_set:
             _dict['last_update'] = None
 
+        # set to None if next_update (nullable) is None
+        # and model_fields_set contains the field
+        if self.next_update is None and "next_update" in self.model_fields_set:
+            _dict['next_update'] = None
+
+        # set to None if cron_settings (nullable) is None
+        # and model_fields_set contains the field
+        if self.cron_settings is None and "cron_settings" in self.model_fields_set:
+            _dict['cron_settings'] = None
+
         return _dict
 
     @classmethod
@@ -102,7 +116,11 @@ class GoogleAdsCustomerResponse(BaseModel):
             "country": obj.get("country"),
             "min_queries": obj.get("min_queries"),
             "cluster_strength": obj.get("cluster_strength"),
+            "min_impressions": obj.get("min_impressions"),
+            "min_clicks": obj.get("min_clicks"),
             "last_update": obj.get("last_update"),
+            "next_update": obj.get("next_update"),
+            "cron_settings": obj.get("cron_settings"),
             "action_type": obj.get("action_type")
         })
         return _obj

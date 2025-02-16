@@ -38,7 +38,8 @@ class TestFlowCronUpdateRequest(unittest.TestCase):
                 status = 'E',
                 input_text = '',
                 variables = None,
-                interval_settings = ''
+                interval_settings = '',
+                cron_name = ''
             )
         else:
             return FlowCronUpdateRequest(

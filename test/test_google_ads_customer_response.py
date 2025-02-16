@@ -42,7 +42,11 @@ class TestGoogleAdsCustomerResponse(unittest.TestCase):
                 country = '',
                 min_queries = 56,
                 cluster_strength = 56,
+                min_impressions = 56,
+                min_clicks = 56,
                 last_update = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
+                next_update = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
+                cron_settings = '',
                 action_type = 'I'
             )
         else:
@@ -54,6 +58,8 @@ class TestGoogleAdsCustomerResponse(unittest.TestCase):
                 country = '',
                 min_queries = 56,
                 cluster_strength = 56,
+                min_impressions = 56,
+                min_clicks = 56,
                 action_type = 'I',
         )
         """

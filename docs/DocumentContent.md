@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **lang** | **str** |  | [optional] 
 **content_type** | **str** |  | [optional] 
 **encoding** | **str** |  | [optional] 
+**apparent_encoding** | **str** |  | [optional] 
 **description** | **str** |  | [optional] 
 **content** | **List[List[object]]** |  | [optional] 
 **metadata** | **object** |  | [optional] 

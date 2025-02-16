@@ -36,12 +36,18 @@ class TestImageFTCreateRequest(unittest.TestCase):
         if include_optional:
             return ImageFTCreateRequest(
                 name = 'Fine tuning 1',
-                model_name = flux
+                trigger_word = 'Trigger word 1',
+                steps = 56,
+                lora_rank = 56,
+                training_images = [image1.jpg, image2.jpg],
+                cover_image = 'cover.jpg'
             )
         else:
             return ImageFTCreateRequest(
                 name = 'Fine tuning 1',
-                model_name = flux,
+                trigger_word = 'Trigger word 1',
+                training_images = [image1.jpg, image2.jpg],
+                cover_image = 'cover.jpg',
         )
         """
 

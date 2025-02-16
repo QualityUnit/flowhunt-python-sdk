@@ -7,8 +7,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **language_code** | **str** |  | 
 **country** | **str** |  | 
-**min_queries** | **int** |  | 
-**cluster_strength** | **int** |  | 
 **action_type** | [**GoogleAdsActionType**](GoogleAdsActionType.md) |  | 
 
 ## Example

@@ -36,7 +36,8 @@ class FlowCronResponse(BaseModel):
     input_text: Optional[StrictStr] = None
     interval_settings: StrictStr
     variables: Optional[Dict[str, Any]] = None
-    __properties: ClassVar[List[str]] = ["flow_id", "cron_id", "last_run", "next_run", "status", "input_text", "interval_settings", "variables"]
+    cron_name: StrictStr
+    __properties: ClassVar[List[str]] = ["flow_id", "cron_id", "last_run", "next_run", "status", "input_text", "interval_settings", "variables", "cron_name"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -116,7 +117,8 @@ class FlowCronResponse(BaseModel):
             "status": obj.get("status"),
             "input_text": obj.get("input_text"),
             "interval_settings": obj.get("interval_settings"),
-            "variables": obj.get("variables")
+            "variables": obj.get("variables"),
+            "cron_name": obj.get("cron_name")
         })
         return _obj
 

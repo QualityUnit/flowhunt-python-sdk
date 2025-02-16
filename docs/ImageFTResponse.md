@@ -8,6 +8,12 @@ Name | Type | Description | Notes
 **ft_type** | [**FTType**](FTType.md) | Fine tuning type | 
 **ft_id** | **str** | Fine tuning id | 
 **name** | **str** | Fine tuning name | 
+**steps** | **int** | Number of steps | 
+**lora_rank** | **int** | Lora rank | 
+**trigger_word** | **str** | Trigger word | 
+**training_images** | **List[str]** | Training images | 
+**status** | [**FTStatus**](FTStatus.md) | Status | 
+**cover_image** | **str** | Cover image | 
 
 ## Example
 

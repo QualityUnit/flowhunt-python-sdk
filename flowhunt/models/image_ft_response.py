@@ -17,8 +17,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List
+from flowhunt.models.ft_status import FTStatus
 from flowhunt.models.ft_type import FTType
 from typing import Optional, Set
 from typing_extensions import Self
@@ -30,7 +31,13 @@ class ImageFTResponse(BaseModel):
     ft_type: FTType = Field(description="Fine tuning type")
     ft_id: StrictStr = Field(description="Fine tuning id")
     name: StrictStr = Field(description="Fine tuning name")
-    __properties: ClassVar[List[str]] = ["ft_type", "ft_id", "name"]
+    steps: StrictInt = Field(description="Number of steps")
+    lora_rank: StrictInt = Field(description="Lora rank")
+    trigger_word: StrictStr = Field(description="Trigger word")
+    training_images: List[StrictStr] = Field(description="Training images")
+    status: FTStatus = Field(description="Status")
+    cover_image: StrictStr = Field(description="Cover image")
+    __properties: ClassVar[List[str]] = ["ft_type", "ft_id", "name", "steps", "lora_rank", "trigger_word", "training_images", "status", "cover_image"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -85,7 +92,13 @@ class ImageFTResponse(BaseModel):
         _obj = cls.model_validate({
             "ft_type": obj.get("ft_type"),
             "ft_id": obj.get("ft_id"),
-            "name": obj.get("name")
+            "name": obj.get("name"),
+            "steps": obj.get("steps"),
+            "lora_rank": obj.get("lora_rank"),
+            "trigger_word": obj.get("trigger_word"),
+            "training_images": obj.get("training_images"),
+            "status": obj.get("status"),
+            "cover_image": obj.get("cover_image")
         })
         return _obj
 

@@ -39,7 +39,8 @@ class TestApiKeyResponse(unittest.TestCase):
                 api_key_id = '0x1d230dabdb5bc7cb',
                 display_name = 'My API Key',
                 mask = 'd71*****-****-****-****-*********384',
-                last_used = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f')
+                last_used = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
+                valid_to = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f')
             )
         else:
             return ApiKeyResponse(

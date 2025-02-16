@@ -35,7 +35,8 @@ class TestApiKeyCreateRequest(unittest.TestCase):
         model = ApiKeyCreateRequest()
         if include_optional:
             return ApiKeyCreateRequest(
-                display_name = 'My API Key'
+                display_name = 'My API Key',
+                valid_to = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f')
             )
         else:
             return ApiKeyCreateRequest(

@@ -7,9 +7,8 @@ Method | HTTP request | Description
 [**create_integration**](IntegrationsApi.md#create_integration) | **POST** /v2/integrations/{slug}/integrate | Create Integration
 [**delete_integration**](IntegrationsApi.md#delete_integration) | **DELETE** /v2/integrations/{slug}/{integration_id} | Delete Integration
 [**get_all_integrations**](IntegrationsApi.md#get_all_integrations) | **GET** /v2/integrations/all | Get All Integrations
-[**get_drive_document_detail**](IntegrationsApi.md#get_drive_document_detail) | **POST** /v2/integrations/google/drive/files/{document_id} | Get Drive Document Detail
-[**get_drive_documents**](IntegrationsApi.md#get_drive_documents) | **POST** /v2/integrations/google/{integration_slug}/drive/files | Get Drive Documents
 [**get_integration**](IntegrationsApi.md#get_integration) | **GET** /v2/integrations/{slug}/{integration_id} | Get Integration
+[**get_picker_token**](IntegrationsApi.md#get_picker_token) | **GET** /v2/integrations/google/picker_token | Get Picker Token
 [**get_slack_channels**](IntegrationsApi.md#get_slack_channels) | **GET** /v2/integrations/slack/{slack_team_id}/channels | Get Slack Channels
 [**get_slack_workspaces**](IntegrationsApi.md#get_slack_workspaces) | **GET** /v2/integrations/slack/ | Get Slack Workspaces
 [**integration_callback**](IntegrationsApi.md#integration_callback) | **GET** /v2/integrations/{slug}/callback | Integration Callback
@@ -262,168 +261,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_drive_document_detail**
-> GoogleDriveFileResponse get_drive_document_detail(document_id, workspace_id)
-
-Get Drive Document Detail
-
-### Example
-
-* Bearer Authentication (HTTPBearer):
-
-```python
-import flowhunt
-from flowhunt.models.google_drive_file_response import GoogleDriveFileResponse
-from flowhunt.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt.Configuration(
-    host = "http://localhost"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure Bearer authorization: HTTPBearer
-configuration = flowhunt.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
-)
-
-# Enter a context with an instance of the API client
-with flowhunt.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = flowhunt.IntegrationsApi(api_client)
-    document_id = 'document_id_example' # str | 
-    workspace_id = 'workspace_id_example' # str | 
-
-    try:
-        # Get Drive Document Detail
-        api_response = api_instance.get_drive_document_detail(document_id, workspace_id)
-        print("The response of IntegrationsApi->get_drive_document_detail:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling IntegrationsApi->get_drive_document_detail: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **document_id** | **str**|  | 
- **workspace_id** | **str**|  | 
-
-### Return type
-
-[**GoogleDriveFileResponse**](GoogleDriveFileResponse.md)
-
-### Authorization
-
-[HTTPBearer](../README.md#HTTPBearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful Response |  -  |
-**422** | Validation Error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **get_drive_documents**
-> GoogleDriveSearchResponse get_drive_documents(integration_slug, workspace_id, google_drive_search_query)
-
-Get Drive Documents
-
-### Example
-
-* Bearer Authentication (HTTPBearer):
-
-```python
-import flowhunt
-from flowhunt.models.google_drive_search_query import GoogleDriveSearchQuery
-from flowhunt.models.google_drive_search_response import GoogleDriveSearchResponse
-from flowhunt.models.integration_slug import IntegrationSlug
-from flowhunt.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt.Configuration(
-    host = "http://localhost"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure Bearer authorization: HTTPBearer
-configuration = flowhunt.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
-)
-
-# Enter a context with an instance of the API client
-with flowhunt.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = flowhunt.IntegrationsApi(api_client)
-    integration_slug = flowhunt.IntegrationSlug() # IntegrationSlug | 
-    workspace_id = 'workspace_id_example' # str | 
-    google_drive_search_query = flowhunt.GoogleDriveSearchQuery() # GoogleDriveSearchQuery | 
-
-    try:
-        # Get Drive Documents
-        api_response = api_instance.get_drive_documents(integration_slug, workspace_id, google_drive_search_query)
-        print("The response of IntegrationsApi->get_drive_documents:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling IntegrationsApi->get_drive_documents: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **integration_slug** | [**IntegrationSlug**](.md)|  | 
- **workspace_id** | **str**|  | 
- **google_drive_search_query** | [**GoogleDriveSearchQuery**](GoogleDriveSearchQuery.md)|  | 
-
-### Return type
-
-[**GoogleDriveSearchResponse**](GoogleDriveSearchResponse.md)
-
-### Authorization
-
-[HTTPBearer](../README.md#HTTPBearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful Response |  -  |
-**422** | Validation Error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **get_integration**
 > IntegrationDetailResponse get_integration(slug, integration_id, workspace_id)
 
@@ -487,6 +324,83 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**IntegrationDetailResponse**](IntegrationDetailResponse.md)
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_picker_token**
+> GooglePickerTokenResponse get_picker_token(workspace_id)
+
+Get Picker Token
+
+### Example
+
+* Bearer Authentication (HTTPBearer):
+
+```python
+import flowhunt
+from flowhunt.models.google_picker_token_response import GooglePickerTokenResponse
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization: HTTPBearer
+configuration = flowhunt.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.IntegrationsApi(api_client)
+    workspace_id = 'workspace_id_example' # str | 
+
+    try:
+        # Get Picker Token
+        api_response = api_instance.get_picker_token(workspace_id)
+        print("The response of IntegrationsApi->get_picker_token:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling IntegrationsApi->get_picker_token: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **workspace_id** | **str**|  | 
+
+### Return type
+
+[**GooglePickerTokenResponse**](GooglePickerTokenResponse.md)
 
 ### Authorization
 
@@ -744,7 +658,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_integrations**
-> IntegrationResponse search_integrations(slug, workspace_id, integration_search_request)
+> List[IntegrationDetailResponse] search_integrations(slug, workspace_id, integration_search_request)
 
 Search Integrations
 
@@ -754,7 +668,7 @@ Search Integrations
 
 ```python
 import flowhunt
-from flowhunt.models.integration_response import IntegrationResponse
+from flowhunt.models.integration_detail_response import IntegrationDetailResponse
 from flowhunt.models.integration_search_request import IntegrationSearchRequest
 from flowhunt.models.integration_slug import IntegrationSlug
 from flowhunt.rest import ApiException
@@ -806,7 +720,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**IntegrationResponse**](IntegrationResponse.md)
+[**List[IntegrationDetailResponse]**](IntegrationDetailResponse.md)
 
 ### Authorization
 

@@ -48,7 +48,8 @@ class ScheduleResponse(BaseModel):
     follow_links: Optional[BoolChar]
     with_proxy_rotation: Optional[BoolChar]
     disallow_urls: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["workspace_id", "schedule_id", "url", "frequency", "schedule_type", "start_time", "end_time", "status", "status_message", "cnt_scheduled", "cnt_completed", "cnt_failed", "with_screenshot", "with_browser", "follow_links", "with_proxy_rotation", "disallow_urls"]
+    filter_urls: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["workspace_id", "schedule_id", "url", "frequency", "schedule_type", "start_time", "end_time", "status", "status_message", "cnt_scheduled", "cnt_completed", "cnt_failed", "with_screenshot", "with_browser", "follow_links", "with_proxy_rotation", "disallow_urls", "filter_urls"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -144,6 +145,11 @@ class ScheduleResponse(BaseModel):
         if self.disallow_urls is None and "disallow_urls" in self.model_fields_set:
             _dict['disallow_urls'] = None
 
+        # set to None if filter_urls (nullable) is None
+        # and model_fields_set contains the field
+        if self.filter_urls is None and "filter_urls" in self.model_fields_set:
+            _dict['filter_urls'] = None
+
         return _dict
 
     @classmethod
@@ -172,7 +178,8 @@ class ScheduleResponse(BaseModel):
             "with_browser": obj.get("with_browser"),
             "follow_links": obj.get("follow_links"),
             "with_proxy_rotation": obj.get("with_proxy_rotation"),
-            "disallow_urls": obj.get("disallow_urls")
+            "disallow_urls": obj.get("disallow_urls"),
+            "filter_urls": obj.get("filter_urls")
         })
         return _obj
 

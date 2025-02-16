@@ -30,6 +30,7 @@ from flowhunt.models.serp_group_intersection import SerpGroupIntersection
 from flowhunt.models.serp_keyword_relation import SerpKeywordRelation
 from flowhunt.models.serp_query_request import SerpQueryRequest
 from flowhunt.models.serp_search_requests import SerpSearchRequests
+from flowhunt.models.serp_subcluster_keywords_response import SerpSubclusterKeywordsResponse
 from flowhunt.models.serp_volume_request import SerpVolumeRequest
 from flowhunt.models.task_response import TaskResponse
 
@@ -2792,7 +2793,7 @@ class SERPApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[List[str]]:
+    ) -> List[SerpSubclusterKeywordsResponse]:
         """Serp Cluster Split To Sub Clusters
 
 
@@ -2832,7 +2833,7 @@ class SERPApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[List[str]]",
+            '200': "List[SerpSubclusterKeywordsResponse]",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -2863,7 +2864,7 @@ class SERPApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[List[str]]]:
+    ) -> ApiResponse[List[SerpSubclusterKeywordsResponse]]:
         """Serp Cluster Split To Sub Clusters
 
 
@@ -2903,7 +2904,7 @@ class SERPApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[List[str]]",
+            '200': "List[SerpSubclusterKeywordsResponse]",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -2974,7 +2975,7 @@ class SERPApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[List[str]]",
+            '200': "List[SerpSubclusterKeywordsResponse]",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(

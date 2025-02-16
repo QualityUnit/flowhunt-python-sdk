@@ -37,13 +37,25 @@ class TestImageFTResponse(unittest.TestCase):
             return ImageFTResponse(
                 ft_type = i,
                 ft_id = '123e4567-e89b-12d3-a456-426614174000',
-                name = 'Fine tuning 1'
+                name = 'Fine tuning 1',
+                steps = 1000,
+                lora_rank = 1,
+                trigger_word = 'cat',
+                training_images = [https://example.com/image1, https://example.com/image2],
+                status = completed,
+                cover_image = 'https://example.com/image'
             )
         else:
             return ImageFTResponse(
                 ft_type = i,
                 ft_id = '123e4567-e89b-12d3-a456-426614174000',
                 name = 'Fine tuning 1',
+                steps = 1000,
+                lora_rank = 1,
+                trigger_word = 'cat',
+                training_images = [https://example.com/image1, https://example.com/image2],
+                status = completed,
+                cover_image = 'https://example.com/image',
         )
         """
 

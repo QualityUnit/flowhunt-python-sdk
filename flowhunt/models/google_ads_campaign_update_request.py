@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from flowhunt.models.google_ads_action_type import GoogleAdsActionType
 from typing import Optional, Set
@@ -29,10 +29,8 @@ class GoogleAdsCampaignUpdateRequest(BaseModel):
     """ # noqa: E501
     language_code: Optional[StrictStr]
     country: Optional[StrictStr]
-    min_queries: Optional[StrictInt]
-    cluster_strength: Optional[StrictInt]
     action_type: Optional[GoogleAdsActionType]
-    __properties: ClassVar[List[str]] = ["language_code", "country", "min_queries", "cluster_strength", "action_type"]
+    __properties: ClassVar[List[str]] = ["language_code", "country", "action_type"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -83,16 +81,6 @@ class GoogleAdsCampaignUpdateRequest(BaseModel):
         if self.country is None and "country" in self.model_fields_set:
             _dict['country'] = None
 
-        # set to None if min_queries (nullable) is None
-        # and model_fields_set contains the field
-        if self.min_queries is None and "min_queries" in self.model_fields_set:
-            _dict['min_queries'] = None
-
-        # set to None if cluster_strength (nullable) is None
-        # and model_fields_set contains the field
-        if self.cluster_strength is None and "cluster_strength" in self.model_fields_set:
-            _dict['cluster_strength'] = None
-
         # set to None if action_type (nullable) is None
         # and model_fields_set contains the field
         if self.action_type is None and "action_type" in self.model_fields_set:
@@ -112,8 +100,6 @@ class GoogleAdsCampaignUpdateRequest(BaseModel):
         _obj = cls.model_validate({
             "language_code": obj.get("language_code"),
             "country": obj.get("country"),
-            "min_queries": obj.get("min_queries"),
-            "cluster_strength": obj.get("cluster_strength"),
             "action_type": obj.get("action_type")
         })
         return _obj

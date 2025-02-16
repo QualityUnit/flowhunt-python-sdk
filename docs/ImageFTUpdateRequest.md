@@ -6,6 +6,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** | Fine tuning name | 
+**steps** | **int** |  | [optional] 
+**lora_rank** | **int** |  | [optional] 
+**training_images** | **List[str]** | Training images | 
+**cover_image** | **str** | Cover image | 
 
 ## Example
 
