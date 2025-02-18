@@ -37,7 +37,8 @@ class TrackingEventCreateRequest(BaseModel):
     valid_until: Optional[datetime] = None
     conversion_action_id: Optional[StrictStr] = None
     include_in_conversions_metric: Optional[StrictBool] = None
-    __properties: ClassVar[List[str]] = ["event_name", "unique_id", "event_value", "currency", "event_data", "link_ids", "valid_until", "conversion_action_id", "include_in_conversions_metric"]
+    with_address: Optional[StrictBool] = None
+    __properties: ClassVar[List[str]] = ["event_name", "unique_id", "event_value", "currency", "event_data", "link_ids", "valid_until", "conversion_action_id", "include_in_conversions_metric", "with_address"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -125,6 +126,11 @@ class TrackingEventCreateRequest(BaseModel):
         if self.include_in_conversions_metric is None and "include_in_conversions_metric" in self.model_fields_set:
             _dict['include_in_conversions_metric'] = None
 
+        # set to None if with_address (nullable) is None
+        # and model_fields_set contains the field
+        if self.with_address is None and "with_address" in self.model_fields_set:
+            _dict['with_address'] = None
+
         return _dict
 
     @classmethod
@@ -145,7 +151,8 @@ class TrackingEventCreateRequest(BaseModel):
             "link_ids": obj.get("link_ids"),
             "valid_until": obj.get("valid_until"),
             "conversion_action_id": obj.get("conversion_action_id"),
-            "include_in_conversions_metric": obj.get("include_in_conversions_metric")
+            "include_in_conversions_metric": obj.get("include_in_conversions_metric"),
+            "with_address": obj.get("with_address")
         })
         return _obj
 
