@@ -43,7 +43,9 @@ class TestTrackingLinksCreateRequest(unittest.TestCase):
                     ],
                 with_address = True,
                 unique_id = '',
-                fp = ''
+                fp = '',
+                session_id = '',
+                ga = ''
             )
         else:
             return TrackingLinksCreateRequest(

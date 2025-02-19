@@ -9,6 +9,8 @@ Name | Type | Description | Notes
 **with_address** | **bool** |  | [optional] 
 **unique_id** | **str** |  | [optional] 
 **fp** | **str** |  | [optional] 
+**session_id** | **str** |  | [optional] 
+**ga** | **str** |  | [optional] 
 
 ## Example
 

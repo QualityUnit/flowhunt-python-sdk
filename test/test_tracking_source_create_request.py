@@ -59,7 +59,8 @@ class TestTrackingSourceCreateRequest(unittest.TestCase):
                         value_datetime = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
                     ],
                 unique_id = '',
-                fp = ''
+                fp = '',
+                session_id = ''
             )
         else:
             return TrackingSourceCreateRequest(

@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from flowhunt.models.tracking_event_create_request import TrackingEventCreateRequest
 from typing import Optional, Set
@@ -30,7 +30,10 @@ class TrackingEventCreateRequests(BaseModel):
     events: List[TrackingEventCreateRequest] = Field(description="The list of events to be created")
     unique_id: Optional[StrictStr] = None
     fp: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["events", "unique_id", "fp"]
+    session_id: Optional[StrictStr] = None
+    with_address: Optional[StrictBool] = None
+    ga: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["events", "unique_id", "fp", "session_id", "with_address", "ga"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -88,6 +91,21 @@ class TrackingEventCreateRequests(BaseModel):
         if self.fp is None and "fp" in self.model_fields_set:
             _dict['fp'] = None
 
+        # set to None if session_id (nullable) is None
+        # and model_fields_set contains the field
+        if self.session_id is None and "session_id" in self.model_fields_set:
+            _dict['session_id'] = None
+
+        # set to None if with_address (nullable) is None
+        # and model_fields_set contains the field
+        if self.with_address is None and "with_address" in self.model_fields_set:
+            _dict['with_address'] = None
+
+        # set to None if ga (nullable) is None
+        # and model_fields_set contains the field
+        if self.ga is None and "ga" in self.model_fields_set:
+            _dict['ga'] = None
+
         return _dict
 
     @classmethod
@@ -102,7 +120,10 @@ class TrackingEventCreateRequests(BaseModel):
         _obj = cls.model_validate({
             "events": [TrackingEventCreateRequest.from_dict(_item) for _item in obj["events"]] if obj.get("events") is not None else None,
             "unique_id": obj.get("unique_id"),
-            "fp": obj.get("fp")
+            "fp": obj.get("fp"),
+            "session_id": obj.get("session_id"),
+            "with_address": obj.get("with_address"),
+            "ga": obj.get("ga")
         })
         return _obj
 

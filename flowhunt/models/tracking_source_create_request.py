@@ -44,7 +44,8 @@ class TrackingSourceCreateRequest(BaseModel):
     event_data: Optional[List[TrackingEventData]] = None
     unique_id: Optional[StrictStr] = None
     fp: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["customer_id", "click_id", "click_id_name", "utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "ga", "url", "links", "valid_days", "with_address", "event_data", "unique_id", "fp"]
+    session_id: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["customer_id", "click_id", "click_id_name", "utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "ga", "url", "links", "valid_days", "with_address", "event_data", "unique_id", "fp", "session_id"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -167,6 +168,11 @@ class TrackingSourceCreateRequest(BaseModel):
         if self.fp is None and "fp" in self.model_fields_set:
             _dict['fp'] = None
 
+        # set to None if session_id (nullable) is None
+        # and model_fields_set contains the field
+        if self.session_id is None and "session_id" in self.model_fields_set:
+            _dict['session_id'] = None
+
         return _dict
 
     @classmethod
@@ -194,7 +200,8 @@ class TrackingSourceCreateRequest(BaseModel):
             "with_address": obj.get("with_address"),
             "event_data": [TrackingEventData.from_dict(_item) for _item in obj["event_data"]] if obj.get("event_data") is not None else None,
             "unique_id": obj.get("unique_id"),
-            "fp": obj.get("fp")
+            "fp": obj.get("fp"),
+            "session_id": obj.get("session_id")
         })
         return _obj
 

@@ -36,6 +36,8 @@ class TestTrackingEventResponse(unittest.TestCase):
         if include_optional:
             return TrackingEventResponse(
                 event_id = '',
+                unique_id = '',
+                url = '',
                 event_name = '',
                 event_value = 1.337,
                 currency = '',

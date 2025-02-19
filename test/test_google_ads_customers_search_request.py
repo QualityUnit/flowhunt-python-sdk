@@ -45,7 +45,9 @@ class TestGoogleAdsCustomersSearchRequest(unittest.TestCase):
                 cluster_strength = 56,
                 last_update = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 next_update = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                action_type = 'I'
+                action_type = 'I',
+                ga_measurement_id = '',
+                ga_api_secret = ''
             )
         else:
             return GoogleAdsCustomersSearchRequest(

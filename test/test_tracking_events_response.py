@@ -38,6 +38,8 @@ class TestTrackingEventsResponse(unittest.TestCase):
                 events = [
                     flowhunt.models.tracking_event_response.TrackingEventResponse(
                         event_id = '', 
+                        unique_id = '', 
+                        url = '', 
                         event_name = '', 
                         event_value = 1.337, 
                         currency = '', 
@@ -63,6 +65,8 @@ class TestTrackingEventsResponse(unittest.TestCase):
                 events = [
                     flowhunt.models.tracking_event_response.TrackingEventResponse(
                         event_id = '', 
+                        unique_id = '', 
+                        url = '', 
                         event_name = '', 
                         event_value = 1.337, 
                         currency = '', 

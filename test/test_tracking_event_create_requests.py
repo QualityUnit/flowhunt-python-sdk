@@ -55,10 +55,13 @@ class TestTrackingEventCreateRequests(unittest.TestCase):
                         valid_until = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         conversion_action_id = '', 
                         include_in_conversions_metric = True, 
-                        with_address = True, )
+                        url = '', )
                     ],
                 unique_id = '',
-                fp = ''
+                fp = '',
+                session_id = '',
+                with_address = True,
+                ga = ''
             )
         else:
             return TrackingEventCreateRequests(
@@ -82,7 +85,7 @@ class TestTrackingEventCreateRequests(unittest.TestCase):
                         valid_until = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         conversion_action_id = '', 
                         include_in_conversions_metric = True, 
-                        with_address = True, )
+                        url = '', )
                     ],
         )
         """

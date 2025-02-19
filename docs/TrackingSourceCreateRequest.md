@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **event_data** | [**List[TrackingEventData]**](TrackingEventData.md) |  | [optional] 
 **unique_id** | **str** |  | [optional] 
 **fp** | **str** |  | [optional] 
+**session_id** | **str** |  | [optional] 
 
 ## Example
 

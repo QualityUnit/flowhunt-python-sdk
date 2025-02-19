@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **next_update** | **datetime** |  | [optional] 
 **cron_settings** | **str** |  | [optional] 
 **action_type** | [**GoogleAdsActionType**](GoogleAdsActionType.md) | Action Type | 
+**ga_measurement_id** | **str** |  | [optional] 
 
 ## Example
 

@@ -16,6 +16,8 @@ Name | Type | Description | Notes
 **last_update** | **datetime** |  | [optional] 
 **next_update** | **datetime** |  | [optional] 
 **action_type** | [**GoogleAdsActionType**](GoogleAdsActionType.md) |  | [optional] 
+**ga_measurement_id** | **str** |  | [optional] 
+**ga_api_secret** | **str** |  | [optional] 
 
 ## Example
 

@@ -29,6 +29,8 @@ class TrackingEventResponse(BaseModel):
     TrackingEventResponse
     """ # noqa: E501
     event_id: StrictStr
+    unique_id: Optional[StrictStr] = None
+    url: Optional[StrictStr] = None
     event_name: Optional[StrictStr] = None
     event_value: Optional[Union[StrictFloat, StrictInt]] = None
     currency: Optional[StrictStr] = None
@@ -38,7 +40,7 @@ class TrackingEventResponse(BaseModel):
     include_in_conversions_metric: Optional[StrictBool] = None
     event_data: Optional[List[TrackingEventData]] = None
     link_ids: Optional[List[Any]] = None
-    __properties: ClassVar[List[str]] = ["event_id", "event_name", "event_value", "currency", "created_at", "valid_until", "conversion_action_id", "include_in_conversions_metric", "event_data", "link_ids"]
+    __properties: ClassVar[List[str]] = ["event_id", "unique_id", "url", "event_name", "event_value", "currency", "created_at", "valid_until", "conversion_action_id", "include_in_conversions_metric", "event_data", "link_ids"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -86,6 +88,16 @@ class TrackingEventResponse(BaseModel):
                 if _item_event_data:
                     _items.append(_item_event_data.to_dict())
             _dict['event_data'] = _items
+        # set to None if unique_id (nullable) is None
+        # and model_fields_set contains the field
+        if self.unique_id is None and "unique_id" in self.model_fields_set:
+            _dict['unique_id'] = None
+
+        # set to None if url (nullable) is None
+        # and model_fields_set contains the field
+        if self.url is None and "url" in self.model_fields_set:
+            _dict['url'] = None
+
         # set to None if event_name (nullable) is None
         # and model_fields_set contains the field
         if self.event_name is None and "event_name" in self.model_fields_set:
@@ -144,6 +156,8 @@ class TrackingEventResponse(BaseModel):
 
         _obj = cls.model_validate({
             "event_id": obj.get("event_id"),
+            "unique_id": obj.get("unique_id"),
+            "url": obj.get("url"),
             "event_name": obj.get("event_name"),
             "event_value": obj.get("event_value"),
             "currency": obj.get("currency"),

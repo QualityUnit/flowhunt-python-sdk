@@ -13,6 +13,8 @@ Name | Type | Description | Notes
 **min_clicks** | **int** |  | [optional] 
 **cron_settings** | **str** |  | [optional] 
 **action_type** | [**GoogleAdsActionType**](GoogleAdsActionType.md) |  | [optional] 
+**ga_measurement_id** | **str** |  | [optional] 
+**ga_api_secret** | **str** |  | [optional] 
 
 ## Example
 

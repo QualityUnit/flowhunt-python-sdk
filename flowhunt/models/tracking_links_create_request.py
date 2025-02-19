@@ -31,7 +31,9 @@ class TrackingLinksCreateRequest(BaseModel):
     with_address: Optional[StrictBool] = None
     unique_id: Optional[StrictStr] = None
     fp: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["links", "with_address", "unique_id", "fp"]
+    session_id: Optional[StrictStr] = None
+    ga: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["links", "with_address", "unique_id", "fp", "session_id", "ga"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -94,6 +96,16 @@ class TrackingLinksCreateRequest(BaseModel):
         if self.fp is None and "fp" in self.model_fields_set:
             _dict['fp'] = None
 
+        # set to None if session_id (nullable) is None
+        # and model_fields_set contains the field
+        if self.session_id is None and "session_id" in self.model_fields_set:
+            _dict['session_id'] = None
+
+        # set to None if ga (nullable) is None
+        # and model_fields_set contains the field
+        if self.ga is None and "ga" in self.model_fields_set:
+            _dict['ga'] = None
+
         return _dict
 
     @classmethod
@@ -109,7 +121,9 @@ class TrackingLinksCreateRequest(BaseModel):
             "links": [TrackingLinkCreateRequest.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
             "with_address": obj.get("with_address"),
             "unique_id": obj.get("unique_id"),
-            "fp": obj.get("fp")
+            "fp": obj.get("fp"),
+            "session_id": obj.get("session_id"),
+            "ga": obj.get("ga")
         })
         return _obj
 

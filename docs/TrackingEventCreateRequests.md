@@ -8,6 +8,9 @@ Name | Type | Description | Notes
 **events** | [**List[TrackingEventCreateRequest]**](TrackingEventCreateRequest.md) | The list of events to be created | 
 **unique_id** | **str** |  | [optional] 
 **fp** | **str** |  | [optional] 
+**session_id** | **str** |  | [optional] 
+**with_address** | **bool** |  | [optional] 
+**ga** | **str** |  | [optional] 
 
 ## Example
 

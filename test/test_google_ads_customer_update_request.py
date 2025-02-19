@@ -42,7 +42,9 @@ class TestGoogleAdsCustomerUpdateRequest(unittest.TestCase):
                 min_impressions = 56,
                 min_clicks = 56,
                 cron_settings = '',
-                action_type = 'I'
+                action_type = 'I',
+                ga_measurement_id = '',
+                ga_api_secret = ''
             )
         else:
             return GoogleAdsCustomerUpdateRequest(

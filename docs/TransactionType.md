@@ -55,6 +55,8 @@
 
 * `TR` (value: `'TR'`)
 
+* `FAT_GC` (value: `'FAT_GC'`)
+
 * `SEQUENTIAL_AGENT` (value: `'SEQUENTIAL_AGENT'`)
 
 * `SELF_MANAGED_AGENT` (value: `'SELF_MANAGED_AGENT'`)

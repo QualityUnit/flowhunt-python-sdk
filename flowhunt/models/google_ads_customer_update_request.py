@@ -35,7 +35,9 @@ class GoogleAdsCustomerUpdateRequest(BaseModel):
     min_clicks: Optional[StrictInt] = None
     cron_settings: Optional[StrictStr] = None
     action_type: Optional[GoogleAdsActionType] = None
-    __properties: ClassVar[List[str]] = ["language_code", "country", "min_queries", "cluster_strength", "min_impressions", "min_clicks", "cron_settings", "action_type"]
+    ga_measurement_id: Optional[StrictStr] = None
+    ga_api_secret: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["language_code", "country", "min_queries", "cluster_strength", "min_impressions", "min_clicks", "cron_settings", "action_type", "ga_measurement_id", "ga_api_secret"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -116,6 +118,16 @@ class GoogleAdsCustomerUpdateRequest(BaseModel):
         if self.action_type is None and "action_type" in self.model_fields_set:
             _dict['action_type'] = None
 
+        # set to None if ga_measurement_id (nullable) is None
+        # and model_fields_set contains the field
+        if self.ga_measurement_id is None and "ga_measurement_id" in self.model_fields_set:
+            _dict['ga_measurement_id'] = None
+
+        # set to None if ga_api_secret (nullable) is None
+        # and model_fields_set contains the field
+        if self.ga_api_secret is None and "ga_api_secret" in self.model_fields_set:
+            _dict['ga_api_secret'] = None
+
         return _dict
 
     @classmethod
@@ -135,7 +147,9 @@ class GoogleAdsCustomerUpdateRequest(BaseModel):
             "min_impressions": obj.get("min_impressions"),
             "min_clicks": obj.get("min_clicks"),
             "cron_settings": obj.get("cron_settings"),
-            "action_type": obj.get("action_type")
+            "action_type": obj.get("action_type"),
+            "ga_measurement_id": obj.get("ga_measurement_id"),
+            "ga_api_secret": obj.get("ga_api_secret")
         })
         return _obj
 
