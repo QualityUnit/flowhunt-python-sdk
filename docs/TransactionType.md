@@ -57,6 +57,10 @@
 
 * `FAT_GC` (value: `'FAT_GC'`)
 
+* `VE_GC` (value: `'VE_GC'`)
+
+* `CWP` (value: `'CWP'`)
+
 * `SEQUENTIAL_AGENT` (value: `'SEQUENTIAL_AGENT'`)
 
 * `SELF_MANAGED_AGENT` (value: `'SELF_MANAGED_AGENT'`)

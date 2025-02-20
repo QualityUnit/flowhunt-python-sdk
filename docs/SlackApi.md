@@ -15,7 +15,6 @@ Get Slack Channels
 
 ### Example
 
-* Api Key Authentication (APIKeyHeader):
 * Bearer Authentication (HTTPBearer):
 
 ```python
@@ -34,12 +33,6 @@ configuration = flowhunt.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: APIKeyHeader
-configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
 
 # Configure Bearer authorization: HTTPBearer
 configuration = flowhunt.Configuration(
@@ -78,7 +71,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[APIKeyHeader](../README.md#APIKeyHeader), [HTTPBearer](../README.md#HTTPBearer)
+[HTTPBearer](../README.md#HTTPBearer)
 
 ### HTTP request headers
 
@@ -101,7 +94,6 @@ Get Slack Workspaces
 
 ### Example
 
-* Api Key Authentication (APIKeyHeader):
 * Bearer Authentication (HTTPBearer):
 
 ```python
@@ -120,12 +112,6 @@ configuration = flowhunt.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: APIKeyHeader
-configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
 
 # Configure Bearer authorization: HTTPBearer
 configuration = flowhunt.Configuration(
@@ -162,7 +148,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[APIKeyHeader](../README.md#APIKeyHeader), [HTTPBearer](../README.md#HTTPBearer)
+[HTTPBearer](../README.md#HTTPBearer)
 
 ### HTTP request headers
 

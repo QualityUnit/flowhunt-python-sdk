@@ -224,6 +224,9 @@ Class | Method | HTTP request | Description
 *IntegrationsApi* | [**get_picker_token**](docs/IntegrationsApi.md#get_picker_token) | **GET** /v2/integrations/google/picker_token | Get Picker Token
 *IntegrationsApi* | [**get_slack_channels**](docs/IntegrationsApi.md#get_slack_channels) | **GET** /v2/integrations/slack/{slack_team_id}/channels | Get Slack Channels
 *IntegrationsApi* | [**get_slack_workspaces**](docs/IntegrationsApi.md#get_slack_workspaces) | **GET** /v2/integrations/slack/ | Get Slack Workspaces
+*IntegrationsApi* | [**get_wordpress_post_categories**](docs/IntegrationsApi.md#get_wordpress_post_categories) | **GET** /v2/integrations/wordpress/{integration_id}/categories | Get Wordpress Post Categories
+*IntegrationsApi* | [**get_wordpress_post_tags**](docs/IntegrationsApi.md#get_wordpress_post_tags) | **GET** /v2/integrations/wordpress/{integration_id}/tags | Get Wordpress Post Tags
+*IntegrationsApi* | [**get_wordpress_sites**](docs/IntegrationsApi.md#get_wordpress_sites) | **GET** /v2/integrations/wordpress/sites | Get Wordpress Sites
 *IntegrationsApi* | [**integration_callback**](docs/IntegrationsApi.md#integration_callback) | **GET** /v2/integrations/{slug}/callback | Integration Callback
 *IntegrationsApi* | [**search_integrations**](docs/IntegrationsApi.md#search_integrations) | **POST** /v2/integrations/{slug} | Search Integrations
 *MediaApi* | [**get_transcript**](docs/MediaApi.md#get_transcript) | **POST** /v2/media/transcript | Get Transcript
@@ -279,6 +282,9 @@ Class | Method | HTTP request | Description
 *TrackingApi* | [**track_click**](docs/TrackingApi.md#track_click) | **POST** /v2/tracking/clk | Track Click
 *TrackingApi* | [**track_event**](docs/TrackingApi.md#track_event) | **POST** /v2/tracking/evnt | Track Event
 *TrackingApi* | [**track_link**](docs/TrackingApi.md#track_link) | **POST** /v2/tracking/lnk | Track Link
+*WordPressApi* | [**get_wordpress_post_categories_0**](docs/WordPressApi.md#get_wordpress_post_categories_0) | **GET** /v2/integrations/wordpress/{integration_id}/categories | Get Wordpress Post Categories
+*WordPressApi* | [**get_wordpress_post_tags_0**](docs/WordPressApi.md#get_wordpress_post_tags_0) | **GET** /v2/integrations/wordpress/{integration_id}/tags | Get Wordpress Post Tags
+*WordPressApi* | [**get_wordpress_sites_0**](docs/WordPressApi.md#get_wordpress_sites_0) | **GET** /v2/integrations/wordpress/sites | Get Wordpress Sites
 *WorkspacesApi* | [**add_workspace_user**](docs/WorkspacesApi.md#add_workspace_user) | **POST** /v2/workspaces/{workspace_id}/add-member | Add Workspace User
 *WorkspacesApi* | [**create_workspace**](docs/WorkspacesApi.md#create_workspace) | **POST** /v2/workspaces/create | Create Workspace
 *WorkspacesApi* | [**delete_workspace**](docs/WorkspacesApi.md#delete_workspace) | **DELETE** /v2/workspaces/{workspace_id} | Delete Workspace
@@ -532,6 +538,9 @@ Class | Method | HTTP request | Description
  - [VectorDocumentResponse](docs/VectorDocumentResponse.md)
  - [VectorDocumentType](docs/VectorDocumentType.md)
  - [VectorDocumentsTaskResponse](docs/VectorDocumentsTaskResponse.md)
+ - [WordPressCategoryResponse](docs/WordPressCategoryResponse.md)
+ - [WordPressSiteResponse](docs/WordPressSiteResponse.md)
+ - [WordPressTagsResponse](docs/WordPressTagsResponse.md)
  - [WorkspaceCreateRequest](docs/WorkspaceCreateRequest.md)
  - [WorkspaceResponse](docs/WorkspaceResponse.md)
  - [WorkspaceRole](docs/WorkspaceRole.md)

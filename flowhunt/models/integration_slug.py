@@ -36,6 +36,7 @@ class IntegrationSlug(str, Enum):
     FRESHCHAT_INTEGRATION = 'freshchat_integration'
     TAWK_INTEGRATION = 'tawk_integration'
     GOOGLE_INTEGRATION = 'google_integration'
+    WORDPRESS_INTEGRATION = 'wordpress_integration'
     GOOGLE_CALENDAR_INTEGRATION = 'google_calendar_integration'
     GOOGLE_ADS_INTEGRATION = 'google_ads_integration'
     GOOGLE_DOCS_INTEGRATION = 'google_docs_integration'

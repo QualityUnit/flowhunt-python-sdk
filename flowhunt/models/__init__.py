@@ -254,6 +254,9 @@ from flowhunt.models.validation_error_loc_inner import ValidationErrorLocInner
 from flowhunt.models.vector_document_response import VectorDocumentResponse
 from flowhunt.models.vector_document_type import VectorDocumentType
 from flowhunt.models.vector_documents_task_response import VectorDocumentsTaskResponse
+from flowhunt.models.word_press_category_response import WordPressCategoryResponse
+from flowhunt.models.word_press_site_response import WordPressSiteResponse
+from flowhunt.models.word_press_tags_response import WordPressTagsResponse
 from flowhunt.models.workspace_create_request import WorkspaceCreateRequest
 from flowhunt.models.workspace_response import WorkspaceResponse
 from flowhunt.models.workspace_role import WorkspaceRole

@@ -270,6 +270,10 @@ docs/ValidationErrorLocInner.md
 docs/VectorDocumentResponse.md
 docs/VectorDocumentType.md
 docs/VectorDocumentsTaskResponse.md
+docs/WordPressApi.md
+docs/WordPressCategoryResponse.md
+docs/WordPressSiteResponse.md
+docs/WordPressTagsResponse.md
 docs/WorkspaceCreateRequest.md
 docs/WorkspaceResponse.md
 docs/WorkspaceRole.md
@@ -311,6 +315,7 @@ flowhunt/api/serp_api.py
 flowhunt/api/slack_api.py
 flowhunt/api/tags_api.py
 flowhunt/api/tracking_api.py
+flowhunt/api/word_press_api.py
 flowhunt/api/workspaces_api.py
 flowhunt/api_client.py
 flowhunt/api_response.py
@@ -557,6 +562,9 @@ flowhunt/models/validation_error_loc_inner.py
 flowhunt/models/vector_document_response.py
 flowhunt/models/vector_document_type.py
 flowhunt/models/vector_documents_task_response.py
+flowhunt/models/word_press_category_response.py
+flowhunt/models/word_press_site_response.py
+flowhunt/models/word_press_tags_response.py
 flowhunt/models/workspace_create_request.py
 flowhunt/models/workspace_response.py
 flowhunt/models/workspace_role.py
@@ -844,6 +852,10 @@ test/test_validation_error_loc_inner.py
 test/test_vector_document_response.py
 test/test_vector_document_type.py
 test/test_vector_documents_task_response.py
+test/test_word_press_api.py
+test/test_word_press_category_response.py
+test/test_word_press_site_response.py
+test/test_word_press_tags_response.py
 test/test_workspace_create_request.py
 test/test_workspace_response.py
 test/test_workspace_role.py

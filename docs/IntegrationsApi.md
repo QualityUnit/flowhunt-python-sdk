@@ -11,6 +11,9 @@ Method | HTTP request | Description
 [**get_picker_token**](IntegrationsApi.md#get_picker_token) | **GET** /v2/integrations/google/picker_token | Get Picker Token
 [**get_slack_channels**](IntegrationsApi.md#get_slack_channels) | **GET** /v2/integrations/slack/{slack_team_id}/channels | Get Slack Channels
 [**get_slack_workspaces**](IntegrationsApi.md#get_slack_workspaces) | **GET** /v2/integrations/slack/ | Get Slack Workspaces
+[**get_wordpress_post_categories**](IntegrationsApi.md#get_wordpress_post_categories) | **GET** /v2/integrations/wordpress/{integration_id}/categories | Get Wordpress Post Categories
+[**get_wordpress_post_tags**](IntegrationsApi.md#get_wordpress_post_tags) | **GET** /v2/integrations/wordpress/{integration_id}/tags | Get Wordpress Post Tags
+[**get_wordpress_sites**](IntegrationsApi.md#get_wordpress_sites) | **GET** /v2/integrations/wordpress/sites | Get Wordpress Sites
 [**integration_callback**](IntegrationsApi.md#integration_callback) | **GET** /v2/integrations/{slug}/callback | Integration Callback
 [**search_integrations**](IntegrationsApi.md#search_integrations) | **POST** /v2/integrations/{slug} | Search Integrations
 
@@ -427,7 +430,6 @@ Get Slack Channels
 
 ### Example
 
-* Api Key Authentication (APIKeyHeader):
 * Bearer Authentication (HTTPBearer):
 
 ```python
@@ -446,12 +448,6 @@ configuration = flowhunt.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: APIKeyHeader
-configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
 
 # Configure Bearer authorization: HTTPBearer
 configuration = flowhunt.Configuration(
@@ -490,7 +486,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[APIKeyHeader](../README.md#APIKeyHeader), [HTTPBearer](../README.md#HTTPBearer)
+[HTTPBearer](../README.md#HTTPBearer)
 
 ### HTTP request headers
 
@@ -513,7 +509,6 @@ Get Slack Workspaces
 
 ### Example
 
-* Api Key Authentication (APIKeyHeader):
 * Bearer Authentication (HTTPBearer):
 
 ```python
@@ -532,12 +527,6 @@ configuration = flowhunt.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: APIKeyHeader
-configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
 
 # Configure Bearer authorization: HTTPBearer
 configuration = flowhunt.Configuration(
@@ -571,6 +560,262 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**List[SlackWorkspaceResponse]**](SlackWorkspaceResponse.md)
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_wordpress_post_categories**
+> List[WordPressCategoryResponse] get_wordpress_post_categories(integration_id, workspace_id)
+
+Get Wordpress Post Categories
+
+### Example
+
+* Api Key Authentication (APIKeyHeader):
+* Bearer Authentication (HTTPBearer):
+
+```python
+import flowhunt
+from flowhunt.models.word_press_category_response import WordPressCategoryResponse
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: APIKeyHeader
+configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
+
+# Configure Bearer authorization: HTTPBearer
+configuration = flowhunt.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.IntegrationsApi(api_client)
+    integration_id = 'integration_id_example' # str | 
+    workspace_id = 'workspace_id_example' # str | 
+
+    try:
+        # Get Wordpress Post Categories
+        api_response = api_instance.get_wordpress_post_categories(integration_id, workspace_id)
+        print("The response of IntegrationsApi->get_wordpress_post_categories:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling IntegrationsApi->get_wordpress_post_categories: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **integration_id** | **str**|  | 
+ **workspace_id** | **str**|  | 
+
+### Return type
+
+[**List[WordPressCategoryResponse]**](WordPressCategoryResponse.md)
+
+### Authorization
+
+[APIKeyHeader](../README.md#APIKeyHeader), [HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_wordpress_post_tags**
+> List[WordPressTagsResponse] get_wordpress_post_tags(integration_id, workspace_id)
+
+Get Wordpress Post Tags
+
+### Example
+
+* Api Key Authentication (APIKeyHeader):
+* Bearer Authentication (HTTPBearer):
+
+```python
+import flowhunt
+from flowhunt.models.word_press_tags_response import WordPressTagsResponse
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: APIKeyHeader
+configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
+
+# Configure Bearer authorization: HTTPBearer
+configuration = flowhunt.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.IntegrationsApi(api_client)
+    integration_id = 'integration_id_example' # str | 
+    workspace_id = 'workspace_id_example' # str | 
+
+    try:
+        # Get Wordpress Post Tags
+        api_response = api_instance.get_wordpress_post_tags(integration_id, workspace_id)
+        print("The response of IntegrationsApi->get_wordpress_post_tags:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling IntegrationsApi->get_wordpress_post_tags: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **integration_id** | **str**|  | 
+ **workspace_id** | **str**|  | 
+
+### Return type
+
+[**List[WordPressTagsResponse]**](WordPressTagsResponse.md)
+
+### Authorization
+
+[APIKeyHeader](../README.md#APIKeyHeader), [HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_wordpress_sites**
+> List[WordPressSiteResponse] get_wordpress_sites(workspace_id)
+
+Get Wordpress Sites
+
+### Example
+
+* Api Key Authentication (APIKeyHeader):
+* Bearer Authentication (HTTPBearer):
+
+```python
+import flowhunt
+from flowhunt.models.word_press_site_response import WordPressSiteResponse
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: APIKeyHeader
+configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
+
+# Configure Bearer authorization: HTTPBearer
+configuration = flowhunt.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.IntegrationsApi(api_client)
+    workspace_id = 'workspace_id_example' # str | 
+
+    try:
+        # Get Wordpress Sites
+        api_response = api_instance.get_wordpress_sites(workspace_id)
+        print("The response of IntegrationsApi->get_wordpress_sites:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling IntegrationsApi->get_wordpress_sites: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **workspace_id** | **str**|  | 
+
+### Return type
+
+[**List[WordPressSiteResponse]**](WordPressSiteResponse.md)
 
 ### Authorization
 

@@ -75,6 +75,27 @@ class TestIntegrationsApi(unittest.TestCase):
         """
         pass
 
+    def test_get_wordpress_post_categories(self) -> None:
+        """Test case for get_wordpress_post_categories
+
+        Get Wordpress Post Categories
+        """
+        pass
+
+    def test_get_wordpress_post_tags(self) -> None:
+        """Test case for get_wordpress_post_tags
+
+        Get Wordpress Post Tags
+        """
+        pass
+
+    def test_get_wordpress_sites(self) -> None:
+        """Test case for get_wordpress_sites
+
+        Get Wordpress Sites
+        """
+        pass
+
     def test_integration_callback(self) -> None:
         """Test case for integration_callback
 

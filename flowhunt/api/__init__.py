@@ -27,5 +27,6 @@ from flowhunt.api.semantic_search_api import SemanticSearchApi
 from flowhunt.api.slack_api import SlackApi
 from flowhunt.api.tags_api import TagsApi
 from flowhunt.api.tracking_api import TrackingApi
+from flowhunt.api.word_press_api import WordPressApi
 from flowhunt.api.workspaces_api import WorkspacesApi
 

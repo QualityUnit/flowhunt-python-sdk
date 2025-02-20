@@ -23,6 +23,8 @@
 
 * `GOOGLE_INTEGRATION` (value: `'google_integration'`)
 
+* `WORDPRESS_INTEGRATION` (value: `'wordpress_integration'`)
+
 * `GOOGLE_CALENDAR_INTEGRATION` (value: `'google_calendar_integration'`)
 
 * `GOOGLE_ADS_INTEGRATION` (value: `'google_ads_integration'`)

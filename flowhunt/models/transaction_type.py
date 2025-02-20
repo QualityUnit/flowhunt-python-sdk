@@ -53,6 +53,8 @@ class TransactionType(str, Enum):
     IGI = 'IGI'
     TR = 'TR'
     FAT_GC = 'FAT_GC'
+    VE_GC = 'VE_GC'
+    CWP = 'CWP'
     SEQUENTIAL_AGENT = 'SEQUENTIAL_AGENT'
     SELF_MANAGED_AGENT = 'SELF_MANAGED_AGENT'
     TOOL_ARXIV = 'TOOL_ARXIV'
