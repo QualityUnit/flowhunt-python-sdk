@@ -36,18 +36,18 @@ class TestSerpGroupIntersection(unittest.TestCase):
         if include_optional:
             return SerpGroupIntersection(
                 workspace_id = '',
-                customer_id = 56,
-                campaign_id = 56,
-                group_id = 56,
+                customer_id = '',
+                campaign_id = '',
+                group_id = '',
                 unique_group_id = '',
                 intersections_count = 56
             )
         else:
             return SerpGroupIntersection(
                 workspace_id = '',
-                customer_id = 56,
-                campaign_id = 56,
-                group_id = 56,
+                customer_id = '',
+                campaign_id = '',
+                group_id = '',
                 intersections_count = 56,
         )
         """

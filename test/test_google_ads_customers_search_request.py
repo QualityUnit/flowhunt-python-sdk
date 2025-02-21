@@ -35,7 +35,7 @@ class TestGoogleAdsCustomersSearchRequest(unittest.TestCase):
         model = GoogleAdsCustomersSearchRequest()
         if include_optional:
             return GoogleAdsCustomersSearchRequest(
-                customer_id = 56,
+                customer_id = '',
                 customer_name = '',
                 language_code = '',
                 country = '',

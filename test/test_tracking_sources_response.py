@@ -37,7 +37,7 @@ class TestTrackingSourcesResponse(unittest.TestCase):
             return TrackingSourcesResponse(
                 sources = [
                     flowhunt.models.tracking_source_response.TrackingSourceResponse(
-                        customer_id = 56, 
+                        customer_id = '', 
                         link_id = '', 
                         source_type = 'ga', 
                         click_id = '', 
@@ -65,7 +65,7 @@ class TestTrackingSourcesResponse(unittest.TestCase):
             return TrackingSourcesResponse(
                 sources = [
                     flowhunt.models.tracking_source_response.TrackingSourceResponse(
-                        customer_id = 56, 
+                        customer_id = '', 
                         link_id = '', 
                         source_type = 'ga', 
                         click_id = '', 

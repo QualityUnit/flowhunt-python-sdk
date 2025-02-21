@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from flowhunt.models.serp_keyword import SerpKeyword
 from typing import Optional, Set
@@ -29,9 +29,9 @@ class SerpClusterAddQueryRequest(BaseModel):
     """ # noqa: E501
     post_back_url: Optional[StrictStr] = None
     queries: List[SerpKeyword] = Field(description="List of queries")
-    customer_id: Optional[StrictInt] = Field(default=None, description="Customer ID of cluster")
-    campaign_id: Optional[StrictInt] = Field(default=None, description="Campaign ID of cluster")
-    group_id: Optional[StrictInt] = Field(default=None, description="Group ID of cluster - will be generated if not provided")
+    customer_id: Optional[StrictStr] = Field(default=None, description="Customer ID of cluster")
+    campaign_id: Optional[StrictStr] = Field(default=None, description="Campaign ID of cluster")
+    group_id: Optional[StrictStr] = Field(default=None, description="Group ID of cluster - will be generated if not provided")
     group_name: Optional[StrictStr] = Field(default='', description="Group name of cluster")
     __properties: ClassVar[List[str]] = ["post_back_url", "queries", "customer_id", "campaign_id", "group_id", "group_name"]
 

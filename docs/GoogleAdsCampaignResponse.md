@@ -6,8 +6,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **workspace_id** | **str** | Workspace ID | 
-**customer_id** | **int** | Google Ads Customer ID | 
-**campaign_id** | **int** | Google Ads Campaign ID | 
+**customer_id** | **str** | Google Ads Customer ID | 
+**campaign_id** | **str** | Google Ads Campaign ID | 
 **campaign_name** | **str** | Google Ads Campaign Name | 
 **campaign_status** | [**GoogleAdsCampaignStatus**](GoogleAdsCampaignStatus.md) | Campaign Status | 
 **language_code** | **str** |  | [optional] 

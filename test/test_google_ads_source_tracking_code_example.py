@@ -35,14 +35,14 @@ class TestGoogleAdsSourceTrackingCodeExample(unittest.TestCase):
         model = GoogleAdsSourceTrackingCodeExample()
         if include_optional:
             return GoogleAdsSourceTrackingCodeExample(
-                customer_id = 56,
+                customer_id = '',
                 customer_name = '',
                 tracking_code = '',
                 description = ''
             )
         else:
             return GoogleAdsSourceTrackingCodeExample(
-                customer_id = 56,
+                customer_id = '',
                 customer_name = '',
                 tracking_code = '',
                 description = '',

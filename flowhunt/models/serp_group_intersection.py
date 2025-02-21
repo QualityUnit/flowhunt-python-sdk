@@ -27,9 +27,9 @@ class SerpGroupIntersection(BaseModel):
     SerpGroupIntersection
     """ # noqa: E501
     workspace_id: StrictStr
-    customer_id: StrictInt
-    campaign_id: StrictInt
-    group_id: StrictInt
+    customer_id: StrictStr
+    campaign_id: StrictStr
+    group_id: StrictStr
     unique_group_id: Optional[StrictStr] = None
     intersections_count: StrictInt
     __properties: ClassVar[List[str]] = ["workspace_id", "customer_id", "campaign_id", "group_id", "unique_group_id", "intersections_count"]

@@ -28,7 +28,7 @@ class TrackingSourceCreateRequest(BaseModel):
     """
     TrackingSourceCreateRequest
     """ # noqa: E501
-    customer_id: Optional[StrictInt] = None
+    customer_id: Optional[StrictStr] = None
     click_id: Optional[StrictStr] = None
     click_id_name: Optional[TrackingClickIdNames] = None
     utm_source: Optional[StrictStr] = None

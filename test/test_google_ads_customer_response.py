@@ -36,7 +36,7 @@ class TestGoogleAdsCustomerResponse(unittest.TestCase):
         if include_optional:
             return GoogleAdsCustomerResponse(
                 workspace_id = '',
-                customer_id = 56,
+                customer_id = '',
                 customer_name = '',
                 language_code = '',
                 country = '',
@@ -53,7 +53,7 @@ class TestGoogleAdsCustomerResponse(unittest.TestCase):
         else:
             return GoogleAdsCustomerResponse(
                 workspace_id = '',
-                customer_id = 56,
+                customer_id = '',
                 customer_name = '',
                 language_code = '',
                 country = '',

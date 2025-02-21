@@ -36,9 +36,9 @@ class TestGoogleAdsGroupResponse(unittest.TestCase):
         if include_optional:
             return GoogleAdsGroupResponse(
                 workspace_id = '',
-                customer_id = 56,
-                campaign_id = 56,
-                group_id = 56,
+                customer_id = '',
+                campaign_id = '',
+                group_id = '',
                 group_name = '',
                 group_status = 0,
                 last_update = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
@@ -49,9 +49,9 @@ class TestGoogleAdsGroupResponse(unittest.TestCase):
         else:
             return GoogleAdsGroupResponse(
                 workspace_id = '',
-                customer_id = 56,
-                campaign_id = 56,
-                group_id = 56,
+                customer_id = '',
+                campaign_id = '',
+                group_id = '',
                 group_name = '',
                 group_status = 0,
                 action_type = 'I',

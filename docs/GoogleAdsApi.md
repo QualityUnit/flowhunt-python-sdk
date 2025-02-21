@@ -151,7 +151,7 @@ configuration = flowhunt.Configuration(
 with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = flowhunt.GoogleAdsApi(api_client)
-    customer_id = 56 # int | 
+    customer_id = 'customer_id_example' # str | 
     workspace_id = 'workspace_id_example' # str | 
 
     try:
@@ -170,7 +170,7 @@ with flowhunt.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **customer_id** | **int**|  | 
+ **customer_id** | **str**|  | 
  **workspace_id** | **str**|  | 
 
 ### Return type
@@ -237,7 +237,7 @@ configuration = flowhunt.Configuration(
 with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = flowhunt.GoogleAdsApi(api_client)
-    customer_id = 56 # int | 
+    customer_id = 'customer_id_example' # str | 
     workspace_id = 'workspace_id_example' # str | 
 
     try:
@@ -256,7 +256,7 @@ with flowhunt.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **customer_id** | **int**|  | 
+ **customer_id** | **str**|  | 
  **workspace_id** | **str**|  | 
 
 ### Return type
@@ -928,7 +928,7 @@ configuration = flowhunt.Configuration(
 with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = flowhunt.GoogleAdsApi(api_client)
-    customer_id = 56 # int | 
+    customer_id = 'customer_id_example' # str | 
     workspace_id = 'workspace_id_example' # str | 
 
     try:
@@ -947,7 +947,7 @@ with flowhunt.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **customer_id** | **int**|  | 
+ **customer_id** | **str**|  | 
  **workspace_id** | **str**|  | 
 
 ### Return type
@@ -1015,8 +1015,8 @@ configuration = flowhunt.Configuration(
 with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = flowhunt.GoogleAdsApi(api_client)
-    customer_id = 56 # int | 
-    campaign_id = 56 # int | 
+    customer_id = 'customer_id_example' # str | 
+    campaign_id = 'campaign_id_example' # str | 
     workspace_id = 'workspace_id_example' # str | 
     google_ads_campaign_update_request = flowhunt.GoogleAdsCampaignUpdateRequest() # GoogleAdsCampaignUpdateRequest | 
 
@@ -1036,8 +1036,8 @@ with flowhunt.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **customer_id** | **int**|  | 
- **campaign_id** | **int**|  | 
+ **customer_id** | **str**|  | 
+ **campaign_id** | **str**|  | 
  **workspace_id** | **str**|  | 
  **google_ads_campaign_update_request** | [**GoogleAdsCampaignUpdateRequest**](GoogleAdsCampaignUpdateRequest.md)|  | 
 
@@ -1106,7 +1106,7 @@ configuration = flowhunt.Configuration(
 with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = flowhunt.GoogleAdsApi(api_client)
-    customer_id = 56 # int | 
+    customer_id = 'customer_id_example' # str | 
     workspace_id = 'workspace_id_example' # str | 
     google_ads_customer_update_request = flowhunt.GoogleAdsCustomerUpdateRequest() # GoogleAdsCustomerUpdateRequest | 
 
@@ -1126,7 +1126,7 @@ with flowhunt.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **customer_id** | **int**|  | 
+ **customer_id** | **str**|  | 
  **workspace_id** | **str**|  | 
  **google_ads_customer_update_request** | [**GoogleAdsCustomerUpdateRequest**](GoogleAdsCustomerUpdateRequest.md)|  | 
 
@@ -1195,9 +1195,9 @@ configuration = flowhunt.Configuration(
 with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = flowhunt.GoogleAdsApi(api_client)
-    customer_id = 56 # int | 
-    campaign_id = 56 # int | 
-    group_id = 56 # int | 
+    customer_id = 'customer_id_example' # str | 
+    campaign_id = 'campaign_id_example' # str | 
+    group_id = 'group_id_example' # str | 
     workspace_id = 'workspace_id_example' # str | 
     google_ads_group_update_request = flowhunt.GoogleAdsGroupUpdateRequest() # GoogleAdsGroupUpdateRequest | 
 
@@ -1217,9 +1217,9 @@ with flowhunt.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **customer_id** | **int**|  | 
- **campaign_id** | **int**|  | 
- **group_id** | **int**|  | 
+ **customer_id** | **str**|  | 
+ **campaign_id** | **str**|  | 
+ **group_id** | **str**|  | 
  **workspace_id** | **str**|  | 
  **google_ads_group_update_request** | [**GoogleAdsGroupUpdateRequest**](GoogleAdsGroupUpdateRequest.md)|  | 
 

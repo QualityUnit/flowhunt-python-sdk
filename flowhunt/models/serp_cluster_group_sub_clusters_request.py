@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -26,9 +26,9 @@ class SerpClusterGroupSubClustersRequest(BaseModel):
     """
     SerpClusterGroupSubClustersRequest
     """ # noqa: E501
-    customer_id: StrictInt = Field(description="Customer ID of cluster")
-    campaign_id: Optional[StrictInt] = None
-    group_id: Optional[StrictInt] = None
+    customer_id: StrictStr = Field(description="Customer ID of cluster")
+    campaign_id: Optional[StrictStr] = None
+    group_id: Optional[StrictStr] = None
     min_cluster_strength: Optional[StrictInt] = None
     suggest_other_matching_keywords: Optional[StrictBool] = None
     include_group_keywords: Optional[StrictBool] = None

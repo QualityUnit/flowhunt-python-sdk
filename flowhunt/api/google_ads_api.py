@@ -16,7 +16,7 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import StrictInt, StrictStr
+from pydantic import StrictStr
 from typing import List
 from flowhunt.models.completed import Completed
 from flowhunt.models.google_ads_analyze_keywords_request import GoogleAdsAnalyzeKeywordsRequest
@@ -350,7 +350,7 @@ class GoogleAdsApi:
     @validate_call
     def get_conversion_tracking_code_examples(
         self,
-        customer_id: StrictInt,
+        customer_id: StrictStr,
         workspace_id: StrictStr,
         _request_timeout: Union[
             None,
@@ -370,7 +370,7 @@ class GoogleAdsApi:
         Get example tracking code for each conversion action in the Google Ads account.
 
         :param customer_id: (required)
-        :type customer_id: int
+        :type customer_id: str
         :param workspace_id: (required)
         :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -422,7 +422,7 @@ class GoogleAdsApi:
     @validate_call
     def get_conversion_tracking_code_examples_with_http_info(
         self,
-        customer_id: StrictInt,
+        customer_id: StrictStr,
         workspace_id: StrictStr,
         _request_timeout: Union[
             None,
@@ -442,7 +442,7 @@ class GoogleAdsApi:
         Get example tracking code for each conversion action in the Google Ads account.
 
         :param customer_id: (required)
-        :type customer_id: int
+        :type customer_id: str
         :param workspace_id: (required)
         :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -494,7 +494,7 @@ class GoogleAdsApi:
     @validate_call
     def get_conversion_tracking_code_examples_without_preload_content(
         self,
-        customer_id: StrictInt,
+        customer_id: StrictStr,
         workspace_id: StrictStr,
         _request_timeout: Union[
             None,
@@ -514,7 +514,7 @@ class GoogleAdsApi:
         Get example tracking code for each conversion action in the Google Ads account.
 
         :param customer_id: (required)
-        :type customer_id: int
+        :type customer_id: str
         :param workspace_id: (required)
         :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -632,7 +632,7 @@ class GoogleAdsApi:
     @validate_call
     def get_conversion_tracking_settings(
         self,
-        customer_id: StrictInt,
+        customer_id: StrictStr,
         workspace_id: StrictStr,
         _request_timeout: Union[
             None,
@@ -651,7 +651,7 @@ class GoogleAdsApi:
 
 
         :param customer_id: (required)
-        :type customer_id: int
+        :type customer_id: str
         :param workspace_id: (required)
         :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -703,7 +703,7 @@ class GoogleAdsApi:
     @validate_call
     def get_conversion_tracking_settings_with_http_info(
         self,
-        customer_id: StrictInt,
+        customer_id: StrictStr,
         workspace_id: StrictStr,
         _request_timeout: Union[
             None,
@@ -722,7 +722,7 @@ class GoogleAdsApi:
 
 
         :param customer_id: (required)
-        :type customer_id: int
+        :type customer_id: str
         :param workspace_id: (required)
         :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -774,7 +774,7 @@ class GoogleAdsApi:
     @validate_call
     def get_conversion_tracking_settings_without_preload_content(
         self,
-        customer_id: StrictInt,
+        customer_id: StrictStr,
         workspace_id: StrictStr,
         _request_timeout: Union[
             None,
@@ -793,7 +793,7 @@ class GoogleAdsApi:
 
 
         :param customer_id: (required)
-        :type customer_id: int
+        :type customer_id: str
         :param workspace_id: (required)
         :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -2902,7 +2902,7 @@ class GoogleAdsApi:
     @validate_call
     def list_conversion_actions(
         self,
-        customer_id: StrictInt,
+        customer_id: StrictStr,
         workspace_id: StrictStr,
         _request_timeout: Union[
             None,
@@ -2921,7 +2921,7 @@ class GoogleAdsApi:
 
 
         :param customer_id: (required)
-        :type customer_id: int
+        :type customer_id: str
         :param workspace_id: (required)
         :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -2973,7 +2973,7 @@ class GoogleAdsApi:
     @validate_call
     def list_conversion_actions_with_http_info(
         self,
-        customer_id: StrictInt,
+        customer_id: StrictStr,
         workspace_id: StrictStr,
         _request_timeout: Union[
             None,
@@ -2992,7 +2992,7 @@ class GoogleAdsApi:
 
 
         :param customer_id: (required)
-        :type customer_id: int
+        :type customer_id: str
         :param workspace_id: (required)
         :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -3044,7 +3044,7 @@ class GoogleAdsApi:
     @validate_call
     def list_conversion_actions_without_preload_content(
         self,
-        customer_id: StrictInt,
+        customer_id: StrictStr,
         workspace_id: StrictStr,
         _request_timeout: Union[
             None,
@@ -3063,7 +3063,7 @@ class GoogleAdsApi:
 
 
         :param customer_id: (required)
-        :type customer_id: int
+        :type customer_id: str
         :param workspace_id: (required)
         :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -3181,8 +3181,8 @@ class GoogleAdsApi:
     @validate_call
     def update_google_ads_campaign(
         self,
-        customer_id: StrictInt,
-        campaign_id: StrictInt,
+        customer_id: StrictStr,
+        campaign_id: StrictStr,
         workspace_id: StrictStr,
         google_ads_campaign_update_request: GoogleAdsCampaignUpdateRequest,
         _request_timeout: Union[
@@ -3202,9 +3202,9 @@ class GoogleAdsApi:
 
 
         :param customer_id: (required)
-        :type customer_id: int
+        :type customer_id: str
         :param campaign_id: (required)
-        :type campaign_id: int
+        :type campaign_id: str
         :param workspace_id: (required)
         :type workspace_id: str
         :param google_ads_campaign_update_request: (required)
@@ -3260,8 +3260,8 @@ class GoogleAdsApi:
     @validate_call
     def update_google_ads_campaign_with_http_info(
         self,
-        customer_id: StrictInt,
-        campaign_id: StrictInt,
+        customer_id: StrictStr,
+        campaign_id: StrictStr,
         workspace_id: StrictStr,
         google_ads_campaign_update_request: GoogleAdsCampaignUpdateRequest,
         _request_timeout: Union[
@@ -3281,9 +3281,9 @@ class GoogleAdsApi:
 
 
         :param customer_id: (required)
-        :type customer_id: int
+        :type customer_id: str
         :param campaign_id: (required)
-        :type campaign_id: int
+        :type campaign_id: str
         :param workspace_id: (required)
         :type workspace_id: str
         :param google_ads_campaign_update_request: (required)
@@ -3339,8 +3339,8 @@ class GoogleAdsApi:
     @validate_call
     def update_google_ads_campaign_without_preload_content(
         self,
-        customer_id: StrictInt,
-        campaign_id: StrictInt,
+        customer_id: StrictStr,
+        campaign_id: StrictStr,
         workspace_id: StrictStr,
         google_ads_campaign_update_request: GoogleAdsCampaignUpdateRequest,
         _request_timeout: Union[
@@ -3360,9 +3360,9 @@ class GoogleAdsApi:
 
 
         :param customer_id: (required)
-        :type customer_id: int
+        :type customer_id: str
         :param campaign_id: (required)
-        :type campaign_id: int
+        :type campaign_id: str
         :param workspace_id: (required)
         :type workspace_id: str
         :param google_ads_campaign_update_request: (required)
@@ -3503,7 +3503,7 @@ class GoogleAdsApi:
     @validate_call
     def update_google_ads_customer_update(
         self,
-        customer_id: StrictInt,
+        customer_id: StrictStr,
         workspace_id: StrictStr,
         google_ads_customer_update_request: GoogleAdsCustomerUpdateRequest,
         _request_timeout: Union[
@@ -3523,7 +3523,7 @@ class GoogleAdsApi:
 
 
         :param customer_id: (required)
-        :type customer_id: int
+        :type customer_id: str
         :param workspace_id: (required)
         :type workspace_id: str
         :param google_ads_customer_update_request: (required)
@@ -3578,7 +3578,7 @@ class GoogleAdsApi:
     @validate_call
     def update_google_ads_customer_update_with_http_info(
         self,
-        customer_id: StrictInt,
+        customer_id: StrictStr,
         workspace_id: StrictStr,
         google_ads_customer_update_request: GoogleAdsCustomerUpdateRequest,
         _request_timeout: Union[
@@ -3598,7 +3598,7 @@ class GoogleAdsApi:
 
 
         :param customer_id: (required)
-        :type customer_id: int
+        :type customer_id: str
         :param workspace_id: (required)
         :type workspace_id: str
         :param google_ads_customer_update_request: (required)
@@ -3653,7 +3653,7 @@ class GoogleAdsApi:
     @validate_call
     def update_google_ads_customer_update_without_preload_content(
         self,
-        customer_id: StrictInt,
+        customer_id: StrictStr,
         workspace_id: StrictStr,
         google_ads_customer_update_request: GoogleAdsCustomerUpdateRequest,
         _request_timeout: Union[
@@ -3673,7 +3673,7 @@ class GoogleAdsApi:
 
 
         :param customer_id: (required)
-        :type customer_id: int
+        :type customer_id: str
         :param workspace_id: (required)
         :type workspace_id: str
         :param google_ads_customer_update_request: (required)
@@ -3810,9 +3810,9 @@ class GoogleAdsApi:
     @validate_call
     def update_google_ads_group(
         self,
-        customer_id: StrictInt,
-        campaign_id: StrictInt,
-        group_id: StrictInt,
+        customer_id: StrictStr,
+        campaign_id: StrictStr,
+        group_id: StrictStr,
         workspace_id: StrictStr,
         google_ads_group_update_request: GoogleAdsGroupUpdateRequest,
         _request_timeout: Union[
@@ -3832,11 +3832,11 @@ class GoogleAdsApi:
 
 
         :param customer_id: (required)
-        :type customer_id: int
+        :type customer_id: str
         :param campaign_id: (required)
-        :type campaign_id: int
+        :type campaign_id: str
         :param group_id: (required)
-        :type group_id: int
+        :type group_id: str
         :param workspace_id: (required)
         :type workspace_id: str
         :param google_ads_group_update_request: (required)
@@ -3893,9 +3893,9 @@ class GoogleAdsApi:
     @validate_call
     def update_google_ads_group_with_http_info(
         self,
-        customer_id: StrictInt,
-        campaign_id: StrictInt,
-        group_id: StrictInt,
+        customer_id: StrictStr,
+        campaign_id: StrictStr,
+        group_id: StrictStr,
         workspace_id: StrictStr,
         google_ads_group_update_request: GoogleAdsGroupUpdateRequest,
         _request_timeout: Union[
@@ -3915,11 +3915,11 @@ class GoogleAdsApi:
 
 
         :param customer_id: (required)
-        :type customer_id: int
+        :type customer_id: str
         :param campaign_id: (required)
-        :type campaign_id: int
+        :type campaign_id: str
         :param group_id: (required)
-        :type group_id: int
+        :type group_id: str
         :param workspace_id: (required)
         :type workspace_id: str
         :param google_ads_group_update_request: (required)
@@ -3976,9 +3976,9 @@ class GoogleAdsApi:
     @validate_call
     def update_google_ads_group_without_preload_content(
         self,
-        customer_id: StrictInt,
-        campaign_id: StrictInt,
-        group_id: StrictInt,
+        customer_id: StrictStr,
+        campaign_id: StrictStr,
+        group_id: StrictStr,
         workspace_id: StrictStr,
         google_ads_group_update_request: GoogleAdsGroupUpdateRequest,
         _request_timeout: Union[
@@ -3998,11 +3998,11 @@ class GoogleAdsApi:
 
 
         :param customer_id: (required)
-        :type customer_id: int
+        :type customer_id: str
         :param campaign_id: (required)
-        :type campaign_id: int
+        :type campaign_id: str
         :param group_id: (required)
-        :type group_id: int
+        :type group_id: str
         :param workspace_id: (required)
         :type workspace_id: str
         :param google_ads_group_update_request: (required)

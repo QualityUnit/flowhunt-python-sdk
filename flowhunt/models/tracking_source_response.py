@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from flowhunt.models.tracking_click_id_names import TrackingClickIdNames
 from flowhunt.models.tracking_event_data import TrackingEventData
@@ -30,7 +30,7 @@ class TrackingSourceResponse(BaseModel):
     """
     TrackingSourceResponse
     """ # noqa: E501
-    customer_id: Optional[StrictInt] = None
+    customer_id: Optional[StrictStr] = None
     link_id: Optional[StrictStr] = None
     source_type: TrackingSourceTypes
     click_id: Optional[StrictStr] = None

@@ -35,15 +35,15 @@ class TestSerpClusterGroupIntersectionsRequest(unittest.TestCase):
         model = SerpClusterGroupIntersectionsRequest()
         if include_optional:
             return SerpClusterGroupIntersectionsRequest(
-                customer_id = 56,
-                campaign_id = 56,
-                group_id = 56,
+                customer_id = '',
+                campaign_id = '',
+                group_id = '',
                 min_cluster_strength = 56,
                 suggest_other_matching_keywords = True
             )
         else:
             return SerpClusterGroupIntersectionsRequest(
-                customer_id = 56,
+                customer_id = '',
         )
         """
 

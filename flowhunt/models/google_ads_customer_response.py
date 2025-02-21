@@ -29,7 +29,7 @@ class GoogleAdsCustomerResponse(BaseModel):
     GoogleAdsCustomerResponse
     """ # noqa: E501
     workspace_id: StrictStr = Field(description="Workspace ID")
-    customer_id: StrictInt = Field(description="Google Ads Customer ID")
+    customer_id: StrictStr = Field(description="Google Ads Customer ID")
     customer_name: StrictStr = Field(description="Google Ads Customer Name")
     language_code: StrictStr = Field(description="Language Code")
     country: StrictStr = Field(description="Country Code")

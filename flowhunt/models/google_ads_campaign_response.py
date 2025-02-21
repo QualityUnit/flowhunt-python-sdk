@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from flowhunt.models.google_ads_action_type import GoogleAdsActionType
 from flowhunt.models.google_ads_campaign_status import GoogleAdsCampaignStatus
@@ -30,8 +30,8 @@ class GoogleAdsCampaignResponse(BaseModel):
     GoogleAdsCampaignResponse
     """ # noqa: E501
     workspace_id: StrictStr = Field(description="Workspace ID")
-    customer_id: StrictInt = Field(description="Google Ads Customer ID")
-    campaign_id: StrictInt = Field(description="Google Ads Campaign ID")
+    customer_id: StrictStr = Field(description="Google Ads Customer ID")
+    campaign_id: StrictStr = Field(description="Google Ads Campaign ID")
     campaign_name: StrictStr = Field(description="Google Ads Campaign Name")
     campaign_status: GoogleAdsCampaignStatus = Field(description="Campaign Status")
     language_code: Optional[StrictStr] = None

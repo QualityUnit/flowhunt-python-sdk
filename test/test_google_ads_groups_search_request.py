@@ -35,9 +35,9 @@ class TestGoogleAdsGroupsSearchRequest(unittest.TestCase):
         model = GoogleAdsGroupsSearchRequest()
         if include_optional:
             return GoogleAdsGroupsSearchRequest(
-                customer_id = 56,
-                campaign_id = 56,
-                group_id = 56,
+                customer_id = '',
+                campaign_id = '',
+                group_id = '',
                 group_name = '',
                 language_code = '',
                 country = '',

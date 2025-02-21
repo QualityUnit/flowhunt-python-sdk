@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**customer_id** | **int** |  | [optional] 
+**customer_id** | **str** |  | [optional] 
 **click_id** | **str** |  | [optional] 
 **click_id_name** | [**TrackingClickIdNames**](TrackingClickIdNames.md) |  | [optional] 
 **utm_source** | **str** |  | [optional] 

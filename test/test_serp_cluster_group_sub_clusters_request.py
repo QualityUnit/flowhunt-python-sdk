@@ -35,16 +35,16 @@ class TestSerpClusterGroupSubClustersRequest(unittest.TestCase):
         model = SerpClusterGroupSubClustersRequest()
         if include_optional:
             return SerpClusterGroupSubClustersRequest(
-                customer_id = 56,
-                campaign_id = 56,
-                group_id = 56,
+                customer_id = '',
+                campaign_id = '',
+                group_id = '',
                 min_cluster_strength = 56,
                 suggest_other_matching_keywords = True,
                 include_group_keywords = True
             )
         else:
             return SerpClusterGroupSubClustersRequest(
-                customer_id = 56,
+                customer_id = '',
         )
         """
 

@@ -7,9 +7,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **post_back_url** | **str** |  | [optional] 
 **queries** | [**List[SerpKeyword]**](SerpKeyword.md) | List of queries | 
-**customer_id** | **int** | Customer ID of cluster | [optional] 
-**campaign_id** | **int** | Campaign ID of cluster | [optional] 
-**group_id** | **int** | Group ID of cluster - will be generated if not provided | [optional] 
+**customer_id** | **str** | Customer ID of cluster | [optional] 
+**campaign_id** | **str** | Campaign ID of cluster | [optional] 
+**group_id** | **str** | Group ID of cluster - will be generated if not provided | [optional] 
 **group_name** | **str** | Group name of cluster | [optional] [default to '']
 
 ## Example

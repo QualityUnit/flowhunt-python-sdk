@@ -6,9 +6,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **workspace_id** | **str** | Workspace ID | 
-**customer_id** | **int** | Google Ads Customer ID | 
-**campaign_id** | **int** | Google Ads Campaign ID | 
-**group_id** | **int** | Google Ads Group | 
+**customer_id** | **str** | Google Ads Customer ID | 
+**campaign_id** | **str** | Google Ads Campaign ID | 
+**group_id** | **str** | Google Ads Group | 
 **group_name** | **str** | Google Ads Group Name | 
 **group_status** | [**GoogleAdsGroupStatus**](GoogleAdsGroupStatus.md) | Group Status | 
 **last_update** | **datetime** |  | [optional] 

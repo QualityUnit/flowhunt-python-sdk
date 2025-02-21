@@ -28,7 +28,7 @@ class GoogleAdsCustomersSearchRequest(BaseModel):
     """
     GoogleAdsCustomersSearchRequest
     """ # noqa: E501
-    customer_id: Optional[StrictInt] = None
+    customer_id: Optional[StrictStr] = None
     customer_name: Optional[StrictStr] = None
     language_code: Optional[StrictStr] = None
     country: Optional[StrictStr] = None

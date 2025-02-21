@@ -38,7 +38,7 @@ class TestGoogleAdsCustomersResponse(unittest.TestCase):
                 customers = [
                     flowhunt.models.google_ads_customer_response.GoogleAdsCustomerResponse(
                         workspace_id = '', 
-                        customer_id = 56, 
+                        customer_id = '', 
                         customer_name = '', 
                         language_code = '', 
                         country = '', 
@@ -58,7 +58,7 @@ class TestGoogleAdsCustomersResponse(unittest.TestCase):
                 customers = [
                     flowhunt.models.google_ads_customer_response.GoogleAdsCustomerResponse(
                         workspace_id = '', 
-                        customer_id = 56, 
+                        customer_id = '', 
                         customer_name = '', 
                         language_code = '', 
                         country = '', 

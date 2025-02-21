@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **workspace_id** | **str** | Workspace ID | 
-**customer_id** | **int** | Google Ads Customer ID | 
+**customer_id** | **str** | Google Ads Customer ID | 
 **customer_name** | **str** | Google Ads Customer Name | 
 **language_code** | **str** | Language Code | 
 **country** | **str** | Country Code | 

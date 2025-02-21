@@ -57,6 +57,8 @@
 
 * `FAT_GC` (value: `'FAT_GC'`)
 
+* `CE_GC` (value: `'CE_GC'`)
+
 * `VE_GC` (value: `'VE_GC'`)
 
 * `CWP` (value: `'CWP'`)

@@ -6,9 +6,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **search** | **str** |  | [optional] 
-**customer_id** | **int** |  | [optional] 
-**campaign_id** | **int** |  | [optional] 
-**group_id** | **int** |  | [optional] 
+**customer_id** | **str** |  | [optional] 
+**campaign_id** | **str** |  | [optional] 
+**group_id** | **str** |  | [optional] 
 
 ## Example
 

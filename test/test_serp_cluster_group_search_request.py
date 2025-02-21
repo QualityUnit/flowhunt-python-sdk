@@ -36,9 +36,9 @@ class TestSerpClusterGroupSearchRequest(unittest.TestCase):
         if include_optional:
             return SerpClusterGroupSearchRequest(
                 search = '',
-                customer_id = 56,
-                campaign_id = 56,
-                group_id = 56
+                customer_id = '',
+                campaign_id = '',
+                group_id = ''
             )
         else:
             return SerpClusterGroupSearchRequest(

@@ -35,7 +35,7 @@ class TestTrackingSourceSearchRequest(unittest.TestCase):
         model = TrackingSourceSearchRequest()
         if include_optional:
             return TrackingSourceSearchRequest(
-                customer_id = 56,
+                customer_id = '',
                 source_type = 'ga',
                 click_id = '',
                 click_id_name = 'gclid',

@@ -40,15 +40,15 @@ class TestSerpClusterKeywordIntersectionsRequest(unittest.TestCase):
                 language = '',
                 country = '',
                 search_engine = 'G',
-                customer_id = 56,
-                campaign_id = 56,
-                group_id = 56,
+                customer_id = '',
+                campaign_id = '',
+                group_id = '',
                 min_cluster_strength = 56
             )
         else:
             return SerpClusterKeywordIntersectionsRequest(
                 keyword = '',
-                customer_id = 56,
+                customer_id = '',
         )
         """
 

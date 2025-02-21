@@ -5,9 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**customer_id** | **int** | Customer ID of cluster | 
-**campaign_id** | **int** |  | [optional] 
-**group_id** | **int** |  | [optional] 
+**customer_id** | **str** | Customer ID of cluster | 
+**campaign_id** | **str** |  | [optional] 
+**group_id** | **str** |  | [optional] 
 **min_cluster_strength** | **int** |  | [optional] 
 **suggest_other_matching_keywords** | **bool** |  | [optional] 
 

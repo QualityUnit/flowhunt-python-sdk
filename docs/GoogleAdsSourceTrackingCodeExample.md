@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**customer_id** | **int** | The ID of the customer | 
+**customer_id** | **str** | The ID of the customer | 
 **customer_name** | **str** | The name of the customer | 
 **tracking_code** | **str** | Example tracking code using our JS library | 
 **description** | **str** | Description of when to use this tracking code | 

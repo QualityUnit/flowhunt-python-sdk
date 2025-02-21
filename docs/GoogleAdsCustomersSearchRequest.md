@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**customer_id** | **int** |  | [optional] 
+**customer_id** | **str** |  | [optional] 
 **customer_name** | **str** |  | [optional] 
 **language_code** | **str** |  | [optional] 
 **country** | **str** |  | [optional] 

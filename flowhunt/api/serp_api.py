@@ -16,7 +16,7 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import StrictInt, StrictStr
+from pydantic import StrictStr
 from typing import List, Optional
 from flowhunt.models.completed import Completed
 from flowhunt.models.serp_cluster_add_query_requests import SerpClusterAddQueryRequests
@@ -347,9 +347,9 @@ class SERPApi:
     @validate_call
     def serp_cluster_add_queries(
         self,
-        customer_id: StrictInt,
-        campaign_id: StrictInt,
-        group_id: StrictInt,
+        customer_id: StrictStr,
+        campaign_id: StrictStr,
+        group_id: StrictStr,
         workspace_id: StrictStr,
         serp_cluster_add_query_requests: SerpClusterAddQueryRequests,
         _request_timeout: Union[
@@ -369,11 +369,11 @@ class SERPApi:
 
 
         :param customer_id: (required)
-        :type customer_id: int
+        :type customer_id: str
         :param campaign_id: (required)
-        :type campaign_id: int
+        :type campaign_id: str
         :param group_id: (required)
-        :type group_id: int
+        :type group_id: str
         :param workspace_id: (required)
         :type workspace_id: str
         :param serp_cluster_add_query_requests: (required)
@@ -430,9 +430,9 @@ class SERPApi:
     @validate_call
     def serp_cluster_add_queries_with_http_info(
         self,
-        customer_id: StrictInt,
-        campaign_id: StrictInt,
-        group_id: StrictInt,
+        customer_id: StrictStr,
+        campaign_id: StrictStr,
+        group_id: StrictStr,
         workspace_id: StrictStr,
         serp_cluster_add_query_requests: SerpClusterAddQueryRequests,
         _request_timeout: Union[
@@ -452,11 +452,11 @@ class SERPApi:
 
 
         :param customer_id: (required)
-        :type customer_id: int
+        :type customer_id: str
         :param campaign_id: (required)
-        :type campaign_id: int
+        :type campaign_id: str
         :param group_id: (required)
-        :type group_id: int
+        :type group_id: str
         :param workspace_id: (required)
         :type workspace_id: str
         :param serp_cluster_add_query_requests: (required)
@@ -513,9 +513,9 @@ class SERPApi:
     @validate_call
     def serp_cluster_add_queries_without_preload_content(
         self,
-        customer_id: StrictInt,
-        campaign_id: StrictInt,
-        group_id: StrictInt,
+        customer_id: StrictStr,
+        campaign_id: StrictStr,
+        group_id: StrictStr,
         workspace_id: StrictStr,
         serp_cluster_add_query_requests: SerpClusterAddQueryRequests,
         _request_timeout: Union[
@@ -535,11 +535,11 @@ class SERPApi:
 
 
         :param customer_id: (required)
-        :type customer_id: int
+        :type customer_id: str
         :param campaign_id: (required)
-        :type campaign_id: int
+        :type campaign_id: str
         :param group_id: (required)
-        :type group_id: int
+        :type group_id: str
         :param workspace_id: (required)
         :type workspace_id: str
         :param serp_cluster_add_query_requests: (required)
@@ -684,8 +684,8 @@ class SERPApi:
     @validate_call
     def serp_cluster_delete_campaign(
         self,
-        customer_id: StrictInt,
-        campaign_id: StrictInt,
+        customer_id: StrictStr,
+        campaign_id: StrictStr,
         workspace_id: StrictStr,
         _request_timeout: Union[
             None,
@@ -704,9 +704,9 @@ class SERPApi:
 
 
         :param customer_id: (required)
-        :type customer_id: int
+        :type customer_id: str
         :param campaign_id: (required)
-        :type campaign_id: int
+        :type campaign_id: str
         :param workspace_id: (required)
         :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -759,8 +759,8 @@ class SERPApi:
     @validate_call
     def serp_cluster_delete_campaign_with_http_info(
         self,
-        customer_id: StrictInt,
-        campaign_id: StrictInt,
+        customer_id: StrictStr,
+        campaign_id: StrictStr,
         workspace_id: StrictStr,
         _request_timeout: Union[
             None,
@@ -779,9 +779,9 @@ class SERPApi:
 
 
         :param customer_id: (required)
-        :type customer_id: int
+        :type customer_id: str
         :param campaign_id: (required)
-        :type campaign_id: int
+        :type campaign_id: str
         :param workspace_id: (required)
         :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -834,8 +834,8 @@ class SERPApi:
     @validate_call
     def serp_cluster_delete_campaign_without_preload_content(
         self,
-        customer_id: StrictInt,
-        campaign_id: StrictInt,
+        customer_id: StrictStr,
+        campaign_id: StrictStr,
         workspace_id: StrictStr,
         _request_timeout: Union[
             None,
@@ -854,9 +854,9 @@ class SERPApi:
 
 
         :param customer_id: (required)
-        :type customer_id: int
+        :type customer_id: str
         :param campaign_id: (required)
-        :type campaign_id: int
+        :type campaign_id: str
         :param workspace_id: (required)
         :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -978,7 +978,7 @@ class SERPApi:
     @validate_call
     def serp_cluster_delete_customer(
         self,
-        customer_id: StrictInt,
+        customer_id: StrictStr,
         workspace_id: StrictStr,
         _request_timeout: Union[
             None,
@@ -997,7 +997,7 @@ class SERPApi:
 
 
         :param customer_id: (required)
-        :type customer_id: int
+        :type customer_id: str
         :param workspace_id: (required)
         :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -1049,7 +1049,7 @@ class SERPApi:
     @validate_call
     def serp_cluster_delete_customer_with_http_info(
         self,
-        customer_id: StrictInt,
+        customer_id: StrictStr,
         workspace_id: StrictStr,
         _request_timeout: Union[
             None,
@@ -1068,7 +1068,7 @@ class SERPApi:
 
 
         :param customer_id: (required)
-        :type customer_id: int
+        :type customer_id: str
         :param workspace_id: (required)
         :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -1120,7 +1120,7 @@ class SERPApi:
     @validate_call
     def serp_cluster_delete_customer_without_preload_content(
         self,
-        customer_id: StrictInt,
+        customer_id: StrictStr,
         workspace_id: StrictStr,
         _request_timeout: Union[
             None,
@@ -1139,7 +1139,7 @@ class SERPApi:
 
 
         :param customer_id: (required)
-        :type customer_id: int
+        :type customer_id: str
         :param workspace_id: (required)
         :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -1257,9 +1257,9 @@ class SERPApi:
     @validate_call
     def serp_cluster_delete_group(
         self,
-        customer_id: StrictInt,
-        campaign_id: StrictInt,
-        group_id: StrictInt,
+        customer_id: StrictStr,
+        campaign_id: StrictStr,
+        group_id: StrictStr,
         workspace_id: StrictStr,
         _request_timeout: Union[
             None,
@@ -1278,11 +1278,11 @@ class SERPApi:
 
 
         :param customer_id: (required)
-        :type customer_id: int
+        :type customer_id: str
         :param campaign_id: (required)
-        :type campaign_id: int
+        :type campaign_id: str
         :param group_id: (required)
-        :type group_id: int
+        :type group_id: str
         :param workspace_id: (required)
         :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -1336,9 +1336,9 @@ class SERPApi:
     @validate_call
     def serp_cluster_delete_group_with_http_info(
         self,
-        customer_id: StrictInt,
-        campaign_id: StrictInt,
-        group_id: StrictInt,
+        customer_id: StrictStr,
+        campaign_id: StrictStr,
+        group_id: StrictStr,
         workspace_id: StrictStr,
         _request_timeout: Union[
             None,
@@ -1357,11 +1357,11 @@ class SERPApi:
 
 
         :param customer_id: (required)
-        :type customer_id: int
+        :type customer_id: str
         :param campaign_id: (required)
-        :type campaign_id: int
+        :type campaign_id: str
         :param group_id: (required)
-        :type group_id: int
+        :type group_id: str
         :param workspace_id: (required)
         :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -1415,9 +1415,9 @@ class SERPApi:
     @validate_call
     def serp_cluster_delete_group_without_preload_content(
         self,
-        customer_id: StrictInt,
-        campaign_id: StrictInt,
-        group_id: StrictInt,
+        customer_id: StrictStr,
+        campaign_id: StrictStr,
+        group_id: StrictStr,
         workspace_id: StrictStr,
         _request_timeout: Union[
             None,
@@ -1436,11 +1436,11 @@ class SERPApi:
 
 
         :param customer_id: (required)
-        :type customer_id: int
+        :type customer_id: str
         :param campaign_id: (required)
-        :type campaign_id: int
+        :type campaign_id: str
         :param group_id: (required)
-        :type group_id: int
+        :type group_id: str
         :param workspace_id: (required)
         :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -1566,9 +1566,9 @@ class SERPApi:
     @validate_call
     def serp_cluster_delete_group_queries(
         self,
-        customer_id: StrictInt,
-        campaign_id: StrictInt,
-        group_id: StrictInt,
+        customer_id: StrictStr,
+        campaign_id: StrictStr,
+        group_id: StrictStr,
         workspace_id: StrictStr,
         serp_query_request: SerpQueryRequest,
         _request_timeout: Union[
@@ -1588,11 +1588,11 @@ class SERPApi:
 
 
         :param customer_id: (required)
-        :type customer_id: int
+        :type customer_id: str
         :param campaign_id: (required)
-        :type campaign_id: int
+        :type campaign_id: str
         :param group_id: (required)
-        :type group_id: int
+        :type group_id: str
         :param workspace_id: (required)
         :type workspace_id: str
         :param serp_query_request: (required)
@@ -1649,9 +1649,9 @@ class SERPApi:
     @validate_call
     def serp_cluster_delete_group_queries_with_http_info(
         self,
-        customer_id: StrictInt,
-        campaign_id: StrictInt,
-        group_id: StrictInt,
+        customer_id: StrictStr,
+        campaign_id: StrictStr,
+        group_id: StrictStr,
         workspace_id: StrictStr,
         serp_query_request: SerpQueryRequest,
         _request_timeout: Union[
@@ -1671,11 +1671,11 @@ class SERPApi:
 
 
         :param customer_id: (required)
-        :type customer_id: int
+        :type customer_id: str
         :param campaign_id: (required)
-        :type campaign_id: int
+        :type campaign_id: str
         :param group_id: (required)
-        :type group_id: int
+        :type group_id: str
         :param workspace_id: (required)
         :type workspace_id: str
         :param serp_query_request: (required)
@@ -1732,9 +1732,9 @@ class SERPApi:
     @validate_call
     def serp_cluster_delete_group_queries_without_preload_content(
         self,
-        customer_id: StrictInt,
-        campaign_id: StrictInt,
-        group_id: StrictInt,
+        customer_id: StrictStr,
+        campaign_id: StrictStr,
+        group_id: StrictStr,
         workspace_id: StrictStr,
         serp_query_request: SerpQueryRequest,
         _request_timeout: Union[
@@ -1754,11 +1754,11 @@ class SERPApi:
 
 
         :param customer_id: (required)
-        :type customer_id: int
+        :type customer_id: str
         :param campaign_id: (required)
-        :type campaign_id: int
+        :type campaign_id: str
         :param group_id: (required)
-        :type group_id: int
+        :type group_id: str
         :param workspace_id: (required)
         :type workspace_id: str
         :param serp_query_request: (required)

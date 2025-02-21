@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**customer_id** | **int** |  | [optional] 
-**campaign_id** | **int** |  | [optional] 
+**customer_id** | **str** |  | [optional] 
+**campaign_id** | **str** |  | [optional] 
 **campaign_name** | **str** |  | [optional] 
 **campaign_status** | [**GoogleAdsCampaignStatus**](GoogleAdsCampaignStatus.md) |  | [optional] 
 **language_code** | **str** |  | [optional] 

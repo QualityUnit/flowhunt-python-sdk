@@ -6,9 +6,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **workspace_id** | **str** |  | 
-**customer_id** | **int** |  | 
-**campaign_id** | **int** |  | 
-**group_id** | **int** |  | 
+**customer_id** | **str** |  | 
+**campaign_id** | **str** |  | 
+**group_id** | **str** |  | 
 **unique_group_id** | **str** |  | [optional] 
 **intersections_count** | **int** |  | 
 

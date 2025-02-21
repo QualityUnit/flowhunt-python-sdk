@@ -35,7 +35,7 @@ class TestTrackingSourceResponse(unittest.TestCase):
         model = TrackingSourceResponse()
         if include_optional:
             return TrackingSourceResponse(
-                customer_id = 56,
+                customer_id = '',
                 link_id = '',
                 source_type = 'ga',
                 click_id = '',

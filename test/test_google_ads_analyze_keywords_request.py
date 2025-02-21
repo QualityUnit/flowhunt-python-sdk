@@ -35,9 +35,10 @@ class TestGoogleAdsAnalyzeKeywordsRequest(unittest.TestCase):
         model = GoogleAdsAnalyzeKeywordsRequest()
         if include_optional:
             return GoogleAdsAnalyzeKeywordsRequest(
-                customer_id = 56,
-                campaign_id = 56,
-                group_id = 56
+                customer_id = '',
+                campaign_id = '',
+                group_id = '',
+                date_from = datetime.datetime.strptime('1975-12-30', '%Y-%m-%d').date()
             )
         else:
             return GoogleAdsAnalyzeKeywordsRequest(

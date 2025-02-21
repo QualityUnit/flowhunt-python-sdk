@@ -17,7 +17,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictInt
+from datetime import date
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -26,10 +27,11 @@ class GoogleAdsAnalyzeKeywordsRequest(BaseModel):
     """
     GoogleAdsAnalyzeKeywordsRequest
     """ # noqa: E501
-    customer_id: Optional[StrictInt] = None
-    campaign_id: Optional[StrictInt] = None
-    group_id: Optional[StrictInt] = None
-    __properties: ClassVar[List[str]] = ["customer_id", "campaign_id", "group_id"]
+    customer_id: Optional[StrictStr] = None
+    campaign_id: Optional[StrictStr] = None
+    group_id: Optional[StrictStr] = None
+    date_from: Optional[date] = None
+    __properties: ClassVar[List[str]] = ["customer_id", "campaign_id", "group_id", "date_from"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -85,6 +87,11 @@ class GoogleAdsAnalyzeKeywordsRequest(BaseModel):
         if self.group_id is None and "group_id" in self.model_fields_set:
             _dict['group_id'] = None
 
+        # set to None if date_from (nullable) is None
+        # and model_fields_set contains the field
+        if self.date_from is None and "date_from" in self.model_fields_set:
+            _dict['date_from'] = None
+
         return _dict
 
     @classmethod
@@ -99,7 +106,8 @@ class GoogleAdsAnalyzeKeywordsRequest(BaseModel):
         _obj = cls.model_validate({
             "customer_id": obj.get("customer_id"),
             "campaign_id": obj.get("campaign_id"),
-            "group_id": obj.get("group_id")
+            "group_id": obj.get("group_id"),
+            "date_from": obj.get("date_from")
         })
         return _obj
 

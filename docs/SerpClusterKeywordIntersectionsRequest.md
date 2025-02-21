@@ -10,9 +10,9 @@ Name | Type | Description | Notes
 **language** | **str** |  | [optional] 
 **country** | **str** |  | [optional] 
 **search_engine** | [**SerpSearchEngineType**](SerpSearchEngineType.md) |  | [optional] 
-**customer_id** | **int** | Customer ID of cluster | 
-**campaign_id** | **int** |  | [optional] 
-**group_id** | **int** |  | [optional] 
+**customer_id** | **str** | Customer ID of cluster | 
+**campaign_id** | **str** |  | [optional] 
+**group_id** | **str** |  | [optional] 
 **min_cluster_strength** | **int** |  | [optional] 
 
 ## Example

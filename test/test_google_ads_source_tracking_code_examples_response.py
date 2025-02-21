@@ -37,7 +37,7 @@ class TestGoogleAdsSourceTrackingCodeExamplesResponse(unittest.TestCase):
             return GoogleAdsSourceTrackingCodeExamplesResponse(
                 examples = [
                     flowhunt.models.google_ads_source_tracking_code_example.GoogleAdsSourceTrackingCodeExample(
-                        customer_id = 56, 
+                        customer_id = '', 
                         customer_name = '', 
                         tracking_code = '', 
                         description = '', )
@@ -47,7 +47,7 @@ class TestGoogleAdsSourceTrackingCodeExamplesResponse(unittest.TestCase):
             return GoogleAdsSourceTrackingCodeExamplesResponse(
                 examples = [
                     flowhunt.models.google_ads_source_tracking_code_example.GoogleAdsSourceTrackingCodeExample(
-                        customer_id = 56, 
+                        customer_id = '', 
                         customer_name = '', 
                         tracking_code = '', 
                         description = '', )

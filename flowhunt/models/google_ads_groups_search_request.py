@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from flowhunt.models.google_ads_action_type import GoogleAdsActionType
 from typing import Optional, Set
@@ -27,9 +27,9 @@ class GoogleAdsGroupsSearchRequest(BaseModel):
     """
     GoogleAdsGroupsSearchRequest
     """ # noqa: E501
-    customer_id: Optional[StrictInt] = None
-    campaign_id: Optional[StrictInt] = None
-    group_id: Optional[StrictInt] = None
+    customer_id: Optional[StrictStr] = None
+    campaign_id: Optional[StrictStr] = None
+    group_id: Optional[StrictStr] = None
     group_name: Optional[StrictStr] = None
     language_code: Optional[StrictStr] = None
     country: Optional[StrictStr] = None

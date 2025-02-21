@@ -38,9 +38,9 @@ class TestGoogleAdsGroupsResponse(unittest.TestCase):
                 groups = [
                     flowhunt.models.google_ads_group_response.GoogleAdsGroupResponse(
                         workspace_id = '', 
-                        customer_id = 56, 
-                        campaign_id = 56, 
-                        group_id = 56, 
+                        customer_id = '', 
+                        campaign_id = '', 
+                        group_id = '', 
                         group_name = '', 
                         group_status = 0, 
                         last_update = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
@@ -54,9 +54,9 @@ class TestGoogleAdsGroupsResponse(unittest.TestCase):
                 groups = [
                     flowhunt.models.google_ads_group_response.GoogleAdsGroupResponse(
                         workspace_id = '', 
-                        customer_id = 56, 
-                        campaign_id = 56, 
-                        group_id = 56, 
+                        customer_id = '', 
+                        campaign_id = '', 
+                        group_id = '', 
                         group_name = '', 
                         group_status = 0, 
                         last_update = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 

@@ -32,9 +32,9 @@ class SerpClusterKeywordIntersectionsRequest(BaseModel):
     language: Optional[StrictStr] = None
     country: Optional[StrictStr] = None
     search_engine: Optional[SerpSearchEngineType] = None
-    customer_id: StrictInt = Field(description="Customer ID of cluster")
-    campaign_id: Optional[StrictInt] = None
-    group_id: Optional[StrictInt] = None
+    customer_id: StrictStr = Field(description="Customer ID of cluster")
+    campaign_id: Optional[StrictStr] = None
+    group_id: Optional[StrictStr] = None
     min_cluster_strength: Optional[StrictInt] = None
     __properties: ClassVar[List[str]] = ["keyword_id", "keyword", "language", "country", "search_engine", "customer_id", "campaign_id", "group_id", "min_cluster_strength"]
 

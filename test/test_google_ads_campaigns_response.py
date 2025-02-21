@@ -38,8 +38,8 @@ class TestGoogleAdsCampaignsResponse(unittest.TestCase):
                 campaigns = [
                     flowhunt.models.google_ads_campaign_response.GoogleAdsCampaignResponse(
                         workspace_id = '', 
-                        customer_id = 56, 
-                        campaign_id = 56, 
+                        customer_id = '', 
+                        campaign_id = '', 
                         campaign_name = '', 
                         campaign_status = 0, 
                         language_code = '', 
@@ -53,8 +53,8 @@ class TestGoogleAdsCampaignsResponse(unittest.TestCase):
                 campaigns = [
                     flowhunt.models.google_ads_campaign_response.GoogleAdsCampaignResponse(
                         workspace_id = '', 
-                        customer_id = 56, 
-                        campaign_id = 56, 
+                        customer_id = '', 
+                        campaign_id = '', 
                         campaign_name = '', 
                         campaign_status = 0, 
                         language_code = '', 

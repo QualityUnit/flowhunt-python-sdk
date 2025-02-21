@@ -40,15 +40,15 @@ class TestSerpClusterBestGroupsRequest(unittest.TestCase):
                 language = '',
                 country = '',
                 search_engine = 'G',
-                customer_id = 56,
-                campaign_id = 56,
+                customer_id = '',
+                campaign_id = '',
                 min_cluster_strength = 56,
                 min_queries_count = 56
             )
         else:
             return SerpClusterBestGroupsRequest(
                 keyword = '',
-                customer_id = 56,
+                customer_id = '',
         )
         """
 

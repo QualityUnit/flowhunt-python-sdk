@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
@@ -26,7 +26,7 @@ class GoogleAdsSourceTrackingCodeExample(BaseModel):
     """
     GoogleAdsSourceTrackingCodeExample
     """ # noqa: E501
-    customer_id: StrictInt = Field(description="The ID of the customer")
+    customer_id: StrictStr = Field(description="The ID of the customer")
     customer_name: StrictStr = Field(description="The name of the customer")
     tracking_code: StrictStr = Field(description="Example tracking code using our JS library")
     description: StrictStr = Field(description="Description of when to use this tracking code")

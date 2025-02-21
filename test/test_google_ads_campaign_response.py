@@ -36,8 +36,8 @@ class TestGoogleAdsCampaignResponse(unittest.TestCase):
         if include_optional:
             return GoogleAdsCampaignResponse(
                 workspace_id = '',
-                customer_id = 56,
-                campaign_id = 56,
+                customer_id = '',
+                campaign_id = '',
                 campaign_name = '',
                 campaign_status = 0,
                 language_code = '',
@@ -48,8 +48,8 @@ class TestGoogleAdsCampaignResponse(unittest.TestCase):
         else:
             return GoogleAdsCampaignResponse(
                 workspace_id = '',
-                customer_id = 56,
-                campaign_id = 56,
+                customer_id = '',
+                campaign_id = '',
                 campaign_name = '',
                 campaign_status = 0,
                 action_type = 'I',

@@ -5,9 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**customer_id** | **int** |  | [optional] 
-**campaign_id** | **int** |  | [optional] 
-**group_id** | **int** |  | [optional] 
+**customer_id** | **str** |  | [optional] 
+**campaign_id** | **str** |  | [optional] 
+**group_id** | **str** |  | [optional] 
+**date_from** | **date** |  | [optional] 
 
 ## Example
 

@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -27,9 +27,9 @@ class SerpClusterGroupSearchRequest(BaseModel):
     SerpClusterGroupSearchRequest
     """ # noqa: E501
     search: Optional[StrictStr] = None
-    customer_id: Optional[StrictInt] = None
-    campaign_id: Optional[StrictInt] = None
-    group_id: Optional[StrictInt] = None
+    customer_id: Optional[StrictStr] = None
+    campaign_id: Optional[StrictStr] = None
+    group_id: Optional[StrictStr] = None
     __properties: ClassVar[List[str]] = ["search", "customer_id", "campaign_id", "group_id"]
 
     model_config = ConfigDict(

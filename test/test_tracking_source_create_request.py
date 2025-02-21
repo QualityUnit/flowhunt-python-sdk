@@ -35,7 +35,7 @@ class TestTrackingSourceCreateRequest(unittest.TestCase):
         model = TrackingSourceCreateRequest()
         if include_optional:
             return TrackingSourceCreateRequest(
-                customer_id = 56,
+                customer_id = '',
                 click_id = '',
                 click_id_name = 'gclid',
                 utm_source = '',

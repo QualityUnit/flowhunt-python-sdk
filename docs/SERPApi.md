@@ -149,9 +149,9 @@ configuration = flowhunt.Configuration(
 with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = flowhunt.SERPApi(api_client)
-    customer_id = 56 # int | 
-    campaign_id = 56 # int | 
-    group_id = 56 # int | 
+    customer_id = 'customer_id_example' # str | 
+    campaign_id = 'campaign_id_example' # str | 
+    group_id = 'group_id_example' # str | 
     workspace_id = 'workspace_id_example' # str | 
     serp_cluster_add_query_requests = flowhunt.SerpClusterAddQueryRequests() # SerpClusterAddQueryRequests | 
 
@@ -171,9 +171,9 @@ with flowhunt.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **customer_id** | **int**|  | 
- **campaign_id** | **int**|  | 
- **group_id** | **int**|  | 
+ **customer_id** | **str**|  | 
+ **campaign_id** | **str**|  | 
+ **group_id** | **str**|  | 
  **workspace_id** | **str**|  | 
  **serp_cluster_add_query_requests** | [**SerpClusterAddQueryRequests**](SerpClusterAddQueryRequests.md)|  | 
 
@@ -241,8 +241,8 @@ configuration = flowhunt.Configuration(
 with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = flowhunt.SERPApi(api_client)
-    customer_id = 56 # int | 
-    campaign_id = 56 # int | 
+    customer_id = 'customer_id_example' # str | 
+    campaign_id = 'campaign_id_example' # str | 
     workspace_id = 'workspace_id_example' # str | 
 
     try:
@@ -261,8 +261,8 @@ with flowhunt.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **customer_id** | **int**|  | 
- **campaign_id** | **int**|  | 
+ **customer_id** | **str**|  | 
+ **campaign_id** | **str**|  | 
  **workspace_id** | **str**|  | 
 
 ### Return type
@@ -329,7 +329,7 @@ configuration = flowhunt.Configuration(
 with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = flowhunt.SERPApi(api_client)
-    customer_id = 56 # int | 
+    customer_id = 'customer_id_example' # str | 
     workspace_id = 'workspace_id_example' # str | 
 
     try:
@@ -348,7 +348,7 @@ with flowhunt.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **customer_id** | **int**|  | 
+ **customer_id** | **str**|  | 
  **workspace_id** | **str**|  | 
 
 ### Return type
@@ -415,9 +415,9 @@ configuration = flowhunt.Configuration(
 with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = flowhunt.SERPApi(api_client)
-    customer_id = 56 # int | 
-    campaign_id = 56 # int | 
-    group_id = 56 # int | 
+    customer_id = 'customer_id_example' # str | 
+    campaign_id = 'campaign_id_example' # str | 
+    group_id = 'group_id_example' # str | 
     workspace_id = 'workspace_id_example' # str | 
 
     try:
@@ -436,9 +436,9 @@ with flowhunt.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **customer_id** | **int**|  | 
- **campaign_id** | **int**|  | 
- **group_id** | **int**|  | 
+ **customer_id** | **str**|  | 
+ **campaign_id** | **str**|  | 
+ **group_id** | **str**|  | 
  **workspace_id** | **str**|  | 
 
 ### Return type
@@ -506,9 +506,9 @@ configuration = flowhunt.Configuration(
 with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = flowhunt.SERPApi(api_client)
-    customer_id = 56 # int | 
-    campaign_id = 56 # int | 
-    group_id = 56 # int | 
+    customer_id = 'customer_id_example' # str | 
+    campaign_id = 'campaign_id_example' # str | 
+    group_id = 'group_id_example' # str | 
     workspace_id = 'workspace_id_example' # str | 
     serp_query_request = flowhunt.SerpQueryRequest() # SerpQueryRequest | 
 
@@ -528,9 +528,9 @@ with flowhunt.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **customer_id** | **int**|  | 
- **campaign_id** | **int**|  | 
- **group_id** | **int**|  | 
+ **customer_id** | **str**|  | 
+ **campaign_id** | **str**|  | 
+ **group_id** | **str**|  | 
  **workspace_id** | **str**|  | 
  **serp_query_request** | [**SerpQueryRequest**](SerpQueryRequest.md)|  | 
 
