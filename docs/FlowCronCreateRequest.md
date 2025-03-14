@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **flow_id** | **str** |  | 
 **status** | [**FlowCronStatus**](FlowCronStatus.md) |  | 
 **input_text** | **str** |  | [optional] 
-**variables** | **object** |  | [optional] 
+**variables** | **Dict[str, object]** |  | [optional] 
 **interval_settings** | **str** |  | 
 **cron_name** | **str** |  | 
 

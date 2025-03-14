@@ -63,6 +63,16 @@
 
 * `CWP` (value: `'CWP'`)
 
+* `DE_GC` (value: `'DE_GC'`)
+
+* `AC_HS` (value: `'AC_HS'`)
+
+* `GC_HS` (value: `'GC_HS'`)
+
+* `UC_HS` (value: `'UC_HS'`)
+
+* `SC_HS` (value: `'SC_HS'`)
+
 * `SEQUENTIAL_AGENT` (value: `'SEQUENTIAL_AGENT'`)
 
 * `SELF_MANAGED_AGENT` (value: `'SELF_MANAGED_AGENT'`)

@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **campaign_id** | **str** |  | [optional] 
 **group_id** | **str** |  | [optional] 
 **date_from** | **date** |  | [optional] 
+**force_update** | **bool** |  | [optional] 
 
 ## Example
 

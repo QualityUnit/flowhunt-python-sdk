@@ -42,7 +42,9 @@ class TestFlowCronResponse(unittest.TestCase):
                 status = 'E',
                 input_text = '',
                 interval_settings = '',
-                variables = None,
+                variables = {
+                    'key' : null
+                    },
                 cron_name = ''
             )
         else:

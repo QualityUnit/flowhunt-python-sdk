@@ -347,6 +347,7 @@ class FineTuningsApi:
         self,
         file_key: StrictStr,
         workspace_id: StrictStr,
+        file_type: InferenceFileType,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -367,6 +368,8 @@ class FineTuningsApi:
         :type file_key: str
         :param workspace_id: (required)
         :type workspace_id: str
+        :param file_type: (required)
+        :type file_type: InferenceFileType
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -392,6 +395,7 @@ class FineTuningsApi:
         _param = self._delete_file_ft_serialize(
             file_key=file_key,
             workspace_id=workspace_id,
+            file_type=file_type,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -418,6 +422,7 @@ class FineTuningsApi:
         self,
         file_key: StrictStr,
         workspace_id: StrictStr,
+        file_type: InferenceFileType,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -438,6 +443,8 @@ class FineTuningsApi:
         :type file_key: str
         :param workspace_id: (required)
         :type workspace_id: str
+        :param file_type: (required)
+        :type file_type: InferenceFileType
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -463,6 +470,7 @@ class FineTuningsApi:
         _param = self._delete_file_ft_serialize(
             file_key=file_key,
             workspace_id=workspace_id,
+            file_type=file_type,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -489,6 +497,7 @@ class FineTuningsApi:
         self,
         file_key: StrictStr,
         workspace_id: StrictStr,
+        file_type: InferenceFileType,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -509,6 +518,8 @@ class FineTuningsApi:
         :type file_key: str
         :param workspace_id: (required)
         :type workspace_id: str
+        :param file_type: (required)
+        :type file_type: InferenceFileType
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -534,6 +545,7 @@ class FineTuningsApi:
         _param = self._delete_file_ft_serialize(
             file_key=file_key,
             workspace_id=workspace_id,
+            file_type=file_type,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -555,6 +567,7 @@ class FineTuningsApi:
         self,
         file_key,
         workspace_id,
+        file_type,
         _request_auth,
         _content_type,
         _headers,
@@ -582,6 +595,10 @@ class FineTuningsApi:
         if workspace_id is not None:
             
             _query_params.append(('workspace_id', workspace_id))
+            
+        if file_type is not None:
+            
+            _query_params.append(('file_type', file_type.value))
             
         # process the header parameters
         # process the form parameters

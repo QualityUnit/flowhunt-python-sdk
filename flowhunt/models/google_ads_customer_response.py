@@ -42,7 +42,8 @@ class GoogleAdsCustomerResponse(BaseModel):
     cron_settings: Optional[StrictStr] = None
     action_type: GoogleAdsActionType = Field(description="Action Type")
     ga_measurement_id: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["workspace_id", "customer_id", "customer_name", "language_code", "country", "min_queries", "cluster_strength", "min_impressions", "min_clicks", "last_update", "next_update", "cron_settings", "action_type", "ga_measurement_id"]
+    ga_api_secret: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["workspace_id", "customer_id", "customer_name", "language_code", "country", "min_queries", "cluster_strength", "min_impressions", "min_clicks", "last_update", "next_update", "cron_settings", "action_type", "ga_measurement_id", "ga_api_secret"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -103,6 +104,11 @@ class GoogleAdsCustomerResponse(BaseModel):
         if self.ga_measurement_id is None and "ga_measurement_id" in self.model_fields_set:
             _dict['ga_measurement_id'] = None
 
+        # set to None if ga_api_secret (nullable) is None
+        # and model_fields_set contains the field
+        if self.ga_api_secret is None and "ga_api_secret" in self.model_fields_set:
+            _dict['ga_api_secret'] = None
+
         return _dict
 
     @classmethod
@@ -128,7 +134,8 @@ class GoogleAdsCustomerResponse(BaseModel):
             "next_update": obj.get("next_update"),
             "cron_settings": obj.get("cron_settings"),
             "action_type": obj.get("action_type"),
-            "ga_measurement_id": obj.get("ga_measurement_id")
+            "ga_measurement_id": obj.get("ga_measurement_id"),
+            "ga_api_secret": obj.get("ga_api_secret")
         })
         return _obj
 

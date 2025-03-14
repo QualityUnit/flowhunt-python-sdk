@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **post_back_url** | **str** |  | [optional] 
 **human_input** | **str** | The human input | 
-**variables** | **object** |  | [optional] 
+**variables** | **Dict[str, object]** |  | [optional] 
 
 ## Example
 

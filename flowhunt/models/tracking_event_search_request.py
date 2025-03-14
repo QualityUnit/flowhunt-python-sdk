@@ -29,13 +29,12 @@ class TrackingEventSearchRequest(BaseModel):
     TrackingEventSearchRequest
     """ # noqa: E501
     event_name: Optional[StrictStr] = None
-    conversion_action_id: Optional[StrictStr] = None
     from_date: Optional[datetime] = None
     to_date: Optional[datetime] = None
     include_expired: Optional[StrictBool] = None
     page: Optional[Annotated[int, Field(strict=True, ge=1)]] = None
     page_size: Optional[Annotated[int, Field(le=100, strict=True, ge=1)]] = None
-    __properties: ClassVar[List[str]] = ["event_name", "conversion_action_id", "from_date", "to_date", "include_expired", "page", "page_size"]
+    __properties: ClassVar[List[str]] = ["event_name", "from_date", "to_date", "include_expired", "page", "page_size"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -81,11 +80,6 @@ class TrackingEventSearchRequest(BaseModel):
         if self.event_name is None and "event_name" in self.model_fields_set:
             _dict['event_name'] = None
 
-        # set to None if conversion_action_id (nullable) is None
-        # and model_fields_set contains the field
-        if self.conversion_action_id is None and "conversion_action_id" in self.model_fields_set:
-            _dict['conversion_action_id'] = None
-
         # set to None if from_date (nullable) is None
         # and model_fields_set contains the field
         if self.from_date is None and "from_date" in self.model_fields_set:
@@ -124,7 +118,6 @@ class TrackingEventSearchRequest(BaseModel):
 
         _obj = cls.model_validate({
             "event_name": obj.get("event_name"),
-            "conversion_action_id": obj.get("conversion_action_id"),
             "from_date": obj.get("from_date"),
             "to_date": obj.get("to_date"),
             "include_expired": obj.get("include_expired"),

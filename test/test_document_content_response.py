@@ -44,6 +44,7 @@ class TestDocumentContentResponse(unittest.TestCase):
                     created_at = 1.337, 
                     published_at = 1.337, 
                     title = '', 
+                    doc_name = '', 
                     lang = '', 
                     content_type = '', 
                     encoding = '', 
@@ -54,7 +55,9 @@ class TestDocumentContentResponse(unittest.TestCase):
                             null
                             ]
                         ], 
-                    metadata = flowhunt.models.metadata.metadata(), 
+                    metadata = {
+                        'key' : null
+                        }, 
                     alt_content = [
                         ''
                         ], 

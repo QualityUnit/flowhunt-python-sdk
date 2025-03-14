@@ -36,6 +36,7 @@ class TrackingSourceCreateRequest(BaseModel):
     utm_campaign: Optional[StrictStr] = None
     utm_term: Optional[StrictStr] = None
     utm_content: Optional[StrictStr] = None
+    utm_channel: Optional[StrictStr] = None
     ga: Optional[StrictStr] = None
     url: Optional[StrictStr] = None
     links: Optional[List[StrictStr]] = Field(default=None, description="The links of the traffic source")
@@ -45,7 +46,7 @@ class TrackingSourceCreateRequest(BaseModel):
     unique_id: Optional[StrictStr] = None
     fp: Optional[StrictStr] = None
     session_id: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["customer_id", "click_id", "click_id_name", "utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "ga", "url", "links", "valid_days", "with_address", "event_data", "unique_id", "fp", "session_id"]
+    __properties: ClassVar[List[str]] = ["customer_id", "click_id", "click_id_name", "utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "utm_channel", "ga", "url", "links", "valid_days", "with_address", "event_data", "unique_id", "fp", "session_id"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -133,6 +134,11 @@ class TrackingSourceCreateRequest(BaseModel):
         if self.utm_content is None and "utm_content" in self.model_fields_set:
             _dict['utm_content'] = None
 
+        # set to None if utm_channel (nullable) is None
+        # and model_fields_set contains the field
+        if self.utm_channel is None and "utm_channel" in self.model_fields_set:
+            _dict['utm_channel'] = None
+
         # set to None if ga (nullable) is None
         # and model_fields_set contains the field
         if self.ga is None and "ga" in self.model_fields_set:
@@ -193,6 +199,7 @@ class TrackingSourceCreateRequest(BaseModel):
             "utm_campaign": obj.get("utm_campaign"),
             "utm_term": obj.get("utm_term"),
             "utm_content": obj.get("utm_content"),
+            "utm_channel": obj.get("utm_channel"),
             "ga": obj.get("ga"),
             "url": obj.get("url"),
             "links": obj.get("links"),

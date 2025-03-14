@@ -45,6 +45,8 @@
 
 * `WEBP` (value: `'WEBP'`)
 
+* `CSV` (value: `'CSV'`)
+
 * `GOOGLE_DOCS` (value: `'GOOGLE_DOCS'`)
 
 * `GOOGLE_SHEETS` (value: `'GOOGLE_SHEETS'`)

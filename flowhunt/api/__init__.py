@@ -14,10 +14,10 @@ from flowhunt.api.flow_webhooks_api import FlowWebhooksApi
 from flowhunt.api.flows_api import FlowsApi
 from flowhunt.api.google_api import GoogleApi
 from flowhunt.api.google_ads_api import GoogleAdsApi
-from flowhunt.api.grids_api import GridsApi
 from flowhunt.api.health_api import HealthApi
 from flowhunt.api.images_api import ImagesApi
 from flowhunt.api.integrations_api import IntegrationsApi
+from flowhunt.api.logs_api import LogsApi
 from flowhunt.api.media_api import MediaApi
 from flowhunt.api.prompts_api import PromptsApi
 from flowhunt.api.serp_api import SERPApi

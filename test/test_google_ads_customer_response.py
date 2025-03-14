@@ -48,7 +48,8 @@ class TestGoogleAdsCustomerResponse(unittest.TestCase):
                 next_update = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 cron_settings = '',
                 action_type = 'I',
-                ga_measurement_id = ''
+                ga_measurement_id = '',
+                ga_api_secret = ''
             )
         else:
             return GoogleAdsCustomerResponse(

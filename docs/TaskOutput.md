@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **summary** | **str** |  | [optional] 
 **raw** | **str** | Raw output of the task | [optional] [default to '']
 **pydantic** | **object** |  | [optional] 
-**json_dict** | **object** |  | [optional] 
+**json_dict** | **Dict[str, object]** |  | [optional] 
 **agent** | **str** | Agent that executed the task | 
 **output_format** | [**OutputFormat**](OutputFormat.md) | Output format of the task | [optional] 
 

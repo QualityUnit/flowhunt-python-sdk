@@ -41,14 +41,26 @@ class TestFlowSessionViewSearchRequest(unittest.TestCase):
                     ''
                     ],
                 limit = 56,
-                created_at_filter = None,
-                last_message_at_filter = None,
-                duration_filter = None,
-                msg_count_filter = None,
-                credits_filter = None,
+                created_at_filter = {
+                    'key' : null
+                    },
+                last_message_at_filter = {
+                    'key' : null
+                    },
+                duration_filter = {
+                    'key' : null
+                    },
+                msg_count_filter = {
+                    'key' : null
+                    },
+                credits_filter = {
+                    'key' : null
+                    },
                 chatbot_name = '',
                 flow_name = '',
-                ipaddress_filter = None
+                ipaddress_filter = {
+                    'key' : null
+                    }
             )
         else:
             return FlowSessionViewSearchRequest(

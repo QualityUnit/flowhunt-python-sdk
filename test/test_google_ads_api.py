@@ -26,24 +26,17 @@ class TestGoogleAdsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
+    def test_add_keyword_to_group(self) -> None:
+        """Test case for add_keyword_to_group
+
+        Add Keyword To Group
+        """
+        pass
+
     def test_analyze_not_assigned_keywords(self) -> None:
         """Test case for analyze_not_assigned_keywords
 
         Analyze Not Assigned Keywords
-        """
-        pass
-
-    def test_get_conversion_tracking_code_examples(self) -> None:
-        """Test case for get_conversion_tracking_code_examples
-
-        Get Conversion Tracking Code Examples
-        """
-        pass
-
-    def test_get_conversion_tracking_settings(self) -> None:
-        """Test case for get_conversion_tracking_settings
-
-        Get Conversion Tracking Settings
         """
         pass
 
@@ -68,10 +61,10 @@ class TestGoogleAdsApi(unittest.TestCase):
         """
         pass
 
-    def test_get_source_tracking_code_examples(self) -> None:
-        """Test case for get_source_tracking_code_examples
+    def test_get_recommendations(self) -> None:
+        """Test case for get_recommendations
 
-        Get Source Tracking Code Examples
+        Get Recommendations
         """
         pass
 
@@ -96,10 +89,10 @@ class TestGoogleAdsApi(unittest.TestCase):
         """
         pass
 
-    def test_list_conversion_actions(self) -> None:
-        """Test case for list_conversion_actions
+    def test_remove_keyword_from_group(self) -> None:
+        """Test case for remove_keyword_from_group
 
-        List Conversion Actions
+        Remove Keyword From Group
         """
         pass
 

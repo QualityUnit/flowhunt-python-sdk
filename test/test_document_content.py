@@ -41,6 +41,7 @@ class TestDocumentContent(unittest.TestCase):
                 created_at = 1.337,
                 published_at = 1.337,
                 title = '',
+                doc_name = '',
                 lang = '',
                 content_type = '',
                 encoding = '',
@@ -51,7 +52,9 @@ class TestDocumentContent(unittest.TestCase):
                         null
                         ]
                     ],
-                metadata = None,
+                metadata = {
+                    'key' : null
+                    },
                 alt_content = [
                     ''
                     ],

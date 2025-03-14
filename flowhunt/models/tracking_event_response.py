@@ -36,11 +36,10 @@ class TrackingEventResponse(BaseModel):
     currency: Optional[StrictStr] = None
     created_at: Optional[datetime] = None
     valid_until: Optional[datetime] = None
-    conversion_action_id: Optional[StrictStr] = None
     include_in_conversions_metric: Optional[StrictBool] = None
     event_data: Optional[List[TrackingEventData]] = None
     link_ids: Optional[List[Any]] = None
-    __properties: ClassVar[List[str]] = ["event_id", "unique_id", "url", "event_name", "event_value", "currency", "created_at", "valid_until", "conversion_action_id", "include_in_conversions_metric", "event_data", "link_ids"]
+    __properties: ClassVar[List[str]] = ["event_id", "unique_id", "url", "event_name", "event_value", "currency", "created_at", "valid_until", "include_in_conversions_metric", "event_data", "link_ids"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -123,11 +122,6 @@ class TrackingEventResponse(BaseModel):
         if self.valid_until is None and "valid_until" in self.model_fields_set:
             _dict['valid_until'] = None
 
-        # set to None if conversion_action_id (nullable) is None
-        # and model_fields_set contains the field
-        if self.conversion_action_id is None and "conversion_action_id" in self.model_fields_set:
-            _dict['conversion_action_id'] = None
-
         # set to None if include_in_conversions_metric (nullable) is None
         # and model_fields_set contains the field
         if self.include_in_conversions_metric is None and "include_in_conversions_metric" in self.model_fields_set:
@@ -163,7 +157,6 @@ class TrackingEventResponse(BaseModel):
             "currency": obj.get("currency"),
             "created_at": obj.get("created_at"),
             "valid_until": obj.get("valid_until"),
-            "conversion_action_id": obj.get("conversion_action_id"),
             "include_in_conversions_metric": obj.get("include_in_conversions_metric"),
             "event_data": [TrackingEventData.from_dict(_item) for _item in obj["event_data"]] if obj.get("event_data") is not None else None,
             "link_ids": obj.get("link_ids")

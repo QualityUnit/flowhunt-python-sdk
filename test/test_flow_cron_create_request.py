@@ -38,7 +38,9 @@ class TestFlowCronCreateRequest(unittest.TestCase):
                 flow_id = '',
                 status = 'E',
                 input_text = '',
-                variables = None,
+                variables = {
+                    'key' : null
+                    },
                 interval_settings = '',
                 cron_name = ''
             )

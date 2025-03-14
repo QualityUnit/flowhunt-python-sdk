@@ -33,6 +33,7 @@ class YoutubeContent(BaseModel):
     created_at: Optional[Union[StrictFloat, StrictInt]] = None
     published_at: Optional[Union[StrictFloat, StrictInt]] = None
     title: Optional[StrictStr] = None
+    doc_name: Optional[StrictStr] = None
     lang: Optional[StrictStr] = None
     content_type: Optional[StrictStr] = None
     encoding: Optional[StrictStr] = None
@@ -50,7 +51,7 @@ class YoutubeContent(BaseModel):
     keywords: Optional[List[StrictStr]] = None
     doc_type: Optional[DocumentType] = None
     credits: Optional[StrictInt] = None
-    __properties: ClassVar[List[str]] = ["url", "img_url", "status_code", "created_at", "published_at", "title", "lang", "content_type", "encoding", "apparent_encoding", "description", "content", "metadata", "alt_content", "content_hash", "author", "channel_id", "channel_url", "channel_title", "duration", "keywords", "doc_type", "credits"]
+    __properties: ClassVar[List[str]] = ["url", "img_url", "status_code", "created_at", "published_at", "title", "doc_name", "lang", "content_type", "encoding", "apparent_encoding", "description", "content", "metadata", "alt_content", "content_hash", "author", "channel_id", "channel_url", "channel_title", "duration", "keywords", "doc_type", "credits"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -120,6 +121,11 @@ class YoutubeContent(BaseModel):
         # and model_fields_set contains the field
         if self.title is None and "title" in self.model_fields_set:
             _dict['title'] = None
+
+        # set to None if doc_name (nullable) is None
+        # and model_fields_set contains the field
+        if self.doc_name is None and "doc_name" in self.model_fields_set:
+            _dict['doc_name'] = None
 
         # set to None if lang (nullable) is None
         # and model_fields_set contains the field
@@ -224,6 +230,7 @@ class YoutubeContent(BaseModel):
             "created_at": obj.get("created_at"),
             "published_at": obj.get("published_at"),
             "title": obj.get("title"),
+            "doc_name": obj.get("doc_name"),
             "lang": obj.get("lang"),
             "content_type": obj.get("content_type"),
             "encoding": obj.get("encoding"),

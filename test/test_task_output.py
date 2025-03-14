@@ -41,7 +41,9 @@ class TestTaskOutput(unittest.TestCase):
                 summary = '',
                 raw = '',
                 pydantic = flowhunt.models.base_model.BaseModel(),
-                json_dict = flowhunt.models.json_dict.json_dict(),
+                json_dict = {
+                    'key' : null
+                    },
                 agent = '',
                 output_format = 'json'
             )

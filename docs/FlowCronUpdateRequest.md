@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **status** | [**FlowCronStatus**](FlowCronStatus.md) |  | [optional] 
 **input_text** | **str** |  | [optional] 
-**variables** | **object** |  | [optional] 
+**variables** | **Dict[str, object]** |  | [optional] 
 **interval_settings** | **str** |  | [optional] 
 **cron_name** | **str** |  | [optional] 
 

@@ -6,7 +6,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **event_name** | **str** |  | [optional] 
-**conversion_action_id** | **str** |  | [optional] 
 **from_date** | **datetime** |  | [optional] 
 **to_date** | **datetime** |  | [optional] 
 **include_expired** | **bool** |  | [optional] 

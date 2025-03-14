@@ -44,13 +44,16 @@ class TestYoutubeTranscriptResponse(unittest.TestCase):
                     created_at = 1.337, 
                     published_at = 1.337, 
                     title = '', 
+                    doc_name = '', 
                     lang = '', 
                     content_type = '', 
                     encoding = '', 
                     apparent_encoding = '', 
                     description = '', 
                     content = '', 
-                    metadata = flowhunt.models.metadata.metadata(), 
+                    metadata = {
+                        'key' : null
+                        }, 
                     alt_content = [
                         ''
                         ], 

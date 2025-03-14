@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **utm_source** | **str** |  | [optional] 
 **utm_medium** | **str** |  | [optional] 
 **utm_campaign** | **str** |  | [optional] 
+**utm_channel** | **str** |  | [optional] 
 **from_date** | **datetime** |  | [optional] 
 **to_date** | **datetime** |  | [optional] 
 **include_expired** | **bool** |  | [optional] 

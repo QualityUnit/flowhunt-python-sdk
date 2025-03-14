@@ -37,12 +37,13 @@ class TrackingSourceSearchRequest(BaseModel):
     utm_source: Optional[StrictStr] = None
     utm_medium: Optional[StrictStr] = None
     utm_campaign: Optional[StrictStr] = None
+    utm_channel: Optional[StrictStr] = None
     from_date: Optional[datetime] = None
     to_date: Optional[datetime] = None
     include_expired: Optional[StrictBool] = None
     page: Optional[Annotated[int, Field(strict=True, ge=1)]] = None
     page_size: Optional[Annotated[int, Field(le=100, strict=True, ge=1)]] = None
-    __properties: ClassVar[List[str]] = ["customer_id", "source_type", "click_id", "click_id_name", "utm_source", "utm_medium", "utm_campaign", "from_date", "to_date", "include_expired", "page", "page_size"]
+    __properties: ClassVar[List[str]] = ["customer_id", "source_type", "click_id", "click_id_name", "utm_source", "utm_medium", "utm_campaign", "utm_channel", "from_date", "to_date", "include_expired", "page", "page_size"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -118,6 +119,11 @@ class TrackingSourceSearchRequest(BaseModel):
         if self.utm_campaign is None and "utm_campaign" in self.model_fields_set:
             _dict['utm_campaign'] = None
 
+        # set to None if utm_channel (nullable) is None
+        # and model_fields_set contains the field
+        if self.utm_channel is None and "utm_channel" in self.model_fields_set:
+            _dict['utm_channel'] = None
+
         # set to None if from_date (nullable) is None
         # and model_fields_set contains the field
         if self.from_date is None and "from_date" in self.model_fields_set:
@@ -162,6 +168,7 @@ class TrackingSourceSearchRequest(BaseModel):
             "utm_source": obj.get("utm_source"),
             "utm_medium": obj.get("utm_medium"),
             "utm_campaign": obj.get("utm_campaign"),
+            "utm_channel": obj.get("utm_channel"),
             "from_date": obj.get("from_date"),
             "to_date": obj.get("to_date"),
             "include_expired": obj.get("include_expired"),

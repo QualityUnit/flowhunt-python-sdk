@@ -9,14 +9,14 @@ Name | Type | Description | Notes
 **flow_id** | **str** |  | [optional] 
 **tags** | **List[str]** |  | [optional] 
 **limit** | **int** |  | [optional] 
-**created_at_filter** | **object** |  | [optional] 
-**last_message_at_filter** | **object** |  | [optional] 
-**duration_filter** | **object** |  | [optional] 
-**msg_count_filter** | **object** |  | [optional] 
-**credits_filter** | **object** |  | [optional] 
+**created_at_filter** | **Dict[str, object]** |  | [optional] 
+**last_message_at_filter** | **Dict[str, object]** |  | [optional] 
+**duration_filter** | **Dict[str, object]** |  | [optional] 
+**msg_count_filter** | **Dict[str, object]** |  | [optional] 
+**credits_filter** | **Dict[str, object]** |  | [optional] 
 **chatbot_name** | **str** |  | [optional] 
 **flow_name** | **str** |  | [optional] 
-**ipaddress_filter** | **object** |  | [optional] 
+**ipaddress_filter** | **Dict[str, object]** |  | [optional] 
 
 ## Example
 

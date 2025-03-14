@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **cron_settings** | **str** |  | [optional] 
 **action_type** | [**GoogleAdsActionType**](GoogleAdsActionType.md) | Action Type | 
 **ga_measurement_id** | **str** |  | [optional] 
+**ga_api_secret** | **str** |  | [optional] 
 
 ## Example
 

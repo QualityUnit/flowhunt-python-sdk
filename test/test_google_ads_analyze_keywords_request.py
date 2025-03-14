@@ -38,7 +38,8 @@ class TestGoogleAdsAnalyzeKeywordsRequest(unittest.TestCase):
                 customer_id = '',
                 campaign_id = '',
                 group_id = '',
-                date_from = datetime.datetime.strptime('1975-12-30', '%Y-%m-%d').date()
+                date_from = datetime.datetime.strptime('1975-12-30', '%Y-%m-%d').date(),
+                force_update = True
             )
         else:
             return GoogleAdsAnalyzeKeywordsRequest(

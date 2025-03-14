@@ -45,7 +45,6 @@ class TestTrackingEventsResponse(unittest.TestCase):
                         currency = '', 
                         created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         valid_until = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        conversion_action_id = '', 
                         include_in_conversions_metric = True, 
                         event_data = [
                             flowhunt.models.tracking_event_data.TrackingEventData(
@@ -72,7 +71,6 @@ class TestTrackingEventsResponse(unittest.TestCase):
                         currency = '', 
                         created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         valid_until = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        conversion_action_id = '', 
                         include_in_conversions_metric = True, 
                         event_data = [
                             flowhunt.models.tracking_event_data.TrackingEventData(

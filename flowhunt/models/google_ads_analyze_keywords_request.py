@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from datetime import date
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -31,7 +31,8 @@ class GoogleAdsAnalyzeKeywordsRequest(BaseModel):
     campaign_id: Optional[StrictStr] = None
     group_id: Optional[StrictStr] = None
     date_from: Optional[date] = None
-    __properties: ClassVar[List[str]] = ["customer_id", "campaign_id", "group_id", "date_from"]
+    force_update: Optional[StrictBool] = None
+    __properties: ClassVar[List[str]] = ["customer_id", "campaign_id", "group_id", "date_from", "force_update"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -92,6 +93,11 @@ class GoogleAdsAnalyzeKeywordsRequest(BaseModel):
         if self.date_from is None and "date_from" in self.model_fields_set:
             _dict['date_from'] = None
 
+        # set to None if force_update (nullable) is None
+        # and model_fields_set contains the field
+        if self.force_update is None and "force_update" in self.model_fields_set:
+            _dict['force_update'] = None
+
         return _dict
 
     @classmethod
@@ -107,7 +113,8 @@ class GoogleAdsAnalyzeKeywordsRequest(BaseModel):
             "customer_id": obj.get("customer_id"),
             "campaign_id": obj.get("campaign_id"),
             "group_id": obj.get("group_id"),
-            "date_from": obj.get("date_from")
+            "date_from": obj.get("date_from"),
+            "force_update": obj.get("force_update")
         })
         return _obj
 

@@ -40,12 +40,13 @@ class TrackingSourceResponse(BaseModel):
     utm_campaign: Optional[StrictStr] = None
     utm_term: Optional[StrictStr] = None
     utm_content: Optional[StrictStr] = None
+    utm_channel: Optional[StrictStr] = None
     ga: Optional[StrictStr] = None
     url: Optional[StrictStr] = None
     created_at: Optional[datetime] = None
     valid_until: Optional[datetime] = None
     event_data: Optional[List[TrackingEventData]] = None
-    __properties: ClassVar[List[str]] = ["customer_id", "link_id", "source_type", "click_id", "click_id_name", "utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "ga", "url", "created_at", "valid_until", "event_data"]
+    __properties: ClassVar[List[str]] = ["customer_id", "link_id", "source_type", "click_id", "click_id_name", "utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "utm_channel", "ga", "url", "created_at", "valid_until", "event_data"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -138,6 +139,11 @@ class TrackingSourceResponse(BaseModel):
         if self.utm_content is None and "utm_content" in self.model_fields_set:
             _dict['utm_content'] = None
 
+        # set to None if utm_channel (nullable) is None
+        # and model_fields_set contains the field
+        if self.utm_channel is None and "utm_channel" in self.model_fields_set:
+            _dict['utm_channel'] = None
+
         # set to None if ga (nullable) is None
         # and model_fields_set contains the field
         if self.ga is None and "ga" in self.model_fields_set:
@@ -185,6 +191,7 @@ class TrackingSourceResponse(BaseModel):
             "utm_campaign": obj.get("utm_campaign"),
             "utm_term": obj.get("utm_term"),
             "utm_content": obj.get("utm_content"),
+            "utm_channel": obj.get("utm_channel"),
             "ga": obj.get("ga"),
             "url": obj.get("url"),
             "created_at": obj.get("created_at"),

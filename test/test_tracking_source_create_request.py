@@ -43,6 +43,7 @@ class TestTrackingSourceCreateRequest(unittest.TestCase):
                 utm_campaign = '',
                 utm_term = '',
                 utm_content = '',
+                utm_channel = '',
                 ga = '',
                 url = '',
                 links = [

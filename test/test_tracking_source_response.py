@@ -45,6 +45,7 @@ class TestTrackingSourceResponse(unittest.TestCase):
                 utm_campaign = '',
                 utm_term = '',
                 utm_content = '',
+                utm_channel = '',
                 ga = '',
                 url = '',
                 created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),

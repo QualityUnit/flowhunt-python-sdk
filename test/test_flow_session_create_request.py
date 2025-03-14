@@ -44,7 +44,8 @@ class TestFlowSessionCreateRequest(unittest.TestCase):
                 variables = {
                     'key' : ''
                     },
-                chatbot_id = ''
+                chatbot_id = '',
+                on_chat_opened_postback_url = ''
             )
         else:
             return FlowSessionCreateRequest(

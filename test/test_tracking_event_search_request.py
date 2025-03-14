@@ -36,7 +36,6 @@ class TestTrackingEventSearchRequest(unittest.TestCase):
         if include_optional:
             return TrackingEventSearchRequest(
                 event_name = '',
-                conversion_action_id = '',
                 from_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 to_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 include_expired = True,

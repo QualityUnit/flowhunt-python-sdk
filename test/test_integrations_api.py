@@ -61,6 +61,13 @@ class TestIntegrationsApi(unittest.TestCase):
         """
         pass
 
+    def test_get_sheets(self) -> None:
+        """Test case for get_sheets
+
+        Get Sheets
+        """
+        pass
+
     def test_get_slack_channels(self) -> None:
         """Test case for get_slack_channels
 

@@ -37,7 +37,9 @@ class TestFlowInvokeRequest(unittest.TestCase):
             return FlowInvokeRequest(
                 post_back_url = '',
                 human_input = '',
-                variables = None
+                variables = {
+                    'key' : null
+                    }
             )
         else:
             return FlowInvokeRequest(

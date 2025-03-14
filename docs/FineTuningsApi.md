@@ -105,7 +105,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_file_ft**
-> object delete_file_ft(file_key, workspace_id)
+> object delete_file_ft(file_key, workspace_id, file_type)
 
 Delete File Ft
 
@@ -116,6 +116,7 @@ Delete File Ft
 
 ```python
 import flowhunt
+from flowhunt.models.inference_file_type import InferenceFileType
 from flowhunt.rest import ApiException
 from pprint import pprint
 
@@ -147,10 +148,11 @@ with flowhunt.ApiClient(configuration) as api_client:
     api_instance = flowhunt.FineTuningsApi(api_client)
     file_key = 'file_key_example' # str | 
     workspace_id = 'workspace_id_example' # str | 
+    file_type = flowhunt.InferenceFileType() # InferenceFileType | 
 
     try:
         # Delete File Ft
-        api_response = api_instance.delete_file_ft(file_key, workspace_id)
+        api_response = api_instance.delete_file_ft(file_key, workspace_id, file_type)
         print("The response of FineTuningsApi->delete_file_ft:\n")
         pprint(api_response)
     except Exception as e:
@@ -166,6 +168,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **file_key** | **str**|  | 
  **workspace_id** | **str**|  | 
+ **file_type** | [**InferenceFileType**](.md)|  | 
 
 ### Return type
 

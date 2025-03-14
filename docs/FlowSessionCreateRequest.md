@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **password** | **str** |  | [optional] 
 **variables** | **Dict[str, str]** |  | [optional] 
 **chatbot_id** | **str** | The chatbot ID | 
+**on_chat_opened_postback_url** | **str** |  | [optional] 
 
 ## Example
 

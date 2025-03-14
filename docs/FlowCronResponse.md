@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **status** | [**FlowCronStatus**](FlowCronStatus.md) |  | 
 **input_text** | **str** |  | [optional] 
 **interval_settings** | **str** |  | 
-**variables** | **object** |  | [optional] 
+**variables** | **Dict[str, object]** |  | [optional] 
 **cron_name** | **str** |  | 
 
 ## Example

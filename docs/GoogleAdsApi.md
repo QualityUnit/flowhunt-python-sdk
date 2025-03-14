@@ -4,21 +4,107 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**add_keyword_to_group**](GoogleAdsApi.md#add_keyword_to_group) | **POST** /v2/integrations/google_ads/keyword/add_to_group | Add Keyword To Group
 [**analyze_not_assigned_keywords**](GoogleAdsApi.md#analyze_not_assigned_keywords) | **POST** /v2/integrations/google_ads/analyze_not_assigned_keywords | Analyze Not Assigned Keywords
-[**get_conversion_tracking_code_examples**](GoogleAdsApi.md#get_conversion_tracking_code_examples) | **POST** /v2/integrations/google_ads/conversion-tracking-code/{customer_id} | Get Conversion Tracking Code Examples
-[**get_conversion_tracking_settings**](GoogleAdsApi.md#get_conversion_tracking_settings) | **POST** /v2/integrations/google_ads/conversion-tracking-settings/{customer_id} | Get Conversion Tracking Settings
 [**get_google_ads_campaigns**](GoogleAdsApi.md#get_google_ads_campaigns) | **POST** /v2/integrations/google_ads/campaigns | Get Google Ads Campaigns
 [**get_google_ads_customers**](GoogleAdsApi.md#get_google_ads_customers) | **POST** /v2/integrations/google_ads/customers | Get Google Ads Customers
 [**get_google_ads_groups**](GoogleAdsApi.md#get_google_ads_groups) | **POST** /v2/integrations/google_ads/groups | Get Google Ads Groups
-[**get_source_tracking_code_examples**](GoogleAdsApi.md#get_source_tracking_code_examples) | **POST** /v2/integrations/google_ads/source-tracking-code | Get Source Tracking Code Examples
+[**get_recommendations**](GoogleAdsApi.md#get_recommendations) | **POST** /v2/integrations/google_ads/recommendations/ | Get Recommendations
 [**import_google_ads_campaigns**](GoogleAdsApi.md#import_google_ads_campaigns) | **POST** /v2/integrations/google_ads/campaigns/import | Import Google Ads Campaigns
 [**import_google_ads_customers**](GoogleAdsApi.md#import_google_ads_customers) | **POST** /v2/integrations/google_ads/customers/import | Import Google Ads Customers
 [**import_google_ads_groups**](GoogleAdsApi.md#import_google_ads_groups) | **POST** /v2/integrations/google_ads/groups/import | Import Google Ads Groups
-[**list_conversion_actions**](GoogleAdsApi.md#list_conversion_actions) | **POST** /v2/integrations/google_ads/conversion-actions/{customer_id} | List Conversion Actions
+[**remove_keyword_from_group**](GoogleAdsApi.md#remove_keyword_from_group) | **POST** /v2/integrations/google_ads/keyword/remove_from_group | Remove Keyword From Group
 [**update_google_ads_campaign**](GoogleAdsApi.md#update_google_ads_campaign) | **PUT** /v2/integrations/google_ads/campaigns/{customer_id}/{campaign_id} | Update Google Ads Campaign
 [**update_google_ads_customer_update**](GoogleAdsApi.md#update_google_ads_customer_update) | **PUT** /v2/integrations/google_ads/customers/{customer_id} | Update Google Ads Customer Update
 [**update_google_ads_group**](GoogleAdsApi.md#update_google_ads_group) | **PUT** /v2/integrations/google_ads/groups/{customer_id}/{campaign_id}/{group_id} | Update Google Ads Group
 
+
+# **add_keyword_to_group**
+> Completed add_keyword_to_group(workspace_id, google_ads_keyword_add_request)
+
+Add Keyword To Group
+
+### Example
+
+* Api Key Authentication (APIKeyHeader):
+* Bearer Authentication (HTTPBearer):
+
+```python
+import flowhunt
+from flowhunt.models.completed import Completed
+from flowhunt.models.google_ads_keyword_add_request import GoogleAdsKeywordAddRequest
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: APIKeyHeader
+configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
+
+# Configure Bearer authorization: HTTPBearer
+configuration = flowhunt.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.GoogleAdsApi(api_client)
+    workspace_id = 'workspace_id_example' # str | 
+    google_ads_keyword_add_request = flowhunt.GoogleAdsKeywordAddRequest() # GoogleAdsKeywordAddRequest | 
+
+    try:
+        # Add Keyword To Group
+        api_response = api_instance.add_keyword_to_group(workspace_id, google_ads_keyword_add_request)
+        print("The response of GoogleAdsApi->add_keyword_to_group:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling GoogleAdsApi->add_keyword_to_group: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **workspace_id** | **str**|  | 
+ **google_ads_keyword_add_request** | [**GoogleAdsKeywordAddRequest**](GoogleAdsKeywordAddRequest.md)|  | 
+
+### Return type
+
+[**Completed**](Completed.md)
+
+### Authorization
+
+[APIKeyHeader](../README.md#APIKeyHeader), [HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **analyze_not_assigned_keywords**
 > Completed analyze_not_assigned_keywords(workspace_id, google_ads_analyze_keywords_request)
@@ -96,180 +182,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful Response |  -  |
-**422** | Validation Error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **get_conversion_tracking_code_examples**
-> GoogleAdsConversionTrackingCodeExamplesResponse get_conversion_tracking_code_examples(customer_id, workspace_id)
-
-Get Conversion Tracking Code Examples
-
-Get example tracking code for each conversion action in the Google Ads account.
-
-### Example
-
-* Api Key Authentication (APIKeyHeader):
-* Bearer Authentication (HTTPBearer):
-
-```python
-import flowhunt
-from flowhunt.models.google_ads_conversion_tracking_code_examples_response import GoogleAdsConversionTrackingCodeExamplesResponse
-from flowhunt.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt.Configuration(
-    host = "http://localhost"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: APIKeyHeader
-configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
-
-# Configure Bearer authorization: HTTPBearer
-configuration = flowhunt.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
-)
-
-# Enter a context with an instance of the API client
-with flowhunt.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = flowhunt.GoogleAdsApi(api_client)
-    customer_id = 'customer_id_example' # str | 
-    workspace_id = 'workspace_id_example' # str | 
-
-    try:
-        # Get Conversion Tracking Code Examples
-        api_response = api_instance.get_conversion_tracking_code_examples(customer_id, workspace_id)
-        print("The response of GoogleAdsApi->get_conversion_tracking_code_examples:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling GoogleAdsApi->get_conversion_tracking_code_examples: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **customer_id** | **str**|  | 
- **workspace_id** | **str**|  | 
-
-### Return type
-
-[**GoogleAdsConversionTrackingCodeExamplesResponse**](GoogleAdsConversionTrackingCodeExamplesResponse.md)
-
-### Authorization
-
-[APIKeyHeader](../README.md#APIKeyHeader), [HTTPBearer](../README.md#HTTPBearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful Response |  -  |
-**422** | Validation Error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **get_conversion_tracking_settings**
-> List[GoogleAdsConversionTrackingSettingsResponse] get_conversion_tracking_settings(customer_id, workspace_id)
-
-Get Conversion Tracking Settings
-
-### Example
-
-* Api Key Authentication (APIKeyHeader):
-* Bearer Authentication (HTTPBearer):
-
-```python
-import flowhunt
-from flowhunt.models.google_ads_conversion_tracking_settings_response import GoogleAdsConversionTrackingSettingsResponse
-from flowhunt.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt.Configuration(
-    host = "http://localhost"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: APIKeyHeader
-configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
-
-# Configure Bearer authorization: HTTPBearer
-configuration = flowhunt.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
-)
-
-# Enter a context with an instance of the API client
-with flowhunt.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = flowhunt.GoogleAdsApi(api_client)
-    customer_id = 'customer_id_example' # str | 
-    workspace_id = 'workspace_id_example' # str | 
-
-    try:
-        # Get Conversion Tracking Settings
-        api_response = api_instance.get_conversion_tracking_settings(customer_id, workspace_id)
-        print("The response of GoogleAdsApi->get_conversion_tracking_settings:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling GoogleAdsApi->get_conversion_tracking_settings: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **customer_id** | **str**|  | 
- **workspace_id** | **str**|  | 
-
-### Return type
-
-[**List[GoogleAdsConversionTrackingSettingsResponse]**](GoogleAdsConversionTrackingSettingsResponse.md)
-
-### Authorization
-
-[APIKeyHeader](../README.md#APIKeyHeader), [HTTPBearer](../README.md#HTTPBearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
  - **Accept**: application/json
 
 ### HTTP response details
@@ -542,12 +454,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_source_tracking_code_examples**
-> GoogleAdsSourceTrackingCodeExamplesResponse get_source_tracking_code_examples(workspace_id)
+# **get_recommendations**
+> List[GoogleAdsKeywordRecommendation] get_recommendations(workspace_id, google_ads_recommendations_request)
 
-Get Source Tracking Code Examples
-
-Get example tracking code for each customer in the workspace.
+Get Recommendations
 
 ### Example
 
@@ -556,7 +466,8 @@ Get example tracking code for each customer in the workspace.
 
 ```python
 import flowhunt
-from flowhunt.models.google_ads_source_tracking_code_examples_response import GoogleAdsSourceTrackingCodeExamplesResponse
+from flowhunt.models.google_ads_keyword_recommendation import GoogleAdsKeywordRecommendation
+from flowhunt.models.google_ads_recommendations_request import GoogleAdsRecommendationsRequest
 from flowhunt.rest import ApiException
 from pprint import pprint
 
@@ -587,14 +498,15 @@ with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = flowhunt.GoogleAdsApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
+    google_ads_recommendations_request = flowhunt.GoogleAdsRecommendationsRequest() # GoogleAdsRecommendationsRequest | 
 
     try:
-        # Get Source Tracking Code Examples
-        api_response = api_instance.get_source_tracking_code_examples(workspace_id)
-        print("The response of GoogleAdsApi->get_source_tracking_code_examples:\n")
+        # Get Recommendations
+        api_response = api_instance.get_recommendations(workspace_id, google_ads_recommendations_request)
+        print("The response of GoogleAdsApi->get_recommendations:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling GoogleAdsApi->get_source_tracking_code_examples: %s\n" % e)
+        print("Exception when calling GoogleAdsApi->get_recommendations: %s\n" % e)
 ```
 
 
@@ -605,10 +517,11 @@ with flowhunt.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **workspace_id** | **str**|  | 
+ **google_ads_recommendations_request** | [**GoogleAdsRecommendationsRequest**](GoogleAdsRecommendationsRequest.md)|  | 
 
 ### Return type
 
-[**GoogleAdsSourceTrackingCodeExamplesResponse**](GoogleAdsSourceTrackingCodeExamplesResponse.md)
+[**List[GoogleAdsKeywordRecommendation]**](GoogleAdsKeywordRecommendation.md)
 
 ### Authorization
 
@@ -616,7 +529,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details
@@ -886,10 +799,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **list_conversion_actions**
-> GoogleAdsConversionActionsResponse list_conversion_actions(customer_id, workspace_id)
+# **remove_keyword_from_group**
+> Completed remove_keyword_from_group(workspace_id, google_ads_keyword_remove_request)
 
-List Conversion Actions
+Remove Keyword From Group
 
 ### Example
 
@@ -898,7 +811,8 @@ List Conversion Actions
 
 ```python
 import flowhunt
-from flowhunt.models.google_ads_conversion_actions_response import GoogleAdsConversionActionsResponse
+from flowhunt.models.completed import Completed
+from flowhunt.models.google_ads_keyword_remove_request import GoogleAdsKeywordRemoveRequest
 from flowhunt.rest import ApiException
 from pprint import pprint
 
@@ -928,16 +842,16 @@ configuration = flowhunt.Configuration(
 with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = flowhunt.GoogleAdsApi(api_client)
-    customer_id = 'customer_id_example' # str | 
     workspace_id = 'workspace_id_example' # str | 
+    google_ads_keyword_remove_request = flowhunt.GoogleAdsKeywordRemoveRequest() # GoogleAdsKeywordRemoveRequest | 
 
     try:
-        # List Conversion Actions
-        api_response = api_instance.list_conversion_actions(customer_id, workspace_id)
-        print("The response of GoogleAdsApi->list_conversion_actions:\n")
+        # Remove Keyword From Group
+        api_response = api_instance.remove_keyword_from_group(workspace_id, google_ads_keyword_remove_request)
+        print("The response of GoogleAdsApi->remove_keyword_from_group:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling GoogleAdsApi->list_conversion_actions: %s\n" % e)
+        print("Exception when calling GoogleAdsApi->remove_keyword_from_group: %s\n" % e)
 ```
 
 
@@ -947,12 +861,12 @@ with flowhunt.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **customer_id** | **str**|  | 
  **workspace_id** | **str**|  | 
+ **google_ads_keyword_remove_request** | [**GoogleAdsKeywordRemoveRequest**](GoogleAdsKeywordRemoveRequest.md)|  | 
 
 ### Return type
 
-[**GoogleAdsConversionActionsResponse**](GoogleAdsConversionActionsResponse.md)
+[**Completed**](Completed.md)
 
 ### Authorization
 
@@ -960,7 +874,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details

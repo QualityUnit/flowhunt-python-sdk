@@ -13,7 +13,6 @@ Name | Type | Description | Notes
 **currency** | **str** |  | [optional] 
 **created_at** | **datetime** |  | [optional] 
 **valid_until** | **datetime** |  | [optional] 
-**conversion_action_id** | **str** |  | [optional] 
 **include_in_conversions_metric** | **bool** |  | [optional] 
 **event_data** | [**List[TrackingEventData]**](TrackingEventData.md) |  | [optional] 
 **link_ids** | **List[object]** |  | [optional] 
