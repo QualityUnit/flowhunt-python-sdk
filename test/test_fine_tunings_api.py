@@ -47,6 +47,13 @@ class TestFineTuningsApi(unittest.TestCase):
         """
         pass
 
+    def test_generate_image_prompt(self) -> None:
+        """Test case for generate_image_prompt
+
+        Generate Image Prompt
+        """
+        pass
+
     def test_generate_images(self) -> None:
         """Test case for generate_images
 

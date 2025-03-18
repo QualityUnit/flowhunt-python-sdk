@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **trigger_word** | **str** | Trigger word | 
 **training_images** | **List[str]** | Training images | 
 **status** | [**FTStatus**](FTStatus.md) | Status | 
-**cover_image** | **str** | Cover image | 
+**cover_image** | **str** |  | 
 
 ## Example
 

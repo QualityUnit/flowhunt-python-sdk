@@ -12,6 +12,9 @@ Name | Type | Description | Notes
 **aspect_ratio** | [**AspecRatio**](AspecRatio.md) | The aspect ratio of the output images | [optional] 
 **steps** | **int** | The number of steps to take in the inference process | [optional] [default to 28]
 **guidance_scale** | **float** | The guidance scale to use in the inference process | [optional] [default to 3.5]
+**styles** | **List[str]** |  | [optional] 
+**effects** | **List[str]** |  | [optional] 
+**use_ai_agent** | **bool** |  | [optional] 
 
 ## Example
 

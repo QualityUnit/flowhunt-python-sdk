@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**results** | [**List[ImageInferenceResponse]**](ImageInferenceResponse.md) | The list of inference results | 
+**result** | [**ImageInferenceResponse**](ImageInferenceResponse.md) |  | [optional] 
 **status** | **str** | Whether the inference is completed | 
 **error_message** | **str** |  | [optional] 
 

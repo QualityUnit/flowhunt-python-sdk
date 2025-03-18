@@ -19,6 +19,7 @@ from flowhunt.api.images_api import ImagesApi
 from flowhunt.api.integrations_api import IntegrationsApi
 from flowhunt.api.logs_api import LogsApi
 from flowhunt.api.media_api import MediaApi
+from flowhunt.api.photo_ai_api import PhotoAIApi
 from flowhunt.api.prompts_api import PromptsApi
 from flowhunt.api.serp_api import SERPApi
 from flowhunt.api.schedules_api import SchedulesApi

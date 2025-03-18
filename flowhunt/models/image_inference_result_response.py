@@ -27,10 +27,10 @@ class ImageInferenceResultResponse(BaseModel):
     """
     ImageInferenceResultResponse
     """ # noqa: E501
-    results: List[ImageInferenceResponse] = Field(description="The list of inference results")
+    result: Optional[ImageInferenceResponse] = None
     status: StrictStr = Field(description="Whether the inference is completed")
     error_message: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["results", "status", "error_message"]
+    __properties: ClassVar[List[str]] = ["result", "status", "error_message"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -71,13 +71,14 @@ class ImageInferenceResultResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in results (list)
-        _items = []
-        if self.results:
-            for _item_results in self.results:
-                if _item_results:
-                    _items.append(_item_results.to_dict())
-            _dict['results'] = _items
+        # override the default output from pydantic by calling `to_dict()` of result
+        if self.result:
+            _dict['result'] = self.result.to_dict()
+        # set to None if result (nullable) is None
+        # and model_fields_set contains the field
+        if self.result is None and "result" in self.model_fields_set:
+            _dict['result'] = None
+
         # set to None if error_message (nullable) is None
         # and model_fields_set contains the field
         if self.error_message is None and "error_message" in self.model_fields_set:
@@ -95,7 +96,7 @@ class ImageInferenceResultResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "results": [ImageInferenceResponse.from_dict(_item) for _item in obj["results"]] if obj.get("results") is not None else None,
+            "result": ImageInferenceResponse.from_dict(obj["result"]) if obj.get("result") is not None else None,
             "status": obj.get("status"),
             "error_message": obj.get("error_message")
         })

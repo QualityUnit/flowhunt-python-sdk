@@ -35,6 +35,7 @@ from flowhunt.api.images_api import ImagesApi
 from flowhunt.api.integrations_api import IntegrationsApi
 from flowhunt.api.logs_api import LogsApi
 from flowhunt.api.media_api import MediaApi
+from flowhunt.api.photo_ai_api import PhotoAIApi
 from flowhunt.api.prompts_api import PromptsApi
 from flowhunt.api.serp_api import SERPApi
 from flowhunt.api.schedules_api import SchedulesApi
@@ -74,6 +75,7 @@ from flowhunt.models.chatbot_search_request import ChatbotSearchRequest
 from flowhunt.models.chatbot_status import ChatbotStatus
 from flowhunt.models.chatbot_update_request import ChatbotUpdateRequest
 from flowhunt.models.checkout_create_request import CheckoutCreateRequest
+from flowhunt.models.community_image_generations_response import CommunityImageGenerationsResponse
 from flowhunt.models.completed import Completed
 from flowhunt.models.credit_balance_response import CreditBalanceResponse
 from flowhunt.models.credit_daily_transaction_response import CreditDailyTransactionResponse
@@ -180,6 +182,7 @@ from flowhunt.models.image_inference_response import ImageInferenceResponse
 from flowhunt.models.image_inference_result_response import ImageInferenceResultResponse
 from flowhunt.models.image_inference_schedule_response import ImageInferenceScheduleResponse
 from flowhunt.models.image_optimize_request import ImageOptimizeRequest
+from flowhunt.models.image_prompt_response import ImagePromptResponse
 from flowhunt.models.inference_file_type import InferenceFileType
 from flowhunt.models.inference_history_search_request import InferenceHistorySearchRequest
 from flowhunt.models.integration_category import IntegrationCategory
@@ -197,6 +200,9 @@ from flowhunt.models.message_type import MessageType
 from flowhunt.models.metadata import Metadata
 from flowhunt.models.new_password_request import NewPasswordRequest
 from flowhunt.models.output_format import OutputFormat
+from flowhunt.models.photo_ai_effect_response import PhotoAIEffectResponse
+from flowhunt.models.photo_ai_style_response import PhotoAIStyleResponse
+from flowhunt.models.photo_ai_template_response import PhotoAITemplateResponse
 from flowhunt.models.plan_response import PlanResponse
 from flowhunt.models.pointer_type import PointerType
 from flowhunt.models.prompt_category_create_request import PromptCategoryCreateRequest

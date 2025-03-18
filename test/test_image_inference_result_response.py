@@ -35,23 +35,27 @@ class TestImageInferenceResultResponse(unittest.TestCase):
         model = ImageInferenceResultResponse()
         if include_optional:
             return ImageInferenceResultResponse(
-                results = [
-                    flowhunt.models.image_inference_response.ImageInferenceResponse(
-                        url = '', 
-                        date_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        prompt = '', )
-                    ],
+                result = flowhunt.models.image_inference_response.ImageInferenceResponse(
+                    inference_id = '', 
+                    image_url_outputs = [
+                        ''
+                        ], 
+                    date_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                    prompt = '', 
+                    styles = [
+                        ''
+                        ], 
+                    effects = [
+                        ''
+                        ], 
+                    aspect_ratio = '', 
+                    ai_model = '', 
+                    status = '', ),
                 status = '',
                 error_message = ''
             )
         else:
             return ImageInferenceResultResponse(
-                results = [
-                    flowhunt.models.image_inference_response.ImageInferenceResponse(
-                        url = '', 
-                        date_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        prompt = '', )
-                    ],
                 status = '',
         )
         """

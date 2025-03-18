@@ -27,10 +27,16 @@ class ImageInferenceResponse(BaseModel):
     """
     ImageInferenceResponse
     """ # noqa: E501
-    url: StrictStr = Field(description="The URL of the image")
+    inference_id: StrictStr = Field(description="The ID of the inference")
+    image_url_outputs: List[StrictStr] = Field(description="The URL of the image")
     date_created: datetime = Field(description="The date the image was created")
     prompt: StrictStr = Field(description="The prompt used for the inference")
-    __properties: ClassVar[List[str]] = ["url", "date_created", "prompt"]
+    styles: List[StrictStr] = Field(description="The styles used for the inference")
+    effects: List[StrictStr] = Field(description="The effects used for the inference")
+    aspect_ratio: StrictStr = Field(description="The aspect ratio of the output images")
+    ai_model: StrictStr = Field(description="The AI model used for the inference")
+    status: StrictStr = Field(description="The status of the inference")
+    __properties: ClassVar[List[str]] = ["inference_id", "image_url_outputs", "date_created", "prompt", "styles", "effects", "aspect_ratio", "ai_model", "status"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -83,9 +89,15 @@ class ImageInferenceResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "url": obj.get("url"),
+            "inference_id": obj.get("inference_id"),
+            "image_url_outputs": obj.get("image_url_outputs"),
             "date_created": obj.get("date_created"),
-            "prompt": obj.get("prompt")
+            "prompt": obj.get("prompt"),
+            "styles": obj.get("styles"),
+            "effects": obj.get("effects"),
+            "aspect_ratio": obj.get("aspect_ratio"),
+            "ai_model": obj.get("ai_model"),
+            "status": obj.get("status")
         })
         return _obj
 

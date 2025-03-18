@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**create_image_ft**](FineTuningsApi.md#create_image_ft) | **POST** /v2/fine_tunings/images/ | Create Image Ft
 [**delete_file_ft**](FineTuningsApi.md#delete_file_ft) | **DELETE** /v2/fine_tunings/files/{file_key} | Delete File Ft
 [**delete_image_ft**](FineTuningsApi.md#delete_image_ft) | **DELETE** /v2/fine_tunings/images/{ft_id} | Delete Image Ft
+[**generate_image_prompt**](FineTuningsApi.md#generate_image_prompt) | **POST** /v2/fine_tunings/inference/images/generate-prompt | Generate Image Prompt
 [**generate_images**](FineTuningsApi.md#generate_images) | **POST** /v2/fine_tunings/inference/images | Generate Images
 [**get_file_ft**](FineTuningsApi.md#get_file_ft) | **GET** /v2/fine_tunings/files/{file_key} | Get File Ft
 [**get_inference_results**](FineTuningsApi.md#get_inference_results) | **GET** /v2/fine_tunings/inference/results/{inference_id} | Get Inference Results
@@ -259,6 +260,90 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Completed**](Completed.md)
+
+### Authorization
+
+[APIKeyHeader](../README.md#APIKeyHeader), [HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **generate_image_prompt**
+> ImagePromptResponse generate_image_prompt(workspace_id)
+
+Generate Image Prompt
+
+### Example
+
+* Api Key Authentication (APIKeyHeader):
+* Bearer Authentication (HTTPBearer):
+
+```python
+import flowhunt
+from flowhunt.models.image_prompt_response import ImagePromptResponse
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: APIKeyHeader
+configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
+
+# Configure Bearer authorization: HTTPBearer
+configuration = flowhunt.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.FineTuningsApi(api_client)
+    workspace_id = 'workspace_id_example' # str | 
+
+    try:
+        # Generate Image Prompt
+        api_response = api_instance.generate_image_prompt(workspace_id)
+        print("The response of FineTuningsApi->generate_image_prompt:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling FineTuningsApi->generate_image_prompt: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **workspace_id** | **str**|  | 
+
+### Return type
+
+[**ImagePromptResponse**](ImagePromptResponse.md)
 
 ### Authorization
 

@@ -35,15 +35,39 @@ class TestImageInferenceResponse(unittest.TestCase):
         model = ImageInferenceResponse()
         if include_optional:
             return ImageInferenceResponse(
-                url = '',
+                inference_id = '',
+                image_url_outputs = [
+                    ''
+                    ],
                 date_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                prompt = ''
+                prompt = '',
+                styles = [
+                    ''
+                    ],
+                effects = [
+                    ''
+                    ],
+                aspect_ratio = '',
+                ai_model = '',
+                status = ''
             )
         else:
             return ImageInferenceResponse(
-                url = '',
+                inference_id = '',
+                image_url_outputs = [
+                    ''
+                    ],
                 date_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 prompt = '',
+                styles = [
+                    ''
+                    ],
+                effects = [
+                    ''
+                    ],
+                aspect_ratio = '',
+                ai_model = '',
+                status = '',
         )
         """
 

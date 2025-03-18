@@ -43,7 +43,7 @@ class TestImageFTResponse(unittest.TestCase):
                 trigger_word = 'cat',
                 training_images = [https://example.com/image1, https://example.com/image2],
                 status = completed,
-                cover_image = 'https://example.com/image'
+                cover_image = ''
             )
         else:
             return ImageFTResponse(
@@ -55,7 +55,7 @@ class TestImageFTResponse(unittest.TestCase):
                 trigger_word = 'cat',
                 training_images = [https://example.com/image1, https://example.com/image2],
                 status = completed,
-                cover_image = 'https://example.com/image',
+                cover_image = '',
         )
         """
 

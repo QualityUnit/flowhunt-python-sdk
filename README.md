@@ -141,6 +141,7 @@ Class | Method | HTTP request | Description
 *FineTuningsApi* | [**create_image_ft**](docs/FineTuningsApi.md#create_image_ft) | **POST** /v2/fine_tunings/images/ | Create Image Ft
 *FineTuningsApi* | [**delete_file_ft**](docs/FineTuningsApi.md#delete_file_ft) | **DELETE** /v2/fine_tunings/files/{file_key} | Delete File Ft
 *FineTuningsApi* | [**delete_image_ft**](docs/FineTuningsApi.md#delete_image_ft) | **DELETE** /v2/fine_tunings/images/{ft_id} | Delete Image Ft
+*FineTuningsApi* | [**generate_image_prompt**](docs/FineTuningsApi.md#generate_image_prompt) | **POST** /v2/fine_tunings/inference/images/generate-prompt | Generate Image Prompt
 *FineTuningsApi* | [**generate_images**](docs/FineTuningsApi.md#generate_images) | **POST** /v2/fine_tunings/inference/images | Generate Images
 *FineTuningsApi* | [**get_file_ft**](docs/FineTuningsApi.md#get_file_ft) | **GET** /v2/fine_tunings/files/{file_key} | Get File Ft
 *FineTuningsApi* | [**get_inference_results**](docs/FineTuningsApi.md#get_inference_results) | **GET** /v2/fine_tunings/inference/results/{inference_id} | Get Inference Results
@@ -223,6 +224,10 @@ Class | Method | HTTP request | Description
 *MediaApi* | [**get_transcript**](docs/MediaApi.md#get_transcript) | **POST** /v2/media/transcript | Get Transcript
 *MediaApi* | [**get_transcript_result**](docs/MediaApi.md#get_transcript_result) | **POST** /v2/media/transcript_status | Get Transcript Result
 *MediaApi* | [**get_youtube_transcript**](docs/MediaApi.md#get_youtube_transcript) | **POST** /v2/media/youtube/transcript | Get Youtube Transcript
+*PhotoAIApi* | [**explore**](docs/PhotoAIApi.md#explore) | **GET** /v2/photo_ai/explore | Explore
+*PhotoAIApi* | [**get_effects**](docs/PhotoAIApi.md#get_effects) | **GET** /v2/photo_ai/effects | Get Effects
+*PhotoAIApi* | [**get_styles**](docs/PhotoAIApi.md#get_styles) | **GET** /v2/photo_ai/styles | Get Styles
+*PhotoAIApi* | [**get_templates**](docs/PhotoAIApi.md#get_templates) | **GET** /v2/photo_ai/templates | Get Templates
 *PromptsApi* | [**create_prompt**](docs/PromptsApi.md#create_prompt) | **POST** /v2/prompts/create | Create Prompt
 *PromptsApi* | [**create_prompt_category**](docs/PromptsApi.md#create_prompt_category) | **POST** /v2/prompts/categories/create | Create Prompt Category
 *PromptsApi* | [**delete_prompt**](docs/PromptsApi.md#delete_prompt) | **DELETE** /v2/prompts/{prompt_id} | Delete Prompt
@@ -305,6 +310,7 @@ Class | Method | HTTP request | Description
  - [ChatbotStatus](docs/ChatbotStatus.md)
  - [ChatbotUpdateRequest](docs/ChatbotUpdateRequest.md)
  - [CheckoutCreateRequest](docs/CheckoutCreateRequest.md)
+ - [CommunityImageGenerationsResponse](docs/CommunityImageGenerationsResponse.md)
  - [Completed](docs/Completed.md)
  - [CreditBalanceResponse](docs/CreditBalanceResponse.md)
  - [CreditDailyTransactionResponse](docs/CreditDailyTransactionResponse.md)
@@ -411,6 +417,7 @@ Class | Method | HTTP request | Description
  - [ImageInferenceResultResponse](docs/ImageInferenceResultResponse.md)
  - [ImageInferenceScheduleResponse](docs/ImageInferenceScheduleResponse.md)
  - [ImageOptimizeRequest](docs/ImageOptimizeRequest.md)
+ - [ImagePromptResponse](docs/ImagePromptResponse.md)
  - [InferenceFileType](docs/InferenceFileType.md)
  - [InferenceHistorySearchRequest](docs/InferenceHistorySearchRequest.md)
  - [IntegrationCategory](docs/IntegrationCategory.md)
@@ -428,6 +435,9 @@ Class | Method | HTTP request | Description
  - [Metadata](docs/Metadata.md)
  - [NewPasswordRequest](docs/NewPasswordRequest.md)
  - [OutputFormat](docs/OutputFormat.md)
+ - [PhotoAIEffectResponse](docs/PhotoAIEffectResponse.md)
+ - [PhotoAIStyleResponse](docs/PhotoAIStyleResponse.md)
+ - [PhotoAITemplateResponse](docs/PhotoAITemplateResponse.md)
  - [PlanResponse](docs/PlanResponse.md)
  - [PointerType](docs/PointerType.md)
  - [PromptCategoryCreateRequest](docs/PromptCategoryCreateRequest.md)

@@ -14,10 +14,10 @@
 
 import unittest
 
-from flowhunt.models.image_inference_request import ImageInferenceRequest
+from flowhunt.models.photo_ai_template_response import PhotoAITemplateResponse
 
-class TestImageInferenceRequest(unittest.TestCase):
-    """ImageInferenceRequest unit test stubs"""
+class TestPhotoAITemplateResponse(unittest.TestCase):
+    """PhotoAITemplateResponse unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,45 +25,44 @@ class TestImageInferenceRequest(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> ImageInferenceRequest:
-        """Test ImageInferenceRequest
+    def make_instance(self, include_optional) -> PhotoAITemplateResponse:
+        """Test PhotoAITemplateResponse
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `ImageInferenceRequest`
+        # uncomment below to create an instance of `PhotoAITemplateResponse`
         """
-        model = ImageInferenceRequest()
+        model = PhotoAITemplateResponse()
         if include_optional:
-            return ImageInferenceRequest(
-                base_model = 'flux-dev',
+            return PhotoAITemplateResponse(
+                name = '',
+                cover_image = '',
                 prompt = '',
-                image_fts = [
+                model = '',
+                styles = [
                     ''
                     ],
-                number_of_outputs = 56,
-                aspect_ratio = '1:1',
-                steps = 56,
-                guidance_scale = 0.0,
+                effects = [
+                    ''
+                    ]
+            )
+        else:
+            return PhotoAITemplateResponse(
+                name = '',
+                cover_image = '',
+                prompt = '',
+                model = '',
                 styles = [
                     ''
                     ],
                 effects = [
                     ''
                     ],
-                use_ai_agent = True
-            )
-        else:
-            return ImageInferenceRequest(
-                base_model = 'flux-dev',
-                prompt = '',
-                image_fts = [
-                    ''
-                    ],
         )
         """
 
-    def testImageInferenceRequest(self):
-        """Test ImageInferenceRequest"""
+    def testPhotoAITemplateResponse(self):
+        """Test PhotoAITemplateResponse"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing_extensions import Annotated
 from flowhunt.models.aspec_ratio import AspecRatio
@@ -36,7 +36,10 @@ class ImageInferenceRequest(BaseModel):
     aspect_ratio: Optional[AspecRatio] = Field(default=None, description="The aspect ratio of the output images")
     steps: Optional[StrictInt] = Field(default=28, description="The number of steps to take in the inference process")
     guidance_scale: Optional[Union[Annotated[float, Field(le=10.0, strict=True, ge=0.0)], Annotated[int, Field(le=10, strict=True, ge=0)]]] = Field(default=3.5, description="The guidance scale to use in the inference process")
-    __properties: ClassVar[List[str]] = ["base_model", "prompt", "image_fts", "number_of_outputs", "aspect_ratio", "steps", "guidance_scale"]
+    styles: Optional[List[StrictStr]] = None
+    effects: Optional[List[StrictStr]] = None
+    use_ai_agent: Optional[StrictBool] = None
+    __properties: ClassVar[List[str]] = ["base_model", "prompt", "image_fts", "number_of_outputs", "aspect_ratio", "steps", "guidance_scale", "styles", "effects", "use_ai_agent"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -77,6 +80,21 @@ class ImageInferenceRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # set to None if styles (nullable) is None
+        # and model_fields_set contains the field
+        if self.styles is None and "styles" in self.model_fields_set:
+            _dict['styles'] = None
+
+        # set to None if effects (nullable) is None
+        # and model_fields_set contains the field
+        if self.effects is None and "effects" in self.model_fields_set:
+            _dict['effects'] = None
+
+        # set to None if use_ai_agent (nullable) is None
+        # and model_fields_set contains the field
+        if self.use_ai_agent is None and "use_ai_agent" in self.model_fields_set:
+            _dict['use_ai_agent'] = None
+
         return _dict
 
     @classmethod
@@ -95,7 +113,10 @@ class ImageInferenceRequest(BaseModel):
             "number_of_outputs": obj.get("number_of_outputs") if obj.get("number_of_outputs") is not None else 1,
             "aspect_ratio": obj.get("aspect_ratio"),
             "steps": obj.get("steps") if obj.get("steps") is not None else 28,
-            "guidance_scale": obj.get("guidance_scale") if obj.get("guidance_scale") is not None else 3.5
+            "guidance_scale": obj.get("guidance_scale") if obj.get("guidance_scale") is not None else 3.5,
+            "styles": obj.get("styles"),
+            "effects": obj.get("effects"),
+            "use_ai_agent": obj.get("use_ai_agent")
         })
         return _obj
 

@@ -44,7 +44,8 @@ class TestFlowSessionCreateFromFlowRequest(unittest.TestCase):
                 variables = {
                     'key' : ''
                     },
-                flow_id = ''
+                flow_id = '',
+                on_chat_opened_postback_url = ''
             )
         else:
             return FlowSessionCreateFromFlowRequest(

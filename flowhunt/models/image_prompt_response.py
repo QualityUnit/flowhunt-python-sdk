@@ -17,27 +17,17 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
-from flowhunt.models.ft_status import FTStatus
-from flowhunt.models.ft_type import FTType
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
-class ImageFTResponse(BaseModel):
+class ImagePromptResponse(BaseModel):
     """
-    ImageFTResponse
+    ImagePromptResponse
     """ # noqa: E501
-    ft_type: FTType = Field(description="Fine tuning type")
-    ft_id: StrictStr = Field(description="Fine tuning id")
-    name: StrictStr = Field(description="Fine tuning name")
-    steps: StrictInt = Field(description="Number of steps")
-    lora_rank: StrictInt = Field(description="Lora rank")
-    trigger_word: StrictStr = Field(description="Trigger word")
-    training_images: List[StrictStr] = Field(description="Training images")
-    status: FTStatus = Field(description="Status")
-    cover_image: Optional[StrictStr]
-    __properties: ClassVar[List[str]] = ["ft_type", "ft_id", "name", "steps", "lora_rank", "trigger_word", "training_images", "status", "cover_image"]
+    prompt: StrictStr = Field(description="The prompt generated for the inference")
+    __properties: ClassVar[List[str]] = ["prompt"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -57,7 +47,7 @@ class ImageFTResponse(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of ImageFTResponse from a JSON string"""
+        """Create an instance of ImagePromptResponse from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -78,16 +68,11 @@ class ImageFTResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if cover_image (nullable) is None
-        # and model_fields_set contains the field
-        if self.cover_image is None and "cover_image" in self.model_fields_set:
-            _dict['cover_image'] = None
-
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of ImageFTResponse from a dict"""
+        """Create an instance of ImagePromptResponse from a dict"""
         if obj is None:
             return None
 
@@ -95,15 +80,7 @@ class ImageFTResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "ft_type": obj.get("ft_type"),
-            "ft_id": obj.get("ft_id"),
-            "name": obj.get("name"),
-            "steps": obj.get("steps"),
-            "lora_rank": obj.get("lora_rank"),
-            "trigger_word": obj.get("trigger_word"),
-            "training_images": obj.get("training_images"),
-            "status": obj.get("status"),
-            "cover_image": obj.get("cover_image")
+            "prompt": obj.get("prompt")
         })
         return _obj
 

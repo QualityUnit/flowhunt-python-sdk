@@ -34,7 +34,8 @@ class FlowSessionCreateFromFlowRequest(BaseModel):
     password: Optional[StrictStr] = None
     variables: Optional[Dict[str, StrictStr]] = None
     flow_id: StrictStr = Field(description="The flow ID")
-    __properties: ClassVar[List[str]] = ["url", "lang", "access_token", "refresh_token", "username", "password", "variables", "flow_id"]
+    on_chat_opened_postback_url: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["url", "lang", "access_token", "refresh_token", "username", "password", "variables", "flow_id", "on_chat_opened_postback_url"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -110,6 +111,11 @@ class FlowSessionCreateFromFlowRequest(BaseModel):
         if self.variables is None and "variables" in self.model_fields_set:
             _dict['variables'] = None
 
+        # set to None if on_chat_opened_postback_url (nullable) is None
+        # and model_fields_set contains the field
+        if self.on_chat_opened_postback_url is None and "on_chat_opened_postback_url" in self.model_fields_set:
+            _dict['on_chat_opened_postback_url'] = None
+
         return _dict
 
     @classmethod
@@ -129,7 +135,8 @@ class FlowSessionCreateFromFlowRequest(BaseModel):
             "username": obj.get("username"),
             "password": obj.get("password"),
             "variables": obj.get("variables"),
-            "flow_id": obj.get("flow_id")
+            "flow_id": obj.get("flow_id"),
+            "on_chat_opened_postback_url": obj.get("on_chat_opened_postback_url")
         })
         return _obj
 

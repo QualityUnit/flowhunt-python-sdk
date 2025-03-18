@@ -5,9 +5,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**url** | **str** | The URL of the image | 
+**inference_id** | **str** | The ID of the inference | 
+**image_url_outputs** | **List[str]** | The URL of the image | 
 **date_created** | **datetime** | The date the image was created | 
 **prompt** | **str** | The prompt used for the inference | 
+**styles** | **List[str]** | The styles used for the inference | 
+**effects** | **List[str]** | The effects used for the inference | 
+**aspect_ratio** | **str** | The aspect ratio of the output images | 
+**ai_model** | **str** | The AI model used for the inference | 
+**status** | **str** | The status of the inference | 
 
 ## Example
 
