@@ -10,6 +10,8 @@ Name | Type | Description | Notes
 **group_id** | **str** |  | [optional] 
 **min_cluster_strength** | **int** |  | [optional] 
 **suggest_other_matching_keywords** | **bool** |  | [optional] 
+**include_negative_keywords** | **bool** |  | [optional] 
+**include_all_members** | **bool** |  | [optional] 
 
 ## Example
 

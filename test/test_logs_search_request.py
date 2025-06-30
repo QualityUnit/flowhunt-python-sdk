@@ -41,7 +41,7 @@ class TestLogsSearchRequest(unittest.TestCase):
                 log_levels = [
                     ''
                     ],
-                category_ids = '',
+                category_id = '',
                 from_date = '',
                 to_date = '',
                 search_text = '',

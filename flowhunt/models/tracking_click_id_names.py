@@ -20,7 +20,7 @@ from typing_extensions import Self
 
 class TrackingClickIdNames(str, Enum):
     """
-    TrackingClickIdNames
+    Enum for tracking click ID names
     """
 
     """
@@ -29,10 +29,10 @@ class TrackingClickIdNames(str, Enum):
     GCLID = 'gclid'
     GBRAID = 'gbraid'
     WBRAID = 'wbraid'
-    MSCLKID = 'msclkid'
+    DCLID = 'dclid'
     FBCLID = 'fbclid'
-    TWCLID = 'twclid'
-    LI = 'li'
+    MSCLKID = 'msclkid'
+    OTHER = 'other'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

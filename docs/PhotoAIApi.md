@@ -4,10 +4,10 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**explore**](PhotoAIApi.md#explore) | **GET** /v2/photo_ai/explore | Explore
-[**get_effects**](PhotoAIApi.md#get_effects) | **GET** /v2/photo_ai/effects | Get Effects
-[**get_styles**](PhotoAIApi.md#get_styles) | **GET** /v2/photo_ai/styles | Get Styles
-[**get_templates**](PhotoAIApi.md#get_templates) | **GET** /v2/photo_ai/templates | Get Templates
+[**explore**](PhotoAIApi.md#explore) | **GET** /v2/photo_ai/public/explore | Explore
+[**get_effects**](PhotoAIApi.md#get_effects) | **GET** /v2/photo_ai/public/effects | Get Effects
+[**get_styles**](PhotoAIApi.md#get_styles) | **GET** /v2/photo_ai/public/styles | Get Styles
+[**get_templates**](PhotoAIApi.md#get_templates) | **GET** /v2/photo_ai/public/templates | Get Templates
 
 
 # **explore**

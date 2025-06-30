@@ -20,7 +20,7 @@ from typing_extensions import Self
 
 class TrackingSourceTypes(str, Enum):
     """
-    TrackingSourceTypes
+    Enum for tracking source types
     """
 
     """

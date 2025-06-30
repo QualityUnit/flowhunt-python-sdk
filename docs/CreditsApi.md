@@ -15,6 +15,8 @@ Method | HTTP request | Description
 
 Get Credit Balance
 
+Get the credit balance for the current user.
+
 ### Example
 
 * Api Key Authentication (APIKeyHeader):
@@ -93,6 +95,8 @@ This endpoint does not need any parameter.
 > CreditBalanceResponse get_workspace_credit_balance(workspace_id)
 
 Get Workspace Credit Balance
+
+Get the credit balance for a workspace.
 
 ### Example
 
@@ -177,6 +181,8 @@ Name | Type | Description  | Notes
 > List[CreditTransactionResponse] search_credit_transactions(workspace_id, credit_transaction_search_request)
 
 Search Credit Transactions
+
+Search for credit transactions based on criteria.
 
 ### Example
 
@@ -264,6 +270,8 @@ Name | Type | Description  | Notes
 > List[CreditDailyTransactionResponse] search_daily_credit_transactions(workspace_id, credit_daily_transaction_search_request)
 
 Search Daily Credit Transactions
+
+Search for daily credit transactions based on criteria.
 
 ### Example
 

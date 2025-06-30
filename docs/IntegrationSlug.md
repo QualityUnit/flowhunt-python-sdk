@@ -25,6 +25,10 @@
 
 * `WORDPRESS_INTEGRATION` (value: `'wordpress_integration'`)
 
+* `GMAIL_INTEGRATION` (value: `'gmail_integration'`)
+
+* `INSTAGRAM_INTEGRATION` (value: `'instagram_integration'`)
+
 * `GOOGLE_CALENDAR_INTEGRATION` (value: `'google_calendar_integration'`)
 
 * `GOOGLE_ADS_INTEGRATION` (value: `'google_ads_integration'`)
@@ -38,6 +42,8 @@
 * `GOOGLE_TASKS_INTEGRATION` (value: `'google_tasks_integration'`)
 
 * `GOOGLE_MEET_INTEGRATION` (value: `'google_meet_integration'`)
+
+* `GOOGLE_SLIDES_INTEGRATION` (value: `'google_slides_integration'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

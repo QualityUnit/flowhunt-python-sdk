@@ -30,7 +30,7 @@ class LogsSearchRequest(BaseModel):
     """ # noqa: E501
     log_types: Optional[List[StrictStr]] = None
     log_levels: Optional[List[StrictStr]] = None
-    category_ids: Optional[StrictStr] = None
+    category_id: Optional[StrictStr] = None
     from_date: Optional[StrictStr] = None
     to_date: Optional[StrictStr] = None
     search_text: Optional[StrictStr] = None
@@ -38,7 +38,7 @@ class LogsSearchRequest(BaseModel):
     page_size: Optional[Annotated[int, Field(le=100, strict=True, ge=1)]] = Field(default=50, description="Number of results per page")
     sort_by: Optional[StrictStr] = Field(default='created_at', description="Field to sort results by")
     sort_direction: Optional[SortDirection] = Field(default=None, description="Sort direction (asc or desc)")
-    __properties: ClassVar[List[str]] = ["log_types", "log_levels", "category_ids", "from_date", "to_date", "search_text", "page", "page_size", "sort_by", "sort_direction"]
+    __properties: ClassVar[List[str]] = ["log_types", "log_levels", "category_id", "from_date", "to_date", "search_text", "page", "page_size", "sort_by", "sort_direction"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -89,10 +89,10 @@ class LogsSearchRequest(BaseModel):
         if self.log_levels is None and "log_levels" in self.model_fields_set:
             _dict['log_levels'] = None
 
-        # set to None if category_ids (nullable) is None
+        # set to None if category_id (nullable) is None
         # and model_fields_set contains the field
-        if self.category_ids is None and "category_ids" in self.model_fields_set:
-            _dict['category_ids'] = None
+        if self.category_id is None and "category_id" in self.model_fields_set:
+            _dict['category_id'] = None
 
         # set to None if from_date (nullable) is None
         # and model_fields_set contains the field
@@ -123,7 +123,7 @@ class LogsSearchRequest(BaseModel):
         _obj = cls.model_validate({
             "log_types": obj.get("log_types"),
             "log_levels": obj.get("log_levels"),
-            "category_ids": obj.get("category_ids"),
+            "category_id": obj.get("category_id"),
             "from_date": obj.get("from_date"),
             "to_date": obj.get("to_date"),
             "search_text": obj.get("search_text"),

@@ -19,6 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from flowhunt.models.pagination import Pagination
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -38,7 +39,8 @@ class FlowSessionViewSearchRequest(BaseModel):
     chatbot_name: Optional[StrictStr] = None
     flow_name: Optional[StrictStr] = None
     ipaddress_filter: Optional[Dict[str, Any]] = None
-    __properties: ClassVar[List[str]] = ["chatbot_id", "flow_id", "tags", "limit", "created_at_filter", "last_message_at_filter", "duration_filter", "msg_count_filter", "credits_filter", "chatbot_name", "flow_name", "ipaddress_filter"]
+    pagination: Optional[Pagination] = None
+    __properties: ClassVar[List[str]] = ["chatbot_id", "flow_id", "tags", "limit", "created_at_filter", "last_message_at_filter", "duration_filter", "msg_count_filter", "credits_filter", "chatbot_name", "flow_name", "ipaddress_filter", "pagination"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -79,6 +81,9 @@ class FlowSessionViewSearchRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of pagination
+        if self.pagination:
+            _dict['pagination'] = self.pagination.to_dict()
         # set to None if chatbot_id (nullable) is None
         # and model_fields_set contains the field
         if self.chatbot_id is None and "chatbot_id" in self.model_fields_set:
@@ -139,6 +144,11 @@ class FlowSessionViewSearchRequest(BaseModel):
         if self.ipaddress_filter is None and "ipaddress_filter" in self.model_fields_set:
             _dict['ipaddress_filter'] = None
 
+        # set to None if pagination (nullable) is None
+        # and model_fields_set contains the field
+        if self.pagination is None and "pagination" in self.model_fields_set:
+            _dict['pagination'] = None
+
         return _dict
 
     @classmethod
@@ -162,7 +172,8 @@ class FlowSessionViewSearchRequest(BaseModel):
             "credits_filter": obj.get("credits_filter"),
             "chatbot_name": obj.get("chatbot_name"),
             "flow_name": obj.get("flow_name"),
-            "ipaddress_filter": obj.get("ipaddress_filter")
+            "ipaddress_filter": obj.get("ipaddress_filter"),
+            "pagination": Pagination.from_dict(obj["pagination"]) if obj.get("pagination") is not None else None
         })
         return _obj
 

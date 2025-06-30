@@ -35,14 +35,14 @@ class TestFlowSessionAttachmentResponse(unittest.TestCase):
         model = FlowSessionAttachmentResponse()
         if include_optional:
             return FlowSessionAttachmentResponse(
-                file_name = 'file.txt',
+                file_name = 'document.txt',
                 file_type = 'text/plain',
                 file_id = '123e45676614174000',
                 type = file
             )
         else:
             return FlowSessionAttachmentResponse(
-                file_name = 'file.txt',
+                file_name = 'document.txt',
                 file_type = 'text/plain',
                 file_id = '123e45676614174000',
                 type = file,

@@ -13,6 +13,10 @@ Name | Type | Description | Notes
 **flow_type** | [**FlowType**](FlowType.md) | Flow type | 
 **executed_at** | **datetime** |  | [optional] 
 **category_id** | **str** |  | [optional] 
+**branch** | **str** | Flow branch | 
+**enable_cache** | **bool** | Enable cache | 
+**draft_version_nr** | **int** |  | [optional] 
+**prod_version_nr** | **int** |  | [optional] 
 
 ## Example
 

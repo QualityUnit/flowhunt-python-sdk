@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **status** | [**ScheduleStatus**](ScheduleStatus.md) |  | [optional] 
 **schedule_type** | [**ScheduleType**](ScheduleType.md) |  | [optional] 
 **limit** | **int** | Limit of the search | [optional] [default to 100]
+**pagination** | [**Pagination**](Pagination.md) |  | [optional] 
 
 ## Example
 

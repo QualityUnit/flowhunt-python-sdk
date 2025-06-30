@@ -8,6 +8,11 @@ Name | Type | Description | Notes
 **from_date** | **datetime** |  | [optional] 
 **to_date** | **datetime** |  | [optional] 
 **limit** | **int** | The number of results to return | [optional] [default to 10]
+**search_after** | **List[object]** |  | [optional] 
+**base_model** | [**BaseFoundationModel**](BaseFoundationModel.md) |  | [optional] 
+**style** | **str** |  | [optional] 
+**effect** | **str** |  | [optional] 
+**aspect_ratio** | [**AspecRatio**](AspecRatio.md) |  | [optional] 
 
 ## Example
 

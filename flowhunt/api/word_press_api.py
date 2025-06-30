@@ -41,7 +41,7 @@ class WordPressApi:
 
 
     @validate_call
-    def get_wordpress_post_categories_0(
+    def get_wordpress_post_categories(
         self,
         integration_id: StrictStr,
         workspace_id: StrictStr,
@@ -87,7 +87,7 @@ class WordPressApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_wordpress_post_categories_0_serialize(
+        _param = self._get_wordpress_post_categories_serialize(
             integration_id=integration_id,
             workspace_id=workspace_id,
             _request_auth=_request_auth,
@@ -112,7 +112,7 @@ class WordPressApi:
 
 
     @validate_call
-    def get_wordpress_post_categories_0_with_http_info(
+    def get_wordpress_post_categories_with_http_info(
         self,
         integration_id: StrictStr,
         workspace_id: StrictStr,
@@ -158,7 +158,7 @@ class WordPressApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_wordpress_post_categories_0_serialize(
+        _param = self._get_wordpress_post_categories_serialize(
             integration_id=integration_id,
             workspace_id=workspace_id,
             _request_auth=_request_auth,
@@ -183,7 +183,7 @@ class WordPressApi:
 
 
     @validate_call
-    def get_wordpress_post_categories_0_without_preload_content(
+    def get_wordpress_post_categories_without_preload_content(
         self,
         integration_id: StrictStr,
         workspace_id: StrictStr,
@@ -229,7 +229,7 @@ class WordPressApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_wordpress_post_categories_0_serialize(
+        _param = self._get_wordpress_post_categories_serialize(
             integration_id=integration_id,
             workspace_id=workspace_id,
             _request_auth=_request_auth,
@@ -249,7 +249,7 @@ class WordPressApi:
         return response_data.response
 
 
-    def _get_wordpress_post_categories_0_serialize(
+    def _get_wordpress_post_categories_serialize(
         self,
         integration_id,
         workspace_id,
@@ -320,7 +320,7 @@ class WordPressApi:
 
 
     @validate_call
-    def get_wordpress_post_tags_0(
+    def get_wordpress_post_tags(
         self,
         integration_id: StrictStr,
         workspace_id: StrictStr,
@@ -366,7 +366,7 @@ class WordPressApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_wordpress_post_tags_0_serialize(
+        _param = self._get_wordpress_post_tags_serialize(
             integration_id=integration_id,
             workspace_id=workspace_id,
             _request_auth=_request_auth,
@@ -391,7 +391,7 @@ class WordPressApi:
 
 
     @validate_call
-    def get_wordpress_post_tags_0_with_http_info(
+    def get_wordpress_post_tags_with_http_info(
         self,
         integration_id: StrictStr,
         workspace_id: StrictStr,
@@ -437,7 +437,7 @@ class WordPressApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_wordpress_post_tags_0_serialize(
+        _param = self._get_wordpress_post_tags_serialize(
             integration_id=integration_id,
             workspace_id=workspace_id,
             _request_auth=_request_auth,
@@ -462,7 +462,7 @@ class WordPressApi:
 
 
     @validate_call
-    def get_wordpress_post_tags_0_without_preload_content(
+    def get_wordpress_post_tags_without_preload_content(
         self,
         integration_id: StrictStr,
         workspace_id: StrictStr,
@@ -508,7 +508,7 @@ class WordPressApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_wordpress_post_tags_0_serialize(
+        _param = self._get_wordpress_post_tags_serialize(
             integration_id=integration_id,
             workspace_id=workspace_id,
             _request_auth=_request_auth,
@@ -528,7 +528,7 @@ class WordPressApi:
         return response_data.response
 
 
-    def _get_wordpress_post_tags_0_serialize(
+    def _get_wordpress_post_tags_serialize(
         self,
         integration_id,
         workspace_id,
@@ -599,7 +599,7 @@ class WordPressApi:
 
 
     @validate_call
-    def get_wordpress_sites_0(
+    def get_wordpress_sites(
         self,
         workspace_id: StrictStr,
         _request_timeout: Union[
@@ -642,7 +642,7 @@ class WordPressApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_wordpress_sites_0_serialize(
+        _param = self._get_wordpress_sites_serialize(
             workspace_id=workspace_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -666,7 +666,7 @@ class WordPressApi:
 
 
     @validate_call
-    def get_wordpress_sites_0_with_http_info(
+    def get_wordpress_sites_with_http_info(
         self,
         workspace_id: StrictStr,
         _request_timeout: Union[
@@ -709,7 +709,7 @@ class WordPressApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_wordpress_sites_0_serialize(
+        _param = self._get_wordpress_sites_serialize(
             workspace_id=workspace_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -733,7 +733,7 @@ class WordPressApi:
 
 
     @validate_call
-    def get_wordpress_sites_0_without_preload_content(
+    def get_wordpress_sites_without_preload_content(
         self,
         workspace_id: StrictStr,
         _request_timeout: Union[
@@ -776,7 +776,7 @@ class WordPressApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_wordpress_sites_0_serialize(
+        _param = self._get_wordpress_sites_serialize(
             workspace_id=workspace_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -795,7 +795,7 @@ class WordPressApi:
         return response_data.response
 
 
-    def _get_wordpress_sites_0_serialize(
+    def _get_wordpress_sites_serialize(
         self,
         workspace_id,
         _request_auth,

@@ -20,6 +20,7 @@ import json
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from flowhunt.models.pagination import Pagination
 from flowhunt.models.transaction_type import TransactionType
 from typing import Optional, Set
 from typing_extensions import Self
@@ -35,7 +36,8 @@ class CreditTransactionSearchRequest(BaseModel):
     context_id: Optional[StrictStr] = None
     context_desc: Optional[StrictStr] = None
     limit: Optional[StrictInt] = None
-    __properties: ClassVar[List[str]] = ["transaction_id", "created_at_from", "created_at_to", "transaction_type", "context_id", "context_desc", "limit"]
+    pagination: Optional[Pagination] = None
+    __properties: ClassVar[List[str]] = ["transaction_id", "created_at_from", "created_at_to", "transaction_type", "context_id", "context_desc", "limit", "pagination"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -76,6 +78,9 @@ class CreditTransactionSearchRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of pagination
+        if self.pagination:
+            _dict['pagination'] = self.pagination.to_dict()
         # set to None if transaction_id (nullable) is None
         # and model_fields_set contains the field
         if self.transaction_id is None and "transaction_id" in self.model_fields_set:
@@ -111,6 +116,11 @@ class CreditTransactionSearchRequest(BaseModel):
         if self.limit is None and "limit" in self.model_fields_set:
             _dict['limit'] = None
 
+        # set to None if pagination (nullable) is None
+        # and model_fields_set contains the field
+        if self.pagination is None and "pagination" in self.model_fields_set:
+            _dict['pagination'] = None
+
         return _dict
 
     @classmethod
@@ -129,7 +139,8 @@ class CreditTransactionSearchRequest(BaseModel):
             "transaction_type": obj.get("transaction_type"),
             "context_id": obj.get("context_id"),
             "context_desc": obj.get("context_desc"),
-            "limit": obj.get("limit")
+            "limit": obj.get("limit"),
+            "pagination": Pagination.from_dict(obj["pagination"]) if obj.get("pagination") is not None else None
         })
         return _obj
 

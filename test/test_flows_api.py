@@ -96,6 +96,13 @@ class TestFlowsApi(unittest.TestCase):
         """
         pass
 
+    def test_generate_commit_message(self) -> None:
+        """Test case for generate_commit_message
+
+        Generate Commit Message
+        """
+        pass
+
     def test_get(self) -> None:
         """Test case for get
 
@@ -114,6 +121,13 @@ class TestFlowsApi(unittest.TestCase):
         """Test case for get_attachments
 
         Get Attachments
+        """
+        pass
+
+    def test_get_flow_versions(self) -> None:
+        """Test case for get_flow_versions
+
+        Get Flow Versions
         """
         pass
 
@@ -166,6 +180,20 @@ class TestFlowsApi(unittest.TestCase):
         """
         pass
 
+    def test_publish_flow(self) -> None:
+        """Test case for publish_flow
+
+        Publish Flow
+        """
+        pass
+
+    def test_restore_flow_version(self) -> None:
+        """Test case for restore_flow_version
+
+        Restore Flow Version
+        """
+        pass
+
     def test_search(self) -> None:
         """Test case for search
 
@@ -191,13 +219,6 @@ class TestFlowsApi(unittest.TestCase):
         """Test case for search_flow_crons
 
         Search Flow Crons
-        """
-        pass
-
-    def test_stream_flow_response(self) -> None:
-        """Test case for stream_flow_response
-
-        Stream Flow Response
         """
         pass
 

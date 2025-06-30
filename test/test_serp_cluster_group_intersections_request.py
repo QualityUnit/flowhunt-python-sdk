@@ -39,7 +39,9 @@ class TestSerpClusterGroupIntersectionsRequest(unittest.TestCase):
                 campaign_id = '',
                 group_id = '',
                 min_cluster_strength = 56,
-                suggest_other_matching_keywords = True
+                suggest_other_matching_keywords = True,
+                include_negative_keywords = True,
+                include_all_members = True
             )
         else:
             return SerpClusterGroupIntersectionsRequest(

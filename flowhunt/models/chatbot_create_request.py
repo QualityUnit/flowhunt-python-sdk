@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from flowhunt.models.chatbot_status import ChatbotStatus
@@ -37,7 +37,23 @@ class ChatbotCreateRequest(BaseModel):
     max_window_size: Optional[Annotated[str, Field(strict=True, max_length=32)]] = None
     msg_rpm: Optional[StrictInt] = None
     msg_ip_rpm: Optional[StrictInt] = None
-    __properties: ClassVar[List[str]] = ["title", "description", "flow_id", "status", "url_suffix", "theme", "max_window_size", "msg_rpm", "msg_ip_rpm"]
+    chatbot_description: Optional[StrictStr] = None
+    show_chatbot_header: Optional[StrictBool] = None
+    chat_bubble_bg_color: Optional[Annotated[str, Field(strict=True, max_length=7)]] = None
+    chat_bubble_icon_color: Optional[Annotated[str, Field(strict=True, max_length=7)]] = None
+    chat_bubble_img_url: Optional[StrictStr] = None
+    chatbot_theme: Optional[Annotated[str, Field(strict=True, max_length=1)]] = None
+    chatbot_position: Optional[Annotated[str, Field(strict=True, max_length=2)]] = None
+    message_placeholder: Optional[Annotated[str, Field(strict=True, max_length=255)]] = None
+    chatbot_header_text: Optional[Annotated[str, Field(strict=True, max_length=255)]] = None
+    chatbot_header_logo_url: Optional[StrictStr] = None
+    assistant_avatar_image_url: Optional[StrictStr] = None
+    remove_branding: Optional[StrictBool] = None
+    chatbot_style: Optional[Annotated[str, Field(strict=True, max_length=30)]] = None
+    session_message_history: Optional[StrictBool] = None
+    chatbot_bubble_size: Optional[StrictInt] = None
+    message_header_logo_url: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["title", "description", "flow_id", "status", "url_suffix", "theme", "max_window_size", "msg_rpm", "msg_ip_rpm", "chatbot_description", "show_chatbot_header", "chat_bubble_bg_color", "chat_bubble_icon_color", "chat_bubble_img_url", "chatbot_theme", "chatbot_position", "message_placeholder", "chatbot_header_text", "chatbot_header_logo_url", "assistant_avatar_image_url", "remove_branding", "chatbot_style", "session_message_history", "chatbot_bubble_size", "message_header_logo_url"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -108,6 +124,86 @@ class ChatbotCreateRequest(BaseModel):
         if self.msg_ip_rpm is None and "msg_ip_rpm" in self.model_fields_set:
             _dict['msg_ip_rpm'] = None
 
+        # set to None if chatbot_description (nullable) is None
+        # and model_fields_set contains the field
+        if self.chatbot_description is None and "chatbot_description" in self.model_fields_set:
+            _dict['chatbot_description'] = None
+
+        # set to None if show_chatbot_header (nullable) is None
+        # and model_fields_set contains the field
+        if self.show_chatbot_header is None and "show_chatbot_header" in self.model_fields_set:
+            _dict['show_chatbot_header'] = None
+
+        # set to None if chat_bubble_bg_color (nullable) is None
+        # and model_fields_set contains the field
+        if self.chat_bubble_bg_color is None and "chat_bubble_bg_color" in self.model_fields_set:
+            _dict['chat_bubble_bg_color'] = None
+
+        # set to None if chat_bubble_icon_color (nullable) is None
+        # and model_fields_set contains the field
+        if self.chat_bubble_icon_color is None and "chat_bubble_icon_color" in self.model_fields_set:
+            _dict['chat_bubble_icon_color'] = None
+
+        # set to None if chat_bubble_img_url (nullable) is None
+        # and model_fields_set contains the field
+        if self.chat_bubble_img_url is None and "chat_bubble_img_url" in self.model_fields_set:
+            _dict['chat_bubble_img_url'] = None
+
+        # set to None if chatbot_theme (nullable) is None
+        # and model_fields_set contains the field
+        if self.chatbot_theme is None and "chatbot_theme" in self.model_fields_set:
+            _dict['chatbot_theme'] = None
+
+        # set to None if chatbot_position (nullable) is None
+        # and model_fields_set contains the field
+        if self.chatbot_position is None and "chatbot_position" in self.model_fields_set:
+            _dict['chatbot_position'] = None
+
+        # set to None if message_placeholder (nullable) is None
+        # and model_fields_set contains the field
+        if self.message_placeholder is None and "message_placeholder" in self.model_fields_set:
+            _dict['message_placeholder'] = None
+
+        # set to None if chatbot_header_text (nullable) is None
+        # and model_fields_set contains the field
+        if self.chatbot_header_text is None and "chatbot_header_text" in self.model_fields_set:
+            _dict['chatbot_header_text'] = None
+
+        # set to None if chatbot_header_logo_url (nullable) is None
+        # and model_fields_set contains the field
+        if self.chatbot_header_logo_url is None and "chatbot_header_logo_url" in self.model_fields_set:
+            _dict['chatbot_header_logo_url'] = None
+
+        # set to None if assistant_avatar_image_url (nullable) is None
+        # and model_fields_set contains the field
+        if self.assistant_avatar_image_url is None and "assistant_avatar_image_url" in self.model_fields_set:
+            _dict['assistant_avatar_image_url'] = None
+
+        # set to None if remove_branding (nullable) is None
+        # and model_fields_set contains the field
+        if self.remove_branding is None and "remove_branding" in self.model_fields_set:
+            _dict['remove_branding'] = None
+
+        # set to None if chatbot_style (nullable) is None
+        # and model_fields_set contains the field
+        if self.chatbot_style is None and "chatbot_style" in self.model_fields_set:
+            _dict['chatbot_style'] = None
+
+        # set to None if session_message_history (nullable) is None
+        # and model_fields_set contains the field
+        if self.session_message_history is None and "session_message_history" in self.model_fields_set:
+            _dict['session_message_history'] = None
+
+        # set to None if chatbot_bubble_size (nullable) is None
+        # and model_fields_set contains the field
+        if self.chatbot_bubble_size is None and "chatbot_bubble_size" in self.model_fields_set:
+            _dict['chatbot_bubble_size'] = None
+
+        # set to None if message_header_logo_url (nullable) is None
+        # and model_fields_set contains the field
+        if self.message_header_logo_url is None and "message_header_logo_url" in self.model_fields_set:
+            _dict['message_header_logo_url'] = None
+
         return _dict
 
     @classmethod
@@ -128,7 +224,23 @@ class ChatbotCreateRequest(BaseModel):
             "theme": obj.get("theme"),
             "max_window_size": obj.get("max_window_size"),
             "msg_rpm": obj.get("msg_rpm"),
-            "msg_ip_rpm": obj.get("msg_ip_rpm")
+            "msg_ip_rpm": obj.get("msg_ip_rpm"),
+            "chatbot_description": obj.get("chatbot_description"),
+            "show_chatbot_header": obj.get("show_chatbot_header"),
+            "chat_bubble_bg_color": obj.get("chat_bubble_bg_color"),
+            "chat_bubble_icon_color": obj.get("chat_bubble_icon_color"),
+            "chat_bubble_img_url": obj.get("chat_bubble_img_url"),
+            "chatbot_theme": obj.get("chatbot_theme"),
+            "chatbot_position": obj.get("chatbot_position"),
+            "message_placeholder": obj.get("message_placeholder"),
+            "chatbot_header_text": obj.get("chatbot_header_text"),
+            "chatbot_header_logo_url": obj.get("chatbot_header_logo_url"),
+            "assistant_avatar_image_url": obj.get("assistant_avatar_image_url"),
+            "remove_branding": obj.get("remove_branding"),
+            "chatbot_style": obj.get("chatbot_style"),
+            "session_message_history": obj.get("session_message_history"),
+            "chatbot_bubble_size": obj.get("chatbot_bubble_size"),
+            "message_header_logo_url": obj.get("message_header_logo_url")
         })
         return _obj
 

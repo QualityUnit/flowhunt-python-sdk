@@ -266,7 +266,7 @@ class PhotoAIApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/v2/photo_ai/explore',
+            resource_path='/v2/photo_ai/public/explore',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -508,7 +508,7 @@ class PhotoAIApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/v2/photo_ai/effects',
+            resource_path='/v2/photo_ai/public/effects',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -750,7 +750,7 @@ class PhotoAIApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/v2/photo_ai/styles',
+            resource_path='/v2/photo_ai/public/styles',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -992,7 +992,7 @@ class PhotoAIApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/v2/photo_ai/templates',
+            resource_path='/v2/photo_ai/public/templates',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

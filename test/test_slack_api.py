@@ -26,15 +26,15 @@ class TestSlackApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_get_slack_channels_0(self) -> None:
-        """Test case for get_slack_channels_0
+    def test_get_slack_channels(self) -> None:
+        """Test case for get_slack_channels
 
         Get Slack Channels
         """
         pass
 
-    def test_get_slack_workspaces_0(self) -> None:
-        """Test case for get_slack_workspaces_0
+    def test_get_slack_workspaces(self) -> None:
+        """Test case for get_slack_workspaces
 
         Get Slack Workspaces
         """

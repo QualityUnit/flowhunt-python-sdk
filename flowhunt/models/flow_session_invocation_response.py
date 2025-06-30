@@ -18,7 +18,8 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
+from flowhunt.models.flow_session_event import FlowSessionEvent
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +29,8 @@ class FlowSessionInvocationResponse(BaseModel):
     """ # noqa: E501
     message_id: StrictStr = Field(description="Message ID")
     created_at: StrictStr = Field(description="Created at")
-    __properties: ClassVar[List[str]] = ["message_id", "created_at"]
+    cached_events: Optional[List[FlowSessionEvent]] = None
+    __properties: ClassVar[List[str]] = ["message_id", "created_at", "cached_events"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -69,6 +71,18 @@ class FlowSessionInvocationResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of each item in cached_events (list)
+        _items = []
+        if self.cached_events:
+            for _item_cached_events in self.cached_events:
+                if _item_cached_events:
+                    _items.append(_item_cached_events.to_dict())
+            _dict['cached_events'] = _items
+        # set to None if cached_events (nullable) is None
+        # and model_fields_set contains the field
+        if self.cached_events is None and "cached_events" in self.model_fields_set:
+            _dict['cached_events'] = None
+
         return _dict
 
     @classmethod
@@ -82,7 +96,8 @@ class FlowSessionInvocationResponse(BaseModel):
 
         _obj = cls.model_validate({
             "message_id": obj.get("message_id"),
-            "created_at": obj.get("created_at")
+            "created_at": obj.get("created_at"),
+            "cached_events": [FlowSessionEvent.from_dict(_item) for _item in obj["cached_events"]] if obj.get("cached_events") is not None else None
         })
         return _obj
 

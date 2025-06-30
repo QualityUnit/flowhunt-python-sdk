@@ -18,8 +18,10 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictInt
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from flowhunt.models.aspec_ratio import AspecRatio
+from flowhunt.models.base_foundation_model import BaseFoundationModel
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -30,7 +32,12 @@ class InferenceHistorySearchRequest(BaseModel):
     from_date: Optional[datetime] = None
     to_date: Optional[datetime] = None
     limit: Optional[StrictInt] = Field(default=10, description="The number of results to return")
-    __properties: ClassVar[List[str]] = ["from_date", "to_date", "limit"]
+    search_after: Optional[List[Any]] = None
+    base_model: Optional[BaseFoundationModel] = None
+    style: Optional[StrictStr] = None
+    effect: Optional[StrictStr] = None
+    aspect_ratio: Optional[AspecRatio] = None
+    __properties: ClassVar[List[str]] = ["from_date", "to_date", "limit", "search_after", "base_model", "style", "effect", "aspect_ratio"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -81,6 +88,31 @@ class InferenceHistorySearchRequest(BaseModel):
         if self.to_date is None and "to_date" in self.model_fields_set:
             _dict['to_date'] = None
 
+        # set to None if search_after (nullable) is None
+        # and model_fields_set contains the field
+        if self.search_after is None and "search_after" in self.model_fields_set:
+            _dict['search_after'] = None
+
+        # set to None if base_model (nullable) is None
+        # and model_fields_set contains the field
+        if self.base_model is None and "base_model" in self.model_fields_set:
+            _dict['base_model'] = None
+
+        # set to None if style (nullable) is None
+        # and model_fields_set contains the field
+        if self.style is None and "style" in self.model_fields_set:
+            _dict['style'] = None
+
+        # set to None if effect (nullable) is None
+        # and model_fields_set contains the field
+        if self.effect is None and "effect" in self.model_fields_set:
+            _dict['effect'] = None
+
+        # set to None if aspect_ratio (nullable) is None
+        # and model_fields_set contains the field
+        if self.aspect_ratio is None and "aspect_ratio" in self.model_fields_set:
+            _dict['aspect_ratio'] = None
+
         return _dict
 
     @classmethod
@@ -95,7 +127,12 @@ class InferenceHistorySearchRequest(BaseModel):
         _obj = cls.model_validate({
             "from_date": obj.get("from_date"),
             "to_date": obj.get("to_date"),
-            "limit": obj.get("limit") if obj.get("limit") is not None else 10
+            "limit": obj.get("limit") if obj.get("limit") is not None else 10,
+            "search_after": obj.get("search_after"),
+            "base_model": obj.get("base_model"),
+            "style": obj.get("style"),
+            "effect": obj.get("effect"),
+            "aspect_ratio": obj.get("aspect_ratio")
         })
         return _obj
 

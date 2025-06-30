@@ -19,6 +19,12 @@ import pprint
 import re  # noqa: F401
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, field_validator
 from typing import Optional
+from flowhunt.models.flow_assistant_add_component_metadata import FlowAssistantAddComponentMetadata
+from flowhunt.models.flow_assistant_add_connection_metadata import FlowAssistantAddConnectionMetadata
+from flowhunt.models.flow_assistant_create_blank_flow_metadata import FlowAssistantCreateBlankFlowMetadata
+from flowhunt.models.flow_assistant_delete_component_metadata import FlowAssistantDeleteComponentMetadata
+from flowhunt.models.flow_assistant_delete_connection_metadata import FlowAssistantDeleteConnectionMetadata
+from flowhunt.models.flow_assistant_update_component_metadata import FlowAssistantUpdateComponentMetadata
 from flowhunt.models.flow_session_loading_metadata import FlowSessionLoadingMetadata
 from flowhunt.models.flow_session_message_metadata import FlowSessionMessageMetadata
 from flowhunt.models.flow_session_task_response_metadata import FlowSessionTaskResponseMetadata
@@ -27,7 +33,7 @@ from typing import Union, Any, List, Set, TYPE_CHECKING, Optional, Dict
 from typing_extensions import Literal, Self
 from pydantic import Field
 
-METADATA_ANY_OF_SCHEMAS = ["FlowSessionLoadingMetadata", "FlowSessionMessageMetadata", "FlowSessionTaskResponseMetadata", "FlowSessionToolCallMetadata"]
+METADATA_ANY_OF_SCHEMAS = ["FlowAssistantAddComponentMetadata", "FlowAssistantAddConnectionMetadata", "FlowAssistantCreateBlankFlowMetadata", "FlowAssistantDeleteComponentMetadata", "FlowAssistantDeleteConnectionMetadata", "FlowAssistantUpdateComponentMetadata", "FlowSessionLoadingMetadata", "FlowSessionMessageMetadata", "FlowSessionTaskResponseMetadata", "FlowSessionToolCallMetadata"]
 
 class Metadata(BaseModel):
     """
@@ -42,11 +48,23 @@ class Metadata(BaseModel):
     anyof_schema_3_validator: Optional[FlowSessionToolCallMetadata] = None
     # data type: FlowSessionTaskResponseMetadata
     anyof_schema_4_validator: Optional[FlowSessionTaskResponseMetadata] = None
+    # data type: FlowAssistantAddComponentMetadata
+    anyof_schema_5_validator: Optional[FlowAssistantAddComponentMetadata] = None
+    # data type: FlowAssistantDeleteComponentMetadata
+    anyof_schema_6_validator: Optional[FlowAssistantDeleteComponentMetadata] = None
+    # data type: FlowAssistantUpdateComponentMetadata
+    anyof_schema_7_validator: Optional[FlowAssistantUpdateComponentMetadata] = None
+    # data type: FlowAssistantAddConnectionMetadata
+    anyof_schema_8_validator: Optional[FlowAssistantAddConnectionMetadata] = None
+    # data type: FlowAssistantDeleteConnectionMetadata
+    anyof_schema_9_validator: Optional[FlowAssistantDeleteConnectionMetadata] = None
+    # data type: FlowAssistantCreateBlankFlowMetadata
+    anyof_schema_10_validator: Optional[FlowAssistantCreateBlankFlowMetadata] = None
     if TYPE_CHECKING:
-        actual_instance: Optional[Union[FlowSessionLoadingMetadata, FlowSessionMessageMetadata, FlowSessionTaskResponseMetadata, FlowSessionToolCallMetadata]] = None
+        actual_instance: Optional[Union[FlowAssistantAddComponentMetadata, FlowAssistantAddConnectionMetadata, FlowAssistantCreateBlankFlowMetadata, FlowAssistantDeleteComponentMetadata, FlowAssistantDeleteConnectionMetadata, FlowAssistantUpdateComponentMetadata, FlowSessionLoadingMetadata, FlowSessionMessageMetadata, FlowSessionTaskResponseMetadata, FlowSessionToolCallMetadata]] = None
     else:
         actual_instance: Any = None
-    any_of_schemas: Set[str] = { "FlowSessionLoadingMetadata", "FlowSessionMessageMetadata", "FlowSessionTaskResponseMetadata", "FlowSessionToolCallMetadata" }
+    any_of_schemas: Set[str] = { "FlowAssistantAddComponentMetadata", "FlowAssistantAddConnectionMetadata", "FlowAssistantCreateBlankFlowMetadata", "FlowAssistantDeleteComponentMetadata", "FlowAssistantDeleteConnectionMetadata", "FlowAssistantUpdateComponentMetadata", "FlowSessionLoadingMetadata", "FlowSessionMessageMetadata", "FlowSessionTaskResponseMetadata", "FlowSessionToolCallMetadata" }
 
     model_config = {
         "validate_assignment": True,
@@ -94,9 +112,45 @@ class Metadata(BaseModel):
         else:
             return v
 
+        # validate data type: FlowAssistantAddComponentMetadata
+        if not isinstance(v, FlowAssistantAddComponentMetadata):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `FlowAssistantAddComponentMetadata`")
+        else:
+            return v
+
+        # validate data type: FlowAssistantDeleteComponentMetadata
+        if not isinstance(v, FlowAssistantDeleteComponentMetadata):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `FlowAssistantDeleteComponentMetadata`")
+        else:
+            return v
+
+        # validate data type: FlowAssistantUpdateComponentMetadata
+        if not isinstance(v, FlowAssistantUpdateComponentMetadata):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `FlowAssistantUpdateComponentMetadata`")
+        else:
+            return v
+
+        # validate data type: FlowAssistantAddConnectionMetadata
+        if not isinstance(v, FlowAssistantAddConnectionMetadata):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `FlowAssistantAddConnectionMetadata`")
+        else:
+            return v
+
+        # validate data type: FlowAssistantDeleteConnectionMetadata
+        if not isinstance(v, FlowAssistantDeleteConnectionMetadata):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `FlowAssistantDeleteConnectionMetadata`")
+        else:
+            return v
+
+        # validate data type: FlowAssistantCreateBlankFlowMetadata
+        if not isinstance(v, FlowAssistantCreateBlankFlowMetadata):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `FlowAssistantCreateBlankFlowMetadata`")
+        else:
+            return v
+
         if error_messages:
             # no match
-            raise ValueError("No match found when setting the actual_instance in Metadata with anyOf schemas: FlowSessionLoadingMetadata, FlowSessionMessageMetadata, FlowSessionTaskResponseMetadata, FlowSessionToolCallMetadata. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting the actual_instance in Metadata with anyOf schemas: FlowAssistantAddComponentMetadata, FlowAssistantAddConnectionMetadata, FlowAssistantCreateBlankFlowMetadata, FlowAssistantDeleteComponentMetadata, FlowAssistantDeleteConnectionMetadata, FlowAssistantUpdateComponentMetadata, FlowSessionLoadingMetadata, FlowSessionMessageMetadata, FlowSessionTaskResponseMetadata, FlowSessionToolCallMetadata. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -136,10 +190,46 @@ class Metadata(BaseModel):
             return instance
         except (ValidationError, ValueError) as e:
              error_messages.append(str(e))
+        # anyof_schema_5_validator: Optional[FlowAssistantAddComponentMetadata] = None
+        try:
+            instance.actual_instance = FlowAssistantAddComponentMetadata.from_json(json_str)
+            return instance
+        except (ValidationError, ValueError) as e:
+             error_messages.append(str(e))
+        # anyof_schema_6_validator: Optional[FlowAssistantDeleteComponentMetadata] = None
+        try:
+            instance.actual_instance = FlowAssistantDeleteComponentMetadata.from_json(json_str)
+            return instance
+        except (ValidationError, ValueError) as e:
+             error_messages.append(str(e))
+        # anyof_schema_7_validator: Optional[FlowAssistantUpdateComponentMetadata] = None
+        try:
+            instance.actual_instance = FlowAssistantUpdateComponentMetadata.from_json(json_str)
+            return instance
+        except (ValidationError, ValueError) as e:
+             error_messages.append(str(e))
+        # anyof_schema_8_validator: Optional[FlowAssistantAddConnectionMetadata] = None
+        try:
+            instance.actual_instance = FlowAssistantAddConnectionMetadata.from_json(json_str)
+            return instance
+        except (ValidationError, ValueError) as e:
+             error_messages.append(str(e))
+        # anyof_schema_9_validator: Optional[FlowAssistantDeleteConnectionMetadata] = None
+        try:
+            instance.actual_instance = FlowAssistantDeleteConnectionMetadata.from_json(json_str)
+            return instance
+        except (ValidationError, ValueError) as e:
+             error_messages.append(str(e))
+        # anyof_schema_10_validator: Optional[FlowAssistantCreateBlankFlowMetadata] = None
+        try:
+            instance.actual_instance = FlowAssistantCreateBlankFlowMetadata.from_json(json_str)
+            return instance
+        except (ValidationError, ValueError) as e:
+             error_messages.append(str(e))
 
         if error_messages:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into Metadata with anyOf schemas: FlowSessionLoadingMetadata, FlowSessionMessageMetadata, FlowSessionTaskResponseMetadata, FlowSessionToolCallMetadata. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into Metadata with anyOf schemas: FlowAssistantAddComponentMetadata, FlowAssistantAddConnectionMetadata, FlowAssistantCreateBlankFlowMetadata, FlowAssistantDeleteComponentMetadata, FlowAssistantDeleteConnectionMetadata, FlowAssistantUpdateComponentMetadata, FlowSessionLoadingMetadata, FlowSessionMessageMetadata, FlowSessionTaskResponseMetadata, FlowSessionToolCallMetadata. Details: " + ", ".join(error_messages))
         else:
             return instance
 
@@ -153,7 +243,7 @@ class Metadata(BaseModel):
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], FlowSessionLoadingMetadata, FlowSessionMessageMetadata, FlowSessionTaskResponseMetadata, FlowSessionToolCallMetadata]]:
+    def to_dict(self) -> Optional[Union[Dict[str, Any], FlowAssistantAddComponentMetadata, FlowAssistantAddConnectionMetadata, FlowAssistantCreateBlankFlowMetadata, FlowAssistantDeleteComponentMetadata, FlowAssistantDeleteConnectionMetadata, FlowAssistantUpdateComponentMetadata, FlowSessionLoadingMetadata, FlowSessionMessageMetadata, FlowSessionTaskResponseMetadata, FlowSessionToolCallMetadata]]:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None

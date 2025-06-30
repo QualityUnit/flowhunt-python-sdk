@@ -19,6 +19,19 @@ Name | Type | Description | Notes
 **task_input** | **str** |  | 
 **agent** | **str** |  | 
 **task_response** | **str** |  | 
+**action_id** | **str** | Action ID | 
+**component_id** | **str** | Component ID | 
+**component_type** | **str** | Component name | 
+**component_display_name** | **str** |  | [optional] 
+**component_icon** | **str** |  | [optional] 
+**parameter_values** | **Dict[str, object]** |  | [optional] 
+**source_component_id** | **str** | Source component ID | 
+**target_component_id** | **str** | Target component ID | 
+**source_field_name** | **str** |  | [optional] 
+**target_field_name** | **str** |  | [optional] 
+**flow_name** | **str** | Flow name | 
+**flow_description** | **str** |  | [optional] 
+**flow_id** | **str** | Flow ID | 
 
 ## Example
 

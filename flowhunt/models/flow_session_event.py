@@ -37,7 +37,8 @@ class FlowSessionEvent(BaseModel):
     action_type: FlowEventActionType = Field(description="Action type")
     credits: Union[StrictFloat, StrictInt] = Field(description="Credits")
     metadata: Optional[Metadata] = None
-    __properties: ClassVar[List[str]] = ["workspace_id", "session_id", "event_id", "event_type", "created_at_timestamp", "action_type", "credits", "metadata"]
+    component_name: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["workspace_id", "session_id", "event_id", "event_type", "created_at_timestamp", "action_type", "credits", "metadata", "component_name"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -86,6 +87,11 @@ class FlowSessionEvent(BaseModel):
         if self.metadata is None and "metadata" in self.model_fields_set:
             _dict['metadata'] = None
 
+        # set to None if component_name (nullable) is None
+        # and model_fields_set contains the field
+        if self.component_name is None and "component_name" in self.model_fields_set:
+            _dict['component_name'] = None
+
         return _dict
 
     @classmethod
@@ -105,7 +111,8 @@ class FlowSessionEvent(BaseModel):
             "created_at_timestamp": obj.get("created_at_timestamp"),
             "action_type": obj.get("action_type"),
             "credits": obj.get("credits"),
-            "metadata": Metadata.from_dict(obj["metadata"]) if obj.get("metadata") is not None else None
+            "metadata": Metadata.from_dict(obj["metadata"]) if obj.get("metadata") is not None else None,
+            "component_name": obj.get("component_name")
         })
         return _obj
 

@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -30,7 +30,8 @@ class SerpClusterGroupSearchRequest(BaseModel):
     customer_id: Optional[StrictStr] = None
     campaign_id: Optional[StrictStr] = None
     group_id: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["search", "customer_id", "campaign_id", "group_id"]
+    include_negative_keywords: Optional[StrictBool] = None
+    __properties: ClassVar[List[str]] = ["search", "customer_id", "campaign_id", "group_id", "include_negative_keywords"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -91,6 +92,11 @@ class SerpClusterGroupSearchRequest(BaseModel):
         if self.group_id is None and "group_id" in self.model_fields_set:
             _dict['group_id'] = None
 
+        # set to None if include_negative_keywords (nullable) is None
+        # and model_fields_set contains the field
+        if self.include_negative_keywords is None and "include_negative_keywords" in self.model_fields_set:
+            _dict['include_negative_keywords'] = None
+
         return _dict
 
     @classmethod
@@ -106,7 +112,8 @@ class SerpClusterGroupSearchRequest(BaseModel):
             "search": obj.get("search"),
             "customer_id": obj.get("customer_id"),
             "campaign_id": obj.get("campaign_id"),
-            "group_id": obj.get("group_id")
+            "group_id": obj.get("group_id"),
+            "include_negative_keywords": obj.get("include_negative_keywords")
         })
         return _obj
 

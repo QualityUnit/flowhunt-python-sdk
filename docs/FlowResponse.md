@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **component_count** | **int** | Component count | 
 **executed_at** | **datetime** |  | [optional] 
 **category_id** | **str** |  | [optional] 
+**enable_cache** | **bool** | Enable cache | 
 
 ## Example
 

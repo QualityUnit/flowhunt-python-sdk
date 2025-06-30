@@ -33,6 +33,20 @@ class TestIntegrationsApi(unittest.TestCase):
         """
         pass
 
+    def test_customer_data_request(self) -> None:
+        """Test case for customer_data_request
+
+        Customer Data Request
+        """
+        pass
+
+    def test_customer_redact(self) -> None:
+        """Test case for customer_redact
+
+        Customer Redact
+        """
+        pass
+
     def test_delete_integration(self) -> None:
         """Test case for delete_integration
 
@@ -40,10 +54,24 @@ class TestIntegrationsApi(unittest.TestCase):
         """
         pass
 
+    def test_get_actors(self) -> None:
+        """Test case for get_actors
+
+        Get Actors
+        """
+        pass
+
     def test_get_all_integrations(self) -> None:
         """Test case for get_all_integrations
 
         Get All Integrations
+        """
+        pass
+
+    def test_get_calendars(self) -> None:
+        """Test case for get_calendars
+
+        Get Calendars
         """
         pass
 
@@ -114,6 +142,13 @@ class TestIntegrationsApi(unittest.TestCase):
         """Test case for search_integrations
 
         Search Integrations
+        """
+        pass
+
+    def test_shop_redact(self) -> None:
+        """Test case for shop_redact
+
+        Shop Redact
         """
         pass
 

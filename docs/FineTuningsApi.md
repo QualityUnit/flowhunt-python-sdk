@@ -4,18 +4,18 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_image_ft**](FineTuningsApi.md#create_image_ft) | **POST** /v2/fine_tunings/images/ | Create Image Ft
-[**delete_file_ft**](FineTuningsApi.md#delete_file_ft) | **DELETE** /v2/fine_tunings/files/{file_key} | Delete File Ft
-[**delete_image_ft**](FineTuningsApi.md#delete_image_ft) | **DELETE** /v2/fine_tunings/images/{ft_id} | Delete Image Ft
-[**generate_image_prompt**](FineTuningsApi.md#generate_image_prompt) | **POST** /v2/fine_tunings/inference/images/generate-prompt | Generate Image Prompt
-[**generate_images**](FineTuningsApi.md#generate_images) | **POST** /v2/fine_tunings/inference/images | Generate Images
-[**get_file_ft**](FineTuningsApi.md#get_file_ft) | **GET** /v2/fine_tunings/files/{file_key} | Get File Ft
-[**get_inference_results**](FineTuningsApi.md#get_inference_results) | **GET** /v2/fine_tunings/inference/results/{inference_id} | Get Inference Results
-[**handle_replicate_webhook**](FineTuningsApi.md#handle_replicate_webhook) | **POST** /v2/fine_tunings/webhooks/replicate | Handle Replicate Webhook
-[**search_image_fts**](FineTuningsApi.md#search_image_fts) | **POST** /v2/fine_tunings/images/search | Search Image Fts
-[**search_inference_history**](FineTuningsApi.md#search_inference_history) | **POST** /v2/fine_tunings/inference/history | Search Inference History
-[**update_image_ft**](FineTuningsApi.md#update_image_ft) | **PUT** /v2/fine_tunings/images/{ft_id} | Update Image Ft
-[**upload_image_ft**](FineTuningsApi.md#upload_image_ft) | **POST** /v2/fine_tunings/files/{ft_type}/upload | Upload Image Ft
+[**create_image_ft**](FineTuningsApi.md#create_image_ft) | **POST** /v2/photo_ai/images/ | Create Image Ft
+[**delete_file_ft**](FineTuningsApi.md#delete_file_ft) | **DELETE** /v2/photo_ai/files/{file_key} | Delete File Ft
+[**delete_image_ft**](FineTuningsApi.md#delete_image_ft) | **DELETE** /v2/photo_ai/images/{ft_id} | Delete Image Ft
+[**generate_image_prompt**](FineTuningsApi.md#generate_image_prompt) | **POST** /v2/photo_ai/inference/images/generate-prompt | Generate Image Prompt
+[**generate_images**](FineTuningsApi.md#generate_images) | **POST** /v2/photo_ai/inference/images | Generate Images
+[**get_file_ft**](FineTuningsApi.md#get_file_ft) | **GET** /v2/photo_ai/files/{file_key} | Get File Ft
+[**get_inference_results**](FineTuningsApi.md#get_inference_results) | **GET** /v2/photo_ai/inference/results/{inference_id} | Get Inference Results
+[**handle_replicate_webhook**](FineTuningsApi.md#handle_replicate_webhook) | **POST** /v2/photo_ai/webhooks/replicate | Handle Replicate Webhook
+[**search_image_fts**](FineTuningsApi.md#search_image_fts) | **POST** /v2/photo_ai/images/search | Search Image Fts
+[**search_inference_history**](FineTuningsApi.md#search_inference_history) | **POST** /v2/photo_ai/inference/history | Search Inference History
+[**update_image_ft**](FineTuningsApi.md#update_image_ft) | **PUT** /v2/photo_ai/images/{ft_id} | Update Image Ft
+[**upload_image_ft**](FineTuningsApi.md#upload_image_ft) | **POST** /v2/photo_ai/files/{ft_type}/upload | Upload Image Ft
 
 
 # **create_image_ft**
@@ -280,7 +280,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **generate_image_prompt**
-> ImagePromptResponse generate_image_prompt(workspace_id)
+> ImagePromptResponse generate_image_prompt(workspace_id, image_prompt_generation_request)
 
 Generate Image Prompt
 
@@ -291,6 +291,7 @@ Generate Image Prompt
 
 ```python
 import flowhunt
+from flowhunt.models.image_prompt_generation_request import ImagePromptGenerationRequest
 from flowhunt.models.image_prompt_response import ImagePromptResponse
 from flowhunt.rest import ApiException
 from pprint import pprint
@@ -322,10 +323,11 @@ with flowhunt.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = flowhunt.FineTuningsApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
+    image_prompt_generation_request = flowhunt.ImagePromptGenerationRequest() # ImagePromptGenerationRequest | 
 
     try:
         # Generate Image Prompt
-        api_response = api_instance.generate_image_prompt(workspace_id)
+        api_response = api_instance.generate_image_prompt(workspace_id, image_prompt_generation_request)
         print("The response of FineTuningsApi->generate_image_prompt:\n")
         pprint(api_response)
     except Exception as e:
@@ -340,6 +342,7 @@ with flowhunt.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **workspace_id** | **str**|  | 
+ **image_prompt_generation_request** | [**ImagePromptGenerationRequest**](ImagePromptGenerationRequest.md)|  | 
 
 ### Return type
 
@@ -351,7 +354,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details
@@ -781,7 +784,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_inference_history**
-> List[ImageInferenceResponse] search_inference_history(workspace_id, inference_history_search_request)
+> ImageInferenceScrollResponse search_inference_history(workspace_id, inference_history_search_request)
 
 Search Inference History
 
@@ -792,7 +795,7 @@ Search Inference History
 
 ```python
 import flowhunt
-from flowhunt.models.image_inference_response import ImageInferenceResponse
+from flowhunt.models.image_inference_scroll_response import ImageInferenceScrollResponse
 from flowhunt.models.inference_history_search_request import InferenceHistorySearchRequest
 from flowhunt.rest import ApiException
 from pprint import pprint
@@ -847,7 +850,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[ImageInferenceResponse]**](ImageInferenceResponse.md)
+[**ImageInferenceScrollResponse**](ImageInferenceScrollResponse.md)
 
 ### Authorization
 

@@ -31,6 +31,13 @@ class FlowEventActionType(str, Enum):
     TOOL_CALL = 'tool_call'
     TASK_RESPONSE = 'task_response'
     FAILED = 'failed'
+    ADD_COMPONENT = 'add_component'
+    DELETE_COMPONENT = 'delete_component'
+    CONNECT_COMPONENTS = 'connect_components'
+    UPDATE_COMPONENT = 'update_component'
+    ADD_CONNECTION = 'add_connection'
+    DELETE_CONNECTION = 'delete_connection'
+    CREATE_BLANK_FLOW = 'create_blank_flow'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

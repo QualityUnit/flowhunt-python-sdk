@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **cluster_strength** | **int** |  | [optional] 
 **min_impressions** | **int** |  | [optional] 
 **min_clicks** | **int** |  | [optional] 
+**process_negative_keywords** | [**BoolChar**](BoolChar.md) |  | [optional] 
 **cron_settings** | **str** |  | [optional] 
 **action_type** | [**GoogleAdsActionType**](GoogleAdsActionType.md) |  | [optional] 
 **ga_measurement_id** | **str** |  | [optional] 

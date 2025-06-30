@@ -60,7 +60,10 @@ class TestFlowSessionViewSearchRequest(unittest.TestCase):
                 flow_name = '',
                 ipaddress_filter = {
                     'key' : null
-                    }
+                    },
+                pagination = flowhunt.models.pagination.Pagination(
+                    sorting_key_value = '', 
+                    scroll_id = '', )
             )
         else:
             return FlowSessionViewSearchRequest(

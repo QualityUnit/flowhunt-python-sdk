@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from flowhunt.models.flow_type import FlowType
 from typing import Optional, Set
@@ -35,7 +35,8 @@ class FlowResponse(BaseModel):
     component_count: StrictInt = Field(description="Component count")
     executed_at: Optional[datetime] = None
     category_id: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["id", "name", "description", "flow_type", "component_count", "executed_at", "category_id"]
+    enable_cache: StrictBool = Field(description="Enable cache")
+    __properties: ClassVar[List[str]] = ["id", "name", "description", "flow_type", "component_count", "executed_at", "category_id", "enable_cache"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -104,7 +105,8 @@ class FlowResponse(BaseModel):
             "flow_type": obj.get("flow_type"),
             "component_count": obj.get("component_count"),
             "executed_at": obj.get("executed_at"),
-            "category_id": obj.get("category_id")
+            "category_id": obj.get("category_id"),
+            "enable_cache": obj.get("enable_cache")
         })
         return _obj
 

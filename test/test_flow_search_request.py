@@ -37,7 +37,11 @@ class TestFlowSearchRequest(unittest.TestCase):
             return FlowSearchRequest(
                 flow_type = 'p',
                 name = '',
-                category_id = ''
+                category_id = '',
+                limit = 56,
+                pagination = flowhunt.models.pagination.Pagination(
+                    sorting_key_value = '', 
+                    scroll_id = '', )
             )
         else:
             return FlowSearchRequest(

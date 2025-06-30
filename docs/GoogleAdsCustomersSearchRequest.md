@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **country** | **str** |  | [optional] 
 **min_queries** | **int** |  | [optional] 
 **min_clicks** | **int** |  | [optional] 
+**process_negative_keywords** | [**BoolChar**](BoolChar.md) |  | [optional] 
 **min_impressions** | **int** |  | [optional] 
 **cluster_strength** | **int** |  | [optional] 
 **last_update** | **datetime** |  | [optional] 

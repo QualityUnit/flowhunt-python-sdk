@@ -44,6 +44,7 @@ class TestGoogleAdsCustomerResponse(unittest.TestCase):
                 cluster_strength = 56,
                 min_impressions = 56,
                 min_clicks = 56,
+                process_negative_keywords = 'Y',
                 last_update = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 next_update = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 cron_settings = '',

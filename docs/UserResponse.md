@@ -5,12 +5,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**user_id** | **str** | User ID | 
 **email** | **str** | Email of the user | 
 **username** | **str** | Name of the user | 
-**is_active** | **bool** | User is active or not | 
+**is_active** | **bool** |  | [optional] 
 **avatar_url** | **str** |  | [optional] 
 **api_key_workspace_id** | **str** |  | [optional] 
-**subscription_plan** | [**SubscriptionPlan**](SubscriptionPlan.md) |  | [optional] 
+**product_plans** | [**Dict[str, SubscriptionPlan]**](SubscriptionPlan.md) |  | [optional] 
 
 ## Example
 

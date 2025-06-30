@@ -870,8 +870,6 @@ class ChatbotsApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'APIKeyHeader', 
-            'HTTPBearer'
         ]
 
         return self.api_client.param_serialize(

@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **parent_faq_id** | **str** |  | [optional] 
 **faq_type** | [**FaqType**](FaqType.md) |  | [optional] 
 **limit** | **int** |  | [optional] 
+**pagination** | [**Pagination**](Pagination.md) |  | [optional] 
 
 ## Example
 

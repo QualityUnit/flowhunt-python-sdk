@@ -47,7 +47,22 @@ class TestMetadata(unittest.TestCase):
                 task_name = '',
                 task_input = '',
                 agent = '',
-                task_response = ''
+                task_response = '',
+                action_id = '',
+                component_id = '',
+                component_type = '',
+                component_display_name = '',
+                component_icon = '',
+                parameter_values = {
+                    'key' : null
+                    },
+                source_component_id = '',
+                target_component_id = '',
+                source_field_name = '',
+                target_field_name = '',
+                flow_name = '',
+                flow_description = '',
+                flow_id = ''
             )
         else:
             return Metadata(
@@ -61,6 +76,13 @@ class TestMetadata(unittest.TestCase):
                 task_input = '',
                 agent = '',
                 task_response = '',
+                action_id = '',
+                component_id = '',
+                component_type = '',
+                source_component_id = '',
+                target_component_id = '',
+                flow_name = '',
+                flow_id = '',
         )
         """
 

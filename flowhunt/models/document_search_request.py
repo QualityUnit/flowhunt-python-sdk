@@ -22,6 +22,7 @@ from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from flowhunt.models.document_status import DocumentStatus
 from flowhunt.models.document_type import DocumentType
+from flowhunt.models.pagination import Pagination
 from flowhunt.models.user_document_status import UserDocumentStatus
 from typing import Optional, Set
 from typing_extensions import Self
@@ -39,7 +40,8 @@ class DocumentSearchRequest(BaseModel):
     updated_at_from: Optional[datetime] = None
     updated_at_to: Optional[datetime] = None
     limit: Optional[StrictInt] = None
-    __properties: ClassVar[List[str]] = ["doc_id", "cat_id", "doc_name", "doc_type", "status", "user_status", "updated_at_from", "updated_at_to", "limit"]
+    pagination: Optional[Pagination] = None
+    __properties: ClassVar[List[str]] = ["doc_id", "cat_id", "doc_name", "doc_type", "status", "user_status", "updated_at_from", "updated_at_to", "limit", "pagination"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -80,6 +82,9 @@ class DocumentSearchRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of pagination
+        if self.pagination:
+            _dict['pagination'] = self.pagination.to_dict()
         # set to None if doc_id (nullable) is None
         # and model_fields_set contains the field
         if self.doc_id is None and "doc_id" in self.model_fields_set:
@@ -125,6 +130,11 @@ class DocumentSearchRequest(BaseModel):
         if self.limit is None and "limit" in self.model_fields_set:
             _dict['limit'] = None
 
+        # set to None if pagination (nullable) is None
+        # and model_fields_set contains the field
+        if self.pagination is None and "pagination" in self.model_fields_set:
+            _dict['pagination'] = None
+
         return _dict
 
     @classmethod
@@ -145,7 +155,8 @@ class DocumentSearchRequest(BaseModel):
             "user_status": obj.get("user_status"),
             "updated_at_from": obj.get("updated_at_from"),
             "updated_at_to": obj.get("updated_at_to"),
-            "limit": obj.get("limit")
+            "limit": obj.get("limit"),
+            "pagination": Pagination.from_dict(obj["pagination"]) if obj.get("pagination") is not None else None
         })
         return _obj
 

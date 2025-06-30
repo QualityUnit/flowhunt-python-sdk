@@ -14,9 +14,11 @@ Method | HTTP request | Description
 [**delete_flow_category**](FlowsApi.md#delete_flow_category) | **DELETE** /v2/flows/categories/{cat_id} | Delete Flow Category
 [**delete_flow_cron**](FlowsApi.md#delete_flow_cron) | **DELETE** /v2/flows/crons/{flow_id}/{cron_id} | Delete Flow Cron
 [**execute_flow_cron**](FlowsApi.md#execute_flow_cron) | **POST** /v2/flows/crons/{flow_id}/{cron_id}/execute | Execute Flow Cron
+[**generate_commit_message**](FlowsApi.md#generate_commit_message) | **POST** /v2/flows/{flow_id}/generate-commit-msg | Generate Commit Message
 [**get**](FlowsApi.md#get) | **GET** /v2/flows/{flow_id} | Get
 [**get_all_components**](FlowsApi.md#get_all_components) | **GET** /v2/flows/components/all | Get All Components
 [**get_attachments**](FlowsApi.md#get_attachments) | **GET** /v2/flows/sessions/{session_id}/attachments | Get Attachments
+[**get_flow_versions**](FlowsApi.md#get_flow_versions) | **GET** /v2/flows/{flow_id}/version_history | Get Flow Versions
 [**get_invoked_flow_results**](FlowsApi.md#get_invoked_flow_results) | **GET** /v2/flows/{flow_id}/{task_id} | Get Invoked Flow Results
 [**get_public_flow**](FlowsApi.md#get_public_flow) | **GET** /v2/flows/public/{flow_id} | Get Public Flow
 [**get_trigger_types**](FlowsApi.md#get_trigger_types) | **POST** /v2/flows/{flow_id}/triggers | Get Trigger Types
@@ -24,11 +26,12 @@ Method | HTTP request | Description
 [**invoke_flow_response**](FlowsApi.md#invoke_flow_response) | **POST** /v2/flows/sessions/{session_id}/invoke | Invoke Flow Response
 [**invoke_flow_singleton**](FlowsApi.md#invoke_flow_singleton) | **POST** /v2/flows/{flow_id}/invoke_singleton | Invoke Flow Singleton
 [**poll_flow_response**](FlowsApi.md#poll_flow_response) | **POST** /v2/flows/sessions/{session_id}/invocation_response/{from_timestamp} | Poll Flow Response
+[**publish_flow**](FlowsApi.md#publish_flow) | **POST** /v2/flows/{flow_id}/publish | Publish Flow
+[**restore_flow_version**](FlowsApi.md#restore_flow_version) | **POST** /v2/flows/{flow_id}/version_history/{branch}/restore | Restore Flow Version
 [**search**](FlowsApi.md#search) | **POST** /v2/flows/ | Search
 [**search_all**](FlowsApi.md#search_all) | **POST** /v2/flows/all | Search All
 [**search_flow_categories**](FlowsApi.md#search_flow_categories) | **POST** /v2/flows/categories/search | Search Flow Categories
 [**search_flow_crons**](FlowsApi.md#search_flow_crons) | **POST** /v2/flows/crons/search | Search Flow Crons
-[**stream_flow_response**](FlowsApi.md#stream_flow_response) | **POST** /v2/flows/sessions/{session_id}/stream | Stream Flow Response
 [**update_flow**](FlowsApi.md#update_flow) | **PUT** /v2/flows/{flow_id} | Update Flow
 [**update_flow_category**](FlowsApi.md#update_flow_category) | **PUT** /v2/flows/categories/{cat_id} | Update Flow Category
 [**update_flow_cron**](FlowsApi.md#update_flow_cron) | **PUT** /v2/flows/crons/{flow_id}/{cron_id} | Update Flow Cron
@@ -870,8 +873,94 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **generate_commit_message**
+> FlowCommitResponse generate_commit_message(flow_id, workspace_id)
+
+Generate Commit Message
+
+### Example
+
+* Api Key Authentication (APIKeyHeader):
+* Bearer Authentication (HTTPBearer):
+
+```python
+import flowhunt
+from flowhunt.models.flow_commit_response import FlowCommitResponse
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: APIKeyHeader
+configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
+
+# Configure Bearer authorization: HTTPBearer
+configuration = flowhunt.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.FlowsApi(api_client)
+    flow_id = 'flow_id_example' # str | 
+    workspace_id = 'workspace_id_example' # str | 
+
+    try:
+        # Generate Commit Message
+        api_response = api_instance.generate_commit_message(flow_id, workspace_id)
+        print("The response of FlowsApi->generate_commit_message:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling FlowsApi->generate_commit_message: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **flow_id** | **str**|  | 
+ **workspace_id** | **str**|  | 
+
+### Return type
+
+[**FlowCommitResponse**](FlowCommitResponse.md)
+
+### Authorization
+
+[APIKeyHeader](../README.md#APIKeyHeader), [HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get**
-> FlowDetailResponse get(flow_id, workspace_id)
+> FlowDetailResponse get(flow_id, workspace_id, branch=branch)
 
 Get
 
@@ -914,10 +1003,11 @@ with flowhunt.ApiClient(configuration) as api_client:
     api_instance = flowhunt.FlowsApi(api_client)
     flow_id = 'flow_id_example' # str | 
     workspace_id = 'workspace_id_example' # str | 
+    branch = 'D' # str |  (optional) (default to 'D')
 
     try:
         # Get
-        api_response = api_instance.get(flow_id, workspace_id)
+        api_response = api_instance.get(flow_id, workspace_id, branch=branch)
         print("The response of FlowsApi->get:\n")
         pprint(api_response)
     except Exception as e:
@@ -933,6 +1023,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **flow_id** | **str**|  | 
  **workspace_id** | **str**|  | 
+ **branch** | **str**|  | [optional] [default to &#39;D&#39;]
 
 ### Return type
 
@@ -1086,6 +1177,92 @@ Name | Type | Description  | Notes
 ### Authorization
 
 No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_flow_versions**
+> List[FlowVersionHistoryResponse] get_flow_versions(flow_id, workspace_id)
+
+Get Flow Versions
+
+### Example
+
+* Api Key Authentication (APIKeyHeader):
+* Bearer Authentication (HTTPBearer):
+
+```python
+import flowhunt
+from flowhunt.models.flow_version_history_response import FlowVersionHistoryResponse
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: APIKeyHeader
+configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
+
+# Configure Bearer authorization: HTTPBearer
+configuration = flowhunt.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.FlowsApi(api_client)
+    flow_id = 'flow_id_example' # str | 
+    workspace_id = 'workspace_id_example' # str | 
+
+    try:
+        # Get Flow Versions
+        api_response = api_instance.get_flow_versions(flow_id, workspace_id)
+        print("The response of FlowsApi->get_flow_versions:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling FlowsApi->get_flow_versions: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **flow_id** | **str**|  | 
+ **workspace_id** | **str**|  | 
+
+### Return type
+
+[**List[FlowVersionHistoryResponse]**](FlowVersionHistoryResponse.md)
+
+### Authorization
+
+[APIKeyHeader](../README.md#APIKeyHeader), [HTTPBearer](../README.md#HTTPBearer)
 
 ### HTTP request headers
 
@@ -1676,6 +1853,183 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **publish_flow**
+> FlowDetailResponse publish_flow(flow_id, workspace_id, flow_commit_request)
+
+Publish Flow
+
+### Example
+
+* Api Key Authentication (APIKeyHeader):
+* Bearer Authentication (HTTPBearer):
+
+```python
+import flowhunt
+from flowhunt.models.flow_commit_request import FlowCommitRequest
+from flowhunt.models.flow_detail_response import FlowDetailResponse
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: APIKeyHeader
+configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
+
+# Configure Bearer authorization: HTTPBearer
+configuration = flowhunt.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.FlowsApi(api_client)
+    flow_id = 'flow_id_example' # str | 
+    workspace_id = 'workspace_id_example' # str | 
+    flow_commit_request = flowhunt.FlowCommitRequest() # FlowCommitRequest | 
+
+    try:
+        # Publish Flow
+        api_response = api_instance.publish_flow(flow_id, workspace_id, flow_commit_request)
+        print("The response of FlowsApi->publish_flow:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling FlowsApi->publish_flow: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **flow_id** | **str**|  | 
+ **workspace_id** | **str**|  | 
+ **flow_commit_request** | [**FlowCommitRequest**](FlowCommitRequest.md)|  | 
+
+### Return type
+
+[**FlowDetailResponse**](FlowDetailResponse.md)
+
+### Authorization
+
+[APIKeyHeader](../README.md#APIKeyHeader), [HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **restore_flow_version**
+> Completed restore_flow_version(flow_id, branch, workspace_id)
+
+Restore Flow Version
+
+### Example
+
+* Api Key Authentication (APIKeyHeader):
+* Bearer Authentication (HTTPBearer):
+
+```python
+import flowhunt
+from flowhunt.models.completed import Completed
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: APIKeyHeader
+configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
+
+# Configure Bearer authorization: HTTPBearer
+configuration = flowhunt.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.FlowsApi(api_client)
+    flow_id = 'flow_id_example' # str | 
+    branch = 'branch_example' # str | 
+    workspace_id = 'workspace_id_example' # str | 
+
+    try:
+        # Restore Flow Version
+        api_response = api_instance.restore_flow_version(flow_id, branch, workspace_id)
+        print("The response of FlowsApi->restore_flow_version:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling FlowsApi->restore_flow_version: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **flow_id** | **str**|  | 
+ **branch** | **str**|  | 
+ **workspace_id** | **str**|  | 
+
+### Return type
+
+[**Completed**](Completed.md)
+
+### Authorization
+
+[APIKeyHeader](../README.md#APIKeyHeader), [HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **search**
 > List[FlowResponse] search(workspace_id, flow_search_request)
 
@@ -2024,77 +2378,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **stream_flow_response**
-> object stream_flow_response(session_id, flow_session_stream_request)
-
-Stream Flow Response
-
-### Example
-
-
-```python
-import flowhunt
-from flowhunt.models.flow_session_stream_request import FlowSessionStreamRequest
-from flowhunt.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt.Configuration(
-    host = "http://localhost"
-)
-
-
-# Enter a context with an instance of the API client
-with flowhunt.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = flowhunt.FlowsApi(api_client)
-    session_id = 'session_id_example' # str | 
-    flow_session_stream_request = flowhunt.FlowSessionStreamRequest() # FlowSessionStreamRequest | 
-
-    try:
-        # Stream Flow Response
-        api_response = api_instance.stream_flow_response(session_id, flow_session_stream_request)
-        print("The response of FlowsApi->stream_flow_response:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling FlowsApi->stream_flow_response: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **session_id** | **str**|  | 
- **flow_session_stream_request** | [**FlowSessionStreamRequest**](FlowSessionStreamRequest.md)|  | 
-
-### Return type
-
-**object**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful Response |  -  |
-**422** | Validation Error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **update_flow**
-> FlowDetailResponse update_flow(flow_id, workspace_id, flow_create)
+> FlowDetailResponse update_flow(flow_id, workspace_id, flow_update)
 
 Update Flow
 
@@ -2105,8 +2390,8 @@ Update Flow
 
 ```python
 import flowhunt
-from flowhunt.models.flow_create import FlowCreate
 from flowhunt.models.flow_detail_response import FlowDetailResponse
+from flowhunt.models.flow_update import FlowUpdate
 from flowhunt.rest import ApiException
 from pprint import pprint
 
@@ -2138,11 +2423,11 @@ with flowhunt.ApiClient(configuration) as api_client:
     api_instance = flowhunt.FlowsApi(api_client)
     flow_id = 'flow_id_example' # str | 
     workspace_id = 'workspace_id_example' # str | 
-    flow_create = flowhunt.FlowCreate() # FlowCreate | 
+    flow_update = flowhunt.FlowUpdate() # FlowUpdate | 
 
     try:
         # Update Flow
-        api_response = api_instance.update_flow(flow_id, workspace_id, flow_create)
+        api_response = api_instance.update_flow(flow_id, workspace_id, flow_update)
         print("The response of FlowsApi->update_flow:\n")
         pprint(api_response)
     except Exception as e:
@@ -2158,7 +2443,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **flow_id** | **str**|  | 
  **workspace_id** | **str**|  | 
- **flow_create** | [**FlowCreate**](FlowCreate.md)|  | 
+ **flow_update** | [**FlowUpdate**](FlowUpdate.md)|  | 
 
 ### Return type
 

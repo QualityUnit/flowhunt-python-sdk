@@ -13,6 +13,12 @@
 
 * `SLACK_SHORTCUTS` (value: `'slack_shortcuts'`)
 
+* `ON_HUBSPOT_MESSAGE` (value: `'on_hubspot_message'`)
+
+* `ON_GMAIL_MESSAGE` (value: `'on_gmail_message'`)
+
+* `ON_EMAIL_MESSAGE` (value: `'on_email_message'`)
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

@@ -47,13 +47,6 @@ class TestFlowWebhooksApi(unittest.TestCase):
         """
         pass
 
-    def test_poll_webhook_response(self) -> None:
-        """Test case for poll_webhook_response
-
-        Poll Webhook Response
-        """
-        pass
-
 
 if __name__ == '__main__':
     unittest.main()

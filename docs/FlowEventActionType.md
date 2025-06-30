@@ -13,6 +13,20 @@
 
 * `FAILED` (value: `'failed'`)
 
+* `ADD_COMPONENT` (value: `'add_component'`)
+
+* `DELETE_COMPONENT` (value: `'delete_component'`)
+
+* `CONNECT_COMPONENTS` (value: `'connect_components'`)
+
+* `UPDATE_COMPONENT` (value: `'update_component'`)
+
+* `ADD_CONNECTION` (value: `'add_connection'`)
+
+* `DELETE_CONNECTION` (value: `'delete_connection'`)
+
+* `CREATE_BLANK_FLOW` (value: `'create_blank_flow'`)
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

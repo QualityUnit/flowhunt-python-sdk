@@ -44,7 +44,11 @@ class TestScheduleUrlSearchRequest(unittest.TestCase):
                 url_title = '',
                 is_original_url = True,
                 created_at_from = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                created_at_to = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f')
+                created_at_to = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
+                limit = 56,
+                pagination = flowhunt.models.pagination.Pagination(
+                    sorting_key_value = '', 
+                    scroll_id = '', )
             )
         else:
             return ScheduleUrlSearchRequest(

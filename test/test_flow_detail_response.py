@@ -48,7 +48,11 @@ class TestFlowDetailResponse(unittest.TestCase):
                         ], ),
                 flow_type = p,
                 executed_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                category_id = ''
+                category_id = '',
+                branch = 'P',
+                enable_cache = True,
+                draft_version_nr = 56,
+                prod_version_nr = 56
             )
         else:
             return FlowDetailResponse(
@@ -63,6 +67,8 @@ class TestFlowDetailResponse(unittest.TestCase):
                         null
                         ], ),
                 flow_type = p,
+                branch = 'P',
+                enable_cache = True,
         )
         """
 

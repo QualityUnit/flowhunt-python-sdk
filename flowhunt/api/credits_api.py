@@ -60,6 +60,7 @@ class CreditsApi:
     ) -> CreditBalanceResponse:
         """Get Credit Balance
 
+        Get the credit balance for the current user.
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -122,6 +123,7 @@ class CreditsApi:
     ) -> ApiResponse[CreditBalanceResponse]:
         """Get Credit Balance
 
+        Get the credit balance for the current user.
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -184,6 +186,7 @@ class CreditsApi:
     ) -> RESTResponseType:
         """Get Credit Balance
 
+        Get the credit balance for the current user.
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -305,6 +308,7 @@ class CreditsApi:
     ) -> CreditBalanceResponse:
         """Get Workspace Credit Balance
 
+        Get the credit balance for a workspace.
 
         :param workspace_id: (required)
         :type workspace_id: str
@@ -372,6 +376,7 @@ class CreditsApi:
     ) -> ApiResponse[CreditBalanceResponse]:
         """Get Workspace Credit Balance
 
+        Get the credit balance for a workspace.
 
         :param workspace_id: (required)
         :type workspace_id: str
@@ -439,6 +444,7 @@ class CreditsApi:
     ) -> RESTResponseType:
         """Get Workspace Credit Balance
 
+        Get the credit balance for a workspace.
 
         :param workspace_id: (required)
         :type workspace_id: str
@@ -570,6 +576,7 @@ class CreditsApi:
     ) -> List[CreditTransactionResponse]:
         """Search Credit Transactions
 
+        Search for credit transactions based on criteria.
 
         :param workspace_id: (required)
         :type workspace_id: str
@@ -641,6 +648,7 @@ class CreditsApi:
     ) -> ApiResponse[List[CreditTransactionResponse]]:
         """Search Credit Transactions
 
+        Search for credit transactions based on criteria.
 
         :param workspace_id: (required)
         :type workspace_id: str
@@ -712,6 +720,7 @@ class CreditsApi:
     ) -> RESTResponseType:
         """Search Credit Transactions
 
+        Search for credit transactions based on criteria.
 
         :param workspace_id: (required)
         :type workspace_id: str
@@ -862,6 +871,7 @@ class CreditsApi:
     ) -> List[CreditDailyTransactionResponse]:
         """Search Daily Credit Transactions
 
+        Search for daily credit transactions based on criteria.
 
         :param workspace_id: (required)
         :type workspace_id: str
@@ -933,6 +943,7 @@ class CreditsApi:
     ) -> ApiResponse[List[CreditDailyTransactionResponse]]:
         """Search Daily Credit Transactions
 
+        Search for daily credit transactions based on criteria.
 
         :param workspace_id: (required)
         :type workspace_id: str
@@ -1004,6 +1015,7 @@ class CreditsApi:
     ) -> RESTResponseType:
         """Search Daily Credit Transactions
 
+        Search for daily credit transactions based on criteria.
 
         :param workspace_id: (required)
         :type workspace_id: str

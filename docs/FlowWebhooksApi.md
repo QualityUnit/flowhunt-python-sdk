@@ -7,7 +7,6 @@ Method | HTTP request | Description
 [**execute_third_party_webhook**](FlowWebhooksApi.md#execute_third_party_webhook) | **POST** /v2/flows/webhooks/third_party_integrations/{trigger_type} | Execute Third Party Webhook
 [**execute_webhook**](FlowWebhooksApi.md#execute_webhook) | **POST** /v2/flows/webhooks/{chatbot_id} | Execute Webhook
 [**execute_webhook_from_flow**](FlowWebhooksApi.md#execute_webhook_from_flow) | **POST** /v2/flows/webhooks/from_flow/{flow_id} | Execute Webhook From Flow
-[**poll_webhook_response**](FlowWebhooksApi.md#poll_webhook_response) | **POST** /v2/flows/webhooks/invocation_response/{message_id} | Poll Webhook Response
 
 
 # **execute_third_party_webhook**
@@ -223,73 +222,6 @@ Name | Type | Description  | Notes
 ### Authorization
 
 [APIKeyHeader](../README.md#APIKeyHeader), [HTTPBearer](../README.md#HTTPBearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful Response |  -  |
-**422** | Validation Error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **poll_webhook_response**
-> FlowSessionInvocationMessageResponse poll_webhook_response(message_id)
-
-Poll Webhook Response
-
-### Example
-
-
-```python
-import flowhunt
-from flowhunt.models.flow_session_invocation_message_response import FlowSessionInvocationMessageResponse
-from flowhunt.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt.Configuration(
-    host = "http://localhost"
-)
-
-
-# Enter a context with an instance of the API client
-with flowhunt.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = flowhunt.FlowWebhooksApi(api_client)
-    message_id = 'message_id_example' # str | 
-
-    try:
-        # Poll Webhook Response
-        api_response = api_instance.poll_webhook_response(message_id)
-        print("The response of FlowWebhooksApi->poll_webhook_response:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling FlowWebhooksApi->poll_webhook_response: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **message_id** | **str**|  | 
-
-### Return type
-
-[**FlowSessionInvocationMessageResponse**](FlowSessionInvocationMessageResponse.md)
-
-### Authorization
-
-No authorization required
 
 ### HTTP request headers
 

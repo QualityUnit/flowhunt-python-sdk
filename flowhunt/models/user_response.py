@@ -27,13 +27,14 @@ class UserResponse(BaseModel):
     """
     UserResponse
     """ # noqa: E501
+    user_id: StrictStr = Field(description="User ID")
     email: StrictStr = Field(description="Email of the user")
     username: StrictStr = Field(description="Name of the user")
-    is_active: StrictBool = Field(description="User is active or not")
+    is_active: Optional[StrictBool] = None
     avatar_url: Optional[StrictStr] = None
     api_key_workspace_id: Optional[StrictStr] = None
-    subscription_plan: Optional[SubscriptionPlan] = None
-    __properties: ClassVar[List[str]] = ["email", "username", "is_active", "avatar_url", "api_key_workspace_id", "subscription_plan"]
+    product_plans: Optional[Dict[str, SubscriptionPlan]] = None
+    __properties: ClassVar[List[str]] = ["user_id", "email", "username", "is_active", "avatar_url", "api_key_workspace_id", "product_plans"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -74,6 +75,11 @@ class UserResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # set to None if is_active (nullable) is None
+        # and model_fields_set contains the field
+        if self.is_active is None and "is_active" in self.model_fields_set:
+            _dict['is_active'] = None
+
         # set to None if avatar_url (nullable) is None
         # and model_fields_set contains the field
         if self.avatar_url is None and "avatar_url" in self.model_fields_set:
@@ -84,10 +90,10 @@ class UserResponse(BaseModel):
         if self.api_key_workspace_id is None and "api_key_workspace_id" in self.model_fields_set:
             _dict['api_key_workspace_id'] = None
 
-        # set to None if subscription_plan (nullable) is None
+        # set to None if product_plans (nullable) is None
         # and model_fields_set contains the field
-        if self.subscription_plan is None and "subscription_plan" in self.model_fields_set:
-            _dict['subscription_plan'] = None
+        if self.product_plans is None and "product_plans" in self.model_fields_set:
+            _dict['product_plans'] = None
 
         return _dict
 
@@ -101,12 +107,13 @@ class UserResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "user_id": obj.get("user_id"),
             "email": obj.get("email"),
             "username": obj.get("username"),
             "is_active": obj.get("is_active"),
             "avatar_url": obj.get("avatar_url"),
             "api_key_workspace_id": obj.get("api_key_workspace_id"),
-            "subscription_plan": obj.get("subscription_plan")
+            "product_plans": dict((_k, _v) for _k, _v in obj.get("product_plans").items()) if obj.get("product_plans") is not None else None
         })
         return _obj
 

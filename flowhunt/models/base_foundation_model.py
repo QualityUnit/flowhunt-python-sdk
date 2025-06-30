@@ -28,6 +28,18 @@ class BaseFoundationModel(str, Enum):
     """
     FLUX_MINUS_DEV = 'flux-dev'
     FLUX_MINUS_SCHNELL = 'flux-schnell'
+    STABLE_MINUS_DIFFUSION_MINUS_3_DOT_5_MINUS_MEDIUM = 'stable-diffusion-3.5-medium'
+    STABLE_MINUS_DIFFUSION_MINUS_3_DOT_5_MINUS_LARGE_MINUS_TURBO = 'stable-diffusion-3.5-large-turbo'
+    STABLE_MINUS_DIFFUSION_MINUS_3_DOT_5_MINUS_LARGE = 'stable-diffusion-3.5-large'
+    IMAGEN_MINUS_3 = 'imagen-3'
+    IMAGEN_MINUS_3_MINUS_FAST = 'imagen-3-fast'
+    IDEOGRAM_MINUS_V2 = 'ideogram-v2'
+    IDEOGRAM_MINUS_V2_MINUS_TURBO = 'ideogram-v2-turbo'
+    IDEOGRAM_MINUS_V2A = 'ideogram-v2a'
+    IDEOGRAM_MINUS_V2A_MINUS_TURBO = 'ideogram-v2a-turbo'
+    IDEOGRAM_MINUS_V3_MINUS_QUALITY = 'ideogram-v3-quality'
+    IDEOGRAM_MINUS_V3_MINUS_TURBO = 'ideogram-v3-turbo'
+    IDEOGRAM_MINUS_V3_MINUS_BALANCED = 'ideogram-v3-balanced'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

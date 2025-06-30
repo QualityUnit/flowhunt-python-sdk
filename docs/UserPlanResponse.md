@@ -5,13 +5,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**product_id** | **str** |  | 
 **price_amount** | **int** |  | 
 **price_currency** | **str** |  | 
-**last_renewal_date** | **datetime** |  | [optional] 
 **monthly_topup_credits** | **int** |  | 
-**trial_end_date** | **datetime** |  | [optional] 
-**subscription_plan** | [**SubscriptionPlan**](SubscriptionPlan.md) |  | 
+**current_period_end** | **datetime** |  | 
+**subscription_plans** | [**Dict[str, SubscriptionPlan]**](SubscriptionPlan.md) |  | 
+**can_remove_branding** | **bool** |  | 
 
 ## Example
 

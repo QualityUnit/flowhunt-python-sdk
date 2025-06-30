@@ -4,13 +4,13 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_wordpress_post_categories_0**](WordPressApi.md#get_wordpress_post_categories_0) | **GET** /v2/integrations/wordpress/{integration_id}/categories | Get Wordpress Post Categories
-[**get_wordpress_post_tags_0**](WordPressApi.md#get_wordpress_post_tags_0) | **GET** /v2/integrations/wordpress/{integration_id}/tags | Get Wordpress Post Tags
-[**get_wordpress_sites_0**](WordPressApi.md#get_wordpress_sites_0) | **GET** /v2/integrations/wordpress/sites | Get Wordpress Sites
+[**get_wordpress_post_categories**](WordPressApi.md#get_wordpress_post_categories) | **GET** /v2/integrations/wordpress/{integration_id}/categories | Get Wordpress Post Categories
+[**get_wordpress_post_tags**](WordPressApi.md#get_wordpress_post_tags) | **GET** /v2/integrations/wordpress/{integration_id}/tags | Get Wordpress Post Tags
+[**get_wordpress_sites**](WordPressApi.md#get_wordpress_sites) | **GET** /v2/integrations/wordpress/sites | Get Wordpress Sites
 
 
-# **get_wordpress_post_categories_0**
-> List[WordPressCategoryResponse] get_wordpress_post_categories_0(integration_id, workspace_id)
+# **get_wordpress_post_categories**
+> List[WordPressCategoryResponse] get_wordpress_post_categories(integration_id, workspace_id)
 
 Get Wordpress Post Categories
 
@@ -56,11 +56,11 @@ with flowhunt.ApiClient(configuration) as api_client:
 
     try:
         # Get Wordpress Post Categories
-        api_response = api_instance.get_wordpress_post_categories_0(integration_id, workspace_id)
-        print("The response of WordPressApi->get_wordpress_post_categories_0:\n")
+        api_response = api_instance.get_wordpress_post_categories(integration_id, workspace_id)
+        print("The response of WordPressApi->get_wordpress_post_categories:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling WordPressApi->get_wordpress_post_categories_0: %s\n" % e)
+        print("Exception when calling WordPressApi->get_wordpress_post_categories: %s\n" % e)
 ```
 
 
@@ -95,8 +95,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_wordpress_post_tags_0**
-> List[WordPressTagsResponse] get_wordpress_post_tags_0(integration_id, workspace_id)
+# **get_wordpress_post_tags**
+> List[WordPressTagsResponse] get_wordpress_post_tags(integration_id, workspace_id)
 
 Get Wordpress Post Tags
 
@@ -142,11 +142,11 @@ with flowhunt.ApiClient(configuration) as api_client:
 
     try:
         # Get Wordpress Post Tags
-        api_response = api_instance.get_wordpress_post_tags_0(integration_id, workspace_id)
-        print("The response of WordPressApi->get_wordpress_post_tags_0:\n")
+        api_response = api_instance.get_wordpress_post_tags(integration_id, workspace_id)
+        print("The response of WordPressApi->get_wordpress_post_tags:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling WordPressApi->get_wordpress_post_tags_0: %s\n" % e)
+        print("Exception when calling WordPressApi->get_wordpress_post_tags: %s\n" % e)
 ```
 
 
@@ -181,8 +181,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_wordpress_sites_0**
-> List[WordPressSiteResponse] get_wordpress_sites_0(workspace_id)
+# **get_wordpress_sites**
+> List[WordPressSiteResponse] get_wordpress_sites(workspace_id)
 
 Get Wordpress Sites
 
@@ -227,11 +227,11 @@ with flowhunt.ApiClient(configuration) as api_client:
 
     try:
         # Get Wordpress Sites
-        api_response = api_instance.get_wordpress_sites_0(workspace_id)
-        print("The response of WordPressApi->get_wordpress_sites_0:\n")
+        api_response = api_instance.get_wordpress_sites(workspace_id)
+        print("The response of WordPressApi->get_wordpress_sites:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling WordPressApi->get_wordpress_sites_0: %s\n" % e)
+        print("Exception when calling WordPressApi->get_wordpress_sites: %s\n" % e)
 ```
 
 

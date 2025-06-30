@@ -5,17 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**product_id** | **str** |  | 
-**price_id** | **str** |  | 
-**currency** | **str** |  | 
-**amount** | **int** |  | 
-**recurring** | **bool** |  | 
-**name** | **str** |  | 
-**description** | **str** |  | 
-**popular** | **bool** |  | 
-**features** | [**List[FeatureResponse]**](FeatureResponse.md) |  | 
-**subscription_plan** | [**SubscriptionPlan**](SubscriptionPlan.md) |  | 
-**self_hosted** | **bool** |  | [optional] 
+**plans** | **Dict[str, List[PlanListItemResponse]]** |  | 
 
 ## Example
 

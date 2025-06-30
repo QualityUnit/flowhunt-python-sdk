@@ -33,6 +33,9 @@ class IntegrationCategory(str, Enum):
     CONTENT = 'content'
     SALES = 'sales'
     MARKETING = 'marketing'
+    CMS = 'cms'
+    GOOGLE = 'google'
+    COMMUNICATION = 'communication'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

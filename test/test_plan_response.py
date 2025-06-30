@@ -35,38 +35,57 @@ class TestPlanResponse(unittest.TestCase):
         model = PlanResponse()
         if include_optional:
             return PlanResponse(
-                product_id = '',
-                price_id = '',
-                currency = '',
-                amount = 56,
-                recurring = True,
-                name = '',
-                description = '',
-                popular = True,
-                features = [
-                    flowhunt.models.feature_response.FeatureResponse(
-                        name = '', 
-                        available = True, )
-                    ],
-                subscription_plan = 'S',
-                self_hosted = True
+                plans = {
+                    'key' : [
+                        flowhunt.models.plan_list_item_response.PlanListItemResponse(
+                            product_id = '', 
+                            price_id = '', 
+                            currency = '', 
+                            amount_monthly = 56, 
+                            amount_yearly = 56, 
+                            recurring = True, 
+                            name = '', 
+                            description = '', 
+                            popular = True, 
+                            monthly_credits = 56, 
+                            features = [
+                                flowhunt.models.feature_response.FeatureResponse(
+                                    name = '', 
+                                    available = True, )
+                                ], 
+                            subscription_plan = 'S', 
+                            self_hosted = True, 
+                            addon = True, 
+                            addon_type = '', )
+                        ]
+                    }
             )
         else:
             return PlanResponse(
-                product_id = '',
-                price_id = '',
-                currency = '',
-                amount = 56,
-                recurring = True,
-                name = '',
-                description = '',
-                popular = True,
-                features = [
-                    flowhunt.models.feature_response.FeatureResponse(
-                        name = '', 
-                        available = True, )
-                    ],
-                subscription_plan = 'S',
+                plans = {
+                    'key' : [
+                        flowhunt.models.plan_list_item_response.PlanListItemResponse(
+                            product_id = '', 
+                            price_id = '', 
+                            currency = '', 
+                            amount_monthly = 56, 
+                            amount_yearly = 56, 
+                            recurring = True, 
+                            name = '', 
+                            description = '', 
+                            popular = True, 
+                            monthly_credits = 56, 
+                            features = [
+                                flowhunt.models.feature_response.FeatureResponse(
+                                    name = '', 
+                                    available = True, )
+                                ], 
+                            subscription_plan = 'S', 
+                            self_hosted = True, 
+                            addon = True, 
+                            addon_type = '', )
+                        ]
+                    },
         )
         """
 

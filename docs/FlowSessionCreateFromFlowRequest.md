@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **variables** | **Dict[str, str]** |  | [optional] 
 **flow_id** | **str** | The flow ID | 
 **on_chat_opened_postback_url** | **str** |  | [optional] 
+**flow_branch** | [**FlowBranch**](FlowBranch.md) | The flow branch | [optional] 
 
 ## Example
 

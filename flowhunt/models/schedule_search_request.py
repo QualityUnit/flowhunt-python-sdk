@@ -19,6 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from flowhunt.models.pagination import Pagination
 from flowhunt.models.schedule_status import ScheduleStatus
 from flowhunt.models.schedule_type import ScheduleType
 from typing import Optional, Set
@@ -33,7 +34,8 @@ class ScheduleSearchRequest(BaseModel):
     status: Optional[ScheduleStatus] = None
     schedule_type: Optional[ScheduleType] = None
     limit: Optional[StrictInt] = Field(default=100, description="Limit of the search")
-    __properties: ClassVar[List[str]] = ["domain_id", "url", "status", "schedule_type", "limit"]
+    pagination: Optional[Pagination] = None
+    __properties: ClassVar[List[str]] = ["domain_id", "url", "status", "schedule_type", "limit", "pagination"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -74,6 +76,9 @@ class ScheduleSearchRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of pagination
+        if self.pagination:
+            _dict['pagination'] = self.pagination.to_dict()
         # set to None if domain_id (nullable) is None
         # and model_fields_set contains the field
         if self.domain_id is None and "domain_id" in self.model_fields_set:
@@ -94,6 +99,11 @@ class ScheduleSearchRequest(BaseModel):
         if self.schedule_type is None and "schedule_type" in self.model_fields_set:
             _dict['schedule_type'] = None
 
+        # set to None if pagination (nullable) is None
+        # and model_fields_set contains the field
+        if self.pagination is None and "pagination" in self.model_fields_set:
+            _dict['pagination'] = None
+
         return _dict
 
     @classmethod
@@ -110,7 +120,8 @@ class ScheduleSearchRequest(BaseModel):
             "url": obj.get("url"),
             "status": obj.get("status"),
             "schedule_type": obj.get("schedule_type"),
-            "limit": obj.get("limit") if obj.get("limit") is not None else 100
+            "limit": obj.get("limit") if obj.get("limit") is not None else 100,
+            "pagination": Pagination.from_dict(obj["pagination"]) if obj.get("pagination") is not None else None
         })
         return _obj
 

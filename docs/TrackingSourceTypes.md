@@ -1,5 +1,6 @@
 # TrackingSourceTypes
 
+Enum for tracking source types
 
 ## Enum
 

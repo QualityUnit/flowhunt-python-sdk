@@ -31,8 +31,10 @@ class SerpClusterGroupSubClustersRequest(BaseModel):
     group_id: Optional[StrictStr] = None
     min_cluster_strength: Optional[StrictInt] = None
     suggest_other_matching_keywords: Optional[StrictBool] = None
+    include_negative_keywords: Optional[StrictBool] = None
+    include_all_members: Optional[StrictBool] = None
     include_group_keywords: Optional[StrictBool] = None
-    __properties: ClassVar[List[str]] = ["customer_id", "campaign_id", "group_id", "min_cluster_strength", "suggest_other_matching_keywords", "include_group_keywords"]
+    __properties: ClassVar[List[str]] = ["customer_id", "campaign_id", "group_id", "min_cluster_strength", "suggest_other_matching_keywords", "include_negative_keywords", "include_all_members", "include_group_keywords"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -93,6 +95,16 @@ class SerpClusterGroupSubClustersRequest(BaseModel):
         if self.suggest_other_matching_keywords is None and "suggest_other_matching_keywords" in self.model_fields_set:
             _dict['suggest_other_matching_keywords'] = None
 
+        # set to None if include_negative_keywords (nullable) is None
+        # and model_fields_set contains the field
+        if self.include_negative_keywords is None and "include_negative_keywords" in self.model_fields_set:
+            _dict['include_negative_keywords'] = None
+
+        # set to None if include_all_members (nullable) is None
+        # and model_fields_set contains the field
+        if self.include_all_members is None and "include_all_members" in self.model_fields_set:
+            _dict['include_all_members'] = None
+
         # set to None if include_group_keywords (nullable) is None
         # and model_fields_set contains the field
         if self.include_group_keywords is None and "include_group_keywords" in self.model_fields_set:
@@ -115,6 +127,8 @@ class SerpClusterGroupSubClustersRequest(BaseModel):
             "group_id": obj.get("group_id"),
             "min_cluster_strength": obj.get("min_cluster_strength"),
             "suggest_other_matching_keywords": obj.get("suggest_other_matching_keywords"),
+            "include_negative_keywords": obj.get("include_negative_keywords"),
+            "include_all_members": obj.get("include_all_members"),
             "include_group_keywords": obj.get("include_group_keywords")
         })
         return _obj

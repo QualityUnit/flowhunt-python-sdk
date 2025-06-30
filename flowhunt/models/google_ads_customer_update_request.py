@@ -19,6 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from flowhunt.models.bool_char import BoolChar
 from flowhunt.models.google_ads_action_type import GoogleAdsActionType
 from typing import Optional, Set
 from typing_extensions import Self
@@ -33,11 +34,12 @@ class GoogleAdsCustomerUpdateRequest(BaseModel):
     cluster_strength: Optional[StrictInt] = None
     min_impressions: Optional[StrictInt] = None
     min_clicks: Optional[StrictInt] = None
+    process_negative_keywords: Optional[BoolChar] = None
     cron_settings: Optional[StrictStr] = None
     action_type: Optional[GoogleAdsActionType] = None
     ga_measurement_id: Optional[StrictStr] = None
     ga_api_secret: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["language_code", "country", "min_queries", "cluster_strength", "min_impressions", "min_clicks", "cron_settings", "action_type", "ga_measurement_id", "ga_api_secret"]
+    __properties: ClassVar[List[str]] = ["language_code", "country", "min_queries", "cluster_strength", "min_impressions", "min_clicks", "process_negative_keywords", "cron_settings", "action_type", "ga_measurement_id", "ga_api_secret"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -108,6 +110,11 @@ class GoogleAdsCustomerUpdateRequest(BaseModel):
         if self.min_clicks is None and "min_clicks" in self.model_fields_set:
             _dict['min_clicks'] = None
 
+        # set to None if process_negative_keywords (nullable) is None
+        # and model_fields_set contains the field
+        if self.process_negative_keywords is None and "process_negative_keywords" in self.model_fields_set:
+            _dict['process_negative_keywords'] = None
+
         # set to None if cron_settings (nullable) is None
         # and model_fields_set contains the field
         if self.cron_settings is None and "cron_settings" in self.model_fields_set:
@@ -146,6 +153,7 @@ class GoogleAdsCustomerUpdateRequest(BaseModel):
             "cluster_strength": obj.get("cluster_strength"),
             "min_impressions": obj.get("min_impressions"),
             "min_clicks": obj.get("min_clicks"),
+            "process_negative_keywords": obj.get("process_negative_keywords"),
             "cron_settings": obj.get("cron_settings"),
             "action_type": obj.get("action_type"),
             "ga_measurement_id": obj.get("ga_measurement_id"),

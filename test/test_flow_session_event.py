@@ -42,7 +42,8 @@ class TestFlowSessionEvent(unittest.TestCase):
                 created_at_timestamp = '',
                 action_type = loading,
                 credits = 10,
-                metadata = None
+                metadata = None,
+                component_name = ''
             )
         else:
             return FlowSessionEvent(

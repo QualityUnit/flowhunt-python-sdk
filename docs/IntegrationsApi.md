@@ -5,8 +5,12 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_integration**](IntegrationsApi.md#create_integration) | **POST** /v2/integrations/{slug}/integrate | Create Integration
+[**customer_data_request**](IntegrationsApi.md#customer_data_request) | **POST** /v2/integrations/shopify/webhooks/customers/data_request | Customer Data Request
+[**customer_redact**](IntegrationsApi.md#customer_redact) | **POST** /v2/integrations/shopify/webhooks/customers/redact | Customer Redact
 [**delete_integration**](IntegrationsApi.md#delete_integration) | **DELETE** /v2/integrations/{slug}/{integration_id} | Delete Integration
+[**get_actors**](IntegrationsApi.md#get_actors) | **GET** /v2/integrations/hubspot/actors/ | Get Actors
 [**get_all_integrations**](IntegrationsApi.md#get_all_integrations) | **GET** /v2/integrations/all | Get All Integrations
+[**get_calendars**](IntegrationsApi.md#get_calendars) | **GET** /v2/integrations/google/calendar | Get Calendars
 [**get_integration**](IntegrationsApi.md#get_integration) | **GET** /v2/integrations/{slug}/{integration_id} | Get Integration
 [**get_picker_token**](IntegrationsApi.md#get_picker_token) | **GET** /v2/integrations/google/picker_token | Get Picker Token
 [**get_sheets**](IntegrationsApi.md#get_sheets) | **GET** /v2/integrations/google/sheets/{document_id} | Get Sheets
@@ -17,6 +21,7 @@ Method | HTTP request | Description
 [**get_wordpress_sites**](IntegrationsApi.md#get_wordpress_sites) | **GET** /v2/integrations/wordpress/sites | Get Wordpress Sites
 [**integration_callback**](IntegrationsApi.md#integration_callback) | **GET** /v2/integrations/{slug}/callback | Integration Callback
 [**search_integrations**](IntegrationsApi.md#search_integrations) | **POST** /v2/integrations/{slug} | Search Integrations
+[**shop_redact**](IntegrationsApi.md#shop_redact) | **POST** /v2/integrations/shopify/webhooks/shop/redact | Shop Redact
 
 
 # **create_integration**
@@ -88,6 +93,182 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **customer_data_request**
+> object customer_data_request(customer_data_request_payload)
+
+Customer Data Request
+
+Handle customer data request webhooks from Shopify.
+
+This endpoint is called when a customer requests their data from a Shopify store.
+
+Args:
+    request: The FastAPI request object
+    payload: The webhook payload
+
+Returns:
+    A 200 OK response if the webhook is valid and processed successfully
+
+### Example
+
+* Bearer Authentication (HTTPBearer):
+
+```python
+import flowhunt
+from flowhunt.models.customer_data_request_payload import CustomerDataRequestPayload
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization: HTTPBearer
+configuration = flowhunt.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.IntegrationsApi(api_client)
+    customer_data_request_payload = flowhunt.CustomerDataRequestPayload() # CustomerDataRequestPayload | 
+
+    try:
+        # Customer Data Request
+        api_response = api_instance.customer_data_request(customer_data_request_payload)
+        print("The response of IntegrationsApi->customer_data_request:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling IntegrationsApi->customer_data_request: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **customer_data_request_payload** | [**CustomerDataRequestPayload**](CustomerDataRequestPayload.md)|  | 
+
+### Return type
+
+**object**
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **customer_redact**
+> object customer_redact(customer_redact_payload)
+
+Customer Redact
+
+Handle customer redact webhooks from Shopify.
+
+This endpoint is called when a customer requests their data to be deleted from a Shopify store.
+
+Args:
+    request: The FastAPI request object
+    payload: The webhook payload
+
+Returns:
+    A 200 OK response if the webhook is valid and processed successfully
+
+### Example
+
+* Bearer Authentication (HTTPBearer):
+
+```python
+import flowhunt
+from flowhunt.models.customer_redact_payload import CustomerRedactPayload
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization: HTTPBearer
+configuration = flowhunt.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.IntegrationsApi(api_client)
+    customer_redact_payload = flowhunt.CustomerRedactPayload() # CustomerRedactPayload | 
+
+    try:
+        # Customer Redact
+        api_response = api_instance.customer_redact(customer_redact_payload)
+        print("The response of IntegrationsApi->customer_redact:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling IntegrationsApi->customer_redact: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **customer_redact_payload** | [**CustomerRedactPayload**](CustomerRedactPayload.md)|  | 
+
+### Return type
+
+**object**
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details
@@ -181,6 +362,83 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_actors**
+> HubSpotActorsResponse get_actors(workspace_id)
+
+Get Actors
+
+### Example
+
+* Bearer Authentication (HTTPBearer):
+
+```python
+import flowhunt
+from flowhunt.models.hub_spot_actors_response import HubSpotActorsResponse
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization: HTTPBearer
+configuration = flowhunt.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.IntegrationsApi(api_client)
+    workspace_id = 'workspace_id_example' # str | 
+
+    try:
+        # Get Actors
+        api_response = api_instance.get_actors(workspace_id)
+        print("The response of IntegrationsApi->get_actors:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling IntegrationsApi->get_actors: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **workspace_id** | **str**|  | 
+
+### Return type
+
+[**HubSpotActorsResponse**](HubSpotActorsResponse.md)
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_all_integrations**
 > List[IntegrationResponse] get_all_integrations(workspace_id)
 
@@ -250,6 +508,83 @@ Name | Type | Description  | Notes
 ### Authorization
 
 [APIKeyHeader](../README.md#APIKeyHeader), [HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_calendars**
+> GoogleCalendarsResponse get_calendars(workspace_id)
+
+Get Calendars
+
+### Example
+
+* Bearer Authentication (HTTPBearer):
+
+```python
+import flowhunt
+from flowhunt.models.google_calendars_response import GoogleCalendarsResponse
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization: HTTPBearer
+configuration = flowhunt.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.IntegrationsApi(api_client)
+    workspace_id = 'workspace_id_example' # str | 
+
+    try:
+        # Get Calendars
+        api_response = api_instance.get_calendars(workspace_id)
+        print("The response of IntegrationsApi->get_calendars:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling IntegrationsApi->get_calendars: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **workspace_id** | **str**|  | 
+
+### Return type
+
+[**GoogleCalendarsResponse**](GoogleCalendarsResponse.md)
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
 
 ### HTTP request headers
 
@@ -1046,6 +1381,94 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**List[IntegrationDetailResponse]**](IntegrationDetailResponse.md)
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **shop_redact**
+> object shop_redact(shop_redact_payload)
+
+Shop Redact
+
+Handle shop redact webhooks from Shopify.
+
+This endpoint is called 48 hours after a store owner uninstalls the app.
+
+Args:
+    request: The FastAPI request object
+    payload: The webhook payload
+
+Returns:
+    A 200 OK response if the webhook is valid and processed successfully
+
+### Example
+
+* Bearer Authentication (HTTPBearer):
+
+```python
+import flowhunt
+from flowhunt.models.shop_redact_payload import ShopRedactPayload
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization: HTTPBearer
+configuration = flowhunt.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.IntegrationsApi(api_client)
+    shop_redact_payload = flowhunt.ShopRedactPayload() # ShopRedactPayload | 
+
+    try:
+        # Shop Redact
+        api_response = api_instance.shop_redact(shop_redact_payload)
+        print("The response of IntegrationsApi->shop_redact:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling IntegrationsApi->shop_redact: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **shop_redact_payload** | [**ShopRedactPayload**](ShopRedactPayload.md)|  | 
+
+### Return type
+
+**object**
 
 ### Authorization
 

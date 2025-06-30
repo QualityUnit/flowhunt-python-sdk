@@ -19,6 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from flowhunt.models.flow_branch import FlowBranch
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -35,7 +36,8 @@ class FlowSessionCreateFromFlowRequest(BaseModel):
     variables: Optional[Dict[str, StrictStr]] = None
     flow_id: StrictStr = Field(description="The flow ID")
     on_chat_opened_postback_url: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["url", "lang", "access_token", "refresh_token", "username", "password", "variables", "flow_id", "on_chat_opened_postback_url"]
+    flow_branch: Optional[FlowBranch] = Field(default=None, description="The flow branch")
+    __properties: ClassVar[List[str]] = ["url", "lang", "access_token", "refresh_token", "username", "password", "variables", "flow_id", "on_chat_opened_postback_url", "flow_branch"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -136,7 +138,8 @@ class FlowSessionCreateFromFlowRequest(BaseModel):
             "password": obj.get("password"),
             "variables": obj.get("variables"),
             "flow_id": obj.get("flow_id"),
-            "on_chat_opened_postback_url": obj.get("on_chat_opened_postback_url")
+            "on_chat_opened_postback_url": obj.get("on_chat_opened_postback_url"),
+            "flow_branch": obj.get("flow_branch")
         })
         return _obj
 

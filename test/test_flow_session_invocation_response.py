@@ -36,7 +36,19 @@ class TestFlowSessionInvocationResponse(unittest.TestCase):
         if include_optional:
             return FlowSessionInvocationResponse(
                 message_id = 'a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11',
-                created_at = ''
+                created_at = '',
+                cached_events = [
+                    flowhunt.models.flow_session_event.FlowSessionEvent(
+                        workspace_id = 'a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11', 
+                        session_id = 'a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11', 
+                        event_id = 'a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11', 
+                        event_type = text, 
+                        created_at_timestamp = '', 
+                        action_type = loading, 
+                        credits = 10, 
+                        metadata = null, 
+                        component_name = '', )
+                    ]
             )
         else:
             return FlowSessionInvocationResponse(

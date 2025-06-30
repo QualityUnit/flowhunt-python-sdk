@@ -40,7 +40,7 @@ class SlackApi:
 
 
     @validate_call
-    def get_slack_channels_0(
+    def get_slack_channels(
         self,
         slack_team_id: StrictStr,
         workspace_id: StrictStr,
@@ -86,7 +86,7 @@ class SlackApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_slack_channels_0_serialize(
+        _param = self._get_slack_channels_serialize(
             slack_team_id=slack_team_id,
             workspace_id=workspace_id,
             _request_auth=_request_auth,
@@ -111,7 +111,7 @@ class SlackApi:
 
 
     @validate_call
-    def get_slack_channels_0_with_http_info(
+    def get_slack_channels_with_http_info(
         self,
         slack_team_id: StrictStr,
         workspace_id: StrictStr,
@@ -157,7 +157,7 @@ class SlackApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_slack_channels_0_serialize(
+        _param = self._get_slack_channels_serialize(
             slack_team_id=slack_team_id,
             workspace_id=workspace_id,
             _request_auth=_request_auth,
@@ -182,7 +182,7 @@ class SlackApi:
 
 
     @validate_call
-    def get_slack_channels_0_without_preload_content(
+    def get_slack_channels_without_preload_content(
         self,
         slack_team_id: StrictStr,
         workspace_id: StrictStr,
@@ -228,7 +228,7 @@ class SlackApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_slack_channels_0_serialize(
+        _param = self._get_slack_channels_serialize(
             slack_team_id=slack_team_id,
             workspace_id=workspace_id,
             _request_auth=_request_auth,
@@ -248,7 +248,7 @@ class SlackApi:
         return response_data.response
 
 
-    def _get_slack_channels_0_serialize(
+    def _get_slack_channels_serialize(
         self,
         slack_team_id,
         workspace_id,
@@ -318,7 +318,7 @@ class SlackApi:
 
 
     @validate_call
-    def get_slack_workspaces_0(
+    def get_slack_workspaces(
         self,
         workspace_id: StrictStr,
         _request_timeout: Union[
@@ -361,7 +361,7 @@ class SlackApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_slack_workspaces_0_serialize(
+        _param = self._get_slack_workspaces_serialize(
             workspace_id=workspace_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -385,7 +385,7 @@ class SlackApi:
 
 
     @validate_call
-    def get_slack_workspaces_0_with_http_info(
+    def get_slack_workspaces_with_http_info(
         self,
         workspace_id: StrictStr,
         _request_timeout: Union[
@@ -428,7 +428,7 @@ class SlackApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_slack_workspaces_0_serialize(
+        _param = self._get_slack_workspaces_serialize(
             workspace_id=workspace_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -452,7 +452,7 @@ class SlackApi:
 
 
     @validate_call
-    def get_slack_workspaces_0_without_preload_content(
+    def get_slack_workspaces_without_preload_content(
         self,
         workspace_id: StrictStr,
         _request_timeout: Union[
@@ -495,7 +495,7 @@ class SlackApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_slack_workspaces_0_serialize(
+        _param = self._get_slack_workspaces_serialize(
             workspace_id=workspace_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -514,7 +514,7 @@ class SlackApi:
         return response_data.response
 
 
-    def _get_slack_workspaces_0_serialize(
+    def _get_slack_workspaces_serialize(
         self,
         workspace_id,
         _request_auth,

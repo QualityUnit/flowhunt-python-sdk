@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **cluster_strength** | **int** | Cluster Strength | 
 **min_impressions** | **int** | Minimum Impressions | 
 **min_clicks** | **int** | Minimum Clicks | 
+**process_negative_keywords** | [**BoolChar**](BoolChar.md) |  | [optional] 
 **last_update** | **datetime** |  | [optional] 
 **next_update** | **datetime** |  | [optional] 
 **cron_settings** | **str** |  | [optional] 

@@ -35,21 +35,25 @@ class TestUserPlanResponse(unittest.TestCase):
         model = UserPlanResponse()
         if include_optional:
             return UserPlanResponse(
-                product_id = '',
                 price_amount = 56,
                 price_currency = '',
-                last_renewal_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 monthly_topup_credits = 56,
-                trial_end_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                subscription_plan = 'S'
+                current_period_end = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
+                subscription_plans = {
+                    'key' : 'S'
+                    },
+                can_remove_branding = True
             )
         else:
             return UserPlanResponse(
-                product_id = '',
                 price_amount = 56,
                 price_currency = '',
                 monthly_topup_credits = 56,
-                subscription_plan = 'S',
+                current_period_end = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
+                subscription_plans = {
+                    'key' : 'S'
+                    },
+                can_remove_branding = True,
         )
         """
 

@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **title** | **str** |  | [optional] 
 **status** | **str** |  | [optional] 
 **limit** | **int** |  | [optional] 
+**pagination** | [**Pagination**](Pagination.md) |  | [optional] 
 
 ## Example
 

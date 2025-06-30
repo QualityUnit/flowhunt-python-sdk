@@ -26,9 +26,10 @@ from flowhunt.models.image_ft_response import ImageFTResponse
 from flowhunt.models.image_ft_search_request import ImageFTSearchRequest
 from flowhunt.models.image_ft_update_request import ImageFTUpdateRequest
 from flowhunt.models.image_inference_request import ImageInferenceRequest
-from flowhunt.models.image_inference_response import ImageInferenceResponse
 from flowhunt.models.image_inference_result_response import ImageInferenceResultResponse
 from flowhunt.models.image_inference_schedule_response import ImageInferenceScheduleResponse
+from flowhunt.models.image_inference_scroll_response import ImageInferenceScrollResponse
+from flowhunt.models.image_prompt_generation_request import ImagePromptGenerationRequest
 from flowhunt.models.image_prompt_response import ImagePromptResponse
 from flowhunt.models.inference_file_type import InferenceFileType
 from flowhunt.models.inference_history_search_request import InferenceHistorySearchRequest
@@ -327,7 +328,7 @@ class FineTuningsApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/v2/fine_tunings/images/',
+            resource_path='/v2/photo_ai/images/',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -623,7 +624,7 @@ class FineTuningsApi:
 
         return self.api_client.param_serialize(
             method='DELETE',
-            resource_path='/v2/fine_tunings/files/{file_key}',
+            resource_path='/v2/photo_ai/files/{file_key}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -902,7 +903,7 @@ class FineTuningsApi:
 
         return self.api_client.param_serialize(
             method='DELETE',
-            resource_path='/v2/fine_tunings/images/{ft_id}',
+            resource_path='/v2/photo_ai/images/{ft_id}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -922,6 +923,7 @@ class FineTuningsApi:
     def generate_image_prompt(
         self,
         workspace_id: StrictStr,
+        image_prompt_generation_request: ImagePromptGenerationRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -940,6 +942,8 @@ class FineTuningsApi:
 
         :param workspace_id: (required)
         :type workspace_id: str
+        :param image_prompt_generation_request: (required)
+        :type image_prompt_generation_request: ImagePromptGenerationRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -964,6 +968,7 @@ class FineTuningsApi:
 
         _param = self._generate_image_prompt_serialize(
             workspace_id=workspace_id,
+            image_prompt_generation_request=image_prompt_generation_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -989,6 +994,7 @@ class FineTuningsApi:
     def generate_image_prompt_with_http_info(
         self,
         workspace_id: StrictStr,
+        image_prompt_generation_request: ImagePromptGenerationRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1007,6 +1013,8 @@ class FineTuningsApi:
 
         :param workspace_id: (required)
         :type workspace_id: str
+        :param image_prompt_generation_request: (required)
+        :type image_prompt_generation_request: ImagePromptGenerationRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1031,6 +1039,7 @@ class FineTuningsApi:
 
         _param = self._generate_image_prompt_serialize(
             workspace_id=workspace_id,
+            image_prompt_generation_request=image_prompt_generation_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1056,6 +1065,7 @@ class FineTuningsApi:
     def generate_image_prompt_without_preload_content(
         self,
         workspace_id: StrictStr,
+        image_prompt_generation_request: ImagePromptGenerationRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1074,6 +1084,8 @@ class FineTuningsApi:
 
         :param workspace_id: (required)
         :type workspace_id: str
+        :param image_prompt_generation_request: (required)
+        :type image_prompt_generation_request: ImagePromptGenerationRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1098,6 +1110,7 @@ class FineTuningsApi:
 
         _param = self._generate_image_prompt_serialize(
             workspace_id=workspace_id,
+            image_prompt_generation_request=image_prompt_generation_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1118,6 +1131,7 @@ class FineTuningsApi:
     def _generate_image_prompt_serialize(
         self,
         workspace_id,
+        image_prompt_generation_request,
         _request_auth,
         _content_type,
         _headers,
@@ -1147,6 +1161,8 @@ class FineTuningsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
+        if image_prompt_generation_request is not None:
+            _body_params = image_prompt_generation_request
 
 
         # set the HTTP header `Accept`
@@ -1157,6 +1173,19 @@ class FineTuningsApi:
                 ]
             )
 
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -1166,7 +1195,7 @@ class FineTuningsApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/v2/fine_tunings/inference/images/generate-prompt',
+            resource_path='/v2/photo_ai/inference/images/generate-prompt',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1458,7 +1487,7 @@ class FineTuningsApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/v2/fine_tunings/inference/images',
+            resource_path='/v2/photo_ai/inference/images',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1754,7 +1783,7 @@ class FineTuningsApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/v2/fine_tunings/files/{file_key}',
+            resource_path='/v2/photo_ai/files/{file_key}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2033,7 +2062,7 @@ class FineTuningsApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/v2/fine_tunings/inference/results/{inference_id}',
+            resource_path='/v2/photo_ai/inference/results/{inference_id}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2312,7 +2341,7 @@ class FineTuningsApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/v2/fine_tunings/webhooks/replicate',
+            resource_path='/v2/photo_ai/webhooks/replicate',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2604,7 +2633,7 @@ class FineTuningsApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/v2/fine_tunings/images/search',
+            resource_path='/v2/photo_ai/images/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2637,7 +2666,7 @@ class FineTuningsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[ImageInferenceResponse]:
+    ) -> ImageInferenceScrollResponse:
         """Search Inference History
 
 
@@ -2677,7 +2706,7 @@ class FineTuningsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[ImageInferenceResponse]",
+            '200': "ImageInferenceScrollResponse",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -2708,7 +2737,7 @@ class FineTuningsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[ImageInferenceResponse]]:
+    ) -> ApiResponse[ImageInferenceScrollResponse]:
         """Search Inference History
 
 
@@ -2748,7 +2777,7 @@ class FineTuningsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[ImageInferenceResponse]",
+            '200': "ImageInferenceScrollResponse",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -2819,7 +2848,7 @@ class FineTuningsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[ImageInferenceResponse]",
+            '200': "ImageInferenceScrollResponse",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -2896,7 +2925,7 @@ class FineTuningsApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/v2/fine_tunings/inference/history',
+            resource_path='/v2/photo_ai/inference/history',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3203,7 +3232,7 @@ class FineTuningsApi:
 
         return self.api_client.param_serialize(
             method='PUT',
-            resource_path='/v2/fine_tunings/images/{ft_id}',
+            resource_path='/v2/photo_ai/images/{ft_id}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3510,7 +3539,7 @@ class FineTuningsApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/v2/fine_tunings/files/{ft_type}/upload',
+            resource_path='/v2/photo_ai/files/{ft_type}/upload',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

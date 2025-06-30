@@ -26,6 +26,13 @@ class TestBillingApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
+    def test_add_addon_to_subscription(self) -> None:
+        """Test case for add_addon_to_subscription
+
+        Add Addon To Subscription
+        """
+        pass
+
     def test_create_change_plan_portal(self) -> None:
         """Test case for create_change_plan_portal
 

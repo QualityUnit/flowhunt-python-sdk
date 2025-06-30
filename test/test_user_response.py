@@ -35,18 +35,21 @@ class TestUserResponse(unittest.TestCase):
         model = UserResponse()
         if include_optional:
             return UserResponse(
+                user_id = 'd719f5f5-5433-4cb4-9993-8053bda1a384',
                 email = 'test@test.com',
                 username = 'John Doe',
                 is_active = True,
                 avatar_url = '',
                 api_key_workspace_id = '',
-                subscription_plan = 'S'
+                product_plans = {
+                    'key' : 'S'
+                    }
             )
         else:
             return UserResponse(
+                user_id = 'd719f5f5-5433-4cb4-9993-8053bda1a384',
                 email = 'test@test.com',
                 username = 'John Doe',
-                is_active = True,
         )
         """
 

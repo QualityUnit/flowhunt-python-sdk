@@ -8,6 +8,8 @@ Name | Type | Description | Notes
 **flow_type** | [**FlowType**](FlowType.md) |  | [optional] 
 **name** | **str** |  | [optional] 
 **category_id** | **str** |  | [optional] 
+**limit** | **int** |  | [optional] 
+**pagination** | [**Pagination**](Pagination.md) |  | [optional] 
 
 ## Example
 

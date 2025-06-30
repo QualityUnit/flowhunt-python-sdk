@@ -1,5 +1,6 @@
 # TrackingEventData
 
+Value object for tracking event data
 
 ## Properties
 

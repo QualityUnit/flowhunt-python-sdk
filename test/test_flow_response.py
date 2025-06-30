@@ -41,7 +41,8 @@ class TestFlowResponse(unittest.TestCase):
                 flow_type = p,
                 component_count = 3,
                 executed_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                category_id = ''
+                category_id = '',
+                enable_cache = True
             )
         else:
             return FlowResponse(
@@ -50,6 +51,7 @@ class TestFlowResponse(unittest.TestCase):
                 description = 'Flow 1 description',
                 flow_type = p,
                 component_count = 3,
+                enable_cache = True,
         )
         """
 

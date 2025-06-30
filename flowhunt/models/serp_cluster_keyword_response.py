@@ -17,8 +17,10 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from flowhunt.models.google_ads_match_type import GoogleAdsMatchType
+from flowhunt.models.serp_search_engine_type import SerpSearchEngineType
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -26,11 +28,17 @@ class SerpClusterKeywordResponse(BaseModel):
     """
     SerpClusterKeywordResponse
     """ # noqa: E501
+    unique_id: StrictStr = Field(description="Unique ID")
     keyword_id: StrictStr = Field(description="Query ID")
     keyword: StrictStr = Field(description="Query")
     country: Optional[StrictStr] = None
     language: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["keyword_id", "keyword", "country", "language"]
+    is_negative: Optional[StrictBool] = None
+    match_type: Optional[GoogleAdsMatchType]
+    campaign_id: StrictStr = Field(description="Campaign ID")
+    group_id: StrictStr = Field(description="Group ID")
+    search_engine: Optional[SerpSearchEngineType]
+    __properties: ClassVar[List[str]] = ["unique_id", "keyword_id", "keyword", "country", "language", "is_negative", "match_type", "campaign_id", "group_id", "search_engine"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -81,6 +89,21 @@ class SerpClusterKeywordResponse(BaseModel):
         if self.language is None and "language" in self.model_fields_set:
             _dict['language'] = None
 
+        # set to None if is_negative (nullable) is None
+        # and model_fields_set contains the field
+        if self.is_negative is None and "is_negative" in self.model_fields_set:
+            _dict['is_negative'] = None
+
+        # set to None if match_type (nullable) is None
+        # and model_fields_set contains the field
+        if self.match_type is None and "match_type" in self.model_fields_set:
+            _dict['match_type'] = None
+
+        # set to None if search_engine (nullable) is None
+        # and model_fields_set contains the field
+        if self.search_engine is None and "search_engine" in self.model_fields_set:
+            _dict['search_engine'] = None
+
         return _dict
 
     @classmethod
@@ -93,10 +116,16 @@ class SerpClusterKeywordResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "unique_id": obj.get("unique_id"),
             "keyword_id": obj.get("keyword_id"),
             "keyword": obj.get("keyword"),
             "country": obj.get("country"),
-            "language": obj.get("language")
+            "language": obj.get("language"),
+            "is_negative": obj.get("is_negative"),
+            "match_type": obj.get("match_type"),
+            "campaign_id": obj.get("campaign_id"),
+            "group_id": obj.get("group_id"),
+            "search_engine": obj.get("search_engine")
         })
         return _obj
 

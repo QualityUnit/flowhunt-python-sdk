@@ -20,6 +20,7 @@ import json
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
+from flowhunt.models.pagination import Pagination
 from flowhunt.models.transaction_type import TransactionType
 from typing import Optional, Set
 from typing_extensions import Self
@@ -32,7 +33,8 @@ class CreditDailyTransactionSearchRequest(BaseModel):
     created_at_to: Optional[datetime] = None
     transaction_type: Optional[TransactionType] = None
     limit: Optional[StrictInt] = None
-    __properties: ClassVar[List[str]] = ["created_at_from", "created_at_to", "transaction_type", "limit"]
+    pagination: Optional[Pagination] = None
+    __properties: ClassVar[List[str]] = ["created_at_from", "created_at_to", "transaction_type", "limit", "pagination"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -73,6 +75,9 @@ class CreditDailyTransactionSearchRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of pagination
+        if self.pagination:
+            _dict['pagination'] = self.pagination.to_dict()
         # set to None if created_at_from (nullable) is None
         # and model_fields_set contains the field
         if self.created_at_from is None and "created_at_from" in self.model_fields_set:
@@ -93,6 +98,11 @@ class CreditDailyTransactionSearchRequest(BaseModel):
         if self.limit is None and "limit" in self.model_fields_set:
             _dict['limit'] = None
 
+        # set to None if pagination (nullable) is None
+        # and model_fields_set contains the field
+        if self.pagination is None and "pagination" in self.model_fields_set:
+            _dict['pagination'] = None
+
         return _dict
 
     @classmethod
@@ -108,7 +118,8 @@ class CreditDailyTransactionSearchRequest(BaseModel):
             "created_at_from": obj.get("created_at_from"),
             "created_at_to": obj.get("created_at_to"),
             "transaction_type": obj.get("transaction_type"),
-            "limit": obj.get("limit")
+            "limit": obj.get("limit"),
+            "pagination": Pagination.from_dict(obj["pagination"]) if obj.get("pagination") is not None else None
         })
         return _obj
 

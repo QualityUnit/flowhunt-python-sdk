@@ -73,6 +73,28 @@
 
 * `SC_HS` (value: `'SC_HS'`)
 
+* `CNM_HS` (value: `'CNM_HS'`)
+
+* `CNE` (value: `'CNE'`)
+
+* `SE` (value: `'SE'`)
+
+* `GE` (value: `'GE'`)
+
+* `ALE` (value: `'ALE'`)
+
+* `RLE` (value: `'RLE'`)
+
+* `CPS` (value: `'CPS'`)
+
+* `CS_GS` (value: `'CS_GS'`)
+
+* `IG_API` (value: `'IG_API'`)
+
+* `FA` (value: `'FA'`)
+
+* `HC` (value: `'HC'`)
+
 * `SEQUENTIAL_AGENT` (value: `'SEQUENTIAL_AGENT'`)
 
 * `SELF_MANAGED_AGENT` (value: `'SELF_MANAGED_AGENT'`)

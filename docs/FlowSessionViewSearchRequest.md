@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **chatbot_name** | **str** |  | [optional] 
 **flow_name** | **str** |  | [optional] 
 **ipaddress_filter** | **Dict[str, object]** |  | [optional] 
+**pagination** | [**Pagination**](Pagination.md) |  | [optional] 
 
 ## Example
 

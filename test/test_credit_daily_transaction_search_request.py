@@ -38,7 +38,10 @@ class TestCreditDailyTransactionSearchRequest(unittest.TestCase):
                 created_at_from = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 created_at_to = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 transaction_type = 'G',
-                limit = 56
+                limit = 56,
+                pagination = flowhunt.models.pagination.Pagination(
+                    sorting_key_value = '', 
+                    scroll_id = '', )
             )
         else:
             return CreditDailyTransactionSearchRequest(

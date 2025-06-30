@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **customer_id** | **str** |  | [optional] 
 **campaign_id** | **str** |  | [optional] 
 **group_id** | **str** |  | [optional] 
+**include_negative_keywords** | **bool** |  | [optional] 
 
 ## Example
 

@@ -47,6 +47,8 @@
 
 * `CSV` (value: `'CSV'`)
 
+* `XML` (value: `'XML'`)
+
 * `GOOGLE_DOCS` (value: `'GOOGLE_DOCS'`)
 
 * `GOOGLE_SHEETS` (value: `'GOOGLE_SHEETS'`)

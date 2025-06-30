@@ -39,7 +39,8 @@ class ScheduleCreateRequest(BaseModel):
     with_proxy_rotation: Optional[BoolChar] = None
     disallow_urls: Optional[StrictStr] = None
     filter_urls: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["url", "frequency", "schedule_type", "with_screenshot", "with_browser", "follow_links", "with_proxy_rotation", "disallow_urls", "filter_urls"]
+    custom_headers: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["url", "frequency", "schedule_type", "with_screenshot", "with_browser", "follow_links", "with_proxy_rotation", "disallow_urls", "filter_urls", "custom_headers"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -113,6 +114,11 @@ class ScheduleCreateRequest(BaseModel):
         if self.filter_urls is None and "filter_urls" in self.model_fields_set:
             _dict['filter_urls'] = None
 
+        # set to None if custom_headers (nullable) is None
+        # and model_fields_set contains the field
+        if self.custom_headers is None and "custom_headers" in self.model_fields_set:
+            _dict['custom_headers'] = None
+
         return _dict
 
     @classmethod
@@ -133,7 +139,8 @@ class ScheduleCreateRequest(BaseModel):
             "follow_links": obj.get("follow_links"),
             "with_proxy_rotation": obj.get("with_proxy_rotation"),
             "disallow_urls": obj.get("disallow_urls"),
-            "filter_urls": obj.get("filter_urls")
+            "filter_urls": obj.get("filter_urls"),
+            "custom_headers": obj.get("custom_headers")
         })
         return _obj
 

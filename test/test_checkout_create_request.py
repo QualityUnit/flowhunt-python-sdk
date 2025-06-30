@@ -36,11 +36,13 @@ class TestCheckoutCreateRequest(unittest.TestCase):
         if include_optional:
             return CheckoutCreateRequest(
                 plan_id = '',
+                interval = 'monthly',
                 recurring = True
             )
         else:
             return CheckoutCreateRequest(
                 plan_id = '',
+                interval = 'monthly',
         )
         """
 

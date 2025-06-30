@@ -25,7 +25,7 @@ from typing_extensions import Self
 
 class TrackingEventData(BaseModel):
     """
-    TrackingEventData
+    Value object for tracking event data
     """ # noqa: E501
     key: StrictStr
     value_text: Optional[StrictStr] = None

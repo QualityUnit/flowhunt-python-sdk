@@ -38,7 +38,8 @@ class TestSerpClusterGroupSearchRequest(unittest.TestCase):
                 search = '',
                 customer_id = '',
                 campaign_id = '',
-                group_id = ''
+                group_id = '',
+                include_negative_keywords = True
             )
         else:
             return SerpClusterGroupSearchRequest(

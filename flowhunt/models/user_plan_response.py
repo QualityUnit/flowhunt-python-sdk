@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from flowhunt.models.subscription_plan import SubscriptionPlan
 from typing import Optional, Set
@@ -28,14 +28,13 @@ class UserPlanResponse(BaseModel):
     """
     UserPlanResponse
     """ # noqa: E501
-    product_id: Optional[StrictStr]
     price_amount: StrictInt
     price_currency: StrictStr
-    last_renewal_date: Optional[datetime] = None
     monthly_topup_credits: StrictInt
-    trial_end_date: Optional[datetime] = None
-    subscription_plan: SubscriptionPlan
-    __properties: ClassVar[List[str]] = ["product_id", "price_amount", "price_currency", "last_renewal_date", "monthly_topup_credits", "trial_end_date", "subscription_plan"]
+    current_period_end: Optional[datetime]
+    subscription_plans: Dict[str, SubscriptionPlan]
+    can_remove_branding: StrictBool
+    __properties: ClassVar[List[str]] = ["price_amount", "price_currency", "monthly_topup_credits", "current_period_end", "subscription_plans", "can_remove_branding"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -76,20 +75,10 @@ class UserPlanResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if product_id (nullable) is None
+        # set to None if current_period_end (nullable) is None
         # and model_fields_set contains the field
-        if self.product_id is None and "product_id" in self.model_fields_set:
-            _dict['product_id'] = None
-
-        # set to None if last_renewal_date (nullable) is None
-        # and model_fields_set contains the field
-        if self.last_renewal_date is None and "last_renewal_date" in self.model_fields_set:
-            _dict['last_renewal_date'] = None
-
-        # set to None if trial_end_date (nullable) is None
-        # and model_fields_set contains the field
-        if self.trial_end_date is None and "trial_end_date" in self.model_fields_set:
-            _dict['trial_end_date'] = None
+        if self.current_period_end is None and "current_period_end" in self.model_fields_set:
+            _dict['current_period_end'] = None
 
         return _dict
 
@@ -103,13 +92,12 @@ class UserPlanResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "product_id": obj.get("product_id"),
             "price_amount": obj.get("price_amount"),
             "price_currency": obj.get("price_currency"),
-            "last_renewal_date": obj.get("last_renewal_date"),
             "monthly_topup_credits": obj.get("monthly_topup_credits"),
-            "trial_end_date": obj.get("trial_end_date"),
-            "subscription_plan": obj.get("subscription_plan")
+            "current_period_end": obj.get("current_period_end"),
+            "subscription_plans": dict((_k, _v) for _k, _v in obj.get("subscription_plans").items()) if obj.get("subscription_plans") is not None else None,
+            "can_remove_branding": obj.get("can_remove_branding")
         })
         return _obj
 

@@ -45,7 +45,8 @@ class TestFlowSessionCreateFromFlowRequest(unittest.TestCase):
                     'key' : ''
                     },
                 flow_id = '',
-                on_chat_opened_postback_url = ''
+                on_chat_opened_postback_url = '',
+                flow_branch = 'P'
             )
         else:
             return FlowSessionCreateFromFlowRequest(

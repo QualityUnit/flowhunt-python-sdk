@@ -29,6 +29,7 @@ class MessageType(str, Enum):
     AI = 'ai'
     HUMAN = 'human'
     SYSTEM = 'system'
+    FLOW_ASSISTANT_ACTION = 'flow_assistant_action'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

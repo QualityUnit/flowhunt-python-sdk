@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **with_proxy_rotation** | [**BoolChar**](BoolChar.md) |  | 
 **disallow_urls** | **str** |  | [optional] 
 **filter_urls** | **str** |  | [optional] 
+**custom_headers** | **str** |  | [optional] 
 
 ## Example
 

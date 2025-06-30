@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **context_id** | **str** |  | [optional] 
 **context_desc** | **str** |  | [optional] 
 **limit** | **int** |  | [optional] 
+**pagination** | [**Pagination**](Pagination.md) |  | [optional] 
 
 ## Example
 

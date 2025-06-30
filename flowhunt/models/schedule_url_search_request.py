@@ -18,8 +18,9 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, StrictBool, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from flowhunt.models.pagination import Pagination
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -37,7 +38,9 @@ class ScheduleUrlSearchRequest(BaseModel):
     is_original_url: Optional[StrictBool] = None
     created_at_from: Optional[datetime] = None
     created_at_to: Optional[datetime] = None
-    __properties: ClassVar[List[str]] = ["schedule_id", "domain_id", "url_id", "url", "text_timestamp_from", "text_timestamp_to", "url_title", "is_original_url", "created_at_from", "created_at_to"]
+    limit: Optional[StrictInt] = None
+    pagination: Optional[Pagination] = None
+    __properties: ClassVar[List[str]] = ["schedule_id", "domain_id", "url_id", "url", "text_timestamp_from", "text_timestamp_to", "url_title", "is_original_url", "created_at_from", "created_at_to", "limit", "pagination"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -78,6 +81,9 @@ class ScheduleUrlSearchRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of pagination
+        if self.pagination:
+            _dict['pagination'] = self.pagination.to_dict()
         # set to None if schedule_id (nullable) is None
         # and model_fields_set contains the field
         if self.schedule_id is None and "schedule_id" in self.model_fields_set:
@@ -128,6 +134,16 @@ class ScheduleUrlSearchRequest(BaseModel):
         if self.created_at_to is None and "created_at_to" in self.model_fields_set:
             _dict['created_at_to'] = None
 
+        # set to None if limit (nullable) is None
+        # and model_fields_set contains the field
+        if self.limit is None and "limit" in self.model_fields_set:
+            _dict['limit'] = None
+
+        # set to None if pagination (nullable) is None
+        # and model_fields_set contains the field
+        if self.pagination is None and "pagination" in self.model_fields_set:
+            _dict['pagination'] = None
+
         return _dict
 
     @classmethod
@@ -149,7 +165,9 @@ class ScheduleUrlSearchRequest(BaseModel):
             "url_title": obj.get("url_title"),
             "is_original_url": obj.get("is_original_url"),
             "created_at_from": obj.get("created_at_from"),
-            "created_at_to": obj.get("created_at_to")
+            "created_at_to": obj.get("created_at_to"),
+            "limit": obj.get("limit"),
+            "pagination": Pagination.from_dict(obj["pagination"]) if obj.get("pagination") is not None else None
         })
         return _obj
 

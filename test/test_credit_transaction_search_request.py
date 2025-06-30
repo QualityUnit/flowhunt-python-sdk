@@ -41,7 +41,10 @@ class TestCreditTransactionSearchRequest(unittest.TestCase):
                 transaction_type = 'G',
                 context_id = '',
                 context_desc = '',
-                limit = 56
+                limit = 56,
+                pagination = flowhunt.models.pagination.Pagination(
+                    sorting_key_value = '', 
+                    scroll_id = '', )
             )
         else:
             return CreditTransactionSearchRequest(

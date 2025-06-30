@@ -17,10 +17,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictBool, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
-from flowhunt.models.feature_response import FeatureResponse
-from flowhunt.models.subscription_plan import SubscriptionPlan
+from pydantic import BaseModel, ConfigDict
+from typing import Any, ClassVar, Dict, List
+from flowhunt.models.plan_list_item_response import PlanListItemResponse
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,18 +27,8 @@ class PlanResponse(BaseModel):
     """
     PlanResponse
     """ # noqa: E501
-    product_id: StrictStr
-    price_id: StrictStr
-    currency: StrictStr
-    amount: StrictInt
-    recurring: StrictBool
-    name: StrictStr
-    description: StrictStr
-    popular: StrictBool
-    features: List[FeatureResponse]
-    subscription_plan: Optional[SubscriptionPlan]
-    self_hosted: Optional[StrictBool] = None
-    __properties: ClassVar[List[str]] = ["product_id", "price_id", "currency", "amount", "recurring", "name", "description", "popular", "features", "subscription_plan", "self_hosted"]
+    plans: Dict[str, List[PlanListItemResponse]]
+    __properties: ClassVar[List[str]] = ["plans"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -80,23 +69,15 @@ class PlanResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in features (list)
-        _items = []
-        if self.features:
-            for _item_features in self.features:
-                if _item_features:
-                    _items.append(_item_features.to_dict())
-            _dict['features'] = _items
-        # set to None if subscription_plan (nullable) is None
-        # and model_fields_set contains the field
-        if self.subscription_plan is None and "subscription_plan" in self.model_fields_set:
-            _dict['subscription_plan'] = None
-
-        # set to None if self_hosted (nullable) is None
-        # and model_fields_set contains the field
-        if self.self_hosted is None and "self_hosted" in self.model_fields_set:
-            _dict['self_hosted'] = None
-
+        # override the default output from pydantic by calling `to_dict()` of each value in plans (dict of array)
+        _field_dict_of_array = {}
+        if self.plans:
+            for _key_plans in self.plans:
+                if self.plans[_key_plans] is not None:
+                    _field_dict_of_array[_key_plans] = [
+                        _item.to_dict() for _item in self.plans[_key_plans]
+                    ]
+            _dict['plans'] = _field_dict_of_array
         return _dict
 
     @classmethod
@@ -109,17 +90,14 @@ class PlanResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "product_id": obj.get("product_id"),
-            "price_id": obj.get("price_id"),
-            "currency": obj.get("currency"),
-            "amount": obj.get("amount"),
-            "recurring": obj.get("recurring"),
-            "name": obj.get("name"),
-            "description": obj.get("description"),
-            "popular": obj.get("popular"),
-            "features": [FeatureResponse.from_dict(_item) for _item in obj["features"]] if obj.get("features") is not None else None,
-            "subscription_plan": obj.get("subscription_plan"),
-            "self_hosted": obj.get("self_hosted")
+            "plans": dict(
+                (_k,
+                        [PlanListItemResponse.from_dict(_item) for _item in _v]
+                        if _v is not None
+                        else None
+                )
+                for _k, _v in obj.get("plans", {}).items()
+            )
         })
         return _obj
 

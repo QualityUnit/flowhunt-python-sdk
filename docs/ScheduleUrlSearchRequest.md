@@ -15,6 +15,8 @@ Name | Type | Description | Notes
 **is_original_url** | **bool** |  | [optional] 
 **created_at_from** | **datetime** |  | [optional] 
 **created_at_to** | **datetime** |  | [optional] 
+**limit** | **int** |  | [optional] 
+**pagination** | [**Pagination**](Pagination.md) |  | [optional] 
 
 ## Example
 

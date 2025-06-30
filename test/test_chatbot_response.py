@@ -45,7 +45,23 @@ class TestChatbotResponse(unittest.TestCase):
                 theme = '',
                 max_window_size = '',
                 msg_rpm = 56,
-                msg_ip_rpm = 56
+                msg_ip_rpm = 56,
+                chatbot_description = '',
+                show_chatbot_header = True,
+                chat_bubble_bg_color = '',
+                chat_bubble_icon_color = '',
+                chat_bubble_img_url = '',
+                chatbot_theme = '',
+                chatbot_position = '',
+                message_placeholder = '',
+                chatbot_header_text = '',
+                chatbot_header_logo_url = '',
+                assistant_avatar_image_url = '',
+                remove_branding = True,
+                chatbot_style = '',
+                session_message_history = True,
+                chatbot_bubble_size = 56,
+                message_header_logo_url = ''
             )
         else:
             return ChatbotResponse(

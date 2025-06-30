@@ -35,15 +35,26 @@ class TestSerpClusterKeywordResponse(unittest.TestCase):
         model = SerpClusterKeywordResponse()
         if include_optional:
             return SerpClusterKeywordResponse(
+                unique_id = '',
                 keyword_id = '',
                 keyword = '',
                 country = '',
-                language = ''
+                language = '',
+                is_negative = True,
+                match_type = 'E',
+                campaign_id = '',
+                group_id = '',
+                search_engine = 'G'
             )
         else:
             return SerpClusterKeywordResponse(
+                unique_id = '',
                 keyword_id = '',
                 keyword = '',
+                match_type = 'E',
+                campaign_id = '',
+                group_id = '',
+                search_engine = 'G',
         )
         """
 

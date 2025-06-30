@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **plan_id** | **str** |  | 
+**interval** | **str** |  | 
 **recurring** | **bool** |  | [optional] [default to True]
 
 ## Example

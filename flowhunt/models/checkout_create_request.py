@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictBool, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -27,8 +27,16 @@ class CheckoutCreateRequest(BaseModel):
     CheckoutCreateRequest
     """ # noqa: E501
     plan_id: StrictStr
+    interval: StrictStr
     recurring: Optional[StrictBool] = True
-    __properties: ClassVar[List[str]] = ["plan_id", "recurring"]
+    __properties: ClassVar[List[str]] = ["plan_id", "interval", "recurring"]
+
+    @field_validator('interval')
+    def interval_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(['monthly', 'yearly']):
+            raise ValueError("must be one of enum values ('monthly', 'yearly')")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -82,6 +90,7 @@ class CheckoutCreateRequest(BaseModel):
 
         _obj = cls.model_validate({
             "plan_id": obj.get("plan_id"),
+            "interval": obj.get("interval"),
             "recurring": obj.get("recurring") if obj.get("recurring") is not None else True
         })
         return _obj

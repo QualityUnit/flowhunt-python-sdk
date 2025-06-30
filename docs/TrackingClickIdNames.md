@@ -1,5 +1,6 @@
 # TrackingClickIdNames
 
+Enum for tracking click ID names
 
 ## Enum
 
@@ -9,13 +10,13 @@
 
 * `WBRAID` (value: `'wbraid'`)
 
-* `MSCLKID` (value: `'msclkid'`)
+* `DCLID` (value: `'dclid'`)
 
 * `FBCLID` (value: `'fbclid'`)
 
-* `TWCLID` (value: `'twclid'`)
+* `MSCLKID` (value: `'msclkid'`)
 
-* `LI` (value: `'li'`)
+* `OTHER` (value: `'other'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

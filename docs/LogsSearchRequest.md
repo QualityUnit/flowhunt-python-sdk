@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **log_types** | **List[str]** |  | [optional] 
 **log_levels** | **List[str]** |  | [optional] 
-**category_ids** | **str** |  | [optional] 
+**category_id** | **str** |  | [optional] 
 **from_date** | **str** |  | [optional] 
 **to_date** | **str** |  | [optional] 
 **search_text** | **str** |  | [optional] 

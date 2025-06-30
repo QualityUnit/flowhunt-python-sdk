@@ -34,8 +34,8 @@ class ImageInferenceRequest(BaseModel):
     image_fts: List[StrictStr] = Field(description="The list of image FTs to use for inference")
     number_of_outputs: Optional[StrictInt] = Field(default=1, description="The number of outputs to generate")
     aspect_ratio: Optional[AspecRatio] = Field(default=None, description="The aspect ratio of the output images")
-    steps: Optional[StrictInt] = Field(default=28, description="The number of steps to take in the inference process")
-    guidance_scale: Optional[Union[Annotated[float, Field(le=10.0, strict=True, ge=0.0)], Annotated[int, Field(le=10, strict=True, ge=0)]]] = Field(default=3.5, description="The guidance scale to use in the inference process")
+    steps: Optional[StrictInt] = None
+    guidance_scale: Optional[Union[Annotated[float, Field(le=10.0, strict=True, ge=0.0)], Annotated[int, Field(le=10, strict=True, ge=0)]]] = None
     styles: Optional[List[StrictStr]] = None
     effects: Optional[List[StrictStr]] = None
     use_ai_agent: Optional[StrictBool] = None
@@ -80,6 +80,16 @@ class ImageInferenceRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # set to None if steps (nullable) is None
+        # and model_fields_set contains the field
+        if self.steps is None and "steps" in self.model_fields_set:
+            _dict['steps'] = None
+
+        # set to None if guidance_scale (nullable) is None
+        # and model_fields_set contains the field
+        if self.guidance_scale is None and "guidance_scale" in self.model_fields_set:
+            _dict['guidance_scale'] = None
+
         # set to None if styles (nullable) is None
         # and model_fields_set contains the field
         if self.styles is None and "styles" in self.model_fields_set:
@@ -112,8 +122,8 @@ class ImageInferenceRequest(BaseModel):
             "image_fts": obj.get("image_fts"),
             "number_of_outputs": obj.get("number_of_outputs") if obj.get("number_of_outputs") is not None else 1,
             "aspect_ratio": obj.get("aspect_ratio"),
-            "steps": obj.get("steps") if obj.get("steps") is not None else 28,
-            "guidance_scale": obj.get("guidance_scale") if obj.get("guidance_scale") is not None else 3.5,
+            "steps": obj.get("steps"),
+            "guidance_scale": obj.get("guidance_scale"),
             "styles": obj.get("styles"),
             "effects": obj.get("effects"),
             "use_ai_agent": obj.get("use_ai_agent")

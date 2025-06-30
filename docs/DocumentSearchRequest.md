@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **updated_at_from** | **datetime** |  | [optional] 
 **updated_at_to** | **datetime** |  | [optional] 
 **limit** | **int** |  | [optional] 
+**pagination** | [**Pagination**](Pagination.md) |  | [optional] 
 
 ## Example
 

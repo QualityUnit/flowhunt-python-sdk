@@ -20,6 +20,7 @@ import json
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from flowhunt.models.bool_char import BoolChar
 from flowhunt.models.google_ads_action_type import GoogleAdsActionType
 from typing import Optional, Set
 from typing_extensions import Self
@@ -37,13 +38,14 @@ class GoogleAdsCustomerResponse(BaseModel):
     cluster_strength: StrictInt = Field(description="Cluster Strength")
     min_impressions: StrictInt = Field(description="Minimum Impressions")
     min_clicks: StrictInt = Field(description="Minimum Clicks")
+    process_negative_keywords: Optional[BoolChar] = None
     last_update: Optional[datetime] = None
     next_update: Optional[datetime] = None
     cron_settings: Optional[StrictStr] = None
     action_type: GoogleAdsActionType = Field(description="Action Type")
     ga_measurement_id: Optional[StrictStr] = None
     ga_api_secret: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["workspace_id", "customer_id", "customer_name", "language_code", "country", "min_queries", "cluster_strength", "min_impressions", "min_clicks", "last_update", "next_update", "cron_settings", "action_type", "ga_measurement_id", "ga_api_secret"]
+    __properties: ClassVar[List[str]] = ["workspace_id", "customer_id", "customer_name", "language_code", "country", "min_queries", "cluster_strength", "min_impressions", "min_clicks", "process_negative_keywords", "last_update", "next_update", "cron_settings", "action_type", "ga_measurement_id", "ga_api_secret"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -84,6 +86,11 @@ class GoogleAdsCustomerResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # set to None if process_negative_keywords (nullable) is None
+        # and model_fields_set contains the field
+        if self.process_negative_keywords is None and "process_negative_keywords" in self.model_fields_set:
+            _dict['process_negative_keywords'] = None
+
         # set to None if last_update (nullable) is None
         # and model_fields_set contains the field
         if self.last_update is None and "last_update" in self.model_fields_set:
@@ -130,6 +137,7 @@ class GoogleAdsCustomerResponse(BaseModel):
             "cluster_strength": obj.get("cluster_strength"),
             "min_impressions": obj.get("min_impressions"),
             "min_clicks": obj.get("min_clicks"),
+            "process_negative_keywords": obj.get("process_negative_keywords"),
             "last_update": obj.get("last_update"),
             "next_update": obj.get("next_update"),
             "cron_settings": obj.get("cron_settings"),

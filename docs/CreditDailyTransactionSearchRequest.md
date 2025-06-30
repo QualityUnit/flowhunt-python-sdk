@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **created_at_to** | **datetime** |  | [optional] 
 **transaction_type** | [**TransactionType**](TransactionType.md) |  | [optional] 
 **limit** | **int** |  | [optional] 
+**pagination** | [**Pagination**](Pagination.md) |  | [optional] 
 
 ## Example
 

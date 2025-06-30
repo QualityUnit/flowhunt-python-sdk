@@ -4,12 +4,12 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_slack_channels_0**](SlackApi.md#get_slack_channels_0) | **GET** /v2/integrations/slack/{slack_team_id}/channels | Get Slack Channels
-[**get_slack_workspaces_0**](SlackApi.md#get_slack_workspaces_0) | **GET** /v2/integrations/slack/ | Get Slack Workspaces
+[**get_slack_channels**](SlackApi.md#get_slack_channels) | **GET** /v2/integrations/slack/{slack_team_id}/channels | Get Slack Channels
+[**get_slack_workspaces**](SlackApi.md#get_slack_workspaces) | **GET** /v2/integrations/slack/ | Get Slack Workspaces
 
 
-# **get_slack_channels_0**
-> List[SlackChannelResponse] get_slack_channels_0(slack_team_id, workspace_id)
+# **get_slack_channels**
+> List[SlackChannelResponse] get_slack_channels(slack_team_id, workspace_id)
 
 Get Slack Channels
 
@@ -48,11 +48,11 @@ with flowhunt.ApiClient(configuration) as api_client:
 
     try:
         # Get Slack Channels
-        api_response = api_instance.get_slack_channels_0(slack_team_id, workspace_id)
-        print("The response of SlackApi->get_slack_channels_0:\n")
+        api_response = api_instance.get_slack_channels(slack_team_id, workspace_id)
+        print("The response of SlackApi->get_slack_channels:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling SlackApi->get_slack_channels_0: %s\n" % e)
+        print("Exception when calling SlackApi->get_slack_channels: %s\n" % e)
 ```
 
 
@@ -87,8 +87,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_slack_workspaces_0**
-> List[SlackWorkspaceResponse] get_slack_workspaces_0(workspace_id)
+# **get_slack_workspaces**
+> List[SlackWorkspaceResponse] get_slack_workspaces(workspace_id)
 
 Get Slack Workspaces
 
@@ -126,11 +126,11 @@ with flowhunt.ApiClient(configuration) as api_client:
 
     try:
         # Get Slack Workspaces
-        api_response = api_instance.get_slack_workspaces_0(workspace_id)
-        print("The response of SlackApi->get_slack_workspaces_0:\n")
+        api_response = api_instance.get_slack_workspaces(workspace_id)
+        print("The response of SlackApi->get_slack_workspaces:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling SlackApi->get_slack_workspaces_0: %s\n" % e)
+        print("Exception when calling SlackApi->get_slack_workspaces: %s\n" % e)
 ```
 
 

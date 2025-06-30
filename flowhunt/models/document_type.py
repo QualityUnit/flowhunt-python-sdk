@@ -48,6 +48,7 @@ class DocumentType(str, Enum):
     GIF = 'GIF'
     WEBP = 'WEBP'
     CSV = 'CSV'
+    XML = 'XML'
     GOOGLE_DOCS = 'GOOGLE_DOCS'
     GOOGLE_SHEETS = 'GOOGLE_SHEETS'
 

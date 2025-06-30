@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **action_type** | [**FlowEventActionType**](FlowEventActionType.md) | Action type | 
 **credits** | **float** | Credits | 
 **metadata** | [**Metadata**](Metadata.md) |  | [optional] 
+**component_name** | **str** |  | [optional] 
 
 ## Example
 

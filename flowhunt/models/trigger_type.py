@@ -31,6 +31,9 @@ class TriggerType(str, Enum):
     CHAT_INPUT = 'chat_input'
     SLACK_MESSAGE_RECEIVED = 'slack_message_received'
     SLACK_SHORTCUTS = 'slack_shortcuts'
+    ON_HUBSPOT_MESSAGE = 'on_hubspot_message'
+    ON_GMAIL_MESSAGE = 'on_gmail_message'
+    ON_EMAIL_MESSAGE = 'on_email_message'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

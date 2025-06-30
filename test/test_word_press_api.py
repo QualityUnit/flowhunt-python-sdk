@@ -26,22 +26,22 @@ class TestWordPressApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_get_wordpress_post_categories_0(self) -> None:
-        """Test case for get_wordpress_post_categories_0
+    def test_get_wordpress_post_categories(self) -> None:
+        """Test case for get_wordpress_post_categories
 
         Get Wordpress Post Categories
         """
         pass
 
-    def test_get_wordpress_post_tags_0(self) -> None:
-        """Test case for get_wordpress_post_tags_0
+    def test_get_wordpress_post_tags(self) -> None:
+        """Test case for get_wordpress_post_tags
 
         Get Wordpress Post Tags
         """
         pass
 
-    def test_get_wordpress_sites_0(self) -> None:
-        """Test case for get_wordpress_sites_0
+    def test_get_wordpress_sites(self) -> None:
+        """Test case for get_wordpress_sites
 
         Get Wordpress Sites
         """

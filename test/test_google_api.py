@@ -26,15 +26,22 @@ class TestGoogleApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_get_picker_token_0(self) -> None:
-        """Test case for get_picker_token_0
+    def test_get_calendars(self) -> None:
+        """Test case for get_calendars
+
+        Get Calendars
+        """
+        pass
+
+    def test_get_picker_token(self) -> None:
+        """Test case for get_picker_token
 
         Get Picker Token
         """
         pass
 
-    def test_get_sheets_0(self) -> None:
-        """Test case for get_sheets_0
+    def test_get_sheets(self) -> None:
+        """Test case for get_sheets
 
         Get Sheets
         """

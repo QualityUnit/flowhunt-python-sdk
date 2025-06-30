@@ -41,6 +41,7 @@ class TestGoogleAdsCustomerUpdateRequest(unittest.TestCase):
                 cluster_strength = 56,
                 min_impressions = 56,
                 min_clicks = 56,
+                process_negative_keywords = 'Y',
                 cron_settings = '',
                 action_type = 'I',
                 ga_measurement_id = '',

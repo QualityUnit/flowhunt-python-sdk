@@ -39,7 +39,10 @@ class TestScheduleSearchRequest(unittest.TestCase):
                 url = '',
                 status = 'N',
                 schedule_type = 'U',
-                limit = 100
+                limit = 100,
+                pagination = flowhunt.models.pagination.Pagination(
+                    sorting_key_value = '', 
+                    scroll_id = '', )
             )
         else:
             return ScheduleSearchRequest(

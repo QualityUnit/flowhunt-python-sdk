@@ -17,9 +17,10 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from flowhunt.models.flow_type import FlowType
+from flowhunt.models.pagination import Pagination
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -30,7 +31,9 @@ class FlowSearchRequest(BaseModel):
     flow_type: Optional[FlowType] = None
     name: Optional[StrictStr] = None
     category_id: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["flow_type", "name", "category_id"]
+    limit: Optional[StrictInt] = None
+    pagination: Optional[Pagination] = None
+    __properties: ClassVar[List[str]] = ["flow_type", "name", "category_id", "limit", "pagination"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -71,6 +74,9 @@ class FlowSearchRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of pagination
+        if self.pagination:
+            _dict['pagination'] = self.pagination.to_dict()
         # set to None if flow_type (nullable) is None
         # and model_fields_set contains the field
         if self.flow_type is None and "flow_type" in self.model_fields_set:
@@ -86,6 +92,16 @@ class FlowSearchRequest(BaseModel):
         if self.category_id is None and "category_id" in self.model_fields_set:
             _dict['category_id'] = None
 
+        # set to None if limit (nullable) is None
+        # and model_fields_set contains the field
+        if self.limit is None and "limit" in self.model_fields_set:
+            _dict['limit'] = None
+
+        # set to None if pagination (nullable) is None
+        # and model_fields_set contains the field
+        if self.pagination is None and "pagination" in self.model_fields_set:
+            _dict['pagination'] = None
+
         return _dict
 
     @classmethod
@@ -100,7 +116,9 @@ class FlowSearchRequest(BaseModel):
         _obj = cls.model_validate({
             "flow_type": obj.get("flow_type"),
             "name": obj.get("name"),
-            "category_id": obj.get("category_id")
+            "category_id": obj.get("category_id"),
+            "limit": obj.get("limit"),
+            "pagination": Pagination.from_dict(obj["pagination"]) if obj.get("pagination") is not None else None
         })
         return _obj
 

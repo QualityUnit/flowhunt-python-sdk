@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from flowhunt.models.flow_config import FlowConfig
 from flowhunt.models.flow_type import FlowType
@@ -37,7 +37,11 @@ class FlowDetailResponse(BaseModel):
     flow_type: FlowType = Field(description="Flow type")
     executed_at: Optional[datetime] = None
     category_id: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["id", "name", "description", "detailed_description", "config", "flow_type", "executed_at", "category_id"]
+    branch: StrictStr = Field(description="Flow branch")
+    enable_cache: StrictBool = Field(description="Enable cache")
+    draft_version_nr: Optional[StrictInt] = None
+    prod_version_nr: Optional[StrictInt] = None
+    __properties: ClassVar[List[str]] = ["id", "name", "description", "detailed_description", "config", "flow_type", "executed_at", "category_id", "branch", "enable_cache", "draft_version_nr", "prod_version_nr"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -96,6 +100,16 @@ class FlowDetailResponse(BaseModel):
         if self.category_id is None and "category_id" in self.model_fields_set:
             _dict['category_id'] = None
 
+        # set to None if draft_version_nr (nullable) is None
+        # and model_fields_set contains the field
+        if self.draft_version_nr is None and "draft_version_nr" in self.model_fields_set:
+            _dict['draft_version_nr'] = None
+
+        # set to None if prod_version_nr (nullable) is None
+        # and model_fields_set contains the field
+        if self.prod_version_nr is None and "prod_version_nr" in self.model_fields_set:
+            _dict['prod_version_nr'] = None
+
         return _dict
 
     @classmethod
@@ -115,7 +129,11 @@ class FlowDetailResponse(BaseModel):
             "config": FlowConfig.from_dict(obj["config"]) if obj.get("config") is not None else None,
             "flow_type": obj.get("flow_type"),
             "executed_at": obj.get("executed_at"),
-            "category_id": obj.get("category_id")
+            "category_id": obj.get("category_id"),
+            "branch": obj.get("branch"),
+            "enable_cache": obj.get("enable_cache"),
+            "draft_version_nr": obj.get("draft_version_nr"),
+            "prod_version_nr": obj.get("prod_version_nr")
         })
         return _obj
 

@@ -5,10 +5,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**unique_id** | **str** | Unique ID | 
 **keyword_id** | **str** | Query ID | 
 **keyword** | **str** | Query | 
 **country** | **str** |  | [optional] 
 **language** | **str** |  | [optional] 
+**is_negative** | **bool** |  | [optional] 
+**match_type** | [**GoogleAdsMatchType**](GoogleAdsMatchType.md) |  | 
+**campaign_id** | **str** | Campaign ID | 
+**group_id** | **str** | Group ID | 
+**search_engine** | [**SerpSearchEngineType**](SerpSearchEngineType.md) |  | 
 
 ## Example
 

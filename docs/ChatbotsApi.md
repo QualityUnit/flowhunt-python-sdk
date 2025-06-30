@@ -191,8 +191,6 @@ Get Chatbot
 
 ### Example
 
-* Api Key Authentication (APIKeyHeader):
-* Bearer Authentication (HTTPBearer):
 
 ```python
 import flowhunt
@@ -206,21 +204,6 @@ configuration = flowhunt.Configuration(
     host = "http://localhost"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: APIKeyHeader
-configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
-
-# Configure Bearer authorization: HTTPBearer
-configuration = flowhunt.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
-)
 
 # Enter a context with an instance of the API client
 with flowhunt.ApiClient(configuration) as api_client:
@@ -254,7 +237,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[APIKeyHeader](../README.md#APIKeyHeader), [HTTPBearer](../README.md#HTTPBearer)
+No authorization required
 
 ### HTTP request headers
 
