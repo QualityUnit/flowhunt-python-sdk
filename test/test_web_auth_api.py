@@ -82,6 +82,20 @@ class TestWebAuthApi(unittest.TestCase):
         """
         pass
 
+    def test_sso_login_page(self) -> None:
+        """Test case for sso_login_page
+
+        Sso Login Page
+        """
+        pass
+
+    def test_sso_login_submit(self) -> None:
+        """Test case for sso_login_submit
+
+        Sso Login Submit
+        """
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()

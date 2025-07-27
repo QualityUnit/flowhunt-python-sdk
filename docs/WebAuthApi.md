@@ -12,6 +12,8 @@ Method | HTTP request | Description
 [**register_submit**](WebAuthApi.md#register_submit) | **POST** /v2/auth/register | Register Submit
 [**reset_password_page**](WebAuthApi.md#reset_password_page) | **GET** /v2/auth/reset-password | Reset Password Page
 [**reset_password_submit**](WebAuthApi.md#reset_password_submit) | **POST** /v2/auth/reset-password | Reset Password Submit
+[**sso_login_page**](WebAuthApi.md#sso_login_page) | **GET** /v2/auth/oauth/sso | Sso Login Page
+[**sso_login_submit**](WebAuthApi.md#sso_login_submit) | **POST** /v2/auth/oauth/sso | Sso Login Submit
 
 
 # **activate_account**
@@ -564,6 +566,144 @@ Name | Type | Description  | Notes
  **token** | **str**|  | 
  **password** | **str**|  | 
  **confirm_password** | **str**|  | 
+
+### Return type
+
+**object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **sso_login_page**
+> object sso_login_page(next=next)
+
+Sso Login Page
+
+SSO login page
+
+### Example
+
+
+```python
+import flowhunt
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.WebAuthApi(api_client)
+    next = 'next_example' # str |  (optional)
+
+    try:
+        # Sso Login Page
+        api_response = api_instance.sso_login_page(next=next)
+        print("The response of WebAuthApi->sso_login_page:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling WebAuthApi->sso_login_page: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **next** | **str**|  | [optional] 
+
+### Return type
+
+**object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **sso_login_submit**
+> object sso_login_submit(email, next=next)
+
+Sso Login Submit
+
+Handle SSO login form submission
+
+### Example
+
+
+```python
+import flowhunt
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.WebAuthApi(api_client)
+    email = 'email_example' # str | 
+    next = '/' # str |  (optional) (default to '/')
+
+    try:
+        # Sso Login Submit
+        api_response = api_instance.sso_login_submit(email, next=next)
+        print("The response of WebAuthApi->sso_login_submit:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling WebAuthApi->sso_login_submit: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **email** | **str**|  | 
+ **next** | **str**|  | [optional] [default to &#39;/&#39;]
 
 ### Return type
 

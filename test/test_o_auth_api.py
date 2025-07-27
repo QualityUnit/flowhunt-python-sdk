@@ -110,6 +110,13 @@ class TestOAuthApi(unittest.TestCase):
         """
         pass
 
+    def test_saml_callback(self) -> None:
+        """Test case for saml_callback
+
+        Saml Callback
+        """
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()

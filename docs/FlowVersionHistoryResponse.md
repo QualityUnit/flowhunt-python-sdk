@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **id** | **str** | Flow ID | 
 **name** | **str** | Flow name | 
 **description** | **str** | Flow description | 
+**version_nr** | **int** |  | [optional] 
 **flow_type** | [**FlowType**](FlowType.md) | Flow type | 
 **executed_at** | **datetime** |  | [optional] 
 **category_id** | **str** |  | [optional] 
@@ -16,7 +17,6 @@ Name | Type | Description | Notes
 **branch** | **str** | Flow branch | 
 **created_at** | **datetime** |  | [optional] 
 **commit_title** | **str** |  | [optional] 
-**commit_description** | **str** |  | [optional] 
 
 ## Example
 

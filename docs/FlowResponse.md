@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **executed_at** | **datetime** |  | [optional] 
 **category_id** | **str** |  | [optional] 
 **enable_cache** | **bool** | Enable cache | 
+**last_modified** | **datetime** |  | [optional] 
 
 ## Example
 

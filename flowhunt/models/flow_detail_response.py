@@ -41,7 +41,8 @@ class FlowDetailResponse(BaseModel):
     enable_cache: StrictBool = Field(description="Enable cache")
     draft_version_nr: Optional[StrictInt] = None
     prod_version_nr: Optional[StrictInt] = None
-    __properties: ClassVar[List[str]] = ["id", "name", "description", "detailed_description", "config", "flow_type", "executed_at", "category_id", "branch", "enable_cache", "draft_version_nr", "prod_version_nr"]
+    last_modified: Optional[datetime] = None
+    __properties: ClassVar[List[str]] = ["id", "name", "description", "detailed_description", "config", "flow_type", "executed_at", "category_id", "branch", "enable_cache", "draft_version_nr", "prod_version_nr", "last_modified"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -110,6 +111,11 @@ class FlowDetailResponse(BaseModel):
         if self.prod_version_nr is None and "prod_version_nr" in self.model_fields_set:
             _dict['prod_version_nr'] = None
 
+        # set to None if last_modified (nullable) is None
+        # and model_fields_set contains the field
+        if self.last_modified is None and "last_modified" in self.model_fields_set:
+            _dict['last_modified'] = None
+
         return _dict
 
     @classmethod
@@ -133,7 +139,8 @@ class FlowDetailResponse(BaseModel):
             "branch": obj.get("branch"),
             "enable_cache": obj.get("enable_cache"),
             "draft_version_nr": obj.get("draft_version_nr"),
-            "prod_version_nr": obj.get("prod_version_nr")
+            "prod_version_nr": obj.get("prod_version_nr"),
+            "last_modified": obj.get("last_modified")
         })
         return _obj
 

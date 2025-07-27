@@ -35,7 +35,8 @@ class TestWorkspaceSearchRequest(unittest.TestCase):
         model = WorkspaceSearchRequest()
         if include_optional:
             return WorkspaceSearchRequest(
-                name = ''
+                name = '',
+                workspace_id = ''
             )
         else:
             return WorkspaceSearchRequest(

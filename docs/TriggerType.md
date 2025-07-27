@@ -19,6 +19,10 @@
 
 * `ON_EMAIL_MESSAGE` (value: `'on_email_message'`)
 
+* `ON_OUTLOOK_MESSAGE` (value: `'on_outlook_message'`)
+
+* `ON_CALENDAR_EVENT_CREATED` (value: `'on_calendar_event_created'`)
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

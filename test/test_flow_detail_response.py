@@ -52,7 +52,8 @@ class TestFlowDetailResponse(unittest.TestCase):
                 branch = 'P',
                 enable_cache = True,
                 draft_version_nr = 56,
-                prod_version_nr = 56
+                prod_version_nr = 56,
+                last_modified = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f')
             )
         else:
             return FlowDetailResponse(

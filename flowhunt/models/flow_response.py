@@ -36,7 +36,8 @@ class FlowResponse(BaseModel):
     executed_at: Optional[datetime] = None
     category_id: Optional[StrictStr] = None
     enable_cache: StrictBool = Field(description="Enable cache")
-    __properties: ClassVar[List[str]] = ["id", "name", "description", "flow_type", "component_count", "executed_at", "category_id", "enable_cache"]
+    last_modified: Optional[datetime] = None
+    __properties: ClassVar[List[str]] = ["id", "name", "description", "flow_type", "component_count", "executed_at", "category_id", "enable_cache", "last_modified"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -87,6 +88,11 @@ class FlowResponse(BaseModel):
         if self.category_id is None and "category_id" in self.model_fields_set:
             _dict['category_id'] = None
 
+        # set to None if last_modified (nullable) is None
+        # and model_fields_set contains the field
+        if self.last_modified is None and "last_modified" in self.model_fields_set:
+            _dict['last_modified'] = None
+
         return _dict
 
     @classmethod
@@ -106,7 +112,8 @@ class FlowResponse(BaseModel):
             "component_count": obj.get("component_count"),
             "executed_at": obj.get("executed_at"),
             "category_id": obj.get("category_id"),
-            "enable_cache": obj.get("enable_cache")
+            "enable_cache": obj.get("enable_cache"),
+            "last_modified": obj.get("last_modified")
         })
         return _obj
 

@@ -89,6 +89,13 @@ class TestIntegrationsApi(unittest.TestCase):
         """
         pass
 
+    def test_get_profile_information(self) -> None:
+        """Test case for get_profile_information
+
+        Get Profile Information
+        """
+        pass
+
     def test_get_sheets(self) -> None:
         """Test case for get_sheets
 
@@ -149,6 +156,13 @@ class TestIntegrationsApi(unittest.TestCase):
         """Test case for shop_redact
 
         Shop Redact
+        """
+        pass
+
+    def test_update_admin_consent(self) -> None:
+        """Test case for update_admin_consent
+
+        Update Admin Consent
         """
         pass
 

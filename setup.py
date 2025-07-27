@@ -21,7 +21,7 @@ from setuptools import setup, find_packages  # noqa: H301
 # prerequisite: setuptools
 # http://pypi.python.org/pypi/setuptools
 NAME = "flowhunt"
-VERSION = "1.0.0"
+VERSION = "3.14.1"
 PYTHON_REQUIRES = ">= 3.9"
 REQUIRES = [
     "urllib3 >= 2.1.0, < 3.0.0",
@@ -36,7 +36,7 @@ setup(
     description="FlowHunt",
     author="OpenAPI Generator community",
     author_email="team@openapitools.org",
-    url="",
+    url="https://github.com/QualityUnit/flowhunt-python-sdk",
     keywords=["OpenAPI", "OpenAPI-Generator", "FlowHunt"],
     install_requires=REQUIRES,
     packages=find_packages(exclude=["test", "tests"]),

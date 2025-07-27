@@ -6,7 +6,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **commit_title** | **str** |  | [optional] 
-**commit_description** | **str** |  | [optional] 
 
 ## Example
 

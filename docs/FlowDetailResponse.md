@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **enable_cache** | **bool** | Enable cache | 
 **draft_version_nr** | **int** |  | [optional] 
 **prod_version_nr** | **int** |  | [optional] 
+**last_modified** | **datetime** |  | [optional] 
 
 ## Example
 

@@ -27,7 +27,8 @@ class WorkspaceSearchRequest(BaseModel):
     WorkspaceSearchRequest
     """ # noqa: E501
     name: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["name"]
+    workspace_id: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["name", "workspace_id"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -73,6 +74,11 @@ class WorkspaceSearchRequest(BaseModel):
         if self.name is None and "name" in self.model_fields_set:
             _dict['name'] = None
 
+        # set to None if workspace_id (nullable) is None
+        # and model_fields_set contains the field
+        if self.workspace_id is None and "workspace_id" in self.model_fields_set:
+            _dict['workspace_id'] = None
+
         return _dict
 
     @classmethod
@@ -85,7 +91,8 @@ class WorkspaceSearchRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "name": obj.get("name")
+            "name": obj.get("name"),
+            "workspace_id": obj.get("workspace_id")
         })
         return _obj
 

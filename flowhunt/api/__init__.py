@@ -17,10 +17,14 @@ from flowhunt.api.google_ads_api import GoogleAdsApi
 from flowhunt.api.health_api import HealthApi
 from flowhunt.api.hub_spot_api import HubSpotApi
 from flowhunt.api.images_api import ImagesApi
+from flowhunt.api.instagram_api import InstagramApi
 from flowhunt.api.integrations_api import IntegrationsApi
 from flowhunt.api.logs_api import LogsApi
+from flowhunt.api.mcp_servers_api import MCPServersApi
 from flowhunt.api.media_api import MediaApi
+from flowhunt.api.microsoft_outlook_api import MicrosoftOutlookApi
 from flowhunt.api.o_auth_api import OAuthApi
+from flowhunt.api.observability_driver_api import ObservabilityDriverApi
 from flowhunt.api.photo_ai_api import PhotoAIApi
 from flowhunt.api.prompts_api import PromptsApi
 from flowhunt.api.serp_api import SERPApi
@@ -34,4 +38,6 @@ from flowhunt.api.tracking_api import TrackingApi
 from flowhunt.api.web_auth_api import WebAuthApi
 from flowhunt.api.word_press_api import WordPressApi
 from flowhunt.api.workspaces_api import WorkspacesApi
+from flowhunt.api.workspaces_sso_api import WorkspacesSSOApi
+from flowhunt.api.workspaces_sso_domain_verification_api import WorkspacesSSODomainVerificationApi
 

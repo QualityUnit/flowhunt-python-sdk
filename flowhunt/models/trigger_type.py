@@ -34,6 +34,8 @@ class TriggerType(str, Enum):
     ON_HUBSPOT_MESSAGE = 'on_hubspot_message'
     ON_GMAIL_MESSAGE = 'on_gmail_message'
     ON_EMAIL_MESSAGE = 'on_email_message'
+    ON_OUTLOOK_MESSAGE = 'on_outlook_message'
+    ON_CALENDAR_EVENT_CREATED = 'on_calendar_event_created'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

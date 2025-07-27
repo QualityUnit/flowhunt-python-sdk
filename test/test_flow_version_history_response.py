@@ -38,6 +38,7 @@ class TestFlowVersionHistoryResponse(unittest.TestCase):
                 id = '123e4567-e89b-12d3-a456-426614174000',
                 name = 'Flow 1',
                 description = 'Flow 1 description',
+                version_nr = 56,
                 flow_type = p,
                 executed_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 category_id = '',
@@ -54,8 +55,7 @@ class TestFlowVersionHistoryResponse(unittest.TestCase):
                         }, ),
                 branch = 'P',
                 created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                commit_title = '',
-                commit_description = ''
+                commit_title = ''
             )
         else:
             return FlowVersionHistoryResponse(

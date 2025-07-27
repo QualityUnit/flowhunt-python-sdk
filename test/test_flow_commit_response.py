@@ -35,8 +35,7 @@ class TestFlowCommitResponse(unittest.TestCase):
         model = FlowCommitResponse()
         if include_optional:
             return FlowCommitResponse(
-                commit_title = '',
-                commit_description = ''
+                commit_title = ''
             )
         else:
             return FlowCommitResponse(

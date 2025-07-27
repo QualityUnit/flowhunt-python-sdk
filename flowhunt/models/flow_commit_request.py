@@ -27,8 +27,7 @@ class FlowCommitRequest(BaseModel):
     FlowCommitRequest
     """ # noqa: E501
     commit_title: Optional[StrictStr] = None
-    commit_description: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["commit_title", "commit_description"]
+    __properties: ClassVar[List[str]] = ["commit_title"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -74,11 +73,6 @@ class FlowCommitRequest(BaseModel):
         if self.commit_title is None and "commit_title" in self.model_fields_set:
             _dict['commit_title'] = None
 
-        # set to None if commit_description (nullable) is None
-        # and model_fields_set contains the field
-        if self.commit_description is None and "commit_description" in self.model_fields_set:
-            _dict['commit_description'] = None
-
         return _dict
 
     @classmethod
@@ -91,8 +85,7 @@ class FlowCommitRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "commit_title": obj.get("commit_title"),
-            "commit_description": obj.get("commit_description")
+            "commit_title": obj.get("commit_title")
         })
         return _obj
 

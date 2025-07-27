@@ -49,6 +49,8 @@
 
 * `XML` (value: `'XML'`)
 
+* `JSON` (value: `'JSON'`)
+
 * `GOOGLE_DOCS` (value: `'GOOGLE_DOCS'`)
 
 * `GOOGLE_SHEETS` (value: `'GOOGLE_SHEETS'`)

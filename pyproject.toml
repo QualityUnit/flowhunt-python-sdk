@@ -1,10 +1,11 @@
 [project]
 name = "flowhunt"
-version = "1.0.0"
+version = "3.14.1"
 description = "FlowHunt"
 authors = [
-  {name = "OpenAPI Generator Community",email = "team@openapitools.org"},
+  {name = "FlowHunt",email = "support@flowhunt.io"},
 ]
+license = "GPL-2.0"
 readme = "README.md"
 keywords = ["OpenAPI", "OpenAPI-Generator", "FlowHunt"]
 requires-python = ">=3.9"
@@ -17,8 +18,10 @@ dependencies = [
 ]
 
 [project.urls]
-Repository = "https://github.com/GIT_USER_ID/flowhunt-python-sdk"
-
+Homepage = "https://flowhunt.io"
+Repository = "https://github.com/QualityUnit/flowhunt-python-sdk"
+Documentation = "https://github.com/QualityUnit/flowhunt-python-sdk/blob/main/README.md"
+"Bug Tracker" = "https://github.com/QualityUnit/flowhunt-python-sdk/issues"
 [tool.poetry]
 requires-poetry = ">=2.0"
 

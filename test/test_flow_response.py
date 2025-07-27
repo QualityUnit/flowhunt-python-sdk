@@ -42,7 +42,8 @@ class TestFlowResponse(unittest.TestCase):
                 component_count = 3,
                 executed_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 category_id = '',
-                enable_cache = True
+                enable_cache = True,
+                last_modified = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f')
             )
         else:
             return FlowResponse(

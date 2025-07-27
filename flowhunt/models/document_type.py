@@ -49,6 +49,7 @@ class DocumentType(str, Enum):
     WEBP = 'WEBP'
     CSV = 'CSV'
     XML = 'XML'
+    JSON = 'JSON'
     GOOGLE_DOCS = 'GOOGLE_DOCS'
     GOOGLE_SHEETS = 'GOOGLE_SHEETS'
 

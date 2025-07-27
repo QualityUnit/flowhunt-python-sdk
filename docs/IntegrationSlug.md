@@ -29,6 +29,10 @@
 
 * `INSTAGRAM_INTEGRATION` (value: `'instagram_integration'`)
 
+* `MICROSOFT_OUTLOOK_INTEGRATION` (value: `'microsoft_outlook_integration'`)
+
+* `ODOO_INTEGRATION` (value: `'odoo_integration'`)
+
 * `GOOGLE_CALENDAR_INTEGRATION` (value: `'google_calendar_integration'`)
 
 * `GOOGLE_ADS_INTEGRATION` (value: `'google_ads_integration'`)

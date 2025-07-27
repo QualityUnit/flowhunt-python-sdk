@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "1.0.0"
+__version__ = "3.14.1"
 
 # Define package exports
 __all__ = [
@@ -34,10 +34,14 @@ __all__ = [
     "HealthApi",
     "HubSpotApi",
     "ImagesApi",
+    "InstagramApi",
     "IntegrationsApi",
     "LogsApi",
+    "MCPServersApi",
     "MediaApi",
+    "MicrosoftOutlookApi",
     "OAuthApi",
+    "ObservabilityDriverApi",
     "PhotoAIApi",
     "PromptsApi",
     "SERPApi",
@@ -51,6 +55,8 @@ __all__ = [
     "WebAuthApi",
     "WordPressApi",
     "WorkspacesApi",
+    "WorkspacesSSOApi",
+    "WorkspacesSSODomainVerificationApi",
     "ApiResponse",
     "ApiClient",
     "Configuration",
@@ -99,6 +105,8 @@ __all__ = [
     "DocumentStatus",
     "DocumentType",
     "DocumentUpdateRequest",
+    "DriverSuccessResponse",
+    "DriverType",
     "FTStatus",
     "FTType",
     "FaqCreateRequest",
@@ -155,6 +163,8 @@ __all__ = [
     "FlowType",
     "FlowUpdate",
     "FlowVersionHistoryResponse",
+    "GeneralMCPSubserverCapabilitiesResponse",
+    "GeneralMCPSubserverResponse",
     "GoogleAdsActionType",
     "GoogleAdsAnalyzeKeywordsRequest",
     "GoogleAdsCampaignResponse",
@@ -204,18 +214,26 @@ __all__ = [
     "ImagePromptResponse",
     "InferenceFileType",
     "InferenceHistorySearchRequest",
+    "InstagramProfileInformationResponse",
     "IntegrationCategory",
     "IntegrationDetailResponse",
     "IntegrationFlowResponse",
     "IntegrationResponse",
     "IntegrationSearchRequest",
     "IntegrationSlug",
+    "LangfuseRequest",
     "LogEntryLevel",
     "LogEntryType",
     "LogResponse",
     "LogsSearchRequest",
+    "MCPCapabilityBinding",
+    "MCPServerCreateRequest",
+    "MCPServerResponse",
+    "MCPServerSearchRequest",
+    "MCPSubServerBinding",
     "MessageType",
     "Metadata",
+    "ObservabilityDriverResponse",
     "Pagination",
     "PhotoAIEffectResponse",
     "PhotoAIStyleResponse",
@@ -234,6 +252,7 @@ __all__ = [
     "QuerySimilarityRequest",
     "QuerySimilarityTaskRequest",
     "Role",
+    "SamlLoginMethod",
     "ScheduleCreateRequest",
     "ScheduleFrequency",
     "ScheduleResponse",
@@ -314,6 +333,12 @@ __all__ = [
     "WorkspaceCreateRequest",
     "WorkspaceResponse",
     "WorkspaceRole",
+    "WorkspaceSSOCreateRequest",
+    "WorkspaceSSODomainVerificationCreateRequest",
+    "WorkspaceSSODomainVerificationResponse",
+    "WorkspaceSSOListResponse",
+    "WorkspaceSSOResponse",
+    "WorkspaceSSOUpdateRequest",
     "WorkspaceSearchRequest",
     "WorkspaceUpdateRequest",
     "WorkspaceUserCreateRequest",
@@ -342,10 +367,14 @@ from flowhunt.api.google_ads_api import GoogleAdsApi as GoogleAdsApi
 from flowhunt.api.health_api import HealthApi as HealthApi
 from flowhunt.api.hub_spot_api import HubSpotApi as HubSpotApi
 from flowhunt.api.images_api import ImagesApi as ImagesApi
+from flowhunt.api.instagram_api import InstagramApi as InstagramApi
 from flowhunt.api.integrations_api import IntegrationsApi as IntegrationsApi
 from flowhunt.api.logs_api import LogsApi as LogsApi
+from flowhunt.api.mcp_servers_api import MCPServersApi as MCPServersApi
 from flowhunt.api.media_api import MediaApi as MediaApi
+from flowhunt.api.microsoft_outlook_api import MicrosoftOutlookApi as MicrosoftOutlookApi
 from flowhunt.api.o_auth_api import OAuthApi as OAuthApi
+from flowhunt.api.observability_driver_api import ObservabilityDriverApi as ObservabilityDriverApi
 from flowhunt.api.photo_ai_api import PhotoAIApi as PhotoAIApi
 from flowhunt.api.prompts_api import PromptsApi as PromptsApi
 from flowhunt.api.serp_api import SERPApi as SERPApi
@@ -359,6 +388,8 @@ from flowhunt.api.tracking_api import TrackingApi as TrackingApi
 from flowhunt.api.web_auth_api import WebAuthApi as WebAuthApi
 from flowhunt.api.word_press_api import WordPressApi as WordPressApi
 from flowhunt.api.workspaces_api import WorkspacesApi as WorkspacesApi
+from flowhunt.api.workspaces_sso_api import WorkspacesSSOApi as WorkspacesSSOApi
+from flowhunt.api.workspaces_sso_domain_verification_api import WorkspacesSSODomainVerificationApi as WorkspacesSSODomainVerificationApi
 
 # import ApiClient
 from flowhunt.api_response import ApiResponse as ApiResponse
@@ -411,6 +442,8 @@ from flowhunt.models.document_similarity_task_request import DocumentSimilarityT
 from flowhunt.models.document_status import DocumentStatus as DocumentStatus
 from flowhunt.models.document_type import DocumentType as DocumentType
 from flowhunt.models.document_update_request import DocumentUpdateRequest as DocumentUpdateRequest
+from flowhunt.models.driver_success_response import DriverSuccessResponse as DriverSuccessResponse
+from flowhunt.models.driver_type import DriverType as DriverType
 from flowhunt.models.ft_status import FTStatus as FTStatus
 from flowhunt.models.ft_type import FTType as FTType
 from flowhunt.models.faq_create_request import FaqCreateRequest as FaqCreateRequest
@@ -467,6 +500,8 @@ from flowhunt.models.flow_session_view_update_request import FlowSessionViewUpda
 from flowhunt.models.flow_type import FlowType as FlowType
 from flowhunt.models.flow_update import FlowUpdate as FlowUpdate
 from flowhunt.models.flow_version_history_response import FlowVersionHistoryResponse as FlowVersionHistoryResponse
+from flowhunt.models.general_mcp_subserver_capabilities_response import GeneralMCPSubserverCapabilitiesResponse as GeneralMCPSubserverCapabilitiesResponse
+from flowhunt.models.general_mcp_subserver_response import GeneralMCPSubserverResponse as GeneralMCPSubserverResponse
 from flowhunt.models.google_ads_action_type import GoogleAdsActionType as GoogleAdsActionType
 from flowhunt.models.google_ads_analyze_keywords_request import GoogleAdsAnalyzeKeywordsRequest as GoogleAdsAnalyzeKeywordsRequest
 from flowhunt.models.google_ads_campaign_response import GoogleAdsCampaignResponse as GoogleAdsCampaignResponse
@@ -516,18 +551,26 @@ from flowhunt.models.image_prompt_generation_request import ImagePromptGeneratio
 from flowhunt.models.image_prompt_response import ImagePromptResponse as ImagePromptResponse
 from flowhunt.models.inference_file_type import InferenceFileType as InferenceFileType
 from flowhunt.models.inference_history_search_request import InferenceHistorySearchRequest as InferenceHistorySearchRequest
+from flowhunt.models.instagram_profile_information_response import InstagramProfileInformationResponse as InstagramProfileInformationResponse
 from flowhunt.models.integration_category import IntegrationCategory as IntegrationCategory
 from flowhunt.models.integration_detail_response import IntegrationDetailResponse as IntegrationDetailResponse
 from flowhunt.models.integration_flow_response import IntegrationFlowResponse as IntegrationFlowResponse
 from flowhunt.models.integration_response import IntegrationResponse as IntegrationResponse
 from flowhunt.models.integration_search_request import IntegrationSearchRequest as IntegrationSearchRequest
 from flowhunt.models.integration_slug import IntegrationSlug as IntegrationSlug
+from flowhunt.models.langfuse_request import LangfuseRequest as LangfuseRequest
 from flowhunt.models.log_entry_level import LogEntryLevel as LogEntryLevel
 from flowhunt.models.log_entry_type import LogEntryType as LogEntryType
 from flowhunt.models.log_response import LogResponse as LogResponse
 from flowhunt.models.logs_search_request import LogsSearchRequest as LogsSearchRequest
+from flowhunt.models.mcp_capability_binding import MCPCapabilityBinding as MCPCapabilityBinding
+from flowhunt.models.mcp_server_create_request import MCPServerCreateRequest as MCPServerCreateRequest
+from flowhunt.models.mcp_server_response import MCPServerResponse as MCPServerResponse
+from flowhunt.models.mcp_server_search_request import MCPServerSearchRequest as MCPServerSearchRequest
+from flowhunt.models.mcp_sub_server_binding import MCPSubServerBinding as MCPSubServerBinding
 from flowhunt.models.message_type import MessageType as MessageType
 from flowhunt.models.metadata import Metadata as Metadata
+from flowhunt.models.observability_driver_response import ObservabilityDriverResponse as ObservabilityDriverResponse
 from flowhunt.models.pagination import Pagination as Pagination
 from flowhunt.models.photo_ai_effect_response import PhotoAIEffectResponse as PhotoAIEffectResponse
 from flowhunt.models.photo_ai_style_response import PhotoAIStyleResponse as PhotoAIStyleResponse
@@ -546,6 +589,7 @@ from flowhunt.models.prompt_update_request import PromptUpdateRequest as PromptU
 from flowhunt.models.query_similarity_request import QuerySimilarityRequest as QuerySimilarityRequest
 from flowhunt.models.query_similarity_task_request import QuerySimilarityTaskRequest as QuerySimilarityTaskRequest
 from flowhunt.models.role import Role as Role
+from flowhunt.models.saml_login_method import SamlLoginMethod as SamlLoginMethod
 from flowhunt.models.schedule_create_request import ScheduleCreateRequest as ScheduleCreateRequest
 from flowhunt.models.schedule_frequency import ScheduleFrequency as ScheduleFrequency
 from flowhunt.models.schedule_response import ScheduleResponse as ScheduleResponse
@@ -626,6 +670,12 @@ from flowhunt.models.word_press_tags_response import WordPressTagsResponse as Wo
 from flowhunt.models.workspace_create_request import WorkspaceCreateRequest as WorkspaceCreateRequest
 from flowhunt.models.workspace_response import WorkspaceResponse as WorkspaceResponse
 from flowhunt.models.workspace_role import WorkspaceRole as WorkspaceRole
+from flowhunt.models.workspace_sso_create_request import WorkspaceSSOCreateRequest as WorkspaceSSOCreateRequest
+from flowhunt.models.workspace_sso_domain_verification_create_request import WorkspaceSSODomainVerificationCreateRequest as WorkspaceSSODomainVerificationCreateRequest
+from flowhunt.models.workspace_sso_domain_verification_response import WorkspaceSSODomainVerificationResponse as WorkspaceSSODomainVerificationResponse
+from flowhunt.models.workspace_sso_list_response import WorkspaceSSOListResponse as WorkspaceSSOListResponse
+from flowhunt.models.workspace_sso_response import WorkspaceSSOResponse as WorkspaceSSOResponse
+from flowhunt.models.workspace_sso_update_request import WorkspaceSSOUpdateRequest as WorkspaceSSOUpdateRequest
 from flowhunt.models.workspace_search_request import WorkspaceSearchRequest as WorkspaceSearchRequest
 from flowhunt.models.workspace_update_request import WorkspaceUpdateRequest as WorkspaceUpdateRequest
 from flowhunt.models.workspace_user_create_request import WorkspaceUserCreateRequest as WorkspaceUserCreateRequest

@@ -39,6 +39,8 @@ class IntegrationSlug(str, Enum):
     WORDPRESS_INTEGRATION = 'wordpress_integration'
     GMAIL_INTEGRATION = 'gmail_integration'
     INSTAGRAM_INTEGRATION = 'instagram_integration'
+    MICROSOFT_OUTLOOK_INTEGRATION = 'microsoft_outlook_integration'
+    ODOO_INTEGRATION = 'odoo_integration'
     GOOGLE_CALENDAR_INTEGRATION = 'google_calendar_integration'
     GOOGLE_ADS_INTEGRATION = 'google_ads_integration'
     GOOGLE_DOCS_INTEGRATION = 'google_docs_integration'

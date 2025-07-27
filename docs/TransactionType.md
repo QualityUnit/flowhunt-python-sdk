@@ -95,6 +95,10 @@
 
 * `HC` (value: `'HC'`)
 
+* `CNE` (value: `'CNE'`)
+
+* `MCP` (value: `'MCP'`)
+
 * `SEQUENTIAL_AGENT` (value: `'SEQUENTIAL_AGENT'`)
 
 * `SELF_MANAGED_AGENT` (value: `'SELF_MANAGED_AGENT'`)

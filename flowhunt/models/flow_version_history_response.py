@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from flowhunt.models.flow_type import FlowType
 from flowhunt.models.user_response import UserResponse
@@ -32,6 +32,7 @@ class FlowVersionHistoryResponse(BaseModel):
     id: StrictStr = Field(description="Flow ID")
     name: StrictStr = Field(description="Flow name")
     description: StrictStr = Field(description="Flow description")
+    version_nr: Optional[StrictInt] = None
     flow_type: FlowType = Field(description="Flow type")
     executed_at: Optional[datetime] = None
     category_id: Optional[StrictStr] = None
@@ -40,8 +41,7 @@ class FlowVersionHistoryResponse(BaseModel):
     branch: StrictStr = Field(description="Flow branch")
     created_at: Optional[datetime] = None
     commit_title: Optional[StrictStr] = None
-    commit_description: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["id", "name", "description", "flow_type", "executed_at", "category_id", "enable_cache", "user", "branch", "created_at", "commit_title", "commit_description"]
+    __properties: ClassVar[List[str]] = ["id", "name", "description", "version_nr", "flow_type", "executed_at", "category_id", "enable_cache", "user", "branch", "created_at", "commit_title"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -85,6 +85,11 @@ class FlowVersionHistoryResponse(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of user
         if self.user:
             _dict['user'] = self.user.to_dict()
+        # set to None if version_nr (nullable) is None
+        # and model_fields_set contains the field
+        if self.version_nr is None and "version_nr" in self.model_fields_set:
+            _dict['version_nr'] = None
+
         # set to None if executed_at (nullable) is None
         # and model_fields_set contains the field
         if self.executed_at is None and "executed_at" in self.model_fields_set:
@@ -110,11 +115,6 @@ class FlowVersionHistoryResponse(BaseModel):
         if self.commit_title is None and "commit_title" in self.model_fields_set:
             _dict['commit_title'] = None
 
-        # set to None if commit_description (nullable) is None
-        # and model_fields_set contains the field
-        if self.commit_description is None and "commit_description" in self.model_fields_set:
-            _dict['commit_description'] = None
-
         return _dict
 
     @classmethod
@@ -130,6 +130,7 @@ class FlowVersionHistoryResponse(BaseModel):
             "id": obj.get("id"),
             "name": obj.get("name"),
             "description": obj.get("description"),
+            "version_nr": obj.get("version_nr"),
             "flow_type": obj.get("flow_type"),
             "executed_at": obj.get("executed_at"),
             "category_id": obj.get("category_id"),
@@ -137,8 +138,7 @@ class FlowVersionHistoryResponse(BaseModel):
             "user": UserResponse.from_dict(obj["user"]) if obj.get("user") is not None else None,
             "branch": obj.get("branch"),
             "created_at": obj.get("created_at"),
-            "commit_title": obj.get("commit_title"),
-            "commit_description": obj.get("commit_description")
+            "commit_title": obj.get("commit_title")
         })
         return _obj
 
