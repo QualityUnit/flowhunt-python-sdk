@@ -1,6 +1,6 @@
 # flowhunt.PhotoAIApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.flowhunt.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -24,10 +24,10 @@ from flowhunt.models.community_image_generations_response import CommunityImageG
 from flowhunt.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.flowhunt.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = flowhunt.Configuration(
-    host = "http://localhost"
+    host = "https://api.flowhunt.io"
 )
 
 
@@ -86,10 +86,10 @@ from flowhunt.models.photo_ai_effect_response import PhotoAIEffectResponse
 from flowhunt.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.flowhunt.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = flowhunt.Configuration(
-    host = "http://localhost"
+    host = "https://api.flowhunt.io"
 )
 
 
@@ -148,10 +148,10 @@ from flowhunt.models.photo_ai_style_response import PhotoAIStyleResponse
 from flowhunt.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.flowhunt.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = flowhunt.Configuration(
-    host = "http://localhost"
+    host = "https://api.flowhunt.io"
 )
 
 
@@ -210,10 +210,10 @@ from flowhunt.models.photo_ai_template_response import PhotoAITemplateResponse
 from flowhunt.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.flowhunt.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = flowhunt.Configuration(
-    host = "http://localhost"
+    host = "https://api.flowhunt.io"
 )
 
 

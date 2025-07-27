@@ -1,6 +1,6 @@
 # flowhunt.BillingApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.flowhunt.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -28,10 +28,10 @@ import flowhunt
 from flowhunt.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.flowhunt.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = flowhunt.Configuration(
-    host = "http://localhost"
+    host = "https://api.flowhunt.io"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -113,10 +113,10 @@ import flowhunt
 from flowhunt.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.flowhunt.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = flowhunt.Configuration(
-    host = "http://localhost"
+    host = "https://api.flowhunt.io"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -192,10 +192,10 @@ from flowhunt.models.checkout_create_request import CheckoutCreateRequest
 from flowhunt.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.flowhunt.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = flowhunt.Configuration(
-    host = "http://localhost"
+    host = "https://api.flowhunt.io"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -275,10 +275,10 @@ import flowhunt
 from flowhunt.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.flowhunt.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = flowhunt.Configuration(
-    host = "http://localhost"
+    host = "https://api.flowhunt.io"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -352,10 +352,10 @@ from flowhunt.models.plan_response import PlanResponse
 from flowhunt.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.flowhunt.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = flowhunt.Configuration(
-    host = "http://localhost"
+    host = "https://api.flowhunt.io"
 )
 
 
@@ -414,10 +414,10 @@ from flowhunt.models.user_plan_response import UserPlanResponse
 from flowhunt.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.flowhunt.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = flowhunt.Configuration(
-    host = "http://localhost"
+    host = "https://api.flowhunt.io"
 )
 
 
@@ -481,10 +481,10 @@ from flowhunt.models.completed import Completed
 from flowhunt.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.flowhunt.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = flowhunt.Configuration(
-    host = "http://localhost"
+    host = "https://api.flowhunt.io"
 )
 
 

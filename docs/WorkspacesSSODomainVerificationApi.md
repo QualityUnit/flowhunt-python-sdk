@@ -1,6 +1,6 @@
 # flowhunt.WorkspacesSSODomainVerificationApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.flowhunt.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -31,10 +31,10 @@ from flowhunt.models.workspace_sso_domain_verification_response import Workspace
 from flowhunt.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.flowhunt.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = flowhunt.Configuration(
-    host = "http://localhost"
+    host = "https://api.flowhunt.io"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -121,10 +121,10 @@ from flowhunt.models.completed import Completed
 from flowhunt.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.flowhunt.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = flowhunt.Configuration(
-    host = "http://localhost"
+    host = "https://api.flowhunt.io"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -209,10 +209,10 @@ from flowhunt.models.workspace_sso_domain_verification_response import Workspace
 from flowhunt.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.flowhunt.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = flowhunt.Configuration(
-    host = "http://localhost"
+    host = "https://api.flowhunt.io"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -297,10 +297,10 @@ from flowhunt.models.workspace_sso_domain_verification_response import Workspace
 from flowhunt.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.flowhunt.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = flowhunt.Configuration(
-    host = "http://localhost"
+    host = "https://api.flowhunt.io"
 )
 
 # The client must configure the authentication and authorization parameters

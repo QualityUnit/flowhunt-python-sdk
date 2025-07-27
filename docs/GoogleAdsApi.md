@@ -1,6 +1,6 @@
 # flowhunt.GoogleAdsApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.flowhunt.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -36,10 +36,10 @@ from flowhunt.models.google_ads_keyword_add_request import GoogleAdsKeywordAddRe
 from flowhunt.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.flowhunt.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = flowhunt.Configuration(
-    host = "http://localhost"
+    host = "https://api.flowhunt.io"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -123,10 +123,10 @@ from flowhunt.models.google_ads_analyze_keywords_request import GoogleAdsAnalyze
 from flowhunt.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.flowhunt.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = flowhunt.Configuration(
-    host = "http://localhost"
+    host = "https://api.flowhunt.io"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -210,10 +210,10 @@ from flowhunt.models.google_ads_campaigns_search_request import GoogleAdsCampaig
 from flowhunt.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.flowhunt.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = flowhunt.Configuration(
-    host = "http://localhost"
+    host = "https://api.flowhunt.io"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -297,10 +297,10 @@ from flowhunt.models.google_ads_customers_search_request import GoogleAdsCustome
 from flowhunt.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.flowhunt.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = flowhunt.Configuration(
-    host = "http://localhost"
+    host = "https://api.flowhunt.io"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -384,10 +384,10 @@ from flowhunt.models.google_ads_groups_search_request import GoogleAdsGroupsSear
 from flowhunt.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.flowhunt.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = flowhunt.Configuration(
-    host = "http://localhost"
+    host = "https://api.flowhunt.io"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -471,10 +471,10 @@ from flowhunt.models.google_ads_recommendations_request import GoogleAdsRecommen
 from flowhunt.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.flowhunt.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = flowhunt.Configuration(
-    host = "http://localhost"
+    host = "https://api.flowhunt.io"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -558,10 +558,10 @@ from flowhunt.models.google_ads_campaigns_search_request import GoogleAdsCampaig
 from flowhunt.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.flowhunt.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = flowhunt.Configuration(
-    host = "http://localhost"
+    host = "https://api.flowhunt.io"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -644,10 +644,10 @@ from flowhunt.models.google_ads_customers_response import GoogleAdsCustomersResp
 from flowhunt.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.flowhunt.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = flowhunt.Configuration(
-    host = "http://localhost"
+    host = "https://api.flowhunt.io"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -729,10 +729,10 @@ from flowhunt.models.google_ads_groups_search_request import GoogleAdsGroupsSear
 from flowhunt.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.flowhunt.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = flowhunt.Configuration(
-    host = "http://localhost"
+    host = "https://api.flowhunt.io"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -816,10 +816,10 @@ from flowhunt.models.google_ads_keyword_remove_request import GoogleAdsKeywordRe
 from flowhunt.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.flowhunt.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = flowhunt.Configuration(
-    host = "http://localhost"
+    host = "https://api.flowhunt.io"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -903,10 +903,10 @@ from flowhunt.models.google_ads_campaign_update_request import GoogleAdsCampaign
 from flowhunt.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.flowhunt.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = flowhunt.Configuration(
-    host = "http://localhost"
+    host = "https://api.flowhunt.io"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -994,10 +994,10 @@ from flowhunt.models.google_ads_customer_update_request import GoogleAdsCustomer
 from flowhunt.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.flowhunt.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = flowhunt.Configuration(
-    host = "http://localhost"
+    host = "https://api.flowhunt.io"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1083,10 +1083,10 @@ from flowhunt.models.google_ads_group_update_request import GoogleAdsGroupUpdate
 from flowhunt.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.flowhunt.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = flowhunt.Configuration(
-    host = "http://localhost"
+    host = "https://api.flowhunt.io"
 )
 
 # The client must configure the authentication and authorization parameters

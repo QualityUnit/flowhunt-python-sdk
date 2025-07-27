@@ -1,0 +1,97 @@
+name: Auto Release
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'pyproject.toml'
+      - 'setup.py'
+
+permissions:
+  contents: write
+
+jobs:
+  check-version:
+    name: Check for version changes
+    runs-on: ubuntu-latest
+    outputs:
+      version-changed: ${{ steps.check.outputs.changed }}
+      new-version: ${{ steps.check.outputs.version }}
+
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 2
+
+    - name: Check if version changed
+      id: check
+      run: |
+        # Get current version from pyproject.toml
+        CURRENT_VERSION=$(grep '^version = ' pyproject.toml | sed 's/version = "\(.*\)"/\1/')
+        echo "Current version: $CURRENT_VERSION"
+
+        # Get previous version from the previous commit
+        git checkout HEAD~1 -- pyproject.toml 2>/dev/null || echo "No previous version found"
+        PREVIOUS_VERSION=$(grep '^version = ' pyproject.toml | sed 's/version = "\(.*\)"/\1/' 2>/dev/null || echo "none")
+        echo "Previous version: $PREVIOUS_VERSION"
+
+        # Restore current pyproject.toml
+        git checkout HEAD -- pyproject.toml
+
+        # Check if version changed
+        if [ "$CURRENT_VERSION" != "$PREVIOUS_VERSION" ]; then
+          echo "Version changed from $PREVIOUS_VERSION to $CURRENT_VERSION"
+          echo "changed=true" >> $GITHUB_OUTPUT
+          echo "version=$CURRENT_VERSION" >> $GITHUB_OUTPUT
+        else
+          echo "Version unchanged"
+          echo "changed=false" >> $GITHUB_OUTPUT
+          echo "version=$CURRENT_VERSION" >> $GITHUB_OUTPUT
+        fi
+
+  create-release:
+    name: Create GitHub Release
+    needs: check-version
+    if: needs.check-version.outputs.version-changed == 'true'
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Generate release notes
+      id: release-notes
+      run: |
+        VERSION="${{ needs.check-version.outputs.new-version }}"
+
+        # Create release notes
+        cat > release_notes.md << EOF
+        ## FlowHunt Python SDK v${VERSION}
+
+        ### Changes
+        - Version bump to ${VERSION}
+        - Updated package metadata
+
+        ### Installation
+        \`\`\`bash
+        pip install flowhunt==${VERSION}
+        \`\`\`
+
+        ### Documentation
+        - [Repository](https://github.com/QualityUnit/flowhunt-python-sdk)
+        - [PyPI Package](https://pypi.org/project/flowhunt/)
+
+        ---
+        *This release was automatically generated when version ${VERSION} was pushed to main branch.*
+        EOF
+
+        echo "Release notes created"
+
+    - name: Create Release
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        VERSION="${{ needs.check-version.outputs.new-version }}"
+        gh release create "v${VERSION}" \
+          --title "Release v${VERSION}" \
+          --notes-file release_notes.md \
+          --latest
