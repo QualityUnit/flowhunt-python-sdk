@@ -95,7 +95,7 @@
 
 * `HC` (value: `'HC'`)
 
-* `CNE` (value: `'CNE'`)
+* `COE` (value: `'COE'`)
 
 * `MCP` (value: `'MCP'`)
 

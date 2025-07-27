@@ -72,7 +72,7 @@ class TransactionType(str, Enum):
     IG_API = 'IG_API'
     FA = 'FA'
     HC = 'HC'
-    CNE = 'CNE'
+    COE = 'COE'
     MCP = 'MCP'
     SEQUENTIAL_AGENT = 'SEQUENTIAL_AGENT'
     SELF_MANAGED_AGENT = 'SELF_MANAGED_AGENT'
