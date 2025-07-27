@@ -1,6 +1,6 @@
 [project]
 name = "flowhunt"
-version = "3.14.8"
+version = "3.14.9"
 description = "FlowHunt"
 authors = [
   {name = "FlowHunt",email = "support@flowhunt.io"},
