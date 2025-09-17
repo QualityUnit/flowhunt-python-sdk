@@ -13,6 +13,8 @@ Name | Type | Description | Notes
 **icon** | **str** |  | [optional] 
 **color** | **str** |  | [optional] 
 **detailed_description** | **str** |  | [optional] 
+**feedback_message_id** | **str** | Message ID | 
+**feedback** | [**MessageFeedback**](MessageFeedback.md) |  | [optional] 
 **agent_query** | **str** | Search query | 
 **tool_response** | **str** | Tool response | 
 **task_name** | **str** |  | 

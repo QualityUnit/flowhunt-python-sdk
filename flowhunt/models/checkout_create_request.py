@@ -29,7 +29,8 @@ class CheckoutCreateRequest(BaseModel):
     plan_id: StrictStr
     interval: StrictStr
     recurring: Optional[StrictBool] = True
-    __properties: ClassVar[List[str]] = ["plan_id", "interval", "recurring"]
+    workspace_id: StrictStr
+    __properties: ClassVar[List[str]] = ["plan_id", "interval", "recurring", "workspace_id"]
 
     @field_validator('interval')
     def interval_validate_enum(cls, value):
@@ -91,7 +92,8 @@ class CheckoutCreateRequest(BaseModel):
         _obj = cls.model_validate({
             "plan_id": obj.get("plan_id"),
             "interval": obj.get("interval"),
-            "recurring": obj.get("recurring") if obj.get("recurring") is not None else True
+            "recurring": obj.get("recurring") if obj.get("recurring") is not None else True,
+            "workspace_id": obj.get("workspace_id")
         })
         return _obj
 

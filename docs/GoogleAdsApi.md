@@ -194,7 +194,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_google_ads_campaigns**
-> GoogleAdsCampaignsResponse get_google_ads_campaigns(workspace_id, google_ads_campaigns_search_request)
+> List[GoogleAdsCampaignResponse] get_google_ads_campaigns(workspace_id, google_ads_campaigns_search_request)
 
 Get Google Ads Campaigns
 
@@ -205,7 +205,7 @@ Get Google Ads Campaigns
 
 ```python
 import flowhunt
-from flowhunt.models.google_ads_campaigns_response import GoogleAdsCampaignsResponse
+from flowhunt.models.google_ads_campaign_response import GoogleAdsCampaignResponse
 from flowhunt.models.google_ads_campaigns_search_request import GoogleAdsCampaignsSearchRequest
 from flowhunt.rest import ApiException
 from pprint import pprint
@@ -260,7 +260,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GoogleAdsCampaignsResponse**](GoogleAdsCampaignsResponse.md)
+[**List[GoogleAdsCampaignResponse]**](GoogleAdsCampaignResponse.md)
 
 ### Authorization
 
@@ -368,7 +368,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_google_ads_groups**
-> GoogleAdsGroupsResponse get_google_ads_groups(workspace_id, google_ads_groups_search_request)
+> List[GoogleAdsGroupResponse] get_google_ads_groups(workspace_id, google_ads_groups_search_request)
 
 Get Google Ads Groups
 
@@ -379,7 +379,7 @@ Get Google Ads Groups
 
 ```python
 import flowhunt
-from flowhunt.models.google_ads_groups_response import GoogleAdsGroupsResponse
+from flowhunt.models.google_ads_group_response import GoogleAdsGroupResponse
 from flowhunt.models.google_ads_groups_search_request import GoogleAdsGroupsSearchRequest
 from flowhunt.rest import ApiException
 from pprint import pprint
@@ -434,7 +434,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GoogleAdsGroupsResponse**](GoogleAdsGroupsResponse.md)
+[**List[GoogleAdsGroupResponse]**](GoogleAdsGroupResponse.md)
 
 ### Authorization
 

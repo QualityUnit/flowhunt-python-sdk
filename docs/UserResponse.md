@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **avatar_url** | **str** |  | [optional] 
 **api_key_workspace_id** | **str** |  | [optional] 
 **product_plans** | [**Dict[str, SubscriptionPlan]**](SubscriptionPlan.md) |  | [optional] 
+**billing_provider** | [**BillingProvider**](BillingProvider.md) |  | [optional] 
 
 ## Example
 

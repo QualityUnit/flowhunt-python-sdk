@@ -59,6 +59,8 @@
 
 * `CE_GC` (value: `'CE_GC'`)
 
+* `UE_GC` (value: `'UE_GC'`)
+
 * `VE_GC` (value: `'VE_GC'`)
 
 * `CWP` (value: `'CWP'`)
@@ -72,6 +74,8 @@
 * `UC_HS` (value: `'UC_HS'`)
 
 * `SC_HS` (value: `'SC_HS'`)
+
+* `ETA_HS` (value: `'ETA_HS'`)
 
 * `CNM_HS` (value: `'CNM_HS'`)
 
@@ -99,6 +103,38 @@
 
 * `MCP` (value: `'MCP'`)
 
+* `S_O` (value: `'S_O'`)
+
+* `S_P` (value: `'S_P'`)
+
+* `Y_F` (value: `'Y_F'`)
+
+* `X_S` (value: `'X_S'`)
+
+* `V_T` (value: `'V_T'`)
+
+* `S_SM` (value: `'S_SM'`)
+
+* `F_VT` (value: `'F_VT'`)
+
+* `R_FT` (value: `'R_FT'`)
+
+* `N_ET` (value: `'N_ET'`)
+
+* `L_TM` (value: `'L_TM'`)
+
+* `J_ST` (value: `'J_ST'`)
+
+* `D_RT` (value: `'D_RT'`)
+
+* `CDT_T` (value: `'CDT_T'`)
+
+* `CSV_ST` (value: `'CSV_ST'`)
+
+* `CL_T` (value: `'CL_T'`)
+
+* `API_T` (value: `'API_T'`)
+
 * `SEQUENTIAL_AGENT` (value: `'SEQUENTIAL_AGENT'`)
 
 * `SELF_MANAGED_AGENT` (value: `'SELF_MANAGED_AGENT'`)
@@ -118,6 +154,8 @@
 * `TOOL_PUBMED` (value: `'TOOL_PUBMED'`)
 
 * `TOOL_STACK_EXCHANGE` (value: `'TOOL_STACK_EXCHANGE'`)
+
+* `M_T` (value: `'M_T'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

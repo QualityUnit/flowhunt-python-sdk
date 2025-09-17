@@ -5,6 +5,7 @@ All URIs are relative to *https://api.flowhunt.io*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**add_addon_to_subscription**](BillingApi.md#add_addon_to_subscription) | **POST** /v2/billing/addons/{product_id}/add | Add Addon To Subscription
+[**confirm_shopify_subscription**](BillingApi.md#confirm_shopify_subscription) | **GET** /v2/billing/shopify/confirm | Confirm Shopify Subscription
 [**create_change_plan_portal**](BillingApi.md#create_change_plan_portal) | **POST** /v2/billing/portal/change-plan/create | Create Change Plan Portal
 [**create_checkout**](BillingApi.md#create_checkout) | **POST** /v2/billing/checkout/create | Create Checkout
 [**create_update_info_portal**](BillingApi.md#create_update_info_portal) | **POST** /v2/billing/portal/update-info/create | Create Update Info Portal
@@ -14,7 +15,7 @@ Method | HTTP request | Description
 
 
 # **add_addon_to_subscription**
-> str add_addon_to_subscription(product_id, workspace_id)
+> str add_addon_to_subscription(product_id, workspace_id, add_on_add_request)
 
 Add Addon To Subscription
 
@@ -25,6 +26,7 @@ Add Addon To Subscription
 
 ```python
 import flowhunt
+from flowhunt.models.add_on_add_request import AddOnAddRequest
 from flowhunt.rest import ApiException
 from pprint import pprint
 
@@ -56,10 +58,11 @@ with flowhunt.ApiClient(configuration) as api_client:
     api_instance = flowhunt.BillingApi(api_client)
     product_id = 'product_id_example' # str | 
     workspace_id = 'workspace_id_example' # str | 
+    add_on_add_request = flowhunt.AddOnAddRequest() # AddOnAddRequest | 
 
     try:
         # Add Addon To Subscription
-        api_response = api_instance.add_addon_to_subscription(product_id, workspace_id)
+        api_response = api_instance.add_addon_to_subscription(product_id, workspace_id, add_on_add_request)
         print("The response of BillingApi->add_addon_to_subscription:\n")
         pprint(api_response)
     except Exception as e:
@@ -75,10 +78,107 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **product_id** | **str**|  | 
  **workspace_id** | **str**|  | 
+ **add_on_add_request** | [**AddOnAddRequest**](AddOnAddRequest.md)|  | 
 
 ### Return type
 
 **str**
+
+### Authorization
+
+[APIKeyHeader](../README.md#APIKeyHeader), [HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **confirm_shopify_subscription**
+> ShopifySubscriptionConfirmResponse confirm_shopify_subscription(charge_id, shop)
+
+Confirm Shopify Subscription
+
+Handle Shopify subscription confirmation redirect.
+This is the redirect URI after successful purchase of any Shopify plan.
+
+Args:
+    charge_id: The charge ID from Shopify (query parameter)
+    shop: The shop domain (query parameter)
+
+Returns:
+    ShopifySubscriptionConfirmResponse with subscription details
+
+### Example
+
+* Api Key Authentication (APIKeyHeader):
+* Bearer Authentication (HTTPBearer):
+
+```python
+import flowhunt
+from flowhunt.models.shopify_subscription_confirm_response import ShopifySubscriptionConfirmResponse
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.flowhunt.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "https://api.flowhunt.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: APIKeyHeader
+configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
+
+# Configure Bearer authorization: HTTPBearer
+configuration = flowhunt.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.BillingApi(api_client)
+    charge_id = 'charge_id_example' # str | 
+    shop = 'shop_example' # str | 
+
+    try:
+        # Confirm Shopify Subscription
+        api_response = api_instance.confirm_shopify_subscription(charge_id, shop)
+        print("The response of BillingApi->confirm_shopify_subscription:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling BillingApi->confirm_shopify_subscription: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **charge_id** | **str**|  | 
+ **shop** | **str**|  | 
+
+### Return type
+
+[**ShopifySubscriptionConfirmResponse**](ShopifySubscriptionConfirmResponse.md)
 
 ### Authorization
 

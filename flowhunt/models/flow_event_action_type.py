@@ -31,6 +31,7 @@ class FlowEventActionType(str, Enum):
     TOOL_CALL = 'tool_call'
     TASK_RESPONSE = 'task_response'
     FAILED = 'failed'
+    MESSAGE_FEEDBACK = 'message_feedback'
     ADD_COMPONENT = 'add_component'
     DELETE_COMPONENT = 'delete_component'
     CONNECT_COMPONENTS = 'connect_components'

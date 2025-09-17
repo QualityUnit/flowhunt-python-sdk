@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **styles** | **List[str]** |  | [optional] 
 **effects** | **List[str]** |  | [optional] 
 **use_ai_agent** | **bool** |  | [optional] 
+**reference_images** | **List[str]** |  | [optional] 
 
 ## Example
 

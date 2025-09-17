@@ -35,7 +35,7 @@ class GeneralMCPSubserverResponse(BaseModel):
     icon: Optional[StrictStr] = None
     version: StrictStr = Field(description="Version of the MCP subserver")
     capabilities: Optional[List[GeneralMCPSubserverCapabilitiesResponse]] = Field(default=None, description="List of capabilities for the MCP subserver")
-    integration_slug: IntegrationSlug = Field(description="Integration slug for the MCP subserver")
+    integration_slug: Optional[IntegrationSlug]
     __properties: ClassVar[List[str]] = ["server_id", "name", "description", "status", "icon", "version", "capabilities", "integration_slug"]
 
     model_config = ConfigDict(
@@ -93,6 +93,11 @@ class GeneralMCPSubserverResponse(BaseModel):
         # and model_fields_set contains the field
         if self.icon is None and "icon" in self.model_fields_set:
             _dict['icon'] = None
+
+        # set to None if integration_slug (nullable) is None
+        # and model_fields_set contains the field
+        if self.integration_slug is None and "integration_slug" in self.model_fields_set:
+            _dict['integration_slug'] = None
 
         return _dict
 

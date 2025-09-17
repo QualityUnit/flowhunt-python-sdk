@@ -14,6 +14,7 @@
 
 
 # import models into model package
+from flowhunt.models.add_on_add_request import AddOnAddRequest
 from flowhunt.models.all_flows_search_request import AllFlowsSearchRequest
 from flowhunt.models.api_key_create_request import ApiKeyCreateRequest
 from flowhunt.models.api_key_response import ApiKeyResponse
@@ -23,6 +24,7 @@ from flowhunt.models.app_url_input import AppUrlInput
 from flowhunt.models.app_url_output import AppUrlOutput
 from flowhunt.models.aspec_ratio import AspecRatio
 from flowhunt.models.base_foundation_model import BaseFoundationModel
+from flowhunt.models.billing_provider import BillingProvider
 from flowhunt.models.bool_char import BoolChar
 from flowhunt.models.chatbot_create_request import ChatbotCreateRequest
 from flowhunt.models.chatbot_response import ChatbotResponse
@@ -92,6 +94,8 @@ from flowhunt.models.flow_detail_response import FlowDetailResponse
 from flowhunt.models.flow_event_action_type import FlowEventActionType
 from flowhunt.models.flow_hunt_product_slug import FlowHuntProductSlug
 from flowhunt.models.flow_invoke_request import FlowInvokeRequest
+from flowhunt.models.flow_message_feedback_request import FlowMessageFeedbackRequest
+from flowhunt.models.flow_message_feedback_response import FlowMessageFeedbackResponse
 from flowhunt.models.flow_response import FlowResponse
 from flowhunt.models.flow_search_request import FlowSearchRequest
 from flowhunt.models.flow_session_attachment_response import FlowSessionAttachmentResponse
@@ -101,6 +105,7 @@ from flowhunt.models.flow_session_event import FlowSessionEvent
 from flowhunt.models.flow_session_invocation_response import FlowSessionInvocationResponse
 from flowhunt.models.flow_session_invoke_request import FlowSessionInvokeRequest
 from flowhunt.models.flow_session_loading_metadata import FlowSessionLoadingMetadata
+from flowhunt.models.flow_session_message_feedback_metadata import FlowSessionMessageFeedbackMetadata
 from flowhunt.models.flow_session_message_metadata import FlowSessionMessageMetadata
 from flowhunt.models.flow_session_response import FlowSessionResponse
 from flowhunt.models.flow_session_task_response_metadata import FlowSessionTaskResponseMetadata
@@ -179,8 +184,17 @@ from flowhunt.models.mcp_server_create_request import MCPServerCreateRequest
 from flowhunt.models.mcp_server_response import MCPServerResponse
 from flowhunt.models.mcp_server_search_request import MCPServerSearchRequest
 from flowhunt.models.mcp_sub_server_binding import MCPSubServerBinding
+from flowhunt.models.message_feedback import MessageFeedback
 from flowhunt.models.message_type import MessageType
 from flowhunt.models.metadata import Metadata
+from flowhunt.models.microsoft_power_bi_dataset_response import MicrosoftPowerBiDatasetResponse
+from flowhunt.models.microsoft_power_bi_datasets_response import MicrosoftPowerBiDatasetsResponse
+from flowhunt.models.microsoft_power_bi_push_dataset_response import MicrosoftPowerBiPushDatasetResponse
+from flowhunt.models.microsoft_power_bi_table_response import MicrosoftPowerBiTableResponse
+from flowhunt.models.microsoft_power_bi_table_validate_response import MicrosoftPowerBiTableValidateResponse
+from flowhunt.models.microsoft_power_bi_tables_response import MicrosoftPowerBiTablesResponse
+from flowhunt.models.microsoft_power_bi_workspace_response import MicrosoftPowerBiWorkspaceResponse
+from flowhunt.models.microsoft_power_bi_workspaces_response import MicrosoftPowerBiWorkspacesResponse
 from flowhunt.models.observability_driver_response import ObservabilityDriverResponse
 from flowhunt.models.pagination import Pagination
 from flowhunt.models.photo_ai_effect_response import PhotoAIEffectResponse
@@ -189,6 +203,10 @@ from flowhunt.models.photo_ai_template_response import PhotoAITemplateResponse
 from flowhunt.models.plan_list_item_response import PlanListItemResponse
 from flowhunt.models.plan_response import PlanResponse
 from flowhunt.models.pointer_type import PointerType
+from flowhunt.models.power_bi_dataset_request import PowerBiDatasetRequest
+from flowhunt.models.power_bi_push_dataset_request import PowerBiPushDatasetRequest
+from flowhunt.models.power_bi_request import PowerBiRequest
+from flowhunt.models.power_bi_table_request import PowerBiTableRequest
 from flowhunt.models.prompt_category_create_request import PromptCategoryCreateRequest
 from flowhunt.models.prompt_category_response import PromptCategoryResponse
 from flowhunt.models.prompt_category_search_request import PromptCategorySearchRequest
@@ -199,6 +217,13 @@ from flowhunt.models.prompt_search_request import PromptSearchRequest
 from flowhunt.models.prompt_update_request import PromptUpdateRequest
 from flowhunt.models.query_similarity_request import QuerySimilarityRequest
 from flowhunt.models.query_similarity_task_request import QuerySimilarityTaskRequest
+from flowhunt.models.reindex_data_source import ReindexDataSource
+from flowhunt.models.reindex_progress import ReindexProgress
+from flowhunt.models.reindex_request import ReindexRequest
+from flowhunt.models.reindex_scope import ReindexScope
+from flowhunt.models.reindex_start_response import ReindexStartResponse
+from flowhunt.models.reindex_status import ReindexStatus
+from flowhunt.models.reindex_status_response import ReindexStatusResponse
 from flowhunt.models.role import Role
 from flowhunt.models.saml_login_method import SamlLoginMethod
 from flowhunt.models.schedule_create_request import ScheduleCreateRequest
@@ -235,10 +260,12 @@ from flowhunt.models.serp_search_requests import SerpSearchRequests
 from flowhunt.models.serp_subcluster_keywords_response import SerpSubclusterKeywordsResponse
 from flowhunt.models.serp_volume_request import SerpVolumeRequest
 from flowhunt.models.shop_redact_payload import ShopRedactPayload
+from flowhunt.models.shopify_subscription_confirm_response import ShopifySubscriptionConfirmResponse
 from flowhunt.models.slack_channel_response import SlackChannelResponse
 from flowhunt.models.slack_workspace_response import SlackWorkspaceResponse
 from flowhunt.models.sort_direction import SortDirection
 from flowhunt.models.subscription_plan import SubscriptionPlan
+from flowhunt.models.system_message_metadata import SystemMessageMetadata
 from flowhunt.models.tag_create_request import TagCreateRequest
 from flowhunt.models.tag_response import TagResponse
 from flowhunt.models.tag_search_request import TagSearchRequest
@@ -266,10 +293,12 @@ from flowhunt.models.transaction_type import TransactionType
 from flowhunt.models.transcript_task_request import TranscriptTaskRequest
 from flowhunt.models.trigger_response import TriggerResponse
 from flowhunt.models.trigger_type import TriggerType
+from flowhunt.models.update_user_settings_request import UpdateUserSettingsRequest
 from flowhunt.models.url_screenshot_response import UrlScreenshotResponse
 from flowhunt.models.user_document_status import UserDocumentStatus
 from flowhunt.models.user_plan_response import UserPlanResponse
 from flowhunt.models.user_response import UserResponse
+from flowhunt.models.user_settings_response import UserSettingsResponse
 from flowhunt.models.validation_error import ValidationError
 from flowhunt.models.validation_error_loc_inner import ValidationErrorLocInner
 from flowhunt.models.vector_document_response import VectorDocumentResponse

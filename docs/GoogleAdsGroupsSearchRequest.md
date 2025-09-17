@@ -12,6 +12,9 @@ Name | Type | Description | Notes
 **language_code** | **str** |  | [optional] 
 **country** | **str** |  | [optional] 
 **action_type** | [**GoogleAdsActionType**](GoogleAdsActionType.md) |  | [optional] 
+**group_status** | [**GoogleAdsGroupStatus**](GoogleAdsGroupStatus.md) |  | [optional] 
+**limit** | **int** | Limit of the search | [optional] [default to 50]
+**pagination** | [**Pagination**](Pagination.md) |  | [optional] 
 
 ## Example
 

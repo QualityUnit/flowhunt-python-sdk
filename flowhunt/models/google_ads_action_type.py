@@ -28,6 +28,7 @@ class GoogleAdsActionType(str, Enum):
     """
     I = 'I'
     N = 'N'
+    O = 'O'
     Z = 'Z'
     R = 'R'
     H = 'H'

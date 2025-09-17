@@ -39,7 +39,8 @@ class ImageInferenceRequest(BaseModel):
     styles: Optional[List[StrictStr]] = None
     effects: Optional[List[StrictStr]] = None
     use_ai_agent: Optional[StrictBool] = None
-    __properties: ClassVar[List[str]] = ["base_model", "prompt", "image_fts", "number_of_outputs", "aspect_ratio", "steps", "guidance_scale", "styles", "effects", "use_ai_agent"]
+    reference_images: Optional[List[StrictStr]] = None
+    __properties: ClassVar[List[str]] = ["base_model", "prompt", "image_fts", "number_of_outputs", "aspect_ratio", "steps", "guidance_scale", "styles", "effects", "use_ai_agent", "reference_images"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -105,6 +106,11 @@ class ImageInferenceRequest(BaseModel):
         if self.use_ai_agent is None and "use_ai_agent" in self.model_fields_set:
             _dict['use_ai_agent'] = None
 
+        # set to None if reference_images (nullable) is None
+        # and model_fields_set contains the field
+        if self.reference_images is None and "reference_images" in self.model_fields_set:
+            _dict['reference_images'] = None
+
         return _dict
 
     @classmethod
@@ -126,7 +132,8 @@ class ImageInferenceRequest(BaseModel):
             "guidance_scale": obj.get("guidance_scale"),
             "styles": obj.get("styles"),
             "effects": obj.get("effects"),
-            "use_ai_agent": obj.get("use_ai_agent")
+            "use_ai_agent": obj.get("use_ai_agent"),
+            "reference_images": obj.get("reference_images")
         })
         return _obj
 

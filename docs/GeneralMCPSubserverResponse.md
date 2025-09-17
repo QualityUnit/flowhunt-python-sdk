@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **icon** | **str** |  | [optional] 
 **version** | **str** | Version of the MCP subserver | 
 **capabilities** | [**List[GeneralMCPSubserverCapabilitiesResponse]**](GeneralMCPSubserverCapabilitiesResponse.md) | List of capabilities for the MCP subserver | [optional] 
-**integration_slug** | [**IntegrationSlug**](IntegrationSlug.md) | Integration slug for the MCP subserver | 
+**integration_slug** | [**IntegrationSlug**](IntegrationSlug.md) |  | 
 
 ## Example
 

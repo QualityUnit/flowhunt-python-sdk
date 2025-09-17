@@ -47,6 +47,20 @@ class TestShopifyApi(unittest.TestCase):
         """
         pass
 
+    def test_subscription_cancel(self) -> None:
+        """Test case for subscription_cancel
+
+        Subscription Cancel
+        """
+        pass
+
+    def test_subscription_update(self) -> None:
+        """Test case for subscription_update
+
+        Subscription Update
+        """
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()

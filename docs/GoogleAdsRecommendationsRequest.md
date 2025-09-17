@@ -8,6 +8,8 @@ Name | Type | Description | Notes
 **customer_id** | **str** | Customer id to get recommendations for | 
 **campaign_id** | **str** |  | [optional] 
 **group_id** | **str** |  | [optional] 
+**limit** | **int** | Limit of the search | [optional] [default to 50]
+**pagination** | [**Pagination**](Pagination.md) |  | [optional] 
 
 ## Example
 

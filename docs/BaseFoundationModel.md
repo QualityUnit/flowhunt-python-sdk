@@ -31,6 +31,12 @@
 
 * `IDEOGRAM_MINUS_V3_MINUS_BALANCED` (value: `'ideogram-v3-balanced'`)
 
+* `GPT_MINUS_IMAGE_MINUS_1` (value: `'gpt-image-1'`)
+
+* `NANO_MINUS_BANANA` (value: `'nano-banana'`)
+
+* `GEMINI_MINUS_2_DOT_5_MINUS_FLASH` (value: `'gemini-2.5-flash'`)
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

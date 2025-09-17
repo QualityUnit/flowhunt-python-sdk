@@ -17,8 +17,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from flowhunt.models.pagination import Pagination
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,7 +30,9 @@ class GoogleAdsRecommendationsRequest(BaseModel):
     customer_id: StrictStr = Field(description="Customer id to get recommendations for")
     campaign_id: Optional[StrictStr] = None
     group_id: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["customer_id", "campaign_id", "group_id"]
+    limit: Optional[StrictInt] = Field(default=50, description="Limit of the search")
+    pagination: Optional[Pagination] = None
+    __properties: ClassVar[List[str]] = ["customer_id", "campaign_id", "group_id", "limit", "pagination"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -70,6 +73,9 @@ class GoogleAdsRecommendationsRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of pagination
+        if self.pagination:
+            _dict['pagination'] = self.pagination.to_dict()
         # set to None if campaign_id (nullable) is None
         # and model_fields_set contains the field
         if self.campaign_id is None and "campaign_id" in self.model_fields_set:
@@ -79,6 +85,11 @@ class GoogleAdsRecommendationsRequest(BaseModel):
         # and model_fields_set contains the field
         if self.group_id is None and "group_id" in self.model_fields_set:
             _dict['group_id'] = None
+
+        # set to None if pagination (nullable) is None
+        # and model_fields_set contains the field
+        if self.pagination is None and "pagination" in self.model_fields_set:
+            _dict['pagination'] = None
 
         return _dict
 
@@ -94,7 +105,9 @@ class GoogleAdsRecommendationsRequest(BaseModel):
         _obj = cls.model_validate({
             "customer_id": obj.get("customer_id"),
             "campaign_id": obj.get("campaign_id"),
-            "group_id": obj.get("group_id")
+            "group_id": obj.get("group_id"),
+            "limit": obj.get("limit") if obj.get("limit") is not None else 50,
+            "pagination": Pagination.from_dict(obj["pagination"]) if obj.get("pagination") is not None else None
         })
         return _obj
 

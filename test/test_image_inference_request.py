@@ -50,7 +50,10 @@ class TestImageInferenceRequest(unittest.TestCase):
                 effects = [
                     ''
                     ],
-                use_ai_agent = True
+                use_ai_agent = True,
+                reference_images = [
+                    ''
+                    ]
             )
         else:
             return ImageInferenceRequest(

@@ -7,6 +7,8 @@
 
 * `N` (value: `'N'`)
 
+* `O` (value: `'O'`)
+
 * `Z` (value: `'Z'`)
 
 * `R` (value: `'R'`)

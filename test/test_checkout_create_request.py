@@ -37,12 +37,14 @@ class TestCheckoutCreateRequest(unittest.TestCase):
             return CheckoutCreateRequest(
                 plan_id = '',
                 interval = 'monthly',
-                recurring = True
+                recurring = True,
+                workspace_id = ''
             )
         else:
             return CheckoutCreateRequest(
                 plan_id = '',
                 interval = 'monthly',
+                workspace_id = '',
         )
         """
 

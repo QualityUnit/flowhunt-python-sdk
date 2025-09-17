@@ -19,6 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from flowhunt.models.billing_provider import BillingProvider
 from flowhunt.models.subscription_plan import SubscriptionPlan
 from typing import Optional, Set
 from typing_extensions import Self
@@ -34,7 +35,8 @@ class UserResponse(BaseModel):
     avatar_url: Optional[StrictStr] = None
     api_key_workspace_id: Optional[StrictStr] = None
     product_plans: Optional[Dict[str, SubscriptionPlan]] = None
-    __properties: ClassVar[List[str]] = ["user_id", "email", "username", "is_active", "avatar_url", "api_key_workspace_id", "product_plans"]
+    billing_provider: Optional[BillingProvider] = None
+    __properties: ClassVar[List[str]] = ["user_id", "email", "username", "is_active", "avatar_url", "api_key_workspace_id", "product_plans", "billing_provider"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -95,6 +97,11 @@ class UserResponse(BaseModel):
         if self.product_plans is None and "product_plans" in self.model_fields_set:
             _dict['product_plans'] = None
 
+        # set to None if billing_provider (nullable) is None
+        # and model_fields_set contains the field
+        if self.billing_provider is None and "billing_provider" in self.model_fields_set:
+            _dict['billing_provider'] = None
+
         return _dict
 
     @classmethod
@@ -113,7 +120,8 @@ class UserResponse(BaseModel):
             "is_active": obj.get("is_active"),
             "avatar_url": obj.get("avatar_url"),
             "api_key_workspace_id": obj.get("api_key_workspace_id"),
-            "product_plans": dict((_k, _v) for _k, _v in obj.get("product_plans").items()) if obj.get("product_plans") is not None else None
+            "product_plans": dict((_k, _v) for _k, _v in obj.get("product_plans").items()) if obj.get("product_plans") is not None else None,
+            "billing_provider": obj.get("billing_provider")
         })
         return _obj
 

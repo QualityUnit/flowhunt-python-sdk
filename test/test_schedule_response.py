@@ -50,7 +50,7 @@ class TestScheduleResponse(unittest.TestCase):
                 with_screenshot = 'Y',
                 with_browser = 'Y',
                 follow_links = 'Y',
-                with_proxy_rotation = 'Y',
+                with_proxy_rotation = '',
                 disallow_urls = '',
                 filter_urls = '',
                 custom_headers = ''
@@ -69,7 +69,6 @@ class TestScheduleResponse(unittest.TestCase):
                 with_screenshot = 'Y',
                 with_browser = 'Y',
                 follow_links = 'Y',
-                with_proxy_rotation = 'Y',
         )
         """
 

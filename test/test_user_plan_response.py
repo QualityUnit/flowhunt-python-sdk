@@ -42,7 +42,9 @@ class TestUserPlanResponse(unittest.TestCase):
                 subscription_plans = {
                     'key' : 'S'
                     },
-                can_remove_branding = True
+                can_remove_branding = True,
+                extra_workspaces_count = 56,
+                extra_credits_count = 56
             )
         else:
             return UserPlanResponse(

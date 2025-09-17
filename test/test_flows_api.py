@@ -61,6 +61,13 @@ class TestFlowsApi(unittest.TestCase):
         """
         pass
 
+    def test_create_message_feedback(self) -> None:
+        """Test case for create_message_feedback
+
+        Create Message Feedback
+        """
+        pass
+
     def test_delete_attachment(self) -> None:
         """Test case for delete_attachment
 

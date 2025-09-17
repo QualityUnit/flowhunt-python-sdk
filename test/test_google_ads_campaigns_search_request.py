@@ -41,7 +41,11 @@ class TestGoogleAdsCampaignsSearchRequest(unittest.TestCase):
                 campaign_status = 0,
                 language_code = '',
                 country = '',
-                action_type = 'I'
+                action_type = 'I',
+                limit = 50,
+                pagination = flowhunt.models.pagination.Pagination(
+                    sorting_key_value = '', 
+                    scroll_id = '', )
             )
         else:
             return GoogleAdsCampaignsSearchRequest(

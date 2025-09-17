@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **with_screenshot** | [**BoolChar**](BoolChar.md) |  | [optional] 
 **with_browser** | [**BoolChar**](BoolChar.md) |  | [optional] 
 **follow_links** | [**BoolChar**](BoolChar.md) |  | [optional] 
-**with_proxy_rotation** | [**BoolChar**](BoolChar.md) |  | [optional] 
+**with_proxy_rotation** | **str** |  | [optional] 
 **disallow_urls** | **str** |  | [optional] 
 **filter_urls** | **str** |  | [optional] 
 **custom_headers** | **str** |  | [optional] 

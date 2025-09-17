@@ -34,7 +34,7 @@ class ScheduleUpdateRequest(BaseModel):
     with_screenshot: Optional[BoolChar] = None
     with_browser: Optional[BoolChar] = None
     follow_links: Optional[BoolChar] = None
-    with_proxy_rotation: Optional[BoolChar] = None
+    with_proxy_rotation: Optional[StrictStr] = None
     disallow_urls: Optional[StrictStr] = None
     filter_urls: Optional[StrictStr] = None
     custom_headers: Optional[StrictStr] = None

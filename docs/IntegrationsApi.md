@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**get_actors**](IntegrationsApi.md#get_actors) | **GET** /v2/integrations/hubspot/actors/ | Get Actors
 [**get_all_integrations**](IntegrationsApi.md#get_all_integrations) | **GET** /v2/integrations/all | Get All Integrations
 [**get_calendars**](IntegrationsApi.md#get_calendars) | **GET** /v2/integrations/google/calendar | Get Calendars
+[**get_hubspot_custom_channel_connect**](IntegrationsApi.md#get_hubspot_custom_channel_connect) | **GET** /v2/integrations/hubspot_custom_channel_connect | Get Hubspot Custom Channel Connect
 [**get_integration**](IntegrationsApi.md#get_integration) | **GET** /v2/integrations/{slug}/{integration_id} | Get Integration
 [**get_picker_token**](IntegrationsApi.md#get_picker_token) | **GET** /v2/integrations/google/picker_token | Get Picker Token
 [**get_profile_information**](IntegrationsApi.md#get_profile_information) | **GET** /v2/integrations/instagram/profile_information | Get Profile Information
@@ -23,6 +24,8 @@ Method | HTTP request | Description
 [**integration_callback**](IntegrationsApi.md#integration_callback) | **GET** /v2/integrations/{slug}/callback | Integration Callback
 [**search_integrations**](IntegrationsApi.md#search_integrations) | **POST** /v2/integrations/{slug} | Search Integrations
 [**shop_redact**](IntegrationsApi.md#shop_redact) | **POST** /v2/integrations/shopify/webhooks/shop/redact | Shop Redact
+[**subscription_cancel**](IntegrationsApi.md#subscription_cancel) | **POST** /v2/integrations/shopify/webhooks/billing/subscription_cancel | Subscription Cancel
+[**subscription_update**](IntegrationsApi.md#subscription_update) | **POST** /v2/integrations/shopify/webhooks/billing/subscription_update | Subscription Update
 [**update_admin_consent**](IntegrationsApi.md#update_admin_consent) | **POST** /v2/integrations/microsoft_entra_id/admin_consent | Update Admin Consent
 
 
@@ -599,6 +602,67 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Successful Response |  -  |
 **422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_hubspot_custom_channel_connect**
+> object get_hubspot_custom_channel_connect()
+
+Get Hubspot Custom Channel Connect
+
+### Example
+
+
+```python
+import flowhunt
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.flowhunt.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "https://api.flowhunt.io"
+)
+
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.IntegrationsApi(api_client)
+
+    try:
+        # Get Hubspot Custom Channel Connect
+        api_response = api_instance.get_hubspot_custom_channel_connect()
+        print("The response of IntegrationsApi->get_hubspot_custom_channel_connect:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling IntegrationsApi->get_hubspot_custom_channel_connect: %s\n" % e)
+```
+
+
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+**object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1556,6 +1620,168 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **subscription_cancel**
+> object subscription_cancel(x_shopify_hmac_sha256=x_shopify_hmac_sha256, x_shopify_topic=x_shopify_topic)
+
+Subscription Cancel
+
+Handle subscription cancellation webhooks from Shopify.
+
+### Example
+
+* Bearer Authentication (HTTPBearer):
+
+```python
+import flowhunt
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.flowhunt.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "https://api.flowhunt.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization: HTTPBearer
+configuration = flowhunt.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.IntegrationsApi(api_client)
+    x_shopify_hmac_sha256 = 'x_shopify_hmac_sha256_example' # str |  (optional)
+    x_shopify_topic = 'x_shopify_topic_example' # str |  (optional)
+
+    try:
+        # Subscription Cancel
+        api_response = api_instance.subscription_cancel(x_shopify_hmac_sha256=x_shopify_hmac_sha256, x_shopify_topic=x_shopify_topic)
+        print("The response of IntegrationsApi->subscription_cancel:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling IntegrationsApi->subscription_cancel: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **x_shopify_hmac_sha256** | **str**|  | [optional] 
+ **x_shopify_topic** | **str**|  | [optional] 
+
+### Return type
+
+**object**
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **subscription_update**
+> object subscription_update(x_shopify_hmac_sha256=x_shopify_hmac_sha256, x_shopify_topic=x_shopify_topic)
+
+Subscription Update
+
+Handle subscription update webhooks from Shopify.
+
+This is called when a subscription is created, updated, or activated.
+
+### Example
+
+* Bearer Authentication (HTTPBearer):
+
+```python
+import flowhunt
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.flowhunt.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "https://api.flowhunt.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization: HTTPBearer
+configuration = flowhunt.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.IntegrationsApi(api_client)
+    x_shopify_hmac_sha256 = 'x_shopify_hmac_sha256_example' # str |  (optional)
+    x_shopify_topic = 'x_shopify_topic_example' # str |  (optional)
+
+    try:
+        # Subscription Update
+        api_response = api_instance.subscription_update(x_shopify_hmac_sha256=x_shopify_hmac_sha256, x_shopify_topic=x_shopify_topic)
+        print("The response of IntegrationsApi->subscription_update:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling IntegrationsApi->subscription_update: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **x_shopify_hmac_sha256** | **str**|  | [optional] 
+ **x_shopify_topic** | **str**|  | [optional] 
+
+### Return type
+
+**object**
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 ### HTTP response details

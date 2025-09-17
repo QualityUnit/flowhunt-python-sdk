@@ -46,7 +46,7 @@ class ScheduleResponse(BaseModel):
     with_screenshot: Optional[BoolChar]
     with_browser: Optional[BoolChar]
     follow_links: Optional[BoolChar]
-    with_proxy_rotation: Optional[BoolChar]
+    with_proxy_rotation: Optional[StrictStr] = None
     disallow_urls: Optional[StrictStr] = None
     filter_urls: Optional[StrictStr] = None
     custom_headers: Optional[StrictStr] = None

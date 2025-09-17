@@ -27,7 +27,8 @@ class DriverType(str, Enum):
     allowed enum values
     """
     LANGFUSE_DRIVER = 'langfuse_driver'
-    FLOW_HUNT_DRIVER = 'flow_hunt_driver'
+    FLOWHUNT_DRIVER = 'flowhunt_driver'
+    POWER_BI_DRIVER = 'power_bi_driver'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

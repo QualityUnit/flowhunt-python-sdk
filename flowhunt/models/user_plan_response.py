@@ -34,7 +34,9 @@ class UserPlanResponse(BaseModel):
     current_period_end: Optional[datetime]
     subscription_plans: Dict[str, SubscriptionPlan]
     can_remove_branding: StrictBool
-    __properties: ClassVar[List[str]] = ["price_amount", "price_currency", "monthly_topup_credits", "current_period_end", "subscription_plans", "can_remove_branding"]
+    extra_workspaces_count: Optional[StrictInt] = None
+    extra_credits_count: Optional[StrictInt] = None
+    __properties: ClassVar[List[str]] = ["price_amount", "price_currency", "monthly_topup_credits", "current_period_end", "subscription_plans", "can_remove_branding", "extra_workspaces_count", "extra_credits_count"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -80,6 +82,16 @@ class UserPlanResponse(BaseModel):
         if self.current_period_end is None and "current_period_end" in self.model_fields_set:
             _dict['current_period_end'] = None
 
+        # set to None if extra_workspaces_count (nullable) is None
+        # and model_fields_set contains the field
+        if self.extra_workspaces_count is None and "extra_workspaces_count" in self.model_fields_set:
+            _dict['extra_workspaces_count'] = None
+
+        # set to None if extra_credits_count (nullable) is None
+        # and model_fields_set contains the field
+        if self.extra_credits_count is None and "extra_credits_count" in self.model_fields_set:
+            _dict['extra_credits_count'] = None
+
         return _dict
 
     @classmethod
@@ -97,7 +109,9 @@ class UserPlanResponse(BaseModel):
             "monthly_topup_credits": obj.get("monthly_topup_credits"),
             "current_period_end": obj.get("current_period_end"),
             "subscription_plans": dict((_k, _v) for _k, _v in obj.get("subscription_plans").items()) if obj.get("subscription_plans") is not None else None,
-            "can_remove_branding": obj.get("can_remove_branding")
+            "can_remove_branding": obj.get("can_remove_branding"),
+            "extra_workspaces_count": obj.get("extra_workspaces_count"),
+            "extra_credits_count": obj.get("extra_credits_count")
         })
         return _obj
 

@@ -75,6 +75,13 @@ class TestIntegrationsApi(unittest.TestCase):
         """
         pass
 
+    def test_get_hubspot_custom_channel_connect(self) -> None:
+        """Test case for get_hubspot_custom_channel_connect
+
+        Get Hubspot Custom Channel Connect
+        """
+        pass
+
     def test_get_integration(self) -> None:
         """Test case for get_integration
 
@@ -156,6 +163,20 @@ class TestIntegrationsApi(unittest.TestCase):
         """Test case for shop_redact
 
         Shop Redact
+        """
+        pass
+
+    def test_subscription_cancel(self) -> None:
+        """Test case for subscription_cancel
+
+        Subscription Cancel
+        """
+        pass
+
+    def test_subscription_update(self) -> None:
+        """Test case for subscription_update
+
+        Subscription Update
         """
         pass
 

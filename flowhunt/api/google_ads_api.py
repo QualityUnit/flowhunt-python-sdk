@@ -656,7 +656,7 @@ class GoogleAdsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GoogleAdsCampaignsResponse:
+    ) -> List[GoogleAdsCampaignResponse]:
         """Get Google Ads Campaigns
 
 
@@ -696,7 +696,7 @@ class GoogleAdsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GoogleAdsCampaignsResponse",
+            '200': "List[GoogleAdsCampaignResponse]",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -727,7 +727,7 @@ class GoogleAdsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GoogleAdsCampaignsResponse]:
+    ) -> ApiResponse[List[GoogleAdsCampaignResponse]]:
         """Get Google Ads Campaigns
 
 
@@ -767,7 +767,7 @@ class GoogleAdsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GoogleAdsCampaignsResponse",
+            '200': "List[GoogleAdsCampaignResponse]",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -838,7 +838,7 @@ class GoogleAdsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GoogleAdsCampaignsResponse",
+            '200': "List[GoogleAdsCampaignResponse]",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -1240,7 +1240,7 @@ class GoogleAdsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GoogleAdsGroupsResponse:
+    ) -> List[GoogleAdsGroupResponse]:
         """Get Google Ads Groups
 
 
@@ -1280,7 +1280,7 @@ class GoogleAdsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GoogleAdsGroupsResponse",
+            '200': "List[GoogleAdsGroupResponse]",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -1311,7 +1311,7 @@ class GoogleAdsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GoogleAdsGroupsResponse]:
+    ) -> ApiResponse[List[GoogleAdsGroupResponse]]:
         """Get Google Ads Groups
 
 
@@ -1351,7 +1351,7 @@ class GoogleAdsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GoogleAdsGroupsResponse",
+            '200': "List[GoogleAdsGroupResponse]",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -1422,7 +1422,7 @@ class GoogleAdsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GoogleAdsGroupsResponse",
+            '200': "List[GoogleAdsGroupResponse]",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(

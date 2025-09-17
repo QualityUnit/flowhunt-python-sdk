@@ -11,6 +11,8 @@ Name | Type | Description | Notes
 **current_period_end** | **datetime** |  | 
 **subscription_plans** | [**Dict[str, SubscriptionPlan]**](SubscriptionPlan.md) |  | 
 **can_remove_branding** | **bool** |  | 
+**extra_workspaces_count** | **int** |  | [optional] 
+**extra_credits_count** | **int** |  | [optional] 
 
 ## Example
 

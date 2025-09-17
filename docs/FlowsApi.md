@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**create_flow_category**](FlowsApi.md#create_flow_category) | **POST** /v2/flows/categories/create | Create Flow Category
 [**create_flow_cron**](FlowsApi.md#create_flow_cron) | **POST** /v2/flows/crons/create | Create Flow Cron
 [**create_flow_session**](FlowsApi.md#create_flow_session) | **POST** /v2/flows/sessions/from_flow/create | Create Flow Session
+[**create_message_feedback**](FlowsApi.md#create_message_feedback) | **POST** /v2/flows/sessions/{session_id}/feedback | Create Message Feedback
 [**delete_attachment**](FlowsApi.md#delete_attachment) | **DELETE** /v2/flows/sessions/{session_id}/attachments/{file_id} | Delete Attachment
 [**delete_flow**](FlowsApi.md#delete_flow) | **DELETE** /v2/flows/{flow_id} | Delete Flow
 [**delete_flow_category**](FlowsApi.md#delete_flow_category) | **DELETE** /v2/flows/categories/{cat_id} | Delete Flow Category
@@ -452,6 +453,76 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **create_message_feedback**
+> FlowMessageFeedbackResponse create_message_feedback(session_id, flow_message_feedback_request)
+
+Create Message Feedback
+
+### Example
+
+
+```python
+import flowhunt
+from flowhunt.models.flow_message_feedback_request import FlowMessageFeedbackRequest
+from flowhunt.models.flow_message_feedback_response import FlowMessageFeedbackResponse
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.flowhunt.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "https://api.flowhunt.io"
+)
+
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.FlowsApi(api_client)
+    session_id = 'session_id_example' # str | 
+    flow_message_feedback_request = flowhunt.FlowMessageFeedbackRequest() # FlowMessageFeedbackRequest | 
+
+    try:
+        # Create Message Feedback
+        api_response = api_instance.create_message_feedback(session_id, flow_message_feedback_request)
+        print("The response of FlowsApi->create_message_feedback:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling FlowsApi->create_message_feedback: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **session_id** | **str**|  | 
+ **flow_message_feedback_request** | [**FlowMessageFeedbackRequest**](FlowMessageFeedbackRequest.md)|  | 
+
+### Return type
+
+[**FlowMessageFeedbackResponse**](FlowMessageFeedbackResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
 **422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

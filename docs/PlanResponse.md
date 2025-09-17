@@ -6,6 +6,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **plans** | **Dict[str, List[PlanListItemResponse]]** |  | 
+**billing_provider** | [**BillingProvider**](BillingProvider.md) |  | [optional] 
+**shopify_manage_url** | **str** |  | [optional] 
 
 ## Example
 

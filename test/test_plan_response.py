@@ -58,7 +58,9 @@ class TestPlanResponse(unittest.TestCase):
                             addon = True, 
                             addon_type = '', )
                         ]
-                    }
+                    },
+                billing_provider = 'S',
+                shopify_manage_url = ''
             )
         else:
             return PlanResponse(

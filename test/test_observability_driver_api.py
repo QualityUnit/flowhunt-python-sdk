@@ -33,6 +33,20 @@ class TestObservabilityDriverApi(unittest.TestCase):
         """
         pass
 
+    def test_activate_power_bi_observability_driver(self) -> None:
+        """Test case for activate_power_bi_observability_driver
+
+        Activate Power Bi Observability Driver
+        """
+        pass
+
+    def test_create_power_bi_push_dataset(self) -> None:
+        """Test case for create_power_bi_push_dataset
+
+        Create Power Bi Push Dataset
+        """
+        pass
+
     def test_delete_observability_driver(self) -> None:
         """Test case for delete_observability_driver
 
@@ -54,10 +68,45 @@ class TestObservabilityDriverApi(unittest.TestCase):
         """
         pass
 
+    def test_list_power_bi_datasets(self) -> None:
+        """Test case for list_power_bi_datasets
+
+        List Power Bi Datasets
+        """
+        pass
+
+    def test_list_power_bi_tables(self) -> None:
+        """Test case for list_power_bi_tables
+
+        List Power Bi Tables
+        """
+        pass
+
+    def test_list_power_bi_workspaces(self) -> None:
+        """Test case for list_power_bi_workspaces
+
+        List Power Bi Workspaces
+        """
+        pass
+
     def test_update_langfuse_observability_driver(self) -> None:
         """Test case for update_langfuse_observability_driver
 
         Update Langfuse Observability Driver
+        """
+        pass
+
+    def test_update_power_bi_observability_driver(self) -> None:
+        """Test case for update_power_bi_observability_driver
+
+        Update Power Bi Observability Driver
+        """
+        pass
+
+    def test_validate_push_dataset_table(self) -> None:
+        """Test case for validate_push_dataset_table
+
+        Validate Push Dataset Table
         """
         pass
 

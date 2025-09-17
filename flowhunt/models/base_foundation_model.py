@@ -40,6 +40,9 @@ class BaseFoundationModel(str, Enum):
     IDEOGRAM_MINUS_V3_MINUS_QUALITY = 'ideogram-v3-quality'
     IDEOGRAM_MINUS_V3_MINUS_TURBO = 'ideogram-v3-turbo'
     IDEOGRAM_MINUS_V3_MINUS_BALANCED = 'ideogram-v3-balanced'
+    GPT_MINUS_IMAGE_MINUS_1 = 'gpt-image-1'
+    NANO_MINUS_BANANA = 'nano-banana'
+    GEMINI_MINUS_2_DOT_5_MINUS_FLASH = 'gemini-2.5-flash'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

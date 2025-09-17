@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **with_screenshot** | [**BoolChar**](BoolChar.md) |  | 
 **with_browser** | [**BoolChar**](BoolChar.md) |  | 
 **follow_links** | [**BoolChar**](BoolChar.md) |  | 
-**with_proxy_rotation** | [**BoolChar**](BoolChar.md) |  | 
+**with_proxy_rotation** | **str** |  | [optional] 
 **disallow_urls** | **str** |  | [optional] 
 **filter_urls** | **str** |  | [optional] 
 **custom_headers** | **str** |  | [optional] 

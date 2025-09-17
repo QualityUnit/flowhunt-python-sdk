@@ -33,6 +33,13 @@ class TestBillingApi(unittest.TestCase):
         """
         pass
 
+    def test_confirm_shopify_subscription(self) -> None:
+        """Test case for confirm_shopify_subscription
+
+        Confirm Shopify Subscription
+        """
+        pass
+
     def test_create_change_plan_portal(self) -> None:
         """Test case for create_change_plan_portal
 

@@ -13,6 +13,8 @@
 
 * `FAILED` (value: `'failed'`)
 
+* `MESSAGE_FEEDBACK` (value: `'message_feedback'`)
+
 * `ADD_COMPONENT` (value: `'add_component'`)
 
 * `DELETE_COMPONENT` (value: `'delete_component'`)

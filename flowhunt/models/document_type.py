@@ -28,6 +28,8 @@ class DocumentType(str, Enum):
     """
     PDF = 'PDF'
     DOCX = 'DOCX'
+    XLSX = 'XLSX'
+    PPTX = 'PPTX'
     MD = 'MD'
     TXT = 'TXT'
     HTML = 'HTML'
@@ -52,6 +54,7 @@ class DocumentType(str, Enum):
     JSON = 'JSON'
     GOOGLE_DOCS = 'GOOGLE_DOCS'
     GOOGLE_SHEETS = 'GOOGLE_SHEETS'
+    RSS_XML = 'RSS_XML'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

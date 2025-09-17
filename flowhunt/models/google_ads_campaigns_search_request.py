@@ -17,10 +17,11 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from flowhunt.models.google_ads_action_type import GoogleAdsActionType
 from flowhunt.models.google_ads_campaign_status import GoogleAdsCampaignStatus
+from flowhunt.models.pagination import Pagination
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -35,7 +36,9 @@ class GoogleAdsCampaignsSearchRequest(BaseModel):
     language_code: Optional[StrictStr] = None
     country: Optional[StrictStr] = None
     action_type: Optional[GoogleAdsActionType] = None
-    __properties: ClassVar[List[str]] = ["customer_id", "campaign_id", "campaign_name", "campaign_status", "language_code", "country", "action_type"]
+    limit: Optional[StrictInt] = Field(default=50, description="Limit of the search")
+    pagination: Optional[Pagination] = None
+    __properties: ClassVar[List[str]] = ["customer_id", "campaign_id", "campaign_name", "campaign_status", "language_code", "country", "action_type", "limit", "pagination"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -76,6 +79,9 @@ class GoogleAdsCampaignsSearchRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of pagination
+        if self.pagination:
+            _dict['pagination'] = self.pagination.to_dict()
         # set to None if customer_id (nullable) is None
         # and model_fields_set contains the field
         if self.customer_id is None and "customer_id" in self.model_fields_set:
@@ -111,6 +117,11 @@ class GoogleAdsCampaignsSearchRequest(BaseModel):
         if self.action_type is None and "action_type" in self.model_fields_set:
             _dict['action_type'] = None
 
+        # set to None if pagination (nullable) is None
+        # and model_fields_set contains the field
+        if self.pagination is None and "pagination" in self.model_fields_set:
+            _dict['pagination'] = None
+
         return _dict
 
     @classmethod
@@ -129,7 +140,9 @@ class GoogleAdsCampaignsSearchRequest(BaseModel):
             "campaign_status": obj.get("campaign_status"),
             "language_code": obj.get("language_code"),
             "country": obj.get("country"),
-            "action_type": obj.get("action_type")
+            "action_type": obj.get("action_type"),
+            "limit": obj.get("limit") if obj.get("limit") is not None else 50,
+            "pagination": Pagination.from_dict(obj["pagination"]) if obj.get("pagination") is not None else None
         })
         return _obj
 

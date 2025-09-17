@@ -17,8 +17,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, ConfigDict, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
+from flowhunt.models.billing_provider import BillingProvider
 from flowhunt.models.plan_list_item_response import PlanListItemResponse
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,7 +29,9 @@ class PlanResponse(BaseModel):
     PlanResponse
     """ # noqa: E501
     plans: Dict[str, List[PlanListItemResponse]]
-    __properties: ClassVar[List[str]] = ["plans"]
+    billing_provider: Optional[BillingProvider] = None
+    shopify_manage_url: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["plans", "billing_provider", "shopify_manage_url"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -78,6 +81,16 @@ class PlanResponse(BaseModel):
                         _item.to_dict() for _item in self.plans[_key_plans]
                     ]
             _dict['plans'] = _field_dict_of_array
+        # set to None if billing_provider (nullable) is None
+        # and model_fields_set contains the field
+        if self.billing_provider is None and "billing_provider" in self.model_fields_set:
+            _dict['billing_provider'] = None
+
+        # set to None if shopify_manage_url (nullable) is None
+        # and model_fields_set contains the field
+        if self.shopify_manage_url is None and "shopify_manage_url" in self.model_fields_set:
+            _dict['shopify_manage_url'] = None
+
         return _dict
 
     @classmethod
@@ -97,7 +110,9 @@ class PlanResponse(BaseModel):
                         else None
                 )
                 for _k, _v in obj.get("plans", {}).items()
-            )
+            ),
+            "billing_provider": obj.get("billing_provider"),
+            "shopify_manage_url": obj.get("shopify_manage_url")
         })
         return _obj
 

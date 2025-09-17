@@ -43,7 +43,8 @@ class TestUserResponse(unittest.TestCase):
                 api_key_workspace_id = '',
                 product_plans = {
                     'key' : 'S'
-                    }
+                    },
+                billing_provider = 'S'
             )
         else:
             return UserResponse(

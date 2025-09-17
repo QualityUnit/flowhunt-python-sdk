@@ -7,6 +7,10 @@
 
 * `DOCX` (value: `'DOCX'`)
 
+* `XLSX` (value: `'XLSX'`)
+
+* `PPTX` (value: `'PPTX'`)
+
 * `MD` (value: `'MD'`)
 
 * `TXT` (value: `'TXT'`)
@@ -54,6 +58,8 @@
 * `GOOGLE_DOCS` (value: `'GOOGLE_DOCS'`)
 
 * `GOOGLE_SHEETS` (value: `'GOOGLE_SHEETS'`)
+
+* `RSS_XML` (value: `'RSS_XML'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
