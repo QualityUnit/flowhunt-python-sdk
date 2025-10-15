@@ -18,6 +18,8 @@ Name | Type | Description | Notes
 **flow_name** | **str** |  | [optional] 
 **ipaddress_filter** | **Dict[str, object]** |  | [optional] 
 **pagination** | [**Pagination**](Pagination.md) |  | [optional] 
+**positive_feedback** | **int** |  | [optional] 
+**negative_feedback** | **int** |  | [optional] 
 
 ## Example
 

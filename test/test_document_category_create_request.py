@@ -36,7 +36,8 @@ class TestDocumentCategoryCreateRequest(unittest.TestCase):
         if include_optional:
             return DocumentCategoryCreateRequest(
                 cat_name = 'Category1',
-                cat_color = '#FF0000'
+                cat_color = '#FF0000',
+                cat_type = 'M'
             )
         else:
             return DocumentCategoryCreateRequest(

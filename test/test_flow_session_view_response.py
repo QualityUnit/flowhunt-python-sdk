@@ -50,7 +50,9 @@ class TestFlowSessionViewResponse(unittest.TestCase):
                     ],
                 duration = 56,
                 ipaddress = '',
-                url = ''
+                url = '',
+                positive_feedback_count = 56,
+                negative_feedback_count = 56
             )
         else:
             return FlowSessionViewResponse(

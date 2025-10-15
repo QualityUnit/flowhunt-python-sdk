@@ -37,7 +37,8 @@ class TestDocumentCategorySearchRequest(unittest.TestCase):
             return DocumentCategorySearchRequest(
                 cat_id = '',
                 cat_name = '',
-                limit = 56
+                limit = 56,
+                cat_type = 'M'
             )
         else:
             return DocumentCategorySearchRequest(

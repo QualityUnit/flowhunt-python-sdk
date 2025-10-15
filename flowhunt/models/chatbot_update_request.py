@@ -53,7 +53,9 @@ class ChatbotUpdateRequest(BaseModel):
     session_message_history: Optional[StrictBool] = None
     chatbot_bubble_size: Optional[StrictInt] = None
     message_header_logo_url: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["title", "description", "flow_id", "status", "url_suffix", "theme", "max_window_size", "msg_rpm", "msg_ip_rpm", "chatbot_description", "show_chatbot_header", "chat_bubble_bg_color", "chat_bubble_icon_color", "chat_bubble_img_url", "chatbot_theme", "chatbot_position", "message_placeholder", "chatbot_header_text", "chatbot_header_logo_url", "assistant_avatar_image_url", "remove_branding", "chatbot_style", "session_message_history", "chatbot_bubble_size", "message_header_logo_url"]
+    popup_messages: Optional[List[StrictStr]] = None
+    popup_messages_delay: Optional[StrictInt] = None
+    __properties: ClassVar[List[str]] = ["title", "description", "flow_id", "status", "url_suffix", "theme", "max_window_size", "msg_rpm", "msg_ip_rpm", "chatbot_description", "show_chatbot_header", "chat_bubble_bg_color", "chat_bubble_icon_color", "chat_bubble_img_url", "chatbot_theme", "chatbot_position", "message_placeholder", "chatbot_header_text", "chatbot_header_logo_url", "assistant_avatar_image_url", "remove_branding", "chatbot_style", "session_message_history", "chatbot_bubble_size", "message_header_logo_url", "popup_messages", "popup_messages_delay"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -219,6 +221,16 @@ class ChatbotUpdateRequest(BaseModel):
         if self.message_header_logo_url is None and "message_header_logo_url" in self.model_fields_set:
             _dict['message_header_logo_url'] = None
 
+        # set to None if popup_messages (nullable) is None
+        # and model_fields_set contains the field
+        if self.popup_messages is None and "popup_messages" in self.model_fields_set:
+            _dict['popup_messages'] = None
+
+        # set to None if popup_messages_delay (nullable) is None
+        # and model_fields_set contains the field
+        if self.popup_messages_delay is None and "popup_messages_delay" in self.model_fields_set:
+            _dict['popup_messages_delay'] = None
+
         return _dict
 
     @classmethod
@@ -255,7 +267,9 @@ class ChatbotUpdateRequest(BaseModel):
             "chatbot_style": obj.get("chatbot_style"),
             "session_message_history": obj.get("session_message_history"),
             "chatbot_bubble_size": obj.get("chatbot_bubble_size"),
-            "message_header_logo_url": obj.get("message_header_logo_url")
+            "message_header_logo_url": obj.get("message_header_logo_url"),
+            "popup_messages": obj.get("popup_messages"),
+            "popup_messages_delay": obj.get("popup_messages_delay")
         })
         return _obj
 

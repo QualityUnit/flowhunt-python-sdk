@@ -40,6 +40,13 @@ class TestShopifyApi(unittest.TestCase):
         """
         pass
 
+    def test_get_shopify(self) -> None:
+        """Test case for get_shopify
+
+        Get Shopify
+        """
+        pass
+
     def test_shop_redact(self) -> None:
         """Test case for shop_redact
 

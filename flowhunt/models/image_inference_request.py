@@ -40,7 +40,10 @@ class ImageInferenceRequest(BaseModel):
     effects: Optional[List[StrictStr]] = None
     use_ai_agent: Optional[StrictBool] = None
     reference_images: Optional[List[StrictStr]] = None
-    __properties: ClassVar[List[str]] = ["base_model", "prompt", "image_fts", "number_of_outputs", "aspect_ratio", "steps", "guidance_scale", "styles", "effects", "use_ai_agent", "reference_images"]
+    reference_videos: Optional[List[StrictStr]] = None
+    duration: Optional[StrictInt] = None
+    resolution: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["base_model", "prompt", "image_fts", "number_of_outputs", "aspect_ratio", "steps", "guidance_scale", "styles", "effects", "use_ai_agent", "reference_images", "reference_videos", "duration", "resolution"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -111,6 +114,21 @@ class ImageInferenceRequest(BaseModel):
         if self.reference_images is None and "reference_images" in self.model_fields_set:
             _dict['reference_images'] = None
 
+        # set to None if reference_videos (nullable) is None
+        # and model_fields_set contains the field
+        if self.reference_videos is None and "reference_videos" in self.model_fields_set:
+            _dict['reference_videos'] = None
+
+        # set to None if duration (nullable) is None
+        # and model_fields_set contains the field
+        if self.duration is None and "duration" in self.model_fields_set:
+            _dict['duration'] = None
+
+        # set to None if resolution (nullable) is None
+        # and model_fields_set contains the field
+        if self.resolution is None and "resolution" in self.model_fields_set:
+            _dict['resolution'] = None
+
         return _dict
 
     @classmethod
@@ -133,7 +151,10 @@ class ImageInferenceRequest(BaseModel):
             "styles": obj.get("styles"),
             "effects": obj.get("effects"),
             "use_ai_agent": obj.get("use_ai_agent"),
-            "reference_images": obj.get("reference_images")
+            "reference_images": obj.get("reference_images"),
+            "reference_videos": obj.get("reference_videos"),
+            "duration": obj.get("duration"),
+            "resolution": obj.get("resolution")
         })
         return _obj
 

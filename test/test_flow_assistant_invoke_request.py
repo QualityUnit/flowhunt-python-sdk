@@ -36,7 +36,7 @@ class TestFlowAssistantInvokeRequest(unittest.TestCase):
         if include_optional:
             return FlowAssistantInvokeRequest(
                 message = '',
-                ai_model = 'Claude 3.5 Sonnet'
+                ai_model = 'Claude 3.7 Sonnet'
             )
         else:
             return FlowAssistantInvokeRequest(

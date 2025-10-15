@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**customer_data_request**](ShopifyApi.md#customer_data_request) | **POST** /v2/integrations/shopify/webhooks/customers/data_request | Customer Data Request
 [**customer_redact**](ShopifyApi.md#customer_redact) | **POST** /v2/integrations/shopify/webhooks/customers/redact | Customer Redact
+[**get_shopify**](ShopifyApi.md#get_shopify) | **GET** /v2/integrations/shopify/ | Get Shopify
 [**shop_redact**](ShopifyApi.md#shop_redact) | **POST** /v2/integrations/shopify/webhooks/shop/redact | Shop Redact
 [**subscription_cancel**](ShopifyApi.md#subscription_cancel) | **POST** /v2/integrations/shopify/webhooks/billing/subscription_cancel | Subscription Cancel
 [**subscription_update**](ShopifyApi.md#subscription_update) | **POST** /v2/integrations/shopify/webhooks/billing/subscription_update | Subscription Update
@@ -176,6 +177,83 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_shopify**
+> ShopifyIntegrationResponse get_shopify(workspace_id)
+
+Get Shopify
+
+### Example
+
+* Bearer Authentication (HTTPBearer):
+
+```python
+import flowhunt
+from flowhunt.models.shopify_integration_response import ShopifyIntegrationResponse
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.flowhunt.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "https://api.flowhunt.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization: HTTPBearer
+configuration = flowhunt.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.ShopifyApi(api_client)
+    workspace_id = 'workspace_id_example' # str | 
+
+    try:
+        # Get Shopify
+        api_response = api_instance.get_shopify(workspace_id)
+        print("The response of ShopifyApi->get_shopify:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ShopifyApi->get_shopify: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **workspace_id** | **str**|  | 
+
+### Return type
+
+[**ShopifyIntegrationResponse**](ShopifyIntegrationResponse.md)
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 ### HTTP response details

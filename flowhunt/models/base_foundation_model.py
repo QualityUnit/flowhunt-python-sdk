@@ -43,6 +43,13 @@ class BaseFoundationModel(str, Enum):
     GPT_MINUS_IMAGE_MINUS_1 = 'gpt-image-1'
     NANO_MINUS_BANANA = 'nano-banana'
     GEMINI_MINUS_2_DOT_5_MINUS_FLASH = 'gemini-2.5-flash'
+    QWEN_MINUS_IMAGE_MINUS_EDIT_MINUS_PLUS = 'qwen-image-edit-plus'
+    QWEN_MINUS_IMAGE = 'qwen-image'
+    WAN_MINUS_2_DOT_2_MINUS_ANIMATE_MINUS_REPLACE = 'wan-2.2-animate-replace'
+    WAN_MINUS_2_DOT_5_MINUS_T2V_MINUS_FAST = 'wan-2.5-t2v-fast'
+    WAN_MINUS_2_DOT_2_MINUS_ANIMATE_MINUS_ANIMATION = 'wan-2.2-animate-animation'
+    WAN_MINUS_2_DOT_5_MINUS_I2V_MINUS_FAST = 'wan-2.5-i2v-fast'
+    WAN_MINUS_2_DOT_5_MINUS_I2V = 'wan-2.5-i2v'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

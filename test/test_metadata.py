@@ -37,6 +37,9 @@ class TestMetadata(unittest.TestCase):
             return Metadata(
                 message_id = '',
                 message = '',
+                sender = flowhunt.models.human_agent_sender.HumanAgentSender(
+                    sender_name = '', 
+                    sender_avatar = '', ),
                 tool_name = '',
                 loading_desc = '',
                 icon = '',

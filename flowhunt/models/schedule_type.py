@@ -30,6 +30,7 @@ class ScheduleType(str, Enum):
     D = 'D'
     S = 'S'
     Y = 'Y'
+    L = 'L'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

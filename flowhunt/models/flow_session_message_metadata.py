@@ -18,7 +18,8 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
+from flowhunt.models.human_agent_sender import HumanAgentSender
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +29,8 @@ class FlowSessionMessageMetadata(BaseModel):
     """ # noqa: E501
     message_id: StrictStr = Field(description="Message ID")
     message: StrictStr = Field(description="Message")
-    __properties: ClassVar[List[str]] = ["message_id", "message"]
+    sender: Optional[HumanAgentSender] = None
+    __properties: ClassVar[List[str]] = ["message_id", "message", "sender"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -69,6 +71,14 @@ class FlowSessionMessageMetadata(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of sender
+        if self.sender:
+            _dict['sender'] = self.sender.to_dict()
+        # set to None if sender (nullable) is None
+        # and model_fields_set contains the field
+        if self.sender is None and "sender" in self.model_fields_set:
+            _dict['sender'] = None
+
         return _dict
 
     @classmethod
@@ -82,7 +92,8 @@ class FlowSessionMessageMetadata(BaseModel):
 
         _obj = cls.model_validate({
             "message_id": obj.get("message_id"),
-            "message": obj.get("message")
+            "message": obj.get("message"),
+            "sender": HumanAgentSender.from_dict(obj["sender"]) if obj.get("sender") is not None else None
         })
         return _obj
 

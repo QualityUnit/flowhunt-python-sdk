@@ -69,6 +69,10 @@
 
 * `AC_HS` (value: `'AC_HS'`)
 
+* `LAHA_HS` (value: `'LAHA_HS'`)
+
+* `LT_HS` (value: `'LT_HS'`)
+
 * `GC_HS` (value: `'GC_HS'`)
 
 * `UC_HS` (value: `'UC_HS'`)

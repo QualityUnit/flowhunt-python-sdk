@@ -50,7 +50,8 @@ class ScheduleResponse(BaseModel):
     disallow_urls: Optional[StrictStr] = None
     filter_urls: Optional[StrictStr] = None
     custom_headers: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["workspace_id", "schedule_id", "url", "frequency", "schedule_type", "start_time", "end_time", "status", "status_message", "cnt_scheduled", "cnt_completed", "cnt_failed", "with_screenshot", "with_browser", "follow_links", "with_proxy_rotation", "disallow_urls", "filter_urls", "custom_headers"]
+    urls_extra_config: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["workspace_id", "schedule_id", "url", "frequency", "schedule_type", "start_time", "end_time", "status", "status_message", "cnt_scheduled", "cnt_completed", "cnt_failed", "with_screenshot", "with_browser", "follow_links", "with_proxy_rotation", "disallow_urls", "filter_urls", "custom_headers", "urls_extra_config"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -156,6 +157,11 @@ class ScheduleResponse(BaseModel):
         if self.custom_headers is None and "custom_headers" in self.model_fields_set:
             _dict['custom_headers'] = None
 
+        # set to None if urls_extra_config (nullable) is None
+        # and model_fields_set contains the field
+        if self.urls_extra_config is None and "urls_extra_config" in self.model_fields_set:
+            _dict['urls_extra_config'] = None
+
         return _dict
 
     @classmethod
@@ -186,7 +192,8 @@ class ScheduleResponse(BaseModel):
             "with_proxy_rotation": obj.get("with_proxy_rotation"),
             "disallow_urls": obj.get("disallow_urls"),
             "filter_urls": obj.get("filter_urls"),
-            "custom_headers": obj.get("custom_headers")
+            "custom_headers": obj.get("custom_headers"),
+            "urls_extra_config": obj.get("urls_extra_config")
         })
         return _obj
 

@@ -23,6 +23,7 @@ from flowhunt.api.logs_api import LogsApi
 from flowhunt.api.mcp_servers_api import MCPServersApi
 from flowhunt.api.me_api import MeApi
 from flowhunt.api.media_api import MediaApi
+from flowhunt.api.memory_api import MemoryApi
 from flowhunt.api.microsoft_outlook_api import MicrosoftOutlookApi
 from flowhunt.api.o_auth_api import OAuthApi
 from flowhunt.api.observability_driver_api import ObservabilityDriverApi

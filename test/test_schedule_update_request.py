@@ -43,7 +43,8 @@ class TestScheduleUpdateRequest(unittest.TestCase):
                 with_proxy_rotation = '',
                 disallow_urls = '',
                 filter_urls = '',
-                custom_headers = ''
+                custom_headers = '',
+                urls_extra_config = ''
             )
         else:
             return ScheduleUpdateRequest(

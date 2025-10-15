@@ -41,7 +41,9 @@ class FlowSessionViewResponse(BaseModel):
     duration: Optional[StrictInt] = None
     ipaddress: Optional[StrictStr] = None
     url: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["session_id", "chatbot_id", "flow_id", "workspace_id", "created_at", "last_msg_at", "msg_count", "credits", "chatbot_name", "flow_name", "tags", "duration", "ipaddress", "url"]
+    positive_feedback_count: Optional[StrictInt] = None
+    negative_feedback_count: Optional[StrictInt] = None
+    __properties: ClassVar[List[str]] = ["session_id", "chatbot_id", "flow_id", "workspace_id", "created_at", "last_msg_at", "msg_count", "credits", "chatbot_name", "flow_name", "tags", "duration", "ipaddress", "url", "positive_feedback_count", "negative_feedback_count"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -132,6 +134,16 @@ class FlowSessionViewResponse(BaseModel):
         if self.url is None and "url" in self.model_fields_set:
             _dict['url'] = None
 
+        # set to None if positive_feedback_count (nullable) is None
+        # and model_fields_set contains the field
+        if self.positive_feedback_count is None and "positive_feedback_count" in self.model_fields_set:
+            _dict['positive_feedback_count'] = None
+
+        # set to None if negative_feedback_count (nullable) is None
+        # and model_fields_set contains the field
+        if self.negative_feedback_count is None and "negative_feedback_count" in self.model_fields_set:
+            _dict['negative_feedback_count'] = None
+
         return _dict
 
     @classmethod
@@ -157,7 +169,9 @@ class FlowSessionViewResponse(BaseModel):
             "tags": obj.get("tags"),
             "duration": obj.get("duration"),
             "ipaddress": obj.get("ipaddress"),
-            "url": obj.get("url")
+            "url": obj.get("url"),
+            "positive_feedback_count": obj.get("positive_feedback_count"),
+            "negative_feedback_count": obj.get("negative_feedback_count")
         })
         return _obj
 

@@ -40,7 +40,9 @@ class FlowSessionViewSearchRequest(BaseModel):
     flow_name: Optional[StrictStr] = None
     ipaddress_filter: Optional[Dict[str, Any]] = None
     pagination: Optional[Pagination] = None
-    __properties: ClassVar[List[str]] = ["chatbot_id", "flow_id", "tags", "limit", "created_at_filter", "last_message_at_filter", "duration_filter", "msg_count_filter", "credits_filter", "chatbot_name", "flow_name", "ipaddress_filter", "pagination"]
+    positive_feedback: Optional[StrictInt] = None
+    negative_feedback: Optional[StrictInt] = None
+    __properties: ClassVar[List[str]] = ["chatbot_id", "flow_id", "tags", "limit", "created_at_filter", "last_message_at_filter", "duration_filter", "msg_count_filter", "credits_filter", "chatbot_name", "flow_name", "ipaddress_filter", "pagination", "positive_feedback", "negative_feedback"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -149,6 +151,16 @@ class FlowSessionViewSearchRequest(BaseModel):
         if self.pagination is None and "pagination" in self.model_fields_set:
             _dict['pagination'] = None
 
+        # set to None if positive_feedback (nullable) is None
+        # and model_fields_set contains the field
+        if self.positive_feedback is None and "positive_feedback" in self.model_fields_set:
+            _dict['positive_feedback'] = None
+
+        # set to None if negative_feedback (nullable) is None
+        # and model_fields_set contains the field
+        if self.negative_feedback is None and "negative_feedback" in self.model_fields_set:
+            _dict['negative_feedback'] = None
+
         return _dict
 
     @classmethod
@@ -173,7 +185,9 @@ class FlowSessionViewSearchRequest(BaseModel):
             "chatbot_name": obj.get("chatbot_name"),
             "flow_name": obj.get("flow_name"),
             "ipaddress_filter": obj.get("ipaddress_filter"),
-            "pagination": Pagination.from_dict(obj["pagination"]) if obj.get("pagination") is not None else None
+            "pagination": Pagination.from_dict(obj["pagination"]) if obj.get("pagination") is not None else None,
+            "positive_feedback": obj.get("positive_feedback"),
+            "negative_feedback": obj.get("negative_feedback")
         })
         return _obj
 

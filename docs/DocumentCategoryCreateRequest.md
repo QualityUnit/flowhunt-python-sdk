@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **cat_name** | **str** | Category name | 
 **cat_color** | **str** | Category color | 
+**cat_type** | [**CategoryType**](CategoryType.md) |  | [optional] 
 
 ## Example
 

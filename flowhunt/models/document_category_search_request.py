@@ -19,6 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from flowhunt.models.category_type import CategoryType
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,7 +30,8 @@ class DocumentCategorySearchRequest(BaseModel):
     cat_id: Optional[StrictStr] = None
     cat_name: Optional[StrictStr] = None
     limit: Optional[StrictInt] = None
-    __properties: ClassVar[List[str]] = ["cat_id", "cat_name", "limit"]
+    cat_type: Optional[CategoryType] = None
+    __properties: ClassVar[List[str]] = ["cat_id", "cat_name", "limit", "cat_type"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -85,6 +87,11 @@ class DocumentCategorySearchRequest(BaseModel):
         if self.limit is None and "limit" in self.model_fields_set:
             _dict['limit'] = None
 
+        # set to None if cat_type (nullable) is None
+        # and model_fields_set contains the field
+        if self.cat_type is None and "cat_type" in self.model_fields_set:
+            _dict['cat_type'] = None
+
         return _dict
 
     @classmethod
@@ -99,7 +106,8 @@ class DocumentCategorySearchRequest(BaseModel):
         _obj = cls.model_validate({
             "cat_id": obj.get("cat_id"),
             "cat_name": obj.get("cat_name"),
-            "limit": obj.get("limit")
+            "limit": obj.get("limit"),
+            "cat_type": obj.get("cat_type")
         })
         return _obj
 

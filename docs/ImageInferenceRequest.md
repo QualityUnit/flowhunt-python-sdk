@@ -16,6 +16,9 @@ Name | Type | Description | Notes
 **effects** | **List[str]** |  | [optional] 
 **use_ai_agent** | **bool** |  | [optional] 
 **reference_images** | **List[str]** |  | [optional] 
+**reference_videos** | **List[str]** |  | [optional] 
+**duration** | **int** |  | [optional] 
+**resolution** | **str** |  | [optional] 
 
 ## Example
 

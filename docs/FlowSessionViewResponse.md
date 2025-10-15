@@ -19,6 +19,8 @@ Name | Type | Description | Notes
 **duration** | **int** |  | [optional] 
 **ipaddress** | **str** |  | [optional] 
 **url** | **str** |  | [optional] 
+**positive_feedback_count** | **int** |  | [optional] 
+**negative_feedback_count** | **int** |  | [optional] 
 
 ## Example
 

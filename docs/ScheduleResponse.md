@@ -24,6 +24,7 @@ Name | Type | Description | Notes
 **disallow_urls** | **str** |  | [optional] 
 **filter_urls** | **str** |  | [optional] 
 **custom_headers** | **str** |  | [optional] 
+**urls_extra_config** | **str** |  | [optional] 
 
 ## Example
 

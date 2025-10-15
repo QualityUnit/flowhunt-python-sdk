@@ -53,6 +53,16 @@
 
 * `LINKEDIN_INTEGRATION` (value: `'linkedin_integration'`)
 
+* `MAGENTO2_INTEGRATION` (value: `'magento2_integration'`)
+
+* `ALPACA_INTEGRATION` (value: `'alpaca_integration'`)
+
+* `POLYGON_INTEGRATION` (value: `'polygon_integration'`)
+
+* `POSTAFFILIATEPRO_INTEGRATION` (value: `'postaffiliatepro_integration'`)
+
+* `KLAVIYO_INTEGRATION` (value: `'klaviyo_integration'`)
+
 * `GOOGLE_CALENDAR_INTEGRATION` (value: `'google_calendar_integration'`)
 
 * `GOOGLE_ADS_INTEGRATION` (value: `'google_ads_integration'`)

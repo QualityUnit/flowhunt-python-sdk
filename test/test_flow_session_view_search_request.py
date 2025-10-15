@@ -63,7 +63,9 @@ class TestFlowSessionViewSearchRequest(unittest.TestCase):
                     },
                 pagination = flowhunt.models.pagination.Pagination(
                     sorting_key_value = '', 
-                    scroll_id = '', )
+                    scroll_id = '', ),
+                positive_feedback = 56,
+                negative_feedback = 56
             )
         else:
             return FlowSessionViewSearchRequest(

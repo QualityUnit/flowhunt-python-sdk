@@ -16,6 +16,7 @@ Method | HTTP request | Description
 [**get_picker_token**](IntegrationsApi.md#get_picker_token) | **GET** /v2/integrations/google/picker_token | Get Picker Token
 [**get_profile_information**](IntegrationsApi.md#get_profile_information) | **GET** /v2/integrations/instagram/profile_information | Get Profile Information
 [**get_sheets**](IntegrationsApi.md#get_sheets) | **GET** /v2/integrations/google/sheets/{document_id} | Get Sheets
+[**get_shopify**](IntegrationsApi.md#get_shopify) | **GET** /v2/integrations/shopify/ | Get Shopify
 [**get_slack_channels**](IntegrationsApi.md#get_slack_channels) | **GET** /v2/integrations/slack/{slack_team_id}/channels | Get Slack Channels
 [**get_slack_workspaces**](IntegrationsApi.md#get_slack_workspaces) | **GET** /v2/integrations/slack/ | Get Slack Workspaces
 [**get_wordpress_post_categories**](IntegrationsApi.md#get_wordpress_post_categories) | **GET** /v2/integrations/wordpress/{integration_id}/categories | Get Wordpress Post Categories
@@ -962,6 +963,83 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**GoogleSheetsResponse**](GoogleSheetsResponse.md)
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_shopify**
+> ShopifyIntegrationResponse get_shopify(workspace_id)
+
+Get Shopify
+
+### Example
+
+* Bearer Authentication (HTTPBearer):
+
+```python
+import flowhunt
+from flowhunt.models.shopify_integration_response import ShopifyIntegrationResponse
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.flowhunt.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "https://api.flowhunt.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization: HTTPBearer
+configuration = flowhunt.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.IntegrationsApi(api_client)
+    workspace_id = 'workspace_id_example' # str | 
+
+    try:
+        # Get Shopify
+        api_response = api_instance.get_shopify(workspace_id)
+        print("The response of IntegrationsApi->get_shopify:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling IntegrationsApi->get_shopify: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **workspace_id** | **str**|  | 
+
+### Return type
+
+[**ShopifyIntegrationResponse**](ShopifyIntegrationResponse.md)
 
 ### Authorization
 

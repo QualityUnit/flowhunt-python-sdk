@@ -59,7 +59,11 @@ class TestChatbotCreateRequest(unittest.TestCase):
                 chatbot_style = '',
                 session_message_history = True,
                 chatbot_bubble_size = 56,
-                message_header_logo_url = ''
+                message_header_logo_url = '',
+                popup_messages = [
+                    ''
+                    ],
+                popup_messages_delay = 56
             )
         else:
             return ChatbotCreateRequest(

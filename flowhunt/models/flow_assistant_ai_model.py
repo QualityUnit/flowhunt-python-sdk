@@ -26,7 +26,6 @@ class FlowAssistantAIModel(str, Enum):
     """
     allowed enum values
     """
-    CLAUDE_3_DOT_5_SONNET = 'Claude 3.5 Sonnet'
     CLAUDE_3_DOT_7_SONNET = 'Claude 3.7 Sonnet'
     GPT4_DOT_1 = 'GPT4.1'
     O4_MINI = 'O4 Mini'

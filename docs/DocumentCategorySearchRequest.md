@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **cat_id** | **str** |  | [optional] 
 **cat_name** | **str** |  | [optional] 
 **limit** | **int** |  | [optional] 
+**cat_type** | [**CategoryType**](CategoryType.md) |  | [optional] 
 
 ## Example
 

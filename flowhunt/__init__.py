@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "3.15.0"
+__version__ = "3.15.1"
 
 # Define package exports
 __all__ = [
@@ -40,6 +40,7 @@ __all__ = [
     "MCPServersApi",
     "MeApi",
     "MediaApi",
+    "MemoryApi",
     "MicrosoftOutlookApi",
     "OAuthApi",
     "ObservabilityDriverApi",
@@ -80,6 +81,9 @@ __all__ = [
     "BaseFoundationModel",
     "BillingProvider",
     "BoolChar",
+    "CategoryType",
+    "ChartSessionDurationResponse",
+    "ChartsFeedbackRequest",
     "ChatbotCreateRequest",
     "ChatbotResponse",
     "ChatbotSearchRequest",
@@ -96,6 +100,7 @@ __all__ = [
     "CustomerDataRequestPayload",
     "CustomerRedactPayload",
     "Data",
+    "DeleteNodeRequest",
     "DocumentCategoryCreateRequest",
     "DocumentCategoryResponse",
     "DocumentCategorySearchRequest",
@@ -113,13 +118,16 @@ __all__ = [
     "DriverType",
     "FTStatus",
     "FTType",
+    "FailedFaqItem",
     "FaqCreateRequest",
+    "FaqImportResponse",
     "FaqResponse",
     "FaqSearchRequest",
     "FaqStatus",
     "FaqType",
     "FaqUpdateRequest",
     "FeatureResponse",
+    "FeedbackChartResponse",
     "FileUploadResponse",
     "FlowAssistantAIModel",
     "FlowAssistantAddComponentMetadata",
@@ -172,6 +180,7 @@ __all__ = [
     "FlowVersionHistoryResponse",
     "GeneralMCPSubserverCapabilitiesResponse",
     "GeneralMCPSubserverResponse",
+    "GetNodeRequest",
     "GoogleAdsActionType",
     "GoogleAdsAnalyzeKeywordsRequest",
     "GoogleAdsCampaignResponse",
@@ -206,6 +215,7 @@ __all__ = [
     "Health",
     "HubSpotActorIdResponse",
     "HubSpotActorsResponse",
+    "HumanAgentSender",
     "ImageConvertRequest",
     "ImageFTCreateRequest",
     "ImageFTResponse",
@@ -238,6 +248,15 @@ __all__ = [
     "MCPServerResponse",
     "MCPServerSearchRequest",
     "MCPSubServerBinding",
+    "MemoryDocumentProcessRequest",
+    "MemoryDocumentUploadResponse",
+    "MemoryMessageResponse",
+    "MemoryNodeDetailResponse",
+    "MemoryNodeNameSearchRequest",
+    "MemoryNodePathSearchRequest",
+    "MemoryNodeResponse",
+    "MemorySearchRequest",
+    "MemorySearchResponse",
     "MessageFeedback",
     "MessageType",
     "Metadata",
@@ -249,8 +268,13 @@ __all__ = [
     "MicrosoftPowerBiTablesResponse",
     "MicrosoftPowerBiWorkspaceResponse",
     "MicrosoftPowerBiWorkspacesResponse",
+    "NodeDetailRequest",
+    "NodeType",
+    "NodeUpdateRequest",
     "ObservabilityDriverResponse",
     "Pagination",
+    "PerDayFeedback",
+    "PerDaySessionDurationResponse",
     "PhotoAIEffectResponse",
     "PhotoAIStyleResponse",
     "PhotoAITemplateResponse",
@@ -292,6 +316,7 @@ __all__ = [
     "ScheduleUrlSearchRequest",
     "ScreenshotRequest",
     "ScreenshotResponse",
+    "SearchType",
     "SecretCreateRequest",
     "SecretResponse",
     "SecretSearchRequest",
@@ -314,10 +339,12 @@ __all__ = [
     "SerpSubclusterKeywordsResponse",
     "SerpVolumeRequest",
     "ShopRedactPayload",
+    "ShopifyIntegrationResponse",
     "ShopifySubscriptionConfirmResponse",
     "SlackChannelResponse",
     "SlackWorkspaceResponse",
     "SortDirection",
+    "Source",
     "SubscriptionPlan",
     "SystemMessageMetadata",
     "TagCreateRequest",
@@ -326,6 +353,9 @@ __all__ = [
     "TagUpdateRequest",
     "TaskResponse",
     "TaskStatus",
+    "ToolCallFeedbackResponse",
+    "ToolFeedback",
+    "TotalFeedback",
     "TrackingClickIdNames",
     "TrackingEventCreateRequest",
     "TrackingEventCreateRequests",
@@ -404,6 +434,7 @@ from flowhunt.api.logs_api import LogsApi as LogsApi
 from flowhunt.api.mcp_servers_api import MCPServersApi as MCPServersApi
 from flowhunt.api.me_api import MeApi as MeApi
 from flowhunt.api.media_api import MediaApi as MediaApi
+from flowhunt.api.memory_api import MemoryApi as MemoryApi
 from flowhunt.api.microsoft_outlook_api import MicrosoftOutlookApi as MicrosoftOutlookApi
 from flowhunt.api.o_auth_api import OAuthApi as OAuthApi
 from flowhunt.api.observability_driver_api import ObservabilityDriverApi as ObservabilityDriverApi
@@ -448,6 +479,9 @@ from flowhunt.models.aspec_ratio import AspecRatio as AspecRatio
 from flowhunt.models.base_foundation_model import BaseFoundationModel as BaseFoundationModel
 from flowhunt.models.billing_provider import BillingProvider as BillingProvider
 from flowhunt.models.bool_char import BoolChar as BoolChar
+from flowhunt.models.category_type import CategoryType as CategoryType
+from flowhunt.models.chart_session_duration_response import ChartSessionDurationResponse as ChartSessionDurationResponse
+from flowhunt.models.charts_feedback_request import ChartsFeedbackRequest as ChartsFeedbackRequest
 from flowhunt.models.chatbot_create_request import ChatbotCreateRequest as ChatbotCreateRequest
 from flowhunt.models.chatbot_response import ChatbotResponse as ChatbotResponse
 from flowhunt.models.chatbot_search_request import ChatbotSearchRequest as ChatbotSearchRequest
@@ -464,6 +498,7 @@ from flowhunt.models.credit_transaction_search_request import CreditTransactionS
 from flowhunt.models.customer_data_request_payload import CustomerDataRequestPayload as CustomerDataRequestPayload
 from flowhunt.models.customer_redact_payload import CustomerRedactPayload as CustomerRedactPayload
 from flowhunt.models.data import Data as Data
+from flowhunt.models.delete_node_request import DeleteNodeRequest as DeleteNodeRequest
 from flowhunt.models.document_category_create_request import DocumentCategoryCreateRequest as DocumentCategoryCreateRequest
 from flowhunt.models.document_category_response import DocumentCategoryResponse as DocumentCategoryResponse
 from flowhunt.models.document_category_search_request import DocumentCategorySearchRequest as DocumentCategorySearchRequest
@@ -481,13 +516,16 @@ from flowhunt.models.driver_success_response import DriverSuccessResponse as Dri
 from flowhunt.models.driver_type import DriverType as DriverType
 from flowhunt.models.ft_status import FTStatus as FTStatus
 from flowhunt.models.ft_type import FTType as FTType
+from flowhunt.models.failed_faq_item import FailedFaqItem as FailedFaqItem
 from flowhunt.models.faq_create_request import FaqCreateRequest as FaqCreateRequest
+from flowhunt.models.faq_import_response import FaqImportResponse as FaqImportResponse
 from flowhunt.models.faq_response import FaqResponse as FaqResponse
 from flowhunt.models.faq_search_request import FaqSearchRequest as FaqSearchRequest
 from flowhunt.models.faq_status import FaqStatus as FaqStatus
 from flowhunt.models.faq_type import FaqType as FaqType
 from flowhunt.models.faq_update_request import FaqUpdateRequest as FaqUpdateRequest
 from flowhunt.models.feature_response import FeatureResponse as FeatureResponse
+from flowhunt.models.feedback_chart_response import FeedbackChartResponse as FeedbackChartResponse
 from flowhunt.models.file_upload_response import FileUploadResponse as FileUploadResponse
 from flowhunt.models.flow_assistant_ai_model import FlowAssistantAIModel as FlowAssistantAIModel
 from flowhunt.models.flow_assistant_add_component_metadata import FlowAssistantAddComponentMetadata as FlowAssistantAddComponentMetadata
@@ -540,6 +578,7 @@ from flowhunt.models.flow_update import FlowUpdate as FlowUpdate
 from flowhunt.models.flow_version_history_response import FlowVersionHistoryResponse as FlowVersionHistoryResponse
 from flowhunt.models.general_mcp_subserver_capabilities_response import GeneralMCPSubserverCapabilitiesResponse as GeneralMCPSubserverCapabilitiesResponse
 from flowhunt.models.general_mcp_subserver_response import GeneralMCPSubserverResponse as GeneralMCPSubserverResponse
+from flowhunt.models.get_node_request import GetNodeRequest as GetNodeRequest
 from flowhunt.models.google_ads_action_type import GoogleAdsActionType as GoogleAdsActionType
 from flowhunt.models.google_ads_analyze_keywords_request import GoogleAdsAnalyzeKeywordsRequest as GoogleAdsAnalyzeKeywordsRequest
 from flowhunt.models.google_ads_campaign_response import GoogleAdsCampaignResponse as GoogleAdsCampaignResponse
@@ -574,6 +613,7 @@ from flowhunt.models.http_validation_error import HTTPValidationError as HTTPVal
 from flowhunt.models.health import Health as Health
 from flowhunt.models.hub_spot_actor_id_response import HubSpotActorIdResponse as HubSpotActorIdResponse
 from flowhunt.models.hub_spot_actors_response import HubSpotActorsResponse as HubSpotActorsResponse
+from flowhunt.models.human_agent_sender import HumanAgentSender as HumanAgentSender
 from flowhunt.models.image_convert_request import ImageConvertRequest as ImageConvertRequest
 from flowhunt.models.image_ft_create_request import ImageFTCreateRequest as ImageFTCreateRequest
 from flowhunt.models.image_ft_response import ImageFTResponse as ImageFTResponse
@@ -606,6 +646,15 @@ from flowhunt.models.mcp_server_create_request import MCPServerCreateRequest as 
 from flowhunt.models.mcp_server_response import MCPServerResponse as MCPServerResponse
 from flowhunt.models.mcp_server_search_request import MCPServerSearchRequest as MCPServerSearchRequest
 from flowhunt.models.mcp_sub_server_binding import MCPSubServerBinding as MCPSubServerBinding
+from flowhunt.models.memory_document_process_request import MemoryDocumentProcessRequest as MemoryDocumentProcessRequest
+from flowhunt.models.memory_document_upload_response import MemoryDocumentUploadResponse as MemoryDocumentUploadResponse
+from flowhunt.models.memory_message_response import MemoryMessageResponse as MemoryMessageResponse
+from flowhunt.models.memory_node_detail_response import MemoryNodeDetailResponse as MemoryNodeDetailResponse
+from flowhunt.models.memory_node_name_search_request import MemoryNodeNameSearchRequest as MemoryNodeNameSearchRequest
+from flowhunt.models.memory_node_path_search_request import MemoryNodePathSearchRequest as MemoryNodePathSearchRequest
+from flowhunt.models.memory_node_response import MemoryNodeResponse as MemoryNodeResponse
+from flowhunt.models.memory_search_request import MemorySearchRequest as MemorySearchRequest
+from flowhunt.models.memory_search_response import MemorySearchResponse as MemorySearchResponse
 from flowhunt.models.message_feedback import MessageFeedback as MessageFeedback
 from flowhunt.models.message_type import MessageType as MessageType
 from flowhunt.models.metadata import Metadata as Metadata
@@ -617,8 +666,13 @@ from flowhunt.models.microsoft_power_bi_table_validate_response import Microsoft
 from flowhunt.models.microsoft_power_bi_tables_response import MicrosoftPowerBiTablesResponse as MicrosoftPowerBiTablesResponse
 from flowhunt.models.microsoft_power_bi_workspace_response import MicrosoftPowerBiWorkspaceResponse as MicrosoftPowerBiWorkspaceResponse
 from flowhunt.models.microsoft_power_bi_workspaces_response import MicrosoftPowerBiWorkspacesResponse as MicrosoftPowerBiWorkspacesResponse
+from flowhunt.models.node_detail_request import NodeDetailRequest as NodeDetailRequest
+from flowhunt.models.node_type import NodeType as NodeType
+from flowhunt.models.node_update_request import NodeUpdateRequest as NodeUpdateRequest
 from flowhunt.models.observability_driver_response import ObservabilityDriverResponse as ObservabilityDriverResponse
 from flowhunt.models.pagination import Pagination as Pagination
+from flowhunt.models.per_day_feedback import PerDayFeedback as PerDayFeedback
+from flowhunt.models.per_day_session_duration_response import PerDaySessionDurationResponse as PerDaySessionDurationResponse
 from flowhunt.models.photo_ai_effect_response import PhotoAIEffectResponse as PhotoAIEffectResponse
 from flowhunt.models.photo_ai_style_response import PhotoAIStyleResponse as PhotoAIStyleResponse
 from flowhunt.models.photo_ai_template_response import PhotoAITemplateResponse as PhotoAITemplateResponse
@@ -660,6 +714,7 @@ from flowhunt.models.schedule_url_response import ScheduleUrlResponse as Schedul
 from flowhunt.models.schedule_url_search_request import ScheduleUrlSearchRequest as ScheduleUrlSearchRequest
 from flowhunt.models.screenshot_request import ScreenshotRequest as ScreenshotRequest
 from flowhunt.models.screenshot_response import ScreenshotResponse as ScreenshotResponse
+from flowhunt.models.search_type import SearchType as SearchType
 from flowhunt.models.secret_create_request import SecretCreateRequest as SecretCreateRequest
 from flowhunt.models.secret_response import SecretResponse as SecretResponse
 from flowhunt.models.secret_search_request import SecretSearchRequest as SecretSearchRequest
@@ -682,10 +737,12 @@ from flowhunt.models.serp_search_requests import SerpSearchRequests as SerpSearc
 from flowhunt.models.serp_subcluster_keywords_response import SerpSubclusterKeywordsResponse as SerpSubclusterKeywordsResponse
 from flowhunt.models.serp_volume_request import SerpVolumeRequest as SerpVolumeRequest
 from flowhunt.models.shop_redact_payload import ShopRedactPayload as ShopRedactPayload
+from flowhunt.models.shopify_integration_response import ShopifyIntegrationResponse as ShopifyIntegrationResponse
 from flowhunt.models.shopify_subscription_confirm_response import ShopifySubscriptionConfirmResponse as ShopifySubscriptionConfirmResponse
 from flowhunt.models.slack_channel_response import SlackChannelResponse as SlackChannelResponse
 from flowhunt.models.slack_workspace_response import SlackWorkspaceResponse as SlackWorkspaceResponse
 from flowhunt.models.sort_direction import SortDirection as SortDirection
+from flowhunt.models.source import Source as Source
 from flowhunt.models.subscription_plan import SubscriptionPlan as SubscriptionPlan
 from flowhunt.models.system_message_metadata import SystemMessageMetadata as SystemMessageMetadata
 from flowhunt.models.tag_create_request import TagCreateRequest as TagCreateRequest
@@ -694,6 +751,9 @@ from flowhunt.models.tag_search_request import TagSearchRequest as TagSearchRequ
 from flowhunt.models.tag_update_request import TagUpdateRequest as TagUpdateRequest
 from flowhunt.models.task_response import TaskResponse as TaskResponse
 from flowhunt.models.task_status import TaskStatus as TaskStatus
+from flowhunt.models.tool_call_feedback_response import ToolCallFeedbackResponse as ToolCallFeedbackResponse
+from flowhunt.models.tool_feedback import ToolFeedback as ToolFeedback
+from flowhunt.models.total_feedback import TotalFeedback as TotalFeedback
 from flowhunt.models.tracking_click_id_names import TrackingClickIdNames as TrackingClickIdNames
 from flowhunt.models.tracking_event_create_request import TrackingEventCreateRequest as TrackingEventCreateRequest
 from flowhunt.models.tracking_event_create_requests import TrackingEventCreateRequests as TrackingEventCreateRequests

@@ -33,10 +33,31 @@ class TestFlowSessionsApi(unittest.TestCase):
         """
         pass
 
+    def test_get_chart_feedback(self) -> None:
+        """Test case for get_chart_feedback
+
+        Get Chart Feedback
+        """
+        pass
+
+    def test_get_chart_session_duration(self) -> None:
+        """Test case for get_chart_session_duration
+
+        Get Chart Session Duration
+        """
+        pass
+
     def test_get_chatbot_session_view(self) -> None:
         """Test case for get_chatbot_session_view
 
         Get Chatbot Session View
+        """
+        pass
+
+    def test_get_tool_calls_chart_feedback(self) -> None:
+        """Test case for get_tool_calls_chart_feedback
+
+        Get Tool Calls Chart Feedback
         """
         pass
 

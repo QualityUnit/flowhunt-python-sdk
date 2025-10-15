@@ -53,7 +53,12 @@ class TestImageInferenceRequest(unittest.TestCase):
                 use_ai_agent = True,
                 reference_images = [
                     ''
-                    ]
+                    ],
+                reference_videos = [
+                    ''
+                    ],
+                duration = 56,
+                resolution = ''
             )
         else:
             return ImageInferenceRequest(

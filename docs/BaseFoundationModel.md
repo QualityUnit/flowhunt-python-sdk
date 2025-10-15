@@ -37,6 +37,20 @@
 
 * `GEMINI_MINUS_2_DOT_5_MINUS_FLASH` (value: `'gemini-2.5-flash'`)
 
+* `QWEN_MINUS_IMAGE_MINUS_EDIT_MINUS_PLUS` (value: `'qwen-image-edit-plus'`)
+
+* `QWEN_MINUS_IMAGE` (value: `'qwen-image'`)
+
+* `WAN_MINUS_2_DOT_2_MINUS_ANIMATE_MINUS_REPLACE` (value: `'wan-2.2-animate-replace'`)
+
+* `WAN_MINUS_2_DOT_5_MINUS_T2V_MINUS_FAST` (value: `'wan-2.5-t2v-fast'`)
+
+* `WAN_MINUS_2_DOT_2_MINUS_ANIMATE_MINUS_ANIMATION` (value: `'wan-2.2-animate-animation'`)
+
+* `WAN_MINUS_2_DOT_5_MINUS_I2V_MINUS_FAST` (value: `'wan-2.5-i2v-fast'`)
+
+* `WAN_MINUS_2_DOT_5_MINUS_I2V` (value: `'wan-2.5-i2v'`)
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

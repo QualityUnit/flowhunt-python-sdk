@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **message_id** | **str** | Message ID | 
 **message** | **str** | Message | 
+**sender** | [**HumanAgentSender**](HumanAgentSender.md) |  | [optional] 
 
 ## Example
 

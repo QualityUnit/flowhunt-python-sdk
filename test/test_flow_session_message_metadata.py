@@ -36,7 +36,10 @@ class TestFlowSessionMessageMetadata(unittest.TestCase):
         if include_optional:
             return FlowSessionMessageMetadata(
                 message_id = '',
-                message = ''
+                message = '',
+                sender = flowhunt.models.human_agent_sender.HumanAgentSender(
+                    sender_name = '', 
+                    sender_avatar = '', )
             )
         else:
             return FlowSessionMessageMetadata(

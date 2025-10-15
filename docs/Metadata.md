@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **message_id** | **str** | Message ID | 
 **message** | **str** | Message | 
+**sender** | [**HumanAgentSender**](HumanAgentSender.md) |  | [optional] 
 **tool_name** | **str** | Tool name | 
 **loading_desc** | **str** | Loading description | 
 **icon** | **str** |  | [optional] 

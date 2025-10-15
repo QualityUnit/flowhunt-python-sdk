@@ -5,7 +5,7 @@ All URIs are relative to *https://api.flowhunt.io*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**activate_langfuse_observability_driver**](ObservabilityDriverApi.md#activate_langfuse_observability_driver) | **POST** /v2/observability_driver/langfuse | Activate Langfuse Observability Driver
-[**activate_power_bi_observability_driver**](ObservabilityDriverApi.md#activate_power_bi_observability_driver) | **POST** /v2/observability_driver/power_bi/ | Activate Power Bi Observability Driver
+[**activate_power_bi_observability_driver**](ObservabilityDriverApi.md#activate_power_bi_observability_driver) | **POST** /v2/observability_driver/power_bi | Activate Power Bi Observability Driver
 [**create_power_bi_push_dataset**](ObservabilityDriverApi.md#create_power_bi_push_dataset) | **POST** /v2/observability_driver/power_bi/push_dataset | Create Power Bi Push Dataset
 [**delete_observability_driver**](ObservabilityDriverApi.md#delete_observability_driver) | **DELETE** /v2/observability_driver/{driver_type} | Delete Observability Driver
 [**get_observability_driver**](ObservabilityDriverApi.md#get_observability_driver) | **GET** /v2/observability_driver/{driver_type} | Get Observability Driver
@@ -14,7 +14,7 @@ Method | HTTP request | Description
 [**list_power_bi_tables**](ObservabilityDriverApi.md#list_power_bi_tables) | **POST** /v2/observability_driver/power_bi/tables | List Power Bi Tables
 [**list_power_bi_workspaces**](ObservabilityDriverApi.md#list_power_bi_workspaces) | **GET** /v2/observability_driver/power_bi/workspaces | List Power Bi Workspaces
 [**update_langfuse_observability_driver**](ObservabilityDriverApi.md#update_langfuse_observability_driver) | **PUT** /v2/observability_driver/langfuse | Update Langfuse Observability Driver
-[**update_power_bi_observability_driver**](ObservabilityDriverApi.md#update_power_bi_observability_driver) | **PUT** /v2/observability_driver/power_bi/ | Update Power Bi Observability Driver
+[**update_power_bi_observability_driver**](ObservabilityDriverApi.md#update_power_bi_observability_driver) | **PUT** /v2/observability_driver/power_bi | Update Power Bi Observability Driver
 [**validate_push_dataset_table**](ObservabilityDriverApi.md#validate_push_dataset_table) | **POST** /v2/observability_driver/power_bi/validate_push_dataset | Validate Push Dataset Table
 
 

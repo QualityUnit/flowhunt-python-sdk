@@ -18,8 +18,8 @@ Method | HTTP request | Description
 [**update_document**](DocumentsApi.md#update_document) | **PUT** /v2/documents/{doc_id} | Update Document
 [**update_document_category**](DocumentsApi.md#update_document_category) | **PUT** /v2/documents/categories/{cat_id} | Update Document Category
 [**update_faq**](DocumentsApi.md#update_faq) | **PUT** /v2/documents/faqs/{faq_id} | Update Faq
-[**upload_document**](DocumentsApi.md#upload_document) | **POST** /v2/documents/upload/{cat_id} | Upload Document
 [**upload_from_url_document**](DocumentsApi.md#upload_from_url_document) | **POST** /v2/documents/upload-from-url/{cat_id} | Upload From Url Document
+[**upload_memory_document**](DocumentsApi.md#upload_memory_document) | **POST** /v2/documents/upload/{cat_id} | Upload Memory Document
 
 
 # **create_document_category**
@@ -626,7 +626,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **import_faq**
-> List[FaqResponse] import_faq(workspace_id, file)
+> FaqImportResponse import_faq(workspace_id, file)
 
 Import Faq
 
@@ -637,7 +637,7 @@ Import Faq
 
 ```python
 import flowhunt
-from flowhunt.models.faq_response import FaqResponse
+from flowhunt.models.faq_import_response import FaqImportResponse
 from flowhunt.rest import ApiException
 from pprint import pprint
 
@@ -691,7 +691,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[FaqResponse]**](FaqResponse.md)
+[**FaqImportResponse**](FaqImportResponse.md)
 
 ### Authorization
 
@@ -1239,94 +1239,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **upload_document**
-> DocumentResponse upload_document(cat_id, workspace_id, file)
-
-Upload Document
-
-### Example
-
-* Api Key Authentication (APIKeyHeader):
-* Bearer Authentication (HTTPBearer):
-
-```python
-import flowhunt
-from flowhunt.models.document_response import DocumentResponse
-from flowhunt.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to https://api.flowhunt.io
-# See configuration.py for a list of all supported configuration parameters.
-configuration = flowhunt.Configuration(
-    host = "https://api.flowhunt.io"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: APIKeyHeader
-configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
-
-# Configure Bearer authorization: HTTPBearer
-configuration = flowhunt.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
-)
-
-# Enter a context with an instance of the API client
-with flowhunt.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = flowhunt.DocumentsApi(api_client)
-    cat_id = 'cat_id_example' # str | 
-    workspace_id = 'workspace_id_example' # str | 
-    file = None # bytearray | 
-
-    try:
-        # Upload Document
-        api_response = api_instance.upload_document(cat_id, workspace_id, file)
-        print("The response of DocumentsApi->upload_document:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling DocumentsApi->upload_document: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **cat_id** | **str**|  | 
- **workspace_id** | **str**|  | 
- **file** | **bytearray**|  | 
-
-### Return type
-
-[**DocumentResponse**](DocumentResponse.md)
-
-### Authorization
-
-[APIKeyHeader](../README.md#APIKeyHeader), [HTTPBearer](../README.md#HTTPBearer)
-
-### HTTP request headers
-
- - **Content-Type**: multipart/form-data
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful Response |  -  |
-**422** | Validation Error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **upload_from_url_document**
 > DocumentResponse upload_from_url_document(cat_id, workspace_id, app_url_input)
 
@@ -1405,6 +1317,94 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **upload_memory_document**
+> DocumentResponse upload_memory_document(cat_id, workspace_id, file)
+
+Upload Memory Document
+
+### Example
+
+* Api Key Authentication (APIKeyHeader):
+* Bearer Authentication (HTTPBearer):
+
+```python
+import flowhunt
+from flowhunt.models.document_response import DocumentResponse
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.flowhunt.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "https://api.flowhunt.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: APIKeyHeader
+configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
+
+# Configure Bearer authorization: HTTPBearer
+configuration = flowhunt.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.DocumentsApi(api_client)
+    cat_id = 'cat_id_example' # str | 
+    workspace_id = 'workspace_id_example' # str | 
+    file = None # bytearray | 
+
+    try:
+        # Upload Memory Document
+        api_response = api_instance.upload_memory_document(cat_id, workspace_id, file)
+        print("The response of DocumentsApi->upload_memory_document:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DocumentsApi->upload_memory_document: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **cat_id** | **str**|  | 
+ **workspace_id** | **str**|  | 
+ **file** | **bytearray**|  | 
+
+### Return type
+
+[**DocumentResponse**](DocumentResponse.md)
+
+### Authorization
+
+[APIKeyHeader](../README.md#APIKeyHeader), [HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/json
 
 ### HTTP response details

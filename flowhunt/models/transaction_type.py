@@ -59,6 +59,8 @@ class TransactionType(str, Enum):
     CWP = 'CWP'
     DE_GC = 'DE_GC'
     AC_HS = 'AC_HS'
+    LAHA_HS = 'LAHA_HS'
+    LT_HS = 'LT_HS'
     GC_HS = 'GC_HS'
     UC_HS = 'UC_HS'
     SC_HS = 'SC_HS'

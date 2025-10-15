@@ -18,7 +18,8 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
+from flowhunt.models.category_type import CategoryType
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +29,8 @@ class DocumentCategoryCreateRequest(BaseModel):
     """ # noqa: E501
     cat_name: StrictStr = Field(description="Category name")
     cat_color: StrictStr = Field(description="Category color")
-    __properties: ClassVar[List[str]] = ["cat_name", "cat_color"]
+    cat_type: Optional[CategoryType] = None
+    __properties: ClassVar[List[str]] = ["cat_name", "cat_color", "cat_type"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -69,6 +71,11 @@ class DocumentCategoryCreateRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # set to None if cat_type (nullable) is None
+        # and model_fields_set contains the field
+        if self.cat_type is None and "cat_type" in self.model_fields_set:
+            _dict['cat_type'] = None
+
         return _dict
 
     @classmethod
@@ -82,7 +89,8 @@ class DocumentCategoryCreateRequest(BaseModel):
 
         _obj = cls.model_validate({
             "cat_name": obj.get("cat_name"),
-            "cat_color": obj.get("cat_color")
+            "cat_color": obj.get("cat_color"),
+            "cat_type": obj.get("cat_type")
         })
         return _obj
 

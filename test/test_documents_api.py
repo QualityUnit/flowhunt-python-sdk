@@ -124,17 +124,17 @@ class TestDocumentsApi(unittest.TestCase):
         """
         pass
 
-    def test_upload_document(self) -> None:
-        """Test case for upload_document
-
-        Upload Document
-        """
-        pass
-
     def test_upload_from_url_document(self) -> None:
         """Test case for upload_from_url_document
 
         Upload From Url Document
+        """
+        pass
+
+    def test_upload_memory_document(self) -> None:
+        """Test case for upload_memory_document
+
+        Upload Memory Document
         """
         pass
 

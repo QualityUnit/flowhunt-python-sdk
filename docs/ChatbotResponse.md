@@ -32,6 +32,8 @@ Name | Type | Description | Notes
 **session_message_history** | **bool** |  | [optional] 
 **chatbot_bubble_size** | **int** |  | [optional] 
 **message_header_logo_url** | **str** |  | [optional] 
+**popup_messages** | **List[str]** |  | [optional] 
+**popup_messages_delay** | **int** |  | [optional] 
 
 ## Example
 
