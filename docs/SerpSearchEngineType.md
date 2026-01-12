@@ -1,0 +1,12 @@
+# SerpSearchEngineType
+
+
+## Enum
+
+* `G` (value: `'G'`)
+
+* `D` (value: `'D'`)
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
