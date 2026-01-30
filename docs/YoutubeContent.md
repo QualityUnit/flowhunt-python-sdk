@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **url** | **str** | URL of the document | [optional] 
 **img_url** | **str** | Image URL or Thumbnail URL | [optional] 
 **status_code** | **int** | HTTP Status Code | [optional] 
-**created_at** | **float** | Creation date of the document (timestamp) | [optional] [default to 1.769771825552426E9]
+**created_at** | **float** | Creation date of the document (timestamp) | [optional] [default to 1.769771901784069E9]
 **published_at** | **float** | Publication date of the document (timestamp) | [optional] 
 **title** | **str** | Title of the document | [optional] 
 **doc_name** | **str** | Original file name of the document | [optional] 

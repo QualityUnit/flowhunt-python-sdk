@@ -38,7 +38,7 @@ class TestDocumentContent(unittest.TestCase):
                 url = '',
                 img_url = '',
                 status_code = 200,
-                created_at = 1.76977182555243E9,
+                created_at = 1.769771901784073E9,
                 published_at = 1.337,
                 title = '',
                 doc_name = '',

@@ -32,7 +32,7 @@ class DocumentContent(BaseModel):
     url: Optional[StrictStr] = Field(default=None, description="URL of the document")
     img_url: Optional[StrictStr] = Field(default=None, description="Image URL or Thumbnail URL")
     status_code: Optional[StrictInt] = Field(default=None, description="HTTP Status Code")
-    created_at: Optional[Union[StrictFloat, StrictInt]] = Field(default=1.769771825552426E9, description="Creation date of the document (timestamp)")
+    created_at: Optional[Union[StrictFloat, StrictInt]] = Field(default=1.769771901784069E9, description="Creation date of the document (timestamp)")
     published_at: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Publication date of the document (timestamp)")
     title: Optional[StrictStr] = Field(default=None, description="Title of the document")
     doc_name: Optional[StrictStr] = Field(default=None, description="Original file name of the document")
@@ -114,7 +114,7 @@ class DocumentContent(BaseModel):
             "url": obj.get("url"),
             "img_url": obj.get("img_url"),
             "status_code": obj.get("status_code"),
-            "created_at": obj.get("created_at") if obj.get("created_at") is not None else 1.769771825552426E9,
+            "created_at": obj.get("created_at") if obj.get("created_at") is not None else 1.769771901784069E9,
             "published_at": obj.get("published_at"),
             "title": obj.get("title"),
             "doc_name": obj.get("doc_name"),
