@@ -1,0 +1,182 @@
+name: Auto Release and Publish to PyPI
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'pyproject.toml'
+      - 'setup.py'
+  workflow_dispatch:
+    inputs:
+      publish_to_testpypi:
+        description: 'Publish to TestPyPI instead of PyPI'
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: write
+  id-token: write  # IMPORTANT: mandatory for trusted publishing
+
+jobs:
+  check-version:
+    name: Check for version changes
+    runs-on: ubuntu-latest
+    outputs:
+      version-changed: ${{ steps.check.outputs.changed }}
+      new-version: ${{ steps.check.outputs.version }}
+
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 2
+
+    - name: Check if version changed
+      id: check
+      run: |
+        # Get current version from pyproject.toml
+        CURRENT_VERSION=$(grep '^version = ' pyproject.toml | sed 's/version = "\(.*\)"/\1/')
+        echo "Current version: $CURRENT_VERSION"
+
+        # Get previous version from the previous commit (only for push events)
+        if [ "${{ github.event_name }}" = "push" ]; then
+          git checkout HEAD~1 -- pyproject.toml 2>/dev/null || echo "No previous version found"
+          PREVIOUS_VERSION=$(grep '^version = ' pyproject.toml | sed 's/version = "\(.*\)"/\1/' 2>/dev/null || echo "none")
+          echo "Previous version: $PREVIOUS_VERSION"
+
+          # Restore current pyproject.toml
+          git checkout HEAD -- pyproject.toml
+
+          # Check if version changed
+          if [ "$CURRENT_VERSION" != "$PREVIOUS_VERSION" ]; then
+            echo "Version changed from $PREVIOUS_VERSION to $CURRENT_VERSION"
+            echo "changed=true" >> $GITHUB_OUTPUT
+            echo "version=$CURRENT_VERSION" >> $GITHUB_OUTPUT
+          else
+            echo "Version unchanged"
+            echo "changed=false" >> $GITHUB_OUTPUT
+            echo "version=$CURRENT_VERSION" >> $GITHUB_OUTPUT
+          fi
+        else
+          # For manual workflow dispatch, always proceed
+          echo "Manual trigger - proceeding with current version"
+          echo "changed=true" >> $GITHUB_OUTPUT
+          echo "version=$CURRENT_VERSION" >> $GITHUB_OUTPUT
+        fi
+
+  build:
+    name: Build distribution packages
+    needs: check-version
+    if: needs.check-version.outputs.version-changed == 'true'
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.x"
+
+    - name: Install build dependencies
+      run: |
+        python -m pip install --upgrade pip
+        python -m pip install build twine
+
+    - name: Build distribution packages
+      run: python -m build
+
+    - name: Check distribution packages
+      run: python -m twine check dist/*
+
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: python-package-distributions
+        path: dist/
+
+  create-release:
+    name: Create GitHub Release
+    needs: [check-version, build]
+    if: needs.check-version.outputs.version-changed == 'true' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Generate release notes
+      run: |
+        VERSION="${{ needs.check-version.outputs.new-version }}"
+
+        # Create release notes
+        cat > release_notes.md << EOF
+        ## FlowHunt Python SDK v${VERSION}
+
+        ### Changes
+        - Version bump to ${VERSION}
+        - Updated package metadata
+
+        ### Installation
+        \`\`\`bash
+        pip install flowhunt==${VERSION}
+        \`\`\`
+
+        ### Documentation
+        - [Repository](https://github.com/QualityUnit/flowhunt-python-sdk)
+        - [PyPI Package](https://pypi.org/project/flowhunt/)
+
+        ---
+        *This release was automatically generated when version ${VERSION} was pushed to main branch.*
+        EOF
+
+        echo "Release notes created"
+
+    - name: Create Release
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        VERSION="${{ needs.check-version.outputs.new-version }}"
+        gh release create "v${VERSION}" \
+          --title "Release v${VERSION}" \
+          --notes-file release_notes.md \
+          --latest
+
+  publish-to-pypi:
+    name: Publish to PyPI
+    needs: [check-version, build]
+    if: needs.check-version.outputs.version-changed == 'true' && (github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && github.event.inputs.publish_to_testpypi != 'true'))
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: https://pypi.org/p/flowhunt
+
+    steps:
+    - name: Download build artifacts
+      uses: actions/download-artifact@v4
+      with:
+        name: python-package-distributions
+        path: dist/
+
+    - name: Publish to PyPI
+      uses: pypa/gh-action-pypi-publish@release/v1
+
+  publish-to-testpypi:
+    name: Publish to TestPyPI
+    needs: [check-version, build]
+    if: needs.check-version.outputs.version-changed == 'true' && github.event_name == 'workflow_dispatch' && github.event.inputs.publish_to_testpypi == 'true'
+    runs-on: ubuntu-latest
+    environment:
+      name: testpypi
+      url: https://test.pypi.org/p/flowhunt
+
+    steps:
+    - name: Download build artifacts
+      uses: actions/download-artifact@v4
+      with:
+        name: python-package-distributions
+        path: dist/
+
+    - name: Publish to TestPyPI
+      uses: pypa/gh-action-pypi-publish@release/v1
+      with:
+        repository-url: https://test.pypi.org/legacy/

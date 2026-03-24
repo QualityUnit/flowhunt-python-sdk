@@ -1,0 +1,30 @@
+# WixMemberResponse
+
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**member_id** | **str** | Member ID | 
+**member_name** | **str** | Member name | 
+
+## Example
+
+```python
+from flowhunt.models.wix_member_response import WixMemberResponse
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of WixMemberResponse from a JSON string
+wix_member_response_instance = WixMemberResponse.from_json(json)
+# print the JSON string representation of the object
+print(WixMemberResponse.to_json())
+
+# convert the object into a dict
+wix_member_response_dict = wix_member_response_instance.to_dict()
+# create an instance of WixMemberResponse from a dict
+wix_member_response_from_dict = WixMemberResponse.from_dict(wix_member_response_dict)
+```
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
