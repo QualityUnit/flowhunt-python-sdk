@@ -43,7 +43,11 @@ class TestUserResponse(unittest.TestCase):
                 api_key_workspace_id = 'd719f5f5-5433-4cb4-9993-8053bda1a384',
                 product_plans = {S=S},
                 billing_provider = S,
-                sudoer = False
+                sudoer = False,
+                onboarding = flowhunt.models.onboarding_state_response.OnboardingStateResponse(
+                    completed = True, 
+                    primary_goal = 'aistudio', 
+                    completed_at = '', )
             )
         else:
             return UserResponse(

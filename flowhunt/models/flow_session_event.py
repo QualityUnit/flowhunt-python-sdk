@@ -38,7 +38,8 @@ class FlowSessionEvent(BaseModel):
     credits: Union[StrictFloat, StrictInt] = Field(description="Credits")
     metadata: Optional[Metadata] = None
     component_name: Optional[StrictStr] = Field(default=None, description="Component name")
-    __properties: ClassVar[List[str]] = ["workspace_id", "session_id", "event_id", "event_type", "created_at_timestamp", "action_type", "credits", "metadata", "component_name"]
+    run_id: Optional[StrictStr] = Field(default=None, description="Pyworkflow run id that produced this event. Set on events emitted from inside a worker workflow so callers (e.g. check_async_task) can filter the session log to a single async task.")
+    __properties: ClassVar[List[str]] = ["workspace_id", "session_id", "event_id", "event_type", "created_at_timestamp", "action_type", "credits", "metadata", "component_name", "run_id"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -102,7 +103,8 @@ class FlowSessionEvent(BaseModel):
             "action_type": obj.get("action_type"),
             "credits": obj.get("credits"),
             "metadata": Metadata.from_dict(obj["metadata"]) if obj.get("metadata") is not None else None,
-            "component_name": obj.get("component_name")
+            "component_name": obj.get("component_name"),
+            "run_id": obj.get("run_id")
         })
         return _obj
 

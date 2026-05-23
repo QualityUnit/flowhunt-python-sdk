@@ -4,6 +4,7 @@ All URIs are relative to *https://api.flowhunt.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**bulk_delete_mcp_servers**](MCPServersApi.md#bulk_delete_mcp_servers) | **POST** /v2/mcp_servers/delete | Bulk Delete Mcp Servers
 [**create_mcp_server**](MCPServersApi.md#create_mcp_server) | **POST** /v2/mcp_servers/create | Create Mcp Server
 [**delete_mcp_server**](MCPServersApi.md#delete_mcp_server) | **DELETE** /v2/mcp_servers/{mcp_server_id} | Delete Mcp Server
 [**get_all_mcp_subservers**](MCPServersApi.md#get_all_mcp_subservers) | **GET** /v2/mcp_servers/all | Get All Mcp Subservers
@@ -11,6 +12,93 @@ Method | HTTP request | Description
 [**search_mcp_servers**](MCPServersApi.md#search_mcp_servers) | **POST** /v2/mcp_servers/ | Search Mcp Servers
 [**update_mcp_server**](MCPServersApi.md#update_mcp_server) | **PUT** /v2/mcp_servers/{mcp_server_id} | Update Mcp Server
 
+
+# **bulk_delete_mcp_servers**
+> Completed bulk_delete_mcp_servers(workspace_id, mcp_server_bulk_delete_request)
+
+Bulk Delete Mcp Servers
+
+### Example
+
+* Api Key Authentication (APIKeyHeader):
+* Bearer Authentication (HTTPBearer):
+
+```python
+import flowhunt
+from flowhunt.models.completed import Completed
+from flowhunt.models.mcp_server_bulk_delete_request import MCPServerBulkDeleteRequest
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.flowhunt.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "https://api.flowhunt.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: APIKeyHeader
+configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
+
+# Configure Bearer authorization: HTTPBearer
+configuration = flowhunt.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.MCPServersApi(api_client)
+    workspace_id = 'workspace_id_example' # str | 
+    mcp_server_bulk_delete_request = flowhunt.MCPServerBulkDeleteRequest() # MCPServerBulkDeleteRequest | 
+
+    try:
+        # Bulk Delete Mcp Servers
+        api_response = api_instance.bulk_delete_mcp_servers(workspace_id, mcp_server_bulk_delete_request)
+        print("The response of MCPServersApi->bulk_delete_mcp_servers:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling MCPServersApi->bulk_delete_mcp_servers: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **workspace_id** | **str**|  | 
+ **mcp_server_bulk_delete_request** | [**MCPServerBulkDeleteRequest**](MCPServerBulkDeleteRequest.md)|  | 
+
+### Return type
+
+[**Completed**](Completed.md)
+
+### Authorization
+
+[APIKeyHeader](../README.md#APIKeyHeader), [HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_mcp_server**
 > MCPServerResponse create_mcp_server(workspace_id, mcp_server_create_request)

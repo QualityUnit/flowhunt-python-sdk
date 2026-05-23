@@ -64,6 +64,12 @@ class TestMetadata(unittest.TestCase):
                     ],
                 cot_id = '',
                 content = '',
+                agent_name = '',
+                agent_type = '',
+                model = '',
+                task = '',
+                started_by = '',
+                target_agent = '',
                 todo_id = '',
                 todos = [
                     flowhunt.models.todo_item.TodoItem(
@@ -76,6 +82,14 @@ class TestMetadata(unittest.TestCase):
                 hook_id = '',
                 hook_name = '',
                 prompt_message = '',
+                script = '',
+                timeout_ms = 56,
+                request_id = '',
+                hitl_id = '',
+                tool_args = { },
+                tool_description = '',
+                channel = 'flowhunt',
+                channel_config = { },
                 action_id = '',
                 component_id = '',
                 component_type = '',
@@ -92,7 +106,10 @@ class TestMetadata(unittest.TestCase):
                 file_id = '',
                 file_name = '',
                 file_type = '',
-                document_type = 'PDF'
+                document_type = '',
+                slug = '',
+                integration_url = '',
+                document_id = ''
             )
         else:
             return Metadata(
@@ -118,6 +135,12 @@ class TestMetadata(unittest.TestCase):
                     ],
                 cot_id = '',
                 content = '',
+                agent_name = '',
+                agent_type = '',
+                model = '',
+                task = '',
+                started_by = '',
+                target_agent = '',
                 todo_id = '',
                 todos = [
                     flowhunt.models.todo_item.TodoItem(
@@ -128,6 +151,9 @@ class TestMetadata(unittest.TestCase):
                 hook_id = '',
                 hook_name = '',
                 prompt_message = '',
+                script = '',
+                request_id = '',
+                tool_args = { },
                 action_id = '',
                 component_id = '',
                 component_type = '',
@@ -137,6 +163,10 @@ class TestMetadata(unittest.TestCase):
                 flow_id = '',
                 file_id = '',
                 file_name = '',
+                document_type = '',
+                slug = '',
+                integration_url = '',
+                document_id = '',
         )
         """
 

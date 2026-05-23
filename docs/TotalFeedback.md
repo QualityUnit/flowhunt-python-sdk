@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **session_count** | **int** | Total count of unique sessions (visitor count) | [optional] [default to 0]
 **human_message_count** | **float** | Average human messages per session | [optional] [default to 0.0]
 **tool_calling_count** | **float** | Average tool calls per session | [optional] [default to 0.0]
+**avg_error_message** | **float** | Average error messages per session | [optional] [default to 0.0]
 
 ## Example
 

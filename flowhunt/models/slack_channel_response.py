@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,7 +28,9 @@ class SlackChannelResponse(BaseModel):
     """ # noqa: E501
     channel_id: StrictStr
     channel_name: StrictStr
-    __properties: ClassVar[List[str]] = ["channel_id", "channel_name"]
+    channel_type: StrictStr
+    is_private: StrictBool
+    __properties: ClassVar[List[str]] = ["channel_id", "channel_name", "channel_type", "is_private"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -82,7 +84,9 @@ class SlackChannelResponse(BaseModel):
 
         _obj = cls.model_validate({
             "channel_id": obj.get("channel_id"),
-            "channel_name": obj.get("channel_name")
+            "channel_name": obj.get("channel_name"),
+            "channel_type": obj.get("channel_type"),
+            "is_private": obj.get("is_private")
         })
         return _obj
 

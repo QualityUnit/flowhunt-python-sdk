@@ -40,6 +40,13 @@ class TestPhotoAIApi(unittest.TestCase):
         """
         pass
 
+    def test_get_models(self) -> None:
+        """Test case for get_models
+
+        Get Models
+        """
+        pass
+
     def test_get_styles(self) -> None:
         """Test case for get_styles
 

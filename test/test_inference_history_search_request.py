@@ -37,7 +37,7 @@ class TestInferenceHistorySearchRequest(unittest.TestCase):
             return InferenceHistorySearchRequest(
                 from_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 to_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                limit = 56,
+                limit = 1.0,
                 search_after = [
                     null
                     ],

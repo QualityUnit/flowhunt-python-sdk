@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**explore**](PhotoAIApi.md#explore) | **GET** /v2/photo_ai/public/explore | Explore
 [**get_effects**](PhotoAIApi.md#get_effects) | **GET** /v2/photo_ai/public/effects | Get Effects
+[**get_models**](PhotoAIApi.md#get_models) | **GET** /v2/photo_ai/public/models | Get Models
 [**get_styles**](PhotoAIApi.md#get_styles) | **GET** /v2/photo_ai/public/styles | Get Styles
 [**get_templates**](PhotoAIApi.md#get_templates) | **GET** /v2/photo_ai/public/templates | Get Templates
 
@@ -116,6 +117,68 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**List[PhotoAIEffectResponse]**](PhotoAIEffectResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_models**
+> List[ModelCategoryResponse] get_models()
+
+Get Models
+
+### Example
+
+
+```python
+import flowhunt
+from flowhunt.models.model_category_response import ModelCategoryResponse
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.flowhunt.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "https://api.flowhunt.io"
+)
+
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.PhotoAIApi(api_client)
+
+    try:
+        # Get Models
+        api_response = api_instance.get_models()
+        print("The response of PhotoAIApi->get_models:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling PhotoAIApi->get_models: %s\n" % e)
+```
+
+
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**List[ModelCategoryResponse]**](ModelCategoryResponse.md)
 
 ### Authorization
 

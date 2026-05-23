@@ -12,7 +12,6 @@ Name | Type | Description | Notes
 **description** | **str** | Description of the Flow Table | [optional] 
 **schema_fields** | [**List[AgentGridFieldResponse]**](AgentGridFieldResponse.md) | List of fields defining the table schema | 
 **semantic_search_enabled** | **bool** | Whether semantic search is enabled | 
-**row_count** | **int** | Number of rows in the table | 
 **created_at** | **datetime** | Creation timestamp | 
 **updated_at** | **datetime** | Last update timestamp | 
 

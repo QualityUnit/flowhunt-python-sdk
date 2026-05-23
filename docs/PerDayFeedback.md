@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **session_count** | **int** | Count of unique sessions (visitor count) | [optional] [default to 0]
 **human_message_count** | **int** | Count of human messages | [optional] [default to 0]
 **tool_calling_count** | **int** | Count of tool calls | [optional] 
+**error_message_count** | **int** | Count of error messages | [optional] [default to 0]
 
 ## Example
 

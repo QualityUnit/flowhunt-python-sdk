@@ -20,6 +20,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
+from flowhunt.models.filters_value import FiltersValue
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +29,7 @@ class AgentGridSearchRequest(BaseModel):
     Schema for searching rows in an agent grid.
     """ # noqa: E501
     query: Optional[Annotated[str, Field(strict=True, max_length=500)]] = Field(default=None, description="Full-text search query")
-    filters: Optional[Dict[str, Any]] = Field(default=None, description="Field filters for exact matching")
+    filters: Optional[Dict[str, FiltersValue]] = Field(default=None, description="Per-column filters keyed by field name. The body is a discriminated union on ``op`` (``term`` | ``terms`` | ``match`` | ``range``).")
     limit: Optional[Annotated[int, Field(le=100, strict=True, ge=1)]] = Field(default=50, description="Maximum number of rows to return")
     offset: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=0, description="Number of rows to skip")
     __properties: ClassVar[List[str]] = ["query", "filters", "limit", "offset"]
@@ -72,6 +73,13 @@ class AgentGridSearchRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of each value in filters (dict)
+        _field_dict = {}
+        if self.filters:
+            for _key_filters in self.filters:
+                if self.filters[_key_filters]:
+                    _field_dict[_key_filters] = self.filters[_key_filters].to_dict()
+            _dict['filters'] = _field_dict
         return _dict
 
     @classmethod
@@ -85,7 +93,12 @@ class AgentGridSearchRequest(BaseModel):
 
         _obj = cls.model_validate({
             "query": obj.get("query"),
-            "filters": obj.get("filters"),
+            "filters": dict(
+                (_k, FiltersValue.from_dict(_v))
+                for _k, _v in obj["filters"].items()
+            )
+            if obj.get("filters") is not None
+            else None,
             "limit": obj.get("limit") if obj.get("limit") is not None else 50,
             "offset": obj.get("offset") if obj.get("offset") is not None else 0
         })

@@ -43,7 +43,9 @@ class FlowSessionViewResponse(BaseModel):
     url: Optional[StrictStr] = Field(default=None, description="Start URL")
     positive_feedback_count: Optional[StrictInt] = Field(default=None, description="Positive feedback count")
     negative_feedback_count: Optional[StrictInt] = Field(default=None, description="Negative feedback count")
-    __properties: ClassVar[List[str]] = ["session_id", "chatbot_id", "flow_id", "workspace_id", "created_at", "last_msg_at", "msg_count", "credits", "chatbot_name", "flow_name", "tags", "duration", "ipaddress", "url", "positive_feedback_count", "negative_feedback_count"]
+    error_message_count: Optional[StrictInt] = Field(default=None, description="Error message  count")
+    chat_session_title: Optional[StrictStr] = Field(default=None, description="Auto-generated chat session title")
+    __properties: ClassVar[List[str]] = ["session_id", "chatbot_id", "flow_id", "workspace_id", "created_at", "last_msg_at", "msg_count", "credits", "chatbot_name", "flow_name", "tags", "duration", "ipaddress", "url", "positive_feedback_count", "negative_feedback_count", "error_message_count", "chat_session_title"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -111,7 +113,9 @@ class FlowSessionViewResponse(BaseModel):
             "ipaddress": obj.get("ipaddress"),
             "url": obj.get("url"),
             "positive_feedback_count": obj.get("positive_feedback_count"),
-            "negative_feedback_count": obj.get("negative_feedback_count")
+            "negative_feedback_count": obj.get("negative_feedback_count"),
+            "error_message_count": obj.get("error_message_count"),
+            "chat_session_title": obj.get("chat_session_title")
         })
         return _obj
 

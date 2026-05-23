@@ -40,9 +40,9 @@ class TestImageInferenceRequest(unittest.TestCase):
                 image_fts = [
                     ''
                     ],
-                number_of_outputs = 56,
+                number_of_outputs = 1.0,
                 aspect_ratio = '1:1',
-                steps = 56,
+                steps = 1.0,
                 guidance_scale = 0.0,
                 styles = [
                     ''

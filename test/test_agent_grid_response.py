@@ -43,10 +43,10 @@ class TestAgentGridResponse(unittest.TestCase):
                     flowhunt.models.agent_grid_field_response.AgentGridFieldResponse(
                         name = 'customer_name', 
                         field_type = text, 
-                        required = False, )
+                        required = False, 
+                        unique = False, )
                     ],
                 semantic_search_enabled = False,
-                row_count = 1500,
                 created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f')
             )
@@ -59,10 +59,10 @@ class TestAgentGridResponse(unittest.TestCase):
                     flowhunt.models.agent_grid_field_response.AgentGridFieldResponse(
                         name = 'customer_name', 
                         field_type = text, 
-                        required = False, )
+                        required = False, 
+                        unique = False, )
                     ],
                 semantic_search_enabled = False,
-                row_count = 1500,
                 created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
         )

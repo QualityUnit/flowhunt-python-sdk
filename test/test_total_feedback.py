@@ -39,7 +39,8 @@ class TestTotalFeedback(unittest.TestCase):
                 negative = 56,
                 session_count = 56,
                 human_message_count = 1.337,
-                tool_calling_count = 1.337
+                tool_calling_count = 1.337,
+                avg_error_message = 1.337
             )
         else:
             return TotalFeedback(

@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **name** | **str** | Field name (must be snake_case: lowercase letters, numbers, underscores only) | 
 **field_type** | [**AgentGridFieldType**](AgentGridFieldType.md) | Field type | 
 **required** | **bool** | Whether the field is required | [optional] [default to False]
+**unique** | **bool** | Whether the field is part of the unique-key set. Rows with the same composite values across all unique fields upsert in place instead of duplicating. Unique fields must also be required and cannot be of type boolean. | [optional] [default to False]
 
 ## Example
 

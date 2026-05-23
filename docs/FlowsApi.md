@@ -4,6 +4,8 @@ All URIs are relative to *https://api.flowhunt.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**bulk_delete_flows**](FlowsApi.md#bulk_delete_flows) | **POST** /v2/flows/delete | Bulk Delete Flows
+[**bulk_update_flows**](FlowsApi.md#bulk_update_flows) | **POST** /v2/flows/update | Bulk Update Flows
 [**cancel_flow_session**](FlowsApi.md#cancel_flow_session) | **POST** /v2/flows/sessions/{session_id}/cancel | Cancel Flow Session
 [**create_chatbot_session**](FlowsApi.md#create_chatbot_session) | **POST** /v2/flows/sessions/create | Create Chatbot Session
 [**create_flow**](FlowsApi.md#create_flow) | **POST** /v2/flows/create | Create Flow
@@ -17,6 +19,7 @@ Method | HTTP request | Description
 [**delete_flow_cron**](FlowsApi.md#delete_flow_cron) | **DELETE** /v2/flows/crons/{flow_id}/{cron_id} | Delete Flow Cron
 [**download_attachment**](FlowsApi.md#download_attachment) | **GET** /v2/flows/sessions/{session_id}/attachments/{file_id} | Download attachment
 [**execute_flow_cron**](FlowsApi.md#execute_flow_cron) | **POST** /v2/flows/crons/{flow_id}/{cron_id}/execute | Execute Flow Cron
+[**fire_chat_hook**](FlowsApi.md#fire_chat_hook) | **POST** /v2/flows/sessions/{session_id}/hook | Fire Chat Hook
 [**generate_commit_message**](FlowsApi.md#generate_commit_message) | **POST** /v2/flows/{flow_id}/generate-commit-msg | Generate Commit Message
 [**get**](FlowsApi.md#get) | **GET** /v2/flows/{flow_id} | Get
 [**get_all_components**](FlowsApi.md#get_all_components) | **GET** /v2/flows/components/all | Get All Components
@@ -40,8 +43,183 @@ Method | HTTP request | Description
 [**update_flow**](FlowsApi.md#update_flow) | **PUT** /v2/flows/{flow_id} | Update Flow
 [**update_flow_category**](FlowsApi.md#update_flow_category) | **PUT** /v2/flows/categories/{cat_id} | Update Flow Category
 [**update_flow_cron**](FlowsApi.md#update_flow_cron) | **PUT** /v2/flows/crons/{flow_id}/{cron_id} | Update Flow Cron
+[**update_session_variables**](FlowsApi.md#update_session_variables) | **PATCH** /v2/flows/sessions/{session_id}/variables | Update Session Variables
 [**upload_attachments**](FlowsApi.md#upload_attachments) | **POST** /v2/flows/sessions/{session_id}/attachments | Upload Attachments
 
+
+# **bulk_delete_flows**
+> Completed bulk_delete_flows(workspace_id, flow_bulk_delete_request)
+
+Bulk Delete Flows
+
+### Example
+
+* Api Key Authentication (APIKeyHeader):
+* Bearer Authentication (HTTPBearer):
+
+```python
+import flowhunt
+from flowhunt.models.completed import Completed
+from flowhunt.models.flow_bulk_delete_request import FlowBulkDeleteRequest
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.flowhunt.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "https://api.flowhunt.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: APIKeyHeader
+configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
+
+# Configure Bearer authorization: HTTPBearer
+configuration = flowhunt.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.FlowsApi(api_client)
+    workspace_id = 'workspace_id_example' # str | 
+    flow_bulk_delete_request = flowhunt.FlowBulkDeleteRequest() # FlowBulkDeleteRequest | 
+
+    try:
+        # Bulk Delete Flows
+        api_response = api_instance.bulk_delete_flows(workspace_id, flow_bulk_delete_request)
+        print("The response of FlowsApi->bulk_delete_flows:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling FlowsApi->bulk_delete_flows: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **workspace_id** | **str**|  | 
+ **flow_bulk_delete_request** | [**FlowBulkDeleteRequest**](FlowBulkDeleteRequest.md)|  | 
+
+### Return type
+
+[**Completed**](Completed.md)
+
+### Authorization
+
+[APIKeyHeader](../README.md#APIKeyHeader), [HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **bulk_update_flows**
+> Completed bulk_update_flows(workspace_id, flow_bulk_update_request)
+
+Bulk Update Flows
+
+### Example
+
+* Api Key Authentication (APIKeyHeader):
+* Bearer Authentication (HTTPBearer):
+
+```python
+import flowhunt
+from flowhunt.models.completed import Completed
+from flowhunt.models.flow_bulk_update_request import FlowBulkUpdateRequest
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.flowhunt.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "https://api.flowhunt.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: APIKeyHeader
+configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
+
+# Configure Bearer authorization: HTTPBearer
+configuration = flowhunt.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.FlowsApi(api_client)
+    workspace_id = 'workspace_id_example' # str | 
+    flow_bulk_update_request = flowhunt.FlowBulkUpdateRequest() # FlowBulkUpdateRequest | 
+
+    try:
+        # Bulk Update Flows
+        api_response = api_instance.bulk_update_flows(workspace_id, flow_bulk_update_request)
+        print("The response of FlowsApi->bulk_update_flows:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling FlowsApi->bulk_update_flows: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **workspace_id** | **str**|  | 
+ **flow_bulk_update_request** | [**FlowBulkUpdateRequest**](FlowBulkUpdateRequest.md)|  | 
+
+### Return type
+
+[**Completed**](Completed.md)
+
+### Authorization
+
+[APIKeyHeader](../README.md#APIKeyHeader), [HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cancel_flow_session**
 > Completed cancel_flow_session(session_id)
@@ -1102,6 +1280,76 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **fire_chat_hook**
+> FlowSessionInvocationResponse fire_chat_hook(session_id, flow_session_hook_request)
+
+Fire Chat Hook
+
+### Example
+
+
+```python
+import flowhunt
+from flowhunt.models.flow_session_hook_request import FlowSessionHookRequest
+from flowhunt.models.flow_session_invocation_response import FlowSessionInvocationResponse
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.flowhunt.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "https://api.flowhunt.io"
+)
+
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.FlowsApi(api_client)
+    session_id = 'session_id_example' # str | 
+    flow_session_hook_request = flowhunt.FlowSessionHookRequest() # FlowSessionHookRequest | 
+
+    try:
+        # Fire Chat Hook
+        api_response = api_instance.fire_chat_hook(session_id, flow_session_hook_request)
+        print("The response of FlowsApi->fire_chat_hook:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling FlowsApi->fire_chat_hook: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **session_id** | **str**|  | 
+ **flow_session_hook_request** | [**FlowSessionHookRequest**](FlowSessionHookRequest.md)|  | 
+
+### Return type
+
+[**FlowSessionInvocationResponse**](FlowSessionInvocationResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **generate_commit_message**
 > FlowCommitResponse generate_commit_message(flow_id, workspace_id)
 
@@ -1426,7 +1674,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_attachments**
-> List[FlowSessionAttachmentResponse] get_attachments(session_id)
+> List[InhouseAttachment] get_attachments(session_id)
 
 Get Attachments
 
@@ -1435,7 +1683,7 @@ Get Attachments
 
 ```python
 import flowhunt
-from flowhunt.models.flow_session_attachment_response import FlowSessionAttachmentResponse
+from flowhunt.models.inhouse_attachment import InhouseAttachment
 from flowhunt.rest import ApiException
 from pprint import pprint
 
@@ -1472,7 +1720,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[FlowSessionAttachmentResponse]**](FlowSessionAttachmentResponse.md)
+[**List[InhouseAttachment]**](InhouseAttachment.md)
 
 ### Authorization
 
@@ -3017,8 +3265,78 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **update_session_variables**
+> FlowSessionVariablesResponse update_session_variables(session_id, flow_session_variables_request)
+
+Update Session Variables
+
+### Example
+
+
+```python
+import flowhunt
+from flowhunt.models.flow_session_variables_request import FlowSessionVariablesRequest
+from flowhunt.models.flow_session_variables_response import FlowSessionVariablesResponse
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.flowhunt.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "https://api.flowhunt.io"
+)
+
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.FlowsApi(api_client)
+    session_id = 'session_id_example' # str | 
+    flow_session_variables_request = flowhunt.FlowSessionVariablesRequest() # FlowSessionVariablesRequest | 
+
+    try:
+        # Update Session Variables
+        api_response = api_instance.update_session_variables(session_id, flow_session_variables_request)
+        print("The response of FlowsApi->update_session_variables:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling FlowsApi->update_session_variables: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **session_id** | **str**|  | 
+ **flow_session_variables_request** | [**FlowSessionVariablesRequest**](FlowSessionVariablesRequest.md)|  | 
+
+### Return type
+
+[**FlowSessionVariablesResponse**](FlowSessionVariablesResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **upload_attachments**
-> FlowSessionAttachmentResponse upload_attachments(session_id, file)
+> InhouseAttachment upload_attachments(session_id, file)
 
 Upload Attachments
 
@@ -3027,7 +3345,7 @@ Upload Attachments
 
 ```python
 import flowhunt
-from flowhunt.models.flow_session_attachment_response import FlowSessionAttachmentResponse
+from flowhunt.models.inhouse_attachment import InhouseAttachment
 from flowhunt.rest import ApiException
 from pprint import pprint
 
@@ -3066,7 +3384,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FlowSessionAttachmentResponse**](FlowSessionAttachmentResponse.md)
+[**InhouseAttachment**](InhouseAttachment.md)
 
 ### Authorization
 

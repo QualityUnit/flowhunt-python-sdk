@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **credits** | **float** | Credits | 
 **metadata** | [**Metadata**](Metadata.md) |  | [optional] 
 **component_name** | **str** | Component name | [optional] 
+**run_id** | **str** | Pyworkflow run id that produced this event. Set on events emitted from inside a worker workflow so callers (e.g. check_async_task) can filter the session log to a single async task. | [optional] 
 
 ## Example
 

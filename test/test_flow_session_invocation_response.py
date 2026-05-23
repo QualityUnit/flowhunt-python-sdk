@@ -47,7 +47,8 @@ class TestFlowSessionInvocationResponse(unittest.TestCase):
                         action_type = loading, 
                         credits = 10, 
                         metadata = null, 
-                        component_name = '', )
+                        component_name = '', 
+                        run_id = '', )
                     ]
             )
         else:

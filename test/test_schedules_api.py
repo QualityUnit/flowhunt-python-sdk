@@ -26,6 +26,27 @@ class TestSchedulesApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
+    def test_bulk_delete_schedules(self) -> None:
+        """Test case for bulk_delete_schedules
+
+        Bulk Delete Schedules
+        """
+        pass
+
+    def test_bulk_run_schedules(self) -> None:
+        """Test case for bulk_run_schedules
+
+        Bulk Run Schedules
+        """
+        pass
+
+    def test_bulk_update_schedules(self) -> None:
+        """Test case for bulk_update_schedules
+
+        Bulk Update Schedules
+        """
+        pass
+
     def test_create_schedules(self) -> None:
         """Test case for create_schedules
 

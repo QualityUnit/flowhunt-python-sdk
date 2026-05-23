@@ -4,12 +4,188 @@ All URIs are relative to *https://api.flowhunt.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**bulk_delete_chatbots**](ChatbotsApi.md#bulk_delete_chatbots) | **POST** /v2/chatbots/delete | Bulk Delete Chatbots
+[**bulk_update_chatbots**](ChatbotsApi.md#bulk_update_chatbots) | **PUT** /v2/chatbots/update | Bulk Update Chatbots
 [**create_chatbot**](ChatbotsApi.md#create_chatbot) | **POST** /v2/chatbots/create | Create Chatbot
 [**delete_chatbot**](ChatbotsApi.md#delete_chatbot) | **DELETE** /v2/chatbots/{chatbot_id} | Delete Chatbot
 [**get_chatbot**](ChatbotsApi.md#get_chatbot) | **GET** /v2/chatbots/{chatbot_id} | Get Chatbot
 [**search_chatbots**](ChatbotsApi.md#search_chatbots) | **POST** /v2/chatbots/ | Search Chatbots
 [**update_chatbot**](ChatbotsApi.md#update_chatbot) | **PUT** /v2/chatbots/{chatbot_id} | Update Chatbot
 
+
+# **bulk_delete_chatbots**
+> Completed bulk_delete_chatbots(workspace_id, chatbot_bulk_delete_request)
+
+Bulk Delete Chatbots
+
+### Example
+
+* Api Key Authentication (APIKeyHeader):
+* Bearer Authentication (HTTPBearer):
+
+```python
+import flowhunt
+from flowhunt.models.chatbot_bulk_delete_request import ChatbotBulkDeleteRequest
+from flowhunt.models.completed import Completed
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.flowhunt.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "https://api.flowhunt.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: APIKeyHeader
+configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
+
+# Configure Bearer authorization: HTTPBearer
+configuration = flowhunt.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.ChatbotsApi(api_client)
+    workspace_id = 'workspace_id_example' # str | 
+    chatbot_bulk_delete_request = flowhunt.ChatbotBulkDeleteRequest() # ChatbotBulkDeleteRequest | 
+
+    try:
+        # Bulk Delete Chatbots
+        api_response = api_instance.bulk_delete_chatbots(workspace_id, chatbot_bulk_delete_request)
+        print("The response of ChatbotsApi->bulk_delete_chatbots:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ChatbotsApi->bulk_delete_chatbots: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **workspace_id** | **str**|  | 
+ **chatbot_bulk_delete_request** | [**ChatbotBulkDeleteRequest**](ChatbotBulkDeleteRequest.md)|  | 
+
+### Return type
+
+[**Completed**](Completed.md)
+
+### Authorization
+
+[APIKeyHeader](../README.md#APIKeyHeader), [HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **bulk_update_chatbots**
+> Completed bulk_update_chatbots(workspace_id, chatbot_bulk_update_request)
+
+Bulk Update Chatbots
+
+### Example
+
+* Api Key Authentication (APIKeyHeader):
+* Bearer Authentication (HTTPBearer):
+
+```python
+import flowhunt
+from flowhunt.models.chatbot_bulk_update_request import ChatbotBulkUpdateRequest
+from flowhunt.models.completed import Completed
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.flowhunt.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "https://api.flowhunt.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: APIKeyHeader
+configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
+
+# Configure Bearer authorization: HTTPBearer
+configuration = flowhunt.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.ChatbotsApi(api_client)
+    workspace_id = 'workspace_id_example' # str | 
+    chatbot_bulk_update_request = flowhunt.ChatbotBulkUpdateRequest() # ChatbotBulkUpdateRequest | 
+
+    try:
+        # Bulk Update Chatbots
+        api_response = api_instance.bulk_update_chatbots(workspace_id, chatbot_bulk_update_request)
+        print("The response of ChatbotsApi->bulk_update_chatbots:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ChatbotsApi->bulk_update_chatbots: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **workspace_id** | **str**|  | 
+ **chatbot_bulk_update_request** | [**ChatbotBulkUpdateRequest**](ChatbotBulkUpdateRequest.md)|  | 
+
+### Return type
+
+[**Completed**](Completed.md)
+
+### Authorization
+
+[APIKeyHeader](../README.md#APIKeyHeader), [HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_chatbot**
 > ChatbotResponse create_chatbot(workspace_id, chatbot_create_request)

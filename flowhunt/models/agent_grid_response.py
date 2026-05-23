@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from flowhunt.models.agent_grid_field_response import AgentGridFieldResponse
 from typing import Optional, Set
@@ -34,10 +34,9 @@ class AgentGridResponse(BaseModel):
     description: Optional[StrictStr] = Field(default=None, description="Description of the Flow Table")
     schema_fields: List[AgentGridFieldResponse] = Field(description="List of fields defining the table schema")
     semantic_search_enabled: StrictBool = Field(description="Whether semantic search is enabled")
-    row_count: StrictInt = Field(description="Number of rows in the table")
     created_at: datetime = Field(description="Creation timestamp")
     updated_at: datetime = Field(description="Last update timestamp")
-    __properties: ClassVar[List[str]] = ["agent_grid_id", "workspace_id", "name", "description", "schema_fields", "semantic_search_enabled", "row_count", "created_at", "updated_at"]
+    __properties: ClassVar[List[str]] = ["agent_grid_id", "workspace_id", "name", "description", "schema_fields", "semantic_search_enabled", "created_at", "updated_at"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -103,7 +102,6 @@ class AgentGridResponse(BaseModel):
             "description": obj.get("description"),
             "schema_fields": [AgentGridFieldResponse.from_dict(_item) for _item in obj["schema_fields"]] if obj.get("schema_fields") is not None else None,
             "semantic_search_enabled": obj.get("semantic_search_enabled"),
-            "row_count": obj.get("row_count"),
             "created_at": obj.get("created_at"),
             "updated_at": obj.get("updated_at")
         })

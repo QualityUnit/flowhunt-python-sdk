@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **from_date** | **datetime** | From date | [optional] 
 **to_date** | **datetime** | To date | [optional] 
 **limit** | **int** | The number of results to return | [optional] [default to 10]
-**search_after** | **List[object]** | The search_after parameter for pagination (contains sort values from previous page) | [optional] 
+**search_after** | [**List[InferenceHistorySearchRequestSearchAfterInner]**](InferenceHistorySearchRequestSearchAfterInner.md) | The search_after parameter for pagination (contains sort values from previous page) | [optional] 
 **base_model** | [**BaseFoundationModel**](BaseFoundationModel.md) | The base model to filter by | [optional] 
 **style** | **str** | The style to filter by | [optional] 
 **effect** | **str** | The effect to filter by | [optional] 

@@ -31,7 +31,8 @@ class AgentGridFieldRequest(BaseModel):
     name: Annotated[str, Field(min_length=1, strict=True, max_length=100)] = Field(description="Field name (must be snake_case: lowercase letters, numbers, underscores only)")
     field_type: AgentGridFieldType = Field(description="Field type")
     required: Optional[StrictBool] = Field(default=False, description="Whether the field is required")
-    __properties: ClassVar[List[str]] = ["name", "field_type", "required"]
+    unique: Optional[StrictBool] = Field(default=False, description="Whether the field is part of the unique-key set. Rows with the same composite values across all unique fields upsert in place instead of duplicating. Unique fields must also be required and cannot be of type boolean.")
+    __properties: ClassVar[List[str]] = ["name", "field_type", "required", "unique"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -86,7 +87,8 @@ class AgentGridFieldRequest(BaseModel):
         _obj = cls.model_validate({
             "name": obj.get("name"),
             "field_type": obj.get("field_type"),
-            "required": obj.get("required") if obj.get("required") is not None else False
+            "required": obj.get("required") if obj.get("required") is not None else False,
+            "unique": obj.get("unique") if obj.get("unique") is not None else False
         })
         return _obj
 

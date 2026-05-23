@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **get_slack_channels**
-> List[SlackChannelResponse] get_slack_channels(slack_team_id, workspace_id)
+> List[SlackChannelResponse] get_slack_channels(slack_team_id, workspace_id, types=types)
 
 Get Slack Channels
 
@@ -45,10 +45,11 @@ with flowhunt.ApiClient(configuration) as api_client:
     api_instance = flowhunt.SlackApi(api_client)
     slack_team_id = 'slack_team_id_example' # str | 
     workspace_id = 'workspace_id_example' # str | 
+    types = 'public_channel,private_channel' # str |  (optional) (default to 'public_channel,private_channel')
 
     try:
         # Get Slack Channels
-        api_response = api_instance.get_slack_channels(slack_team_id, workspace_id)
+        api_response = api_instance.get_slack_channels(slack_team_id, workspace_id, types=types)
         print("The response of SlackApi->get_slack_channels:\n")
         pprint(api_response)
     except Exception as e:
@@ -64,6 +65,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **slack_team_id** | **str**|  | 
  **workspace_id** | **str**|  | 
+ **types** | **str**|  | [optional] [default to &#39;public_channel,private_channel&#39;]
 
 ### Return type
 

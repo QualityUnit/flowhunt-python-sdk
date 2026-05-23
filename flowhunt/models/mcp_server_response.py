@@ -35,8 +35,9 @@ class MCPServerResponse(BaseModel):
     is_active: StrictBool = Field(description="Whether the MCP server is active")
     created_at: datetime = Field(description="Creation timestamp")
     updated_at: datetime = Field(description="Last update timestamp")
-    remote_mcp_url: Optional[StrictStr] = Field(default=None, description="Remote MCP URL")
-    __properties: ClassVar[List[str]] = ["workspace_id", "mcp_server_id", "name", "server_configuration", "is_active", "created_at", "updated_at", "remote_mcp_url"]
+    remote_mcp_url: Optional[StrictStr] = Field(default=None, description="Remote MCP URL (workspace-scoped, no API key in path). Authenticate with the mcp_api_key value via `Authorization: Bearer <mcp_api_key>`.")
+    mcp_api_key: Optional[StrictStr] = Field(default=None, description="API key for the MCP server. Send as `Authorization: Bearer <mcp_api_key>` when connecting to remote_mcp_url. Treat this as a secret.")
+    __properties: ClassVar[List[str]] = ["workspace_id", "mcp_server_id", "name", "server_configuration", "is_active", "created_at", "updated_at", "remote_mcp_url", "mcp_api_key"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -103,7 +104,8 @@ class MCPServerResponse(BaseModel):
             "is_active": obj.get("is_active"),
             "created_at": obj.get("created_at"),
             "updated_at": obj.get("updated_at"),
-            "remote_mcp_url": obj.get("remote_mcp_url")
+            "remote_mcp_url": obj.get("remote_mcp_url"),
+            "mcp_api_key": obj.get("mcp_api_key")
         })
         return _obj
 

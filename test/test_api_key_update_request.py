@@ -40,7 +40,6 @@ class TestApiKeyUpdateRequest(unittest.TestCase):
             )
         else:
             return ApiKeyUpdateRequest(
-                display_name = 'My API Key',
         )
         """
 

@@ -33,6 +33,7 @@ Name | Type | Description | Notes
 **remove_branding** | **bool** | Whether to remove FlowHunt branding from the chatbot | [optional] [default to False]
 **chatbot_style** | **str** | Chatbot style (default or custom) | [optional] 
 **session_message_history** | **bool** | Session message history | [optional] [default to False]
+**show_embed_close_button** | **bool** | Whether to show a close button in the embedded chatbot header | [optional] [default to False]
 **chatbot_bubble_size** | **int** | Chatbot bubble size | [optional] 
 **message_header_logo_url** | **str** | URL for the message header logo | [optional] 
 **popup_messages** | **List[str]** | List of popup markdown messages | [optional] 

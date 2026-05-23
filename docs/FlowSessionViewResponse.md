@@ -21,6 +21,8 @@ Name | Type | Description | Notes
 **url** | **str** | Start URL | [optional] 
 **positive_feedback_count** | **int** | Positive feedback count | [optional] 
 **negative_feedback_count** | **int** | Negative feedback count | [optional] 
+**error_message_count** | **int** | Error message  count | [optional] 
+**chat_session_title** | **str** | Auto-generated chat session title | [optional] 
 
 ## Example
 

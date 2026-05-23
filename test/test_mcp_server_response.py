@@ -49,7 +49,8 @@ class TestMCPServerResponse(unittest.TestCase):
                 is_active = True,
                 created_at = '2021-05-07T12:34:56.789Z',
                 updated_at = '2021-05-07T12:34:56.789Z',
-                remote_mcp_url = 'https://mcp.example.com/d719f5f5-5433-4cb4-9993-8053bda1a384/0x1d230dabdb5bc7cb'
+                remote_mcp_url = 'https://mcp.example.com/d719f5f5-5433-4cb4-9993-8053bda1a384',
+                mcp_api_key = '0x1d230dabdb5bc7cb'
             )
         else:
             return MCPServerResponse(

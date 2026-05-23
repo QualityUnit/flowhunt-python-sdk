@@ -35,7 +35,10 @@ class TestCompleted(unittest.TestCase):
         model = Completed()
         if include_optional:
             return Completed(
-                status = 'OK'
+                status = 'OK',
+                failed = [
+                    ''
+                    ]
             )
         else:
             return Completed(

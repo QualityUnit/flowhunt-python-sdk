@@ -65,6 +65,7 @@ class TestChatbotResponse(unittest.TestCase):
                 remove_branding = True,
                 chatbot_style = 'embedded',
                 session_message_history = False,
+                show_embed_close_button = True,
                 chatbot_bubble_size = 50,
                 message_header_logo_url = '',
                 popup_messages = [

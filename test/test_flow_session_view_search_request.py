@@ -42,14 +42,16 @@ class TestFlowSessionViewSearchRequest(unittest.TestCase):
                 created_at_filter = {gte=1632480000},
                 last_message_at_filter = {gte=1632480000},
                 duration_filter = {gte=60},
-                msg_count_filter = {gte=10},
+                msg_count_filter = 2,
                 credits_filter = {gte=10},
                 chatbot_name = 'Chatbot 1',
                 flow_name = 'My agent',
                 ipaddress_filter = {match=127.0.0.1},
                 pagination = {page=1, size=10},
                 positive_feedback = 1,
-                negative_feedback = 1
+                negative_feedback = 1,
+                error_message = 1,
+                status_filter = 'completed'
             )
         else:
             return FlowSessionViewSearchRequest(

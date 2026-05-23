@@ -7,9 +7,9 @@ Metadata
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **message_id** | **str** | Message ID | 
-**message** | **str** | Message | 
+**message** | **str** | User-facing message explaining why access is needed | [default to '']
 **sender** | [**HumanAgentSender**](HumanAgentSender.md) | Sender ID | [optional] 
-**tool_name** | **str** | Tool name | 
+**tool_name** | **str** | Name of the tool requiring approval | 
 **loading_desc** | **str** | Loading description | 
 **icon** | **str** | Icon | [optional] 
 **color** | **str** | Color | [optional] 
@@ -25,14 +25,28 @@ Name | Type | Description | Notes
 **artefacts** | [**List[FlowSessionArtefactInfo]**](FlowSessionArtefactInfo.md) | List of artefact files created by agent | 
 **cot_id** | **str** | Unique CoT identifier for updates | 
 **content** | **str** | Chain of thought / reasoning text | 
+**agent_name** | **str** | Name of the agent | 
+**agent_type** | **str** | Agent type: supervisor, lead, or worker | 
+**model** | **str** | LLM model name used by the agent | 
+**task** | **str** | The full prompt sent to the subagent. | 
+**started_by** | **str** | Name of the agent that initiated this delegation. | 
+**target_agent** | **str** | Name of the subagent receiving the task. | 
 **todo_id** | **str** | Unique todo list identifier for updates | 
 **todos** | [**List[TodoItem]**](TodoItem.md) | List of todo items | 
 **action_description** | **str** | Description of what the tool does | [optional] 
 **duration_ms** | **int** | Duration in milliseconds | [optional] 
 **stage** | **str** | Initialization stage (e.g., &#39;starting&#39;, &#39;creating_agent&#39;, &#39;ready&#39;) | 
 **hook_id** | **str** | Hook ID for resuming the hook | 
-**hook_name** | **str** | Hook name (e.g., &#39;wait_for_user_input&#39;) | 
+**hook_name** | **str** | Internal pyworkflow hook name | 
 **prompt_message** | **str** | Message to show the user | 
+**script** | **str** | JS expression to evaluate in the visitor&#39;s browser | 
+**timeout_ms** | **int** | Maximum time the widget should wait before returning a timeout error | [optional] [default to 5000]
+**request_id** | **str** | Correlates the request with the response posted back from the widget | 
+**hitl_id** | **str** | HITL request ID for correlation | [optional] [default to '']
+**tool_args** | **Dict[str, object]** | Arguments the tool would be called with | 
+**tool_description** | **str** | Description of the tool | [optional] [default to '']
+**channel** | **str** | Notification channel type | [optional] [default to 'flowhunt']
+**channel_config** | **Dict[str, object]** | Channel-specific configuration | [optional] 
 **action_id** | **str** | Action ID | 
 **component_id** | **str** | Component ID | 
 **component_type** | **str** | Component name | 
@@ -49,7 +63,10 @@ Name | Type | Description | Notes
 **file_id** | **str** | File ID | 
 **file_name** | **str** | File name | 
 **file_type** | **str** | File type | [optional] 
-**document_type** | [**DocumentType**](DocumentType.md) | Document Type | [optional] 
+**document_type** | **str** | Type of document (e.g., google_sheets) | 
+**slug** | **str** | Integration slug that is missing | 
+**integration_url** | **str** | URL for the user to set up the integration | 
+**document_id** | **str** | ID of the document requiring access | 
 
 ## Example
 

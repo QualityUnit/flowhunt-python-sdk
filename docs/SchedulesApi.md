@@ -4,6 +4,9 @@ All URIs are relative to *https://api.flowhunt.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**bulk_delete_schedules**](SchedulesApi.md#bulk_delete_schedules) | **POST** /v2/schedules/delete | Bulk Delete Schedules
+[**bulk_run_schedules**](SchedulesApi.md#bulk_run_schedules) | **POST** /v2/schedules/run | Bulk Run Schedules
+[**bulk_update_schedules**](SchedulesApi.md#bulk_update_schedules) | **PUT** /v2/schedules/update | Bulk Update Schedules
 [**create_schedules**](SchedulesApi.md#create_schedules) | **POST** /v2/schedules/create | Create Schedules
 [**delete_schedule**](SchedulesApi.md#delete_schedule) | **DELETE** /v2/schedules/{schedule_id} | Delete Schedule
 [**delete_schedule_url**](SchedulesApi.md#delete_schedule_url) | **DELETE** /v2/schedules/{schedule_id}/urls/{domain_id}/{url_id} | Delete Schedule Url
@@ -14,6 +17,267 @@ Method | HTTP request | Description
 [**search_schedule_urls**](SchedulesApi.md#search_schedule_urls) | **POST** /v2/schedules/urls/ | Search Schedule Urls
 [**update_schedule**](SchedulesApi.md#update_schedule) | **PUT** /v2/schedules/{schedule_id} | Update Schedule
 
+
+# **bulk_delete_schedules**
+> Completed bulk_delete_schedules(workspace_id, schedule_bulk_delete_request)
+
+Bulk Delete Schedules
+
+### Example
+
+* Api Key Authentication (APIKeyHeader):
+* Bearer Authentication (HTTPBearer):
+
+```python
+import flowhunt
+from flowhunt.models.completed import Completed
+from flowhunt.models.schedule_bulk_delete_request import ScheduleBulkDeleteRequest
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.flowhunt.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "https://api.flowhunt.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: APIKeyHeader
+configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
+
+# Configure Bearer authorization: HTTPBearer
+configuration = flowhunt.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.SchedulesApi(api_client)
+    workspace_id = 'workspace_id_example' # str | 
+    schedule_bulk_delete_request = flowhunt.ScheduleBulkDeleteRequest() # ScheduleBulkDeleteRequest | 
+
+    try:
+        # Bulk Delete Schedules
+        api_response = api_instance.bulk_delete_schedules(workspace_id, schedule_bulk_delete_request)
+        print("The response of SchedulesApi->bulk_delete_schedules:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling SchedulesApi->bulk_delete_schedules: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **workspace_id** | **str**|  | 
+ **schedule_bulk_delete_request** | [**ScheduleBulkDeleteRequest**](ScheduleBulkDeleteRequest.md)|  | 
+
+### Return type
+
+[**Completed**](Completed.md)
+
+### Authorization
+
+[APIKeyHeader](../README.md#APIKeyHeader), [HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **bulk_run_schedules**
+> Completed bulk_run_schedules(workspace_id, schedule_bulk_run_request)
+
+Bulk Run Schedules
+
+### Example
+
+* Api Key Authentication (APIKeyHeader):
+* Bearer Authentication (HTTPBearer):
+
+```python
+import flowhunt
+from flowhunt.models.completed import Completed
+from flowhunt.models.schedule_bulk_run_request import ScheduleBulkRunRequest
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.flowhunt.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "https://api.flowhunt.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: APIKeyHeader
+configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
+
+# Configure Bearer authorization: HTTPBearer
+configuration = flowhunt.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.SchedulesApi(api_client)
+    workspace_id = 'workspace_id_example' # str | 
+    schedule_bulk_run_request = flowhunt.ScheduleBulkRunRequest() # ScheduleBulkRunRequest | 
+
+    try:
+        # Bulk Run Schedules
+        api_response = api_instance.bulk_run_schedules(workspace_id, schedule_bulk_run_request)
+        print("The response of SchedulesApi->bulk_run_schedules:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling SchedulesApi->bulk_run_schedules: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **workspace_id** | **str**|  | 
+ **schedule_bulk_run_request** | [**ScheduleBulkRunRequest**](ScheduleBulkRunRequest.md)|  | 
+
+### Return type
+
+[**Completed**](Completed.md)
+
+### Authorization
+
+[APIKeyHeader](../README.md#APIKeyHeader), [HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **bulk_update_schedules**
+> Completed bulk_update_schedules(workspace_id, schedule_bulk_update_request)
+
+Bulk Update Schedules
+
+### Example
+
+* Api Key Authentication (APIKeyHeader):
+* Bearer Authentication (HTTPBearer):
+
+```python
+import flowhunt
+from flowhunt.models.completed import Completed
+from flowhunt.models.schedule_bulk_update_request import ScheduleBulkUpdateRequest
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.flowhunt.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "https://api.flowhunt.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: APIKeyHeader
+configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
+
+# Configure Bearer authorization: HTTPBearer
+configuration = flowhunt.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.SchedulesApi(api_client)
+    workspace_id = 'workspace_id_example' # str | 
+    schedule_bulk_update_request = flowhunt.ScheduleBulkUpdateRequest() # ScheduleBulkUpdateRequest | 
+
+    try:
+        # Bulk Update Schedules
+        api_response = api_instance.bulk_update_schedules(workspace_id, schedule_bulk_update_request)
+        print("The response of SchedulesApi->bulk_update_schedules:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling SchedulesApi->bulk_update_schedules: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **workspace_id** | **str**|  | 
+ **schedule_bulk_update_request** | [**ScheduleBulkUpdateRequest**](ScheduleBulkUpdateRequest.md)|  | 
+
+### Return type
+
+[**Completed**](Completed.md)
+
+### Authorization
+
+[APIKeyHeader](../README.md#APIKeyHeader), [HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_schedules**
 > List[ScheduleResponse] create_schedules(workspace_id, schedule_create_request)

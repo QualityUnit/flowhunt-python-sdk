@@ -18,10 +18,12 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
 from flowhunt.models.aspec_ratio import AspecRatio
 from flowhunt.models.base_foundation_model import BaseFoundationModel
+from flowhunt.models.inference_history_search_request_search_after_inner import InferenceHistorySearchRequestSearchAfterInner
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -31,8 +33,8 @@ class InferenceHistorySearchRequest(BaseModel):
     """ # noqa: E501
     from_date: Optional[datetime] = Field(default=None, description="From date")
     to_date: Optional[datetime] = Field(default=None, description="To date")
-    limit: Optional[StrictInt] = Field(default=10, description="The number of results to return")
-    search_after: Optional[List[Any]] = Field(default=None, description="The search_after parameter for pagination (contains sort values from previous page)")
+    limit: Optional[Annotated[int, Field(le=1000, strict=True, ge=1)]] = Field(default=10, description="The number of results to return")
+    search_after: Optional[List[InferenceHistorySearchRequestSearchAfterInner]] = Field(default=None, description="The search_after parameter for pagination (contains sort values from previous page)")
     base_model: Optional[BaseFoundationModel] = Field(default=None, description="The base model to filter by")
     style: Optional[StrictStr] = Field(default=None, description="The style to filter by")
     effect: Optional[StrictStr] = Field(default=None, description="The effect to filter by")
@@ -78,6 +80,13 @@ class InferenceHistorySearchRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of each item in search_after (list)
+        _items = []
+        if self.search_after:
+            for _item_search_after in self.search_after:
+                if _item_search_after:
+                    _items.append(_item_search_after.to_dict())
+            _dict['search_after'] = _items
         return _dict
 
     @classmethod
@@ -93,7 +102,7 @@ class InferenceHistorySearchRequest(BaseModel):
             "from_date": obj.get("from_date"),
             "to_date": obj.get("to_date"),
             "limit": obj.get("limit") if obj.get("limit") is not None else 10,
-            "search_after": obj.get("search_after"),
+            "search_after": [InferenceHistorySearchRequestSearchAfterInner.from_dict(_item) for _item in obj["search_after"]] if obj.get("search_after") is not None else None,
             "base_model": obj.get("base_model"),
             "style": obj.get("style"),
             "effect": obj.get("effect"),

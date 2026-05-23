@@ -85,7 +85,15 @@
 
 * `CLICKUP_INTEGRATION` (value: `'clickup_integration'`)
 
+* `ASANA_INTEGRATION` (value: `'asana_integration'`)
+
+* `SALESFORCE_INTEGRATION` (value: `'salesforce_integration'`)
+
+* `FINSTAT_INTEGRATION` (value: `'finstat_integration'`)
+
 * `KLAVIYO_INTEGRATION` (value: `'klaviyo_integration'`)
+
+* `SMTP_MAIL_INTEGRATION` (value: `'smtp_mail_integration'`)
 
 * `GOOGLE_CALENDAR_INTEGRATION` (value: `'google_calendar_integration'`)
 

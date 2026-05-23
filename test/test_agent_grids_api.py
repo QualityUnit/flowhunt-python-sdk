@@ -96,6 +96,13 @@ class TestAgentGridsApi(unittest.TestCase):
         """
         pass
 
+    def test_search_agent_grids(self) -> None:
+        """Test case for search_agent_grids
+
+        Search Flow Tables
+        """
+        pass
+
     def test_search_rows(self) -> None:
         """Test case for search_rows
 

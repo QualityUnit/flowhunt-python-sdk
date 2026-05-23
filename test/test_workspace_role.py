@@ -39,7 +39,8 @@ class TestWorkspaceRole(unittest.TestCase):
                 workspace_name = 'My Company 1',
                 owner_name = 'John Doe',
                 owner_email = 'john.doe@gmail.com',
-                role = 'A'
+                role = 'A',
+                can_white_label = True
             )
         else:
             return WorkspaceRole(

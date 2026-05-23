@@ -13,7 +13,8 @@ Name | Type | Description | Notes
 **is_active** | **bool** | Whether the MCP server is active | 
 **created_at** | **datetime** | Creation timestamp | 
 **updated_at** | **datetime** | Last update timestamp | 
-**remote_mcp_url** | **str** | Remote MCP URL | [optional] 
+**remote_mcp_url** | **str** | Remote MCP URL (workspace-scoped, no API key in path). Authenticate with the mcp_api_key value via &#x60;Authorization: Bearer &lt;mcp_api_key&gt;&#x60;. | [optional] 
+**mcp_api_key** | **str** | API key for the MCP server. Send as &#x60;Authorization: Bearer &lt;mcp_api_key&gt;&#x60; when connecting to remote_mcp_url. Treat this as a secret. | [optional] 
 
 ## Example
 

@@ -17,7 +17,7 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 from pydantic import StrictStr
-from typing import List
+from typing import List, Optional
 from flowhunt.models.slack_channel_response import SlackChannelResponse
 from flowhunt.models.slack_workspace_response import SlackWorkspaceResponse
 
@@ -44,6 +44,7 @@ class SlackApi:
         self,
         slack_team_id: StrictStr,
         workspace_id: StrictStr,
+        types: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -64,6 +65,8 @@ class SlackApi:
         :type slack_team_id: str
         :param workspace_id: (required)
         :type workspace_id: str
+        :param types:
+        :type types: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -89,6 +92,7 @@ class SlackApi:
         _param = self._get_slack_channels_serialize(
             slack_team_id=slack_team_id,
             workspace_id=workspace_id,
+            types=types,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -115,6 +119,7 @@ class SlackApi:
         self,
         slack_team_id: StrictStr,
         workspace_id: StrictStr,
+        types: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -135,6 +140,8 @@ class SlackApi:
         :type slack_team_id: str
         :param workspace_id: (required)
         :type workspace_id: str
+        :param types:
+        :type types: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -160,6 +167,7 @@ class SlackApi:
         _param = self._get_slack_channels_serialize(
             slack_team_id=slack_team_id,
             workspace_id=workspace_id,
+            types=types,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -186,6 +194,7 @@ class SlackApi:
         self,
         slack_team_id: StrictStr,
         workspace_id: StrictStr,
+        types: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -206,6 +215,8 @@ class SlackApi:
         :type slack_team_id: str
         :param workspace_id: (required)
         :type workspace_id: str
+        :param types:
+        :type types: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -231,6 +242,7 @@ class SlackApi:
         _param = self._get_slack_channels_serialize(
             slack_team_id=slack_team_id,
             workspace_id=workspace_id,
+            types=types,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -252,6 +264,7 @@ class SlackApi:
         self,
         slack_team_id,
         workspace_id,
+        types,
         _request_auth,
         _content_type,
         _headers,
@@ -279,6 +292,10 @@ class SlackApi:
         if workspace_id is not None:
             
             _query_params.append(('workspace_id', workspace_id))
+            
+        if types is not None:
+            
+            _query_params.append(('types', types))
             
         # process the header parameters
         # process the form parameters

@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **status** | **str** |  | 
+**failed** | **List[str]** | IDs of items that failed to process in bulk operations | [optional] 
 
 ## Example
 

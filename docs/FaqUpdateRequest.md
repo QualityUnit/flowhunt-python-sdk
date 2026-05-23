@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **cat_id** | **str** | Category ID | [optional] 
 **primary_question** | **str** | Question | [optional] 
 **answer** | **str** | Answer formatted as markdow | [optional] 
-**secondary_questions** | **List[str]** | Parent FAQ ID if current question points to other answer | [optional] [default to []]
+**secondary_questions** | **List[str]** | Parent FAQ ID if current question points to other answer | [optional] 
 
 ## Example
 

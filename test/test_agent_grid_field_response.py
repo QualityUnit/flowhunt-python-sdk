@@ -37,7 +37,8 @@ class TestAgentGridFieldResponse(unittest.TestCase):
             return AgentGridFieldResponse(
                 name = 'customer_name',
                 field_type = text,
-                required = False
+                required = False,
+                unique = False
             )
         else:
             return AgentGridFieldResponse(

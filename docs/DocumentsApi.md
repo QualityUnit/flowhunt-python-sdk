@@ -4,6 +4,11 @@ All URIs are relative to *https://api.flowhunt.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**bulk_delete_document_categories**](DocumentsApi.md#bulk_delete_document_categories) | **POST** /v2/documents/categories/delete | Bulk Delete Document Categories
+[**bulk_delete_documents**](DocumentsApi.md#bulk_delete_documents) | **POST** /v2/documents/delete | Bulk Delete Documents
+[**bulk_delete_faqs**](DocumentsApi.md#bulk_delete_faqs) | **POST** /v2/documents/faqs/delete | Bulk Delete Faqs
+[**bulk_update_documents**](DocumentsApi.md#bulk_update_documents) | **PUT** /v2/documents/update | Bulk Update Documents
+[**bulk_update_faqs**](DocumentsApi.md#bulk_update_faqs) | **PUT** /v2/documents/faqs/update | Bulk Update Faqs
 [**create_document_category**](DocumentsApi.md#create_document_category) | **POST** /v2/documents/categories/create | Create Document Category
 [**create_faq**](DocumentsApi.md#create_faq) | **POST** /v2/documents/faqs/create | Create Faq
 [**delete_document**](DocumentsApi.md#delete_document) | **DELETE** /v2/documents/{doc_id} | Delete Document
@@ -21,6 +26,441 @@ Method | HTTP request | Description
 [**upload_from_url_document**](DocumentsApi.md#upload_from_url_document) | **POST** /v2/documents/upload-from-url/{cat_id} | Upload From Url Document
 [**upload_memory_document**](DocumentsApi.md#upload_memory_document) | **POST** /v2/documents/upload/{cat_id} | Upload Memory Document
 
+
+# **bulk_delete_document_categories**
+> Completed bulk_delete_document_categories(workspace_id, document_category_bulk_delete_request)
+
+Bulk Delete Document Categories
+
+### Example
+
+* Api Key Authentication (APIKeyHeader):
+* Bearer Authentication (HTTPBearer):
+
+```python
+import flowhunt
+from flowhunt.models.completed import Completed
+from flowhunt.models.document_category_bulk_delete_request import DocumentCategoryBulkDeleteRequest
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.flowhunt.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "https://api.flowhunt.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: APIKeyHeader
+configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
+
+# Configure Bearer authorization: HTTPBearer
+configuration = flowhunt.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.DocumentsApi(api_client)
+    workspace_id = 'workspace_id_example' # str | 
+    document_category_bulk_delete_request = flowhunt.DocumentCategoryBulkDeleteRequest() # DocumentCategoryBulkDeleteRequest | 
+
+    try:
+        # Bulk Delete Document Categories
+        api_response = api_instance.bulk_delete_document_categories(workspace_id, document_category_bulk_delete_request)
+        print("The response of DocumentsApi->bulk_delete_document_categories:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DocumentsApi->bulk_delete_document_categories: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **workspace_id** | **str**|  | 
+ **document_category_bulk_delete_request** | [**DocumentCategoryBulkDeleteRequest**](DocumentCategoryBulkDeleteRequest.md)|  | 
+
+### Return type
+
+[**Completed**](Completed.md)
+
+### Authorization
+
+[APIKeyHeader](../README.md#APIKeyHeader), [HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **bulk_delete_documents**
+> Completed bulk_delete_documents(workspace_id, document_bulk_delete_request)
+
+Bulk Delete Documents
+
+### Example
+
+* Api Key Authentication (APIKeyHeader):
+* Bearer Authentication (HTTPBearer):
+
+```python
+import flowhunt
+from flowhunt.models.completed import Completed
+from flowhunt.models.document_bulk_delete_request import DocumentBulkDeleteRequest
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.flowhunt.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "https://api.flowhunt.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: APIKeyHeader
+configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
+
+# Configure Bearer authorization: HTTPBearer
+configuration = flowhunt.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.DocumentsApi(api_client)
+    workspace_id = 'workspace_id_example' # str | 
+    document_bulk_delete_request = flowhunt.DocumentBulkDeleteRequest() # DocumentBulkDeleteRequest | 
+
+    try:
+        # Bulk Delete Documents
+        api_response = api_instance.bulk_delete_documents(workspace_id, document_bulk_delete_request)
+        print("The response of DocumentsApi->bulk_delete_documents:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DocumentsApi->bulk_delete_documents: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **workspace_id** | **str**|  | 
+ **document_bulk_delete_request** | [**DocumentBulkDeleteRequest**](DocumentBulkDeleteRequest.md)|  | 
+
+### Return type
+
+[**Completed**](Completed.md)
+
+### Authorization
+
+[APIKeyHeader](../README.md#APIKeyHeader), [HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **bulk_delete_faqs**
+> Completed bulk_delete_faqs(workspace_id, faq_bulk_delete_request)
+
+Bulk Delete Faqs
+
+### Example
+
+* Api Key Authentication (APIKeyHeader):
+* Bearer Authentication (HTTPBearer):
+
+```python
+import flowhunt
+from flowhunt.models.completed import Completed
+from flowhunt.models.faq_bulk_delete_request import FaqBulkDeleteRequest
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.flowhunt.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "https://api.flowhunt.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: APIKeyHeader
+configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
+
+# Configure Bearer authorization: HTTPBearer
+configuration = flowhunt.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.DocumentsApi(api_client)
+    workspace_id = 'workspace_id_example' # str | 
+    faq_bulk_delete_request = flowhunt.FaqBulkDeleteRequest() # FaqBulkDeleteRequest | 
+
+    try:
+        # Bulk Delete Faqs
+        api_response = api_instance.bulk_delete_faqs(workspace_id, faq_bulk_delete_request)
+        print("The response of DocumentsApi->bulk_delete_faqs:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DocumentsApi->bulk_delete_faqs: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **workspace_id** | **str**|  | 
+ **faq_bulk_delete_request** | [**FaqBulkDeleteRequest**](FaqBulkDeleteRequest.md)|  | 
+
+### Return type
+
+[**Completed**](Completed.md)
+
+### Authorization
+
+[APIKeyHeader](../README.md#APIKeyHeader), [HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **bulk_update_documents**
+> Completed bulk_update_documents(workspace_id, document_bulk_update_request)
+
+Bulk Update Documents
+
+### Example
+
+* Api Key Authentication (APIKeyHeader):
+* Bearer Authentication (HTTPBearer):
+
+```python
+import flowhunt
+from flowhunt.models.completed import Completed
+from flowhunt.models.document_bulk_update_request import DocumentBulkUpdateRequest
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.flowhunt.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "https://api.flowhunt.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: APIKeyHeader
+configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
+
+# Configure Bearer authorization: HTTPBearer
+configuration = flowhunt.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.DocumentsApi(api_client)
+    workspace_id = 'workspace_id_example' # str | 
+    document_bulk_update_request = flowhunt.DocumentBulkUpdateRequest() # DocumentBulkUpdateRequest | 
+
+    try:
+        # Bulk Update Documents
+        api_response = api_instance.bulk_update_documents(workspace_id, document_bulk_update_request)
+        print("The response of DocumentsApi->bulk_update_documents:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DocumentsApi->bulk_update_documents: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **workspace_id** | **str**|  | 
+ **document_bulk_update_request** | [**DocumentBulkUpdateRequest**](DocumentBulkUpdateRequest.md)|  | 
+
+### Return type
+
+[**Completed**](Completed.md)
+
+### Authorization
+
+[APIKeyHeader](../README.md#APIKeyHeader), [HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **bulk_update_faqs**
+> Completed bulk_update_faqs(workspace_id, faq_bulk_update_request)
+
+Bulk Update Faqs
+
+### Example
+
+* Api Key Authentication (APIKeyHeader):
+* Bearer Authentication (HTTPBearer):
+
+```python
+import flowhunt
+from flowhunt.models.completed import Completed
+from flowhunt.models.faq_bulk_update_request import FaqBulkUpdateRequest
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.flowhunt.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "https://api.flowhunt.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: APIKeyHeader
+configuration.api_key['APIKeyHeader'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyHeader'] = 'Bearer'
+
+# Configure Bearer authorization: HTTPBearer
+configuration = flowhunt.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.DocumentsApi(api_client)
+    workspace_id = 'workspace_id_example' # str | 
+    faq_bulk_update_request = flowhunt.FaqBulkUpdateRequest() # FaqBulkUpdateRequest | 
+
+    try:
+        # Bulk Update Faqs
+        api_response = api_instance.bulk_update_faqs(workspace_id, faq_bulk_update_request)
+        print("The response of DocumentsApi->bulk_update_faqs:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DocumentsApi->bulk_update_faqs: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **workspace_id** | **str**|  | 
+ **faq_bulk_update_request** | [**FaqBulkUpdateRequest**](FaqBulkUpdateRequest.md)|  | 
+
+### Return type
+
+[**Completed**](Completed.md)
+
+### Authorization
+
+[APIKeyHeader](../README.md#APIKeyHeader), [HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_document_category**
 > DocumentCategoryResponse create_document_category(workspace_id, document_category_create_request)

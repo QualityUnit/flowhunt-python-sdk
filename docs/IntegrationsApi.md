@@ -16,12 +16,18 @@ Method | HTTP request | Description
 [**get_airtable_bases**](IntegrationsApi.md#get_airtable_bases) | **GET** /v2/integrations/airtable/ | Get Airtable Bases
 [**get_airtable_tables**](IntegrationsApi.md#get_airtable_tables) | **GET** /v2/integrations/airtable/bases/{base_id}/tables | Get Airtable Tables
 [**get_all_integrations**](IntegrationsApi.md#get_all_integrations) | **GET** /v2/integrations/all | Get All Integrations
+[**get_allowed_directories**](IntegrationsApi.md#get_allowed_directories) | **GET** /v2/integrations/google/allowed_directories | Get Allowed Directories
+[**get_asana_project_tasks**](IntegrationsApi.md#get_asana_project_tasks) | **GET** /v2/integrations/asana/{integration_id}/projects/{project_gid}/tasks | Get Asana Project Tasks
+[**get_asana_projects**](IntegrationsApi.md#get_asana_projects) | **GET** /v2/integrations/asana/{integration_id}/projects | Get Asana Projects
+[**get_asana_users**](IntegrationsApi.md#get_asana_users) | **GET** /v2/integrations/asana/{integration_id}/users | Get Asana Users
+[**get_asana_workspaces**](IntegrationsApi.md#get_asana_workspaces) | **GET** /v2/integrations/asana/ | Get Asana Workspaces
 [**get_branches**](IntegrationsApi.md#get_branches) | **GET** /v2/integrations/gitlab/branches | Get Branches
 [**get_calendars**](IntegrationsApi.md#get_calendars) | **GET** /v2/integrations/google/calendar | Get Calendars
 [**get_clickup_spaces**](IntegrationsApi.md#get_clickup_spaces) | **GET** /v2/integrations/clickup/{integration_id}/spaces | Get Clickup Spaces
 [**get_clickup_workspaces**](IntegrationsApi.md#get_clickup_workspaces) | **GET** /v2/integrations/clickup/ | Get Clickup Workspaces
 [**get_confluence_pages**](IntegrationsApi.md#get_confluence_pages) | **GET** /v2/integrations/atlassian/confluence/spaces/{space_key}/pages | Get Confluence Pages
 [**get_confluence_spaces**](IntegrationsApi.md#get_confluence_spaces) | **GET** /v2/integrations/atlassian/confluence/spaces | Get Confluence Spaces
+[**get_drive_folders**](IntegrationsApi.md#get_drive_folders) | **GET** /v2/integrations/google/drive_folders | Get Drive Folders
 [**get_hubspot_custom_channel_connect**](IntegrationsApi.md#get_hubspot_custom_channel_connect) | **GET** /v2/integrations/hubspot_custom_channel_connect | Get Hubspot Custom Channel Connect
 [**get_integration**](IntegrationsApi.md#get_integration) | **GET** /v2/integrations/{slug}/{integration_id} | Get Integration
 [**get_jira_assignees**](IntegrationsApi.md#get_jira_assignees) | **GET** /v2/integrations/atlassian/jira/projects/{project_key}/assignees | Get Jira Assignees
@@ -30,6 +36,7 @@ Method | HTTP request | Description
 [**get_jira_transitions**](IntegrationsApi.md#get_jira_transitions) | **GET** /v2/integrations/atlassian/jira/issues/{issue_key}/transitions | Get Jira Transitions
 [**get_members**](IntegrationsApi.md#get_members) | **GET** /v2/integrations/wix/members | Get Members
 [**get_picker_token**](IntegrationsApi.md#get_picker_token) | **GET** /v2/integrations/google/picker_token | Get Picker Token
+[**get_powerbi_workspaces**](IntegrationsApi.md#get_powerbi_workspaces) | **GET** /v2/integrations/powerbi/workspaces | Get Powerbi Workspaces
 [**get_profile_information**](IntegrationsApi.md#get_profile_information) | **GET** /v2/integrations/instagram/profile_information | Get Profile Information
 [**get_projects**](IntegrationsApi.md#get_projects) | **GET** /v2/integrations/gitlab/projects | Get Projects
 [**get_repos**](IntegrationsApi.md#get_repos) | **GET** /v2/integrations/github/repos | Get Repos
@@ -48,11 +55,13 @@ Method | HTTP request | Description
 [**manifest**](IntegrationsApi.md#manifest) | **GET** /v2/integrations/zendesk_channel/manifest.json | Manifest
 [**messaging_webhook**](IntegrationsApi.md#messaging_webhook) | **POST** /v2/integrations/zendesk_channel/messaging_webhook | Messaging Webhook
 [**messaging_webhook_head**](IntegrationsApi.md#messaging_webhook_head) | **HEAD** /v2/integrations/zendesk_channel/messaging_webhook | Messaging Webhook Head
+[**resolve_integration_gateway_token**](IntegrationsApi.md#resolve_integration_gateway_token) | **GET** /v2/integrations/integrate/gateway/{token} | Resolve an integration gateway token
 [**search_integrations**](IntegrationsApi.md#search_integrations) | **POST** /v2/integrations/{slug} | Search Integrations
 [**shop_redact**](IntegrationsApi.md#shop_redact) | **POST** /v2/integrations/shopify/webhooks/shop/redact | Shop Redact
 [**subscription_cancel**](IntegrationsApi.md#subscription_cancel) | **POST** /v2/integrations/shopify/webhooks/billing/subscription_cancel | Subscription Cancel
 [**subscription_update**](IntegrationsApi.md#subscription_update) | **POST** /v2/integrations/shopify/webhooks/billing/subscription_update | Subscription Update
 [**update_admin_consent**](IntegrationsApi.md#update_admin_consent) | **POST** /v2/integrations/microsoft_entra_id/admin_consent | Update Admin Consent
+[**update_allowed_directories**](IntegrationsApi.md#update_allowed_directories) | **PUT** /v2/integrations/google/allowed_directories | Update Allowed Directories
 
 
 # **admin_ui**
@@ -995,6 +1004,399 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_allowed_directories**
+> GoogleAllowedDirectoriesResponse get_allowed_directories(workspace_id)
+
+Get Allowed Directories
+
+### Example
+
+* Bearer Authentication (HTTPBearer):
+
+```python
+import flowhunt
+from flowhunt.models.google_allowed_directories_response import GoogleAllowedDirectoriesResponse
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.flowhunt.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "https://api.flowhunt.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization: HTTPBearer
+configuration = flowhunt.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.IntegrationsApi(api_client)
+    workspace_id = 'workspace_id_example' # str | 
+
+    try:
+        # Get Allowed Directories
+        api_response = api_instance.get_allowed_directories(workspace_id)
+        print("The response of IntegrationsApi->get_allowed_directories:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling IntegrationsApi->get_allowed_directories: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **workspace_id** | **str**|  | 
+
+### Return type
+
+[**GoogleAllowedDirectoriesResponse**](GoogleAllowedDirectoriesResponse.md)
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_asana_project_tasks**
+> List[AsanaTaskResponse] get_asana_project_tasks(integration_id, project_gid, workspace_id)
+
+Get Asana Project Tasks
+
+### Example
+
+* Bearer Authentication (HTTPBearer):
+
+```python
+import flowhunt
+from flowhunt.models.asana_task_response import AsanaTaskResponse
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.flowhunt.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "https://api.flowhunt.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization: HTTPBearer
+configuration = flowhunt.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.IntegrationsApi(api_client)
+    integration_id = 'integration_id_example' # str | 
+    project_gid = 'project_gid_example' # str | 
+    workspace_id = 'workspace_id_example' # str | 
+
+    try:
+        # Get Asana Project Tasks
+        api_response = api_instance.get_asana_project_tasks(integration_id, project_gid, workspace_id)
+        print("The response of IntegrationsApi->get_asana_project_tasks:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling IntegrationsApi->get_asana_project_tasks: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **integration_id** | **str**|  | 
+ **project_gid** | **str**|  | 
+ **workspace_id** | **str**|  | 
+
+### Return type
+
+[**List[AsanaTaskResponse]**](AsanaTaskResponse.md)
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_asana_projects**
+> List[AsanaProjectResponse] get_asana_projects(integration_id, workspace_id)
+
+Get Asana Projects
+
+### Example
+
+* Bearer Authentication (HTTPBearer):
+
+```python
+import flowhunt
+from flowhunt.models.asana_project_response import AsanaProjectResponse
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.flowhunt.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "https://api.flowhunt.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization: HTTPBearer
+configuration = flowhunt.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.IntegrationsApi(api_client)
+    integration_id = 'integration_id_example' # str | 
+    workspace_id = 'workspace_id_example' # str | 
+
+    try:
+        # Get Asana Projects
+        api_response = api_instance.get_asana_projects(integration_id, workspace_id)
+        print("The response of IntegrationsApi->get_asana_projects:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling IntegrationsApi->get_asana_projects: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **integration_id** | **str**|  | 
+ **workspace_id** | **str**|  | 
+
+### Return type
+
+[**List[AsanaProjectResponse]**](AsanaProjectResponse.md)
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_asana_users**
+> List[AsanaUserResponse] get_asana_users(integration_id, workspace_id)
+
+Get Asana Users
+
+### Example
+
+* Bearer Authentication (HTTPBearer):
+
+```python
+import flowhunt
+from flowhunt.models.asana_user_response import AsanaUserResponse
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.flowhunt.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "https://api.flowhunt.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization: HTTPBearer
+configuration = flowhunt.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.IntegrationsApi(api_client)
+    integration_id = 'integration_id_example' # str | 
+    workspace_id = 'workspace_id_example' # str | 
+
+    try:
+        # Get Asana Users
+        api_response = api_instance.get_asana_users(integration_id, workspace_id)
+        print("The response of IntegrationsApi->get_asana_users:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling IntegrationsApi->get_asana_users: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **integration_id** | **str**|  | 
+ **workspace_id** | **str**|  | 
+
+### Return type
+
+[**List[AsanaUserResponse]**](AsanaUserResponse.md)
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_asana_workspaces**
+> List[AsanaWorkspaceResponse] get_asana_workspaces(workspace_id)
+
+Get Asana Workspaces
+
+### Example
+
+* Bearer Authentication (HTTPBearer):
+
+```python
+import flowhunt
+from flowhunt.models.asana_workspace_response import AsanaWorkspaceResponse
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.flowhunt.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "https://api.flowhunt.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization: HTTPBearer
+configuration = flowhunt.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.IntegrationsApi(api_client)
+    workspace_id = 'workspace_id_example' # str | 
+
+    try:
+        # Get Asana Workspaces
+        api_response = api_instance.get_asana_workspaces(workspace_id)
+        print("The response of IntegrationsApi->get_asana_workspaces:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling IntegrationsApi->get_asana_workspaces: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **workspace_id** | **str**|  | 
+
+### Return type
+
+[**List[AsanaWorkspaceResponse]**](AsanaWorkspaceResponse.md)
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_branches**
 > GitLabBranchesResponse get_branches(workspace_id, project_id)
 
@@ -1448,6 +1850,83 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ConfluenceSpacesResponse**](ConfluenceSpacesResponse.md)
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_drive_folders**
+> GoogleDriveFoldersResponse get_drive_folders(workspace_id)
+
+Get Drive Folders
+
+### Example
+
+* Bearer Authentication (HTTPBearer):
+
+```python
+import flowhunt
+from flowhunt.models.google_drive_folders_response import GoogleDriveFoldersResponse
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.flowhunt.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "https://api.flowhunt.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization: HTTPBearer
+configuration = flowhunt.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.IntegrationsApi(api_client)
+    workspace_id = 'workspace_id_example' # str | 
+
+    try:
+        # Get Drive Folders
+        api_response = api_instance.get_drive_folders(workspace_id)
+        print("The response of IntegrationsApi->get_drive_folders:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling IntegrationsApi->get_drive_folders: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **workspace_id** | **str**|  | 
+
+### Return type
+
+[**GoogleDriveFoldersResponse**](GoogleDriveFoldersResponse.md)
 
 ### Authorization
 
@@ -2086,6 +2565,83 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_powerbi_workspaces**
+> PowerBIWorkspacesResponse get_powerbi_workspaces(workspace_id)
+
+Get Powerbi Workspaces
+
+### Example
+
+* Bearer Authentication (HTTPBearer):
+
+```python
+import flowhunt
+from flowhunt.models.power_bi_workspaces_response import PowerBIWorkspacesResponse
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.flowhunt.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "https://api.flowhunt.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization: HTTPBearer
+configuration = flowhunt.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.IntegrationsApi(api_client)
+    workspace_id = 'workspace_id_example' # str | 
+
+    try:
+        # Get Powerbi Workspaces
+        api_response = api_instance.get_powerbi_workspaces(workspace_id)
+        print("The response of IntegrationsApi->get_powerbi_workspaces:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling IntegrationsApi->get_powerbi_workspaces: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **workspace_id** | **str**|  | 
+
+### Return type
+
+[**PowerBIWorkspacesResponse**](PowerBIWorkspacesResponse.md)
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_profile_information**
 > InstagramProfileInformationResponse get_profile_information(workspace_id)
 
@@ -2474,7 +3030,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_slack_channels**
-> List[SlackChannelResponse] get_slack_channels(slack_team_id, workspace_id)
+> List[SlackChannelResponse] get_slack_channels(slack_team_id, workspace_id, types=types)
 
 Get Slack Channels
 
@@ -2510,10 +3066,11 @@ with flowhunt.ApiClient(configuration) as api_client:
     api_instance = flowhunt.IntegrationsApi(api_client)
     slack_team_id = 'slack_team_id_example' # str | 
     workspace_id = 'workspace_id_example' # str | 
+    types = 'public_channel,private_channel' # str |  (optional) (default to 'public_channel,private_channel')
 
     try:
         # Get Slack Channels
-        api_response = api_instance.get_slack_channels(slack_team_id, workspace_id)
+        api_response = api_instance.get_slack_channels(slack_team_id, workspace_id, types=types)
         print("The response of IntegrationsApi->get_slack_channels:\n")
         pprint(api_response)
     except Exception as e:
@@ -2529,6 +3086,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **slack_team_id** | **str**|  | 
  **workspace_id** | **str**|  | 
+ **types** | **str**|  | [optional] [default to &#39;public_channel,private_channel&#39;]
 
 ### Return type
 
@@ -3484,6 +4042,75 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **resolve_integration_gateway_token**
+> IntegrationGatewayResponse resolve_integration_gateway_token(token)
+
+Resolve an integration gateway token
+
+Resolves a temporary token issued by an AI agent when a required integration is missing.  Returns the workspace and slug so the frontend can redirect to the integration setup page.
+
+### Example
+
+
+```python
+import flowhunt
+from flowhunt.models.integration_gateway_response import IntegrationGatewayResponse
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.flowhunt.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "https://api.flowhunt.io"
+)
+
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.IntegrationsApi(api_client)
+    token = 'token_example' # str | 
+
+    try:
+        # Resolve an integration gateway token
+        api_response = api_instance.resolve_integration_gateway_token(token)
+        print("The response of IntegrationsApi->resolve_integration_gateway_token:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling IntegrationsApi->resolve_integration_gateway_token: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **token** | **str**|  | 
+
+### Return type
+
+[**IntegrationGatewayResponse**](IntegrationGatewayResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **search_integrations**
 > List[IntegrationDetailResponse] search_integrations(slug, workspace_id, integration_search_request)
 
@@ -3885,6 +4512,86 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_allowed_directories**
+> GoogleAllowedDirectoriesResponse update_allowed_directories(workspace_id, google_allowed_directories_request)
+
+Update Allowed Directories
+
+### Example
+
+* Bearer Authentication (HTTPBearer):
+
+```python
+import flowhunt
+from flowhunt.models.google_allowed_directories_request import GoogleAllowedDirectoriesRequest
+from flowhunt.models.google_allowed_directories_response import GoogleAllowedDirectoriesResponse
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.flowhunt.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "https://api.flowhunt.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization: HTTPBearer
+configuration = flowhunt.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.IntegrationsApi(api_client)
+    workspace_id = 'workspace_id_example' # str | 
+    google_allowed_directories_request = flowhunt.GoogleAllowedDirectoriesRequest() # GoogleAllowedDirectoriesRequest | 
+
+    try:
+        # Update Allowed Directories
+        api_response = api_instance.update_allowed_directories(workspace_id, google_allowed_directories_request)
+        print("The response of IntegrationsApi->update_allowed_directories:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling IntegrationsApi->update_allowed_directories: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **workspace_id** | **str**|  | 
+ **google_allowed_directories_request** | [**GoogleAllowedDirectoriesRequest**](GoogleAllowedDirectoriesRequest.md)|  | 
+
+### Return type
+
+[**GoogleAllowedDirectoriesResponse**](GoogleAllowedDirectoriesResponse.md)
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details

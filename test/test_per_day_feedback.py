@@ -40,7 +40,8 @@ class TestPerDayFeedback(unittest.TestCase):
                 negative = 56,
                 session_count = 56,
                 human_message_count = 56,
-                tool_calling_count = 56
+                tool_calling_count = 56,
+                error_message_count = 56
             )
         else:
             return PerDayFeedback(

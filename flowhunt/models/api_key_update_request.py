@@ -27,7 +27,7 @@ class ApiKeyUpdateRequest(BaseModel):
     """
     ApiKeyUpdateRequest
     """ # noqa: E501
-    display_name: StrictStr = Field(description="User defined name of the API key")
+    display_name: Optional[StrictStr] = Field(default=None, description="User defined name of the API key")
     valid_to: Optional[datetime] = Field(default=None, description="Expiration date of the API key")
     __properties: ClassVar[List[str]] = ["display_name", "valid_to"]
 

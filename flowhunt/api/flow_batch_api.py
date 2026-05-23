@@ -28,6 +28,7 @@ from flowhunt.models.flow_batch_run_create_request import FlowBatchRunCreateRequ
 from flowhunt.models.flow_batch_run_detail_response import FlowBatchRunDetailResponse
 from flowhunt.models.flow_batch_run_response import FlowBatchRunResponse
 from flowhunt.models.flow_batch_run_update_request import FlowBatchRunUpdateRequest
+from flowhunt.models.flow_batch_search_request import FlowBatchSearchRequest
 from flowhunt.models.task_response import TaskResponse
 
 from flowhunt.api_client import ApiClient, RequestSerialized
@@ -5056,7 +5057,7 @@ class FlowBatchApi:
     ) -> FlowBatchRunDetailResponse:
         """Get Batch Run
 
-        Get batch run details with cursor-based paginated rows.  Use ``rows_cursor`` (the ``next_cursor`` from a previous response) to fetch subsequent pages.  ``rows_status`` filters rows by their execution status.
+        Get batch run details with paginated rows.
 
         :param flow_id: (required)
         :type flow_id: str
@@ -5144,7 +5145,7 @@ class FlowBatchApi:
     ) -> ApiResponse[FlowBatchRunDetailResponse]:
         """Get Batch Run
 
-        Get batch run details with cursor-based paginated rows.  Use ``rows_cursor`` (the ``next_cursor`` from a previous response) to fetch subsequent pages.  ``rows_status`` filters rows by their execution status.
+        Get batch run details with paginated rows.
 
         :param flow_id: (required)
         :type flow_id: str
@@ -5232,7 +5233,7 @@ class FlowBatchApi:
     ) -> RESTResponseType:
         """Get Batch Run
 
-        Get batch run details with cursor-based paginated rows.  Use ``rows_cursor`` (the ``next_cursor`` from a previous response) to fetch subsequent pages.  ``rows_status`` filters rows by their execution status.
+        Get batch run details with paginated rows.
 
         :param flow_id: (required)
         :type flow_id: str
@@ -5404,7 +5405,7 @@ class FlowBatchApi:
     ) -> FlowBatchRunDetailResponse:
         """Get Batch Run
 
-        Get batch run details with cursor-based paginated rows.  Use ``rows_cursor`` (the ``next_cursor`` from a previous response) to fetch subsequent pages.  ``rows_status`` filters rows by their execution status.
+        Get batch run details with paginated rows.
 
         :param flow_id: (required)
         :type flow_id: str
@@ -5492,7 +5493,7 @@ class FlowBatchApi:
     ) -> ApiResponse[FlowBatchRunDetailResponse]:
         """Get Batch Run
 
-        Get batch run details with cursor-based paginated rows.  Use ``rows_cursor`` (the ``next_cursor`` from a previous response) to fetch subsequent pages.  ``rows_status`` filters rows by their execution status.
+        Get batch run details with paginated rows.
 
         :param flow_id: (required)
         :type flow_id: str
@@ -5580,7 +5581,7 @@ class FlowBatchApi:
     ) -> RESTResponseType:
         """Get Batch Run
 
-        Get batch run details with cursor-based paginated rows.  Use ``rows_cursor`` (the ``next_cursor`` from a previous response) to fetch subsequent pages.  ``rows_status`` filters rows by their execution status.
+        Get batch run details with paginated rows.
 
         :param flow_id: (required)
         :type flow_id: str
@@ -7619,6 +7620,656 @@ class FlowBatchApi:
         return self.api_client.param_serialize(
             method='GET',
             resource_path='/v2/flows/{flow_id}/batch',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def search_batch_run(
+        self,
+        flow_id: StrictStr,
+        batch_run_id: StrictStr,
+        workspace_id: StrictStr,
+        flow_batch_search_request: FlowBatchSearchRequest,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> FlowBatchRunDetailResponse:
+        """Search Batch Run
+
+        Search batch run details with paginated rows using POST request.
+
+        :param flow_id: (required)
+        :type flow_id: str
+        :param batch_run_id: (required)
+        :type batch_run_id: str
+        :param workspace_id: (required)
+        :type workspace_id: str
+        :param flow_batch_search_request: (required)
+        :type flow_batch_search_request: FlowBatchSearchRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._search_batch_run_serialize(
+            flow_id=flow_id,
+            batch_run_id=batch_run_id,
+            workspace_id=workspace_id,
+            flow_batch_search_request=flow_batch_search_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "FlowBatchRunDetailResponse",
+            '422': "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def search_batch_run_with_http_info(
+        self,
+        flow_id: StrictStr,
+        batch_run_id: StrictStr,
+        workspace_id: StrictStr,
+        flow_batch_search_request: FlowBatchSearchRequest,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[FlowBatchRunDetailResponse]:
+        """Search Batch Run
+
+        Search batch run details with paginated rows using POST request.
+
+        :param flow_id: (required)
+        :type flow_id: str
+        :param batch_run_id: (required)
+        :type batch_run_id: str
+        :param workspace_id: (required)
+        :type workspace_id: str
+        :param flow_batch_search_request: (required)
+        :type flow_batch_search_request: FlowBatchSearchRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._search_batch_run_serialize(
+            flow_id=flow_id,
+            batch_run_id=batch_run_id,
+            workspace_id=workspace_id,
+            flow_batch_search_request=flow_batch_search_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "FlowBatchRunDetailResponse",
+            '422': "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def search_batch_run_without_preload_content(
+        self,
+        flow_id: StrictStr,
+        batch_run_id: StrictStr,
+        workspace_id: StrictStr,
+        flow_batch_search_request: FlowBatchSearchRequest,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Search Batch Run
+
+        Search batch run details with paginated rows using POST request.
+
+        :param flow_id: (required)
+        :type flow_id: str
+        :param batch_run_id: (required)
+        :type batch_run_id: str
+        :param workspace_id: (required)
+        :type workspace_id: str
+        :param flow_batch_search_request: (required)
+        :type flow_batch_search_request: FlowBatchSearchRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._search_batch_run_serialize(
+            flow_id=flow_id,
+            batch_run_id=batch_run_id,
+            workspace_id=workspace_id,
+            flow_batch_search_request=flow_batch_search_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "FlowBatchRunDetailResponse",
+            '422': "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _search_batch_run_serialize(
+        self,
+        flow_id,
+        batch_run_id,
+        workspace_id,
+        flow_batch_search_request,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if flow_id is not None:
+            _path_params['flow_id'] = flow_id
+        if batch_run_id is not None:
+            _path_params['batch_run_id'] = batch_run_id
+        # process the query parameters
+        if workspace_id is not None:
+            
+            _query_params.append(('workspace_id', workspace_id))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if flow_batch_search_request is not None:
+            _body_params = flow_batch_search_request
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'APIKeyHeader', 
+            'HTTPBearer'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/v2/flows/{flow_id}/batch/{batch_run_id}/search',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def search_batch_run_0(
+        self,
+        flow_id: StrictStr,
+        batch_run_id: StrictStr,
+        workspace_id: StrictStr,
+        flow_batch_search_request: FlowBatchSearchRequest,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> FlowBatchRunDetailResponse:
+        """Search Batch Run
+
+        Search batch run details with paginated rows using POST request.
+
+        :param flow_id: (required)
+        :type flow_id: str
+        :param batch_run_id: (required)
+        :type batch_run_id: str
+        :param workspace_id: (required)
+        :type workspace_id: str
+        :param flow_batch_search_request: (required)
+        :type flow_batch_search_request: FlowBatchSearchRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._search_batch_run_0_serialize(
+            flow_id=flow_id,
+            batch_run_id=batch_run_id,
+            workspace_id=workspace_id,
+            flow_batch_search_request=flow_batch_search_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "FlowBatchRunDetailResponse",
+            '422': "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def search_batch_run_0_with_http_info(
+        self,
+        flow_id: StrictStr,
+        batch_run_id: StrictStr,
+        workspace_id: StrictStr,
+        flow_batch_search_request: FlowBatchSearchRequest,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[FlowBatchRunDetailResponse]:
+        """Search Batch Run
+
+        Search batch run details with paginated rows using POST request.
+
+        :param flow_id: (required)
+        :type flow_id: str
+        :param batch_run_id: (required)
+        :type batch_run_id: str
+        :param workspace_id: (required)
+        :type workspace_id: str
+        :param flow_batch_search_request: (required)
+        :type flow_batch_search_request: FlowBatchSearchRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._search_batch_run_0_serialize(
+            flow_id=flow_id,
+            batch_run_id=batch_run_id,
+            workspace_id=workspace_id,
+            flow_batch_search_request=flow_batch_search_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "FlowBatchRunDetailResponse",
+            '422': "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def search_batch_run_0_without_preload_content(
+        self,
+        flow_id: StrictStr,
+        batch_run_id: StrictStr,
+        workspace_id: StrictStr,
+        flow_batch_search_request: FlowBatchSearchRequest,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Search Batch Run
+
+        Search batch run details with paginated rows using POST request.
+
+        :param flow_id: (required)
+        :type flow_id: str
+        :param batch_run_id: (required)
+        :type batch_run_id: str
+        :param workspace_id: (required)
+        :type workspace_id: str
+        :param flow_batch_search_request: (required)
+        :type flow_batch_search_request: FlowBatchSearchRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._search_batch_run_0_serialize(
+            flow_id=flow_id,
+            batch_run_id=batch_run_id,
+            workspace_id=workspace_id,
+            flow_batch_search_request=flow_batch_search_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "FlowBatchRunDetailResponse",
+            '422': "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _search_batch_run_0_serialize(
+        self,
+        flow_id,
+        batch_run_id,
+        workspace_id,
+        flow_batch_search_request,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if flow_id is not None:
+            _path_params['flow_id'] = flow_id
+        if batch_run_id is not None:
+            _path_params['batch_run_id'] = batch_run_id
+        # process the query parameters
+        if workspace_id is not None:
+            
+            _query_params.append(('workspace_id', workspace_id))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if flow_batch_search_request is not None:
+            _body_params = flow_batch_search_request
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'APIKeyHeader', 
+            'HTTPBearer'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/v2/flows/{flow_id}/batch/{batch_run_id}/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -31,7 +31,10 @@ class WorkspaceResponse(BaseModel):
     credit_limit: Optional[StrictInt] = Field(default=None, description="Credit consumption limit for this workspace (Premium/Enterprise only). None means no limit.")
     credits_consumed: Optional[StrictInt] = Field(default=None, description="Credits consumed in this workspace during the current billing period. Only present when credit_limit is set.")
     credit_alert_threshold: Optional[StrictInt] = Field(default=None, description="Credit alert threshold. When credit balance drops to or below this amount, notifications are sent. None means the system default (10% of monthly plan value) is used.")
-    __properties: ClassVar[List[str]] = ["workspace_id", "name", "credit_limit", "credits_consumed", "credit_alert_threshold"]
+    auto_recharge_enabled: Optional[StrictBool] = Field(default=False, description="Whether auto-recharge is enabled for this workspace.")
+    auto_recharge_threshold: Optional[StrictInt] = Field(default=None, description="Credit balance threshold that triggers an auto-recharge.")
+    auto_recharge_amount: Optional[StrictInt] = Field(default=None, description="Credits added to the workspace when auto-recharge triggers.")
+    __properties: ClassVar[List[str]] = ["workspace_id", "name", "credit_limit", "credits_consumed", "credit_alert_threshold", "auto_recharge_enabled", "auto_recharge_threshold", "auto_recharge_amount"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -88,7 +91,10 @@ class WorkspaceResponse(BaseModel):
             "name": obj.get("name"),
             "credit_limit": obj.get("credit_limit"),
             "credits_consumed": obj.get("credits_consumed"),
-            "credit_alert_threshold": obj.get("credit_alert_threshold")
+            "credit_alert_threshold": obj.get("credit_alert_threshold"),
+            "auto_recharge_enabled": obj.get("auto_recharge_enabled") if obj.get("auto_recharge_enabled") is not None else False,
+            "auto_recharge_threshold": obj.get("auto_recharge_threshold"),
+            "auto_recharge_amount": obj.get("auto_recharge_amount")
         })
         return _obj
 

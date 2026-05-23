@@ -7,6 +7,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **channel_id** | **str** |  | 
 **channel_name** | **str** |  | 
+**channel_type** | **str** |  | 
+**is_private** | **bool** |  | 
 
 ## Example
 

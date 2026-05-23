@@ -194,6 +194,20 @@ class TestFlowBatchApi(unittest.TestCase):
         """
         pass
 
+    def test_search_batch_run(self) -> None:
+        """Test case for search_batch_run
+
+        Search Batch Run
+        """
+        pass
+
+    def test_search_batch_run_0(self) -> None:
+        """Test case for search_batch_run_0
+
+        Search Batch Run
+        """
+        pass
+
     def test_start_export_zip(self) -> None:
         """Test case for start_export_zip
 

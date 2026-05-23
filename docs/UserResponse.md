@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **product_plans** | [**Dict[str, SubscriptionPlan]**](SubscriptionPlan.md) | Product plans of the user | [optional] 
 **billing_provider** | [**BillingProvider**](BillingProvider.md) | Billing provider for the user (S for Stripe, H for Shopify) | [optional] 
 **sudoer** | **bool** | Whether the user has superuser privileges | [optional] [default to False]
+**onboarding** | [**OnboardingStateResponse**](OnboardingStateResponse.md) | Current onboarding state from user settings; frontend redirects to /welcome when completed is false. | [optional] 
 
 ## Example
 

@@ -89,6 +89,13 @@ class TestWorkspacesApi(unittest.TestCase):
         """
         pass
 
+    def test_update_workspace_auto_recharge(self) -> None:
+        """Test case for update_workspace_auto_recharge
+
+        Update Workspace Auto Recharge
+        """
+        pass
+
     def test_update_workspace_credit_alert_threshold(self) -> None:
         """Test case for update_workspace_credit_alert_threshold
 

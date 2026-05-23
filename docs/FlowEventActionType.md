@@ -31,6 +31,20 @@
 
 * `HOOK_WAITING_FOR_INPUT` (value: `'hook_waiting_for_input'`)
 
+* `EVALUATE_CLIENT_JS` (value: `'evaluate_client_js'`)
+
+* `SESSION_CLOSED` (value: `'session_closed'`)
+
+* `AGENT_INITIALIZED` (value: `'agent_initialized'`)
+
+* `SUBAGENT_PROMPT` (value: `'subagent_prompt'`)
+
+* `HITL_APPROVAL_REQUESTED` (value: `'hitl_approval_requested'`)
+
+* `INTEGRATION_MISSING` (value: `'integration_missing'`)
+
+* `FILE_ACCESS_REQUIRED` (value: `'file_access_required'`)
+
 * `ADD_COMPONENT` (value: `'add_component'`)
 
 * `DELETE_COMPONENT` (value: `'delete_component'`)

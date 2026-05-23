@@ -26,6 +26,20 @@ class TestChatbotsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
+    def test_bulk_delete_chatbots(self) -> None:
+        """Test case for bulk_delete_chatbots
+
+        Bulk Delete Chatbots
+        """
+        pass
+
+    def test_bulk_update_chatbots(self) -> None:
+        """Test case for bulk_update_chatbots
+
+        Bulk Update Chatbots
+        """
+        pass
+
     def test_create_chatbot(self) -> None:
         """Test case for create_chatbot
 

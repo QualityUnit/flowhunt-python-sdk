@@ -26,6 +26,20 @@ class TestApiKeysApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
+    def test_bulk_delete_api_keys(self) -> None:
+        """Test case for bulk_delete_api_keys
+
+        Bulk Delete Api Keys
+        """
+        pass
+
+    def test_bulk_update_api_keys(self) -> None:
+        """Test case for bulk_update_api_keys
+
+        Bulk Update Api Keys
+        """
+        pass
+
     def test_create_api_key(self) -> None:
         """Test case for create_api_key
 

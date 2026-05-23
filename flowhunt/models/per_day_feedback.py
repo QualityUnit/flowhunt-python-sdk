@@ -32,7 +32,8 @@ class PerDayFeedback(BaseModel):
     session_count: Optional[StrictInt] = Field(default=0, description="Count of unique sessions (visitor count)")
     human_message_count: Optional[StrictInt] = Field(default=0, description="Count of human messages")
     tool_calling_count: Optional[StrictInt] = Field(default=None, description="Count of tool calls")
-    __properties: ClassVar[List[str]] = ["date", "positive", "negative", "session_count", "human_message_count", "tool_calling_count"]
+    error_message_count: Optional[StrictInt] = Field(default=0, description="Count of error messages")
+    __properties: ClassVar[List[str]] = ["date", "positive", "negative", "session_count", "human_message_count", "tool_calling_count", "error_message_count"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -90,7 +91,8 @@ class PerDayFeedback(BaseModel):
             "negative": obj.get("negative") if obj.get("negative") is not None else 0,
             "session_count": obj.get("session_count") if obj.get("session_count") is not None else 0,
             "human_message_count": obj.get("human_message_count") if obj.get("human_message_count") is not None else 0,
-            "tool_calling_count": obj.get("tool_calling_count")
+            "tool_calling_count": obj.get("tool_calling_count"),
+            "error_message_count": obj.get("error_message_count") if obj.get("error_message_count") is not None else 0
         })
         return _obj
 

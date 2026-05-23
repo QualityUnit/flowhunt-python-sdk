@@ -26,6 +26,13 @@ class TestDefaultApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
+    def test_delete_branding(self) -> None:
+        """Test case for delete_branding
+
+        Delete Branding
+        """
+        pass
+
     def test_get_branding(self) -> None:
         """Test case for get_branding
 

@@ -17,8 +17,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictBool, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from flowhunt.models.smtp_encryption import SmtpEncryption
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,12 +29,28 @@ class BrandingResponse(BaseModel):
     """ # noqa: E501
     branding_logo_url: Optional[StrictStr] = None
     brand_avatar_url: Optional[StrictStr] = None
-    slug: Optional[StrictStr] = ''
     dashboard_primary_color: Optional[StrictStr] = None
     dashboard_secondary_color: Optional[StrictStr] = None
     show_ads_ai: Optional[StrictBool] = True
     show_photomatic_ai: Optional[StrictBool] = True
-    __properties: ClassVar[List[str]] = ["branding_logo_url", "brand_avatar_url", "slug", "dashboard_primary_color", "dashboard_secondary_color", "show_ads_ai", "show_photomatic_ai"]
+    show_ai_factory: Optional[StrictBool] = True
+    custom_my_agents_label: Optional[StrictStr] = None
+    custom_my_assistants_label: Optional[StrictStr] = None
+    custom_active_services_label: Optional[StrictStr] = None
+    custom_more_label: Optional[StrictStr] = None
+    custom_agents_search_label: Optional[StrictStr] = None
+    custom_no_agents_label: Optional[StrictStr] = None
+    custom_agent_column_label: Optional[StrictStr] = None
+    entity_name: Optional[StrictStr] = None
+    project_name: Optional[StrictStr] = None
+    smtp_host: Optional[StrictStr] = None
+    smtp_port: Optional[StrictInt] = None
+    smtp_encryption: Optional[SmtpEncryption] = None
+    smtp_sender_email: Optional[StrictStr] = None
+    smtp_password_is_set: Optional[StrictBool] = False
+    custom_domain: Optional[StrictStr] = None
+    custom_domain_status: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["branding_logo_url", "brand_avatar_url", "dashboard_primary_color", "dashboard_secondary_color", "show_ads_ai", "show_photomatic_ai", "show_ai_factory", "custom_my_agents_label", "custom_my_assistants_label", "custom_active_services_label", "custom_more_label", "custom_agents_search_label", "custom_no_agents_label", "custom_agent_column_label", "entity_name", "project_name", "smtp_host", "smtp_port", "smtp_encryption", "smtp_sender_email", "smtp_password_is_set", "custom_domain", "custom_domain_status"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -88,11 +105,27 @@ class BrandingResponse(BaseModel):
         _obj = cls.model_validate({
             "branding_logo_url": obj.get("branding_logo_url"),
             "brand_avatar_url": obj.get("brand_avatar_url"),
-            "slug": obj.get("slug") if obj.get("slug") is not None else '',
             "dashboard_primary_color": obj.get("dashboard_primary_color"),
             "dashboard_secondary_color": obj.get("dashboard_secondary_color"),
             "show_ads_ai": obj.get("show_ads_ai") if obj.get("show_ads_ai") is not None else True,
-            "show_photomatic_ai": obj.get("show_photomatic_ai") if obj.get("show_photomatic_ai") is not None else True
+            "show_photomatic_ai": obj.get("show_photomatic_ai") if obj.get("show_photomatic_ai") is not None else True,
+            "show_ai_factory": obj.get("show_ai_factory") if obj.get("show_ai_factory") is not None else True,
+            "custom_my_agents_label": obj.get("custom_my_agents_label"),
+            "custom_my_assistants_label": obj.get("custom_my_assistants_label"),
+            "custom_active_services_label": obj.get("custom_active_services_label"),
+            "custom_more_label": obj.get("custom_more_label"),
+            "custom_agents_search_label": obj.get("custom_agents_search_label"),
+            "custom_no_agents_label": obj.get("custom_no_agents_label"),
+            "custom_agent_column_label": obj.get("custom_agent_column_label"),
+            "entity_name": obj.get("entity_name"),
+            "project_name": obj.get("project_name"),
+            "smtp_host": obj.get("smtp_host"),
+            "smtp_port": obj.get("smtp_port"),
+            "smtp_encryption": obj.get("smtp_encryption"),
+            "smtp_sender_email": obj.get("smtp_sender_email"),
+            "smtp_password_is_set": obj.get("smtp_password_is_set") if obj.get("smtp_password_is_set") is not None else False,
+            "custom_domain": obj.get("custom_domain"),
+            "custom_domain_status": obj.get("custom_domain_status")
         })
         return _obj
 

@@ -20,6 +20,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from flowhunt.models.billing_provider import BillingProvider
+from flowhunt.models.onboarding_state_response import OnboardingStateResponse
 from flowhunt.models.subscription_plan import SubscriptionPlan
 from typing import Optional, Set
 from typing_extensions import Self
@@ -37,7 +38,8 @@ class UserResponse(BaseModel):
     product_plans: Optional[Dict[str, SubscriptionPlan]] = Field(default=None, description="Product plans of the user")
     billing_provider: Optional[BillingProvider] = Field(default=None, description="Billing provider for the user (S for Stripe, H for Shopify)")
     sudoer: Optional[StrictBool] = Field(default=False, description="Whether the user has superuser privileges")
-    __properties: ClassVar[List[str]] = ["user_id", "email", "username", "is_active", "avatar_url", "api_key_workspace_id", "product_plans", "billing_provider", "sudoer"]
+    onboarding: Optional[OnboardingStateResponse] = Field(default=None, description="Current onboarding state from user settings; frontend redirects to /welcome when completed is false.")
+    __properties: ClassVar[List[str]] = ["user_id", "email", "username", "is_active", "avatar_url", "api_key_workspace_id", "product_plans", "billing_provider", "sudoer", "onboarding"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -78,6 +80,9 @@ class UserResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of onboarding
+        if self.onboarding:
+            _dict['onboarding'] = self.onboarding.to_dict()
         return _dict
 
     @classmethod
@@ -98,7 +103,8 @@ class UserResponse(BaseModel):
             "api_key_workspace_id": obj.get("api_key_workspace_id"),
             "product_plans": dict((_k, _v) for _k, _v in obj.get("product_plans").items()) if obj.get("product_plans") is not None else None,
             "billing_provider": obj.get("billing_provider"),
-            "sudoer": obj.get("sudoer") if obj.get("sudoer") is not None else False
+            "sudoer": obj.get("sudoer") if obj.get("sudoer") is not None else False,
+            "onboarding": OnboardingStateResponse.from_dict(obj["onboarding"]) if obj.get("onboarding") is not None else None
         })
         return _obj
 

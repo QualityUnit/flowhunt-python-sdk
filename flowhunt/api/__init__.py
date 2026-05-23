@@ -1,13 +1,18 @@
 # flake8: noqa
 
 # import apis into api package
+from flowhunt.api.ai_projects_library_api import AIProjectsLibraryApi
+from flowhunt.api.ai_studio_library_api import AIStudioLibraryApi
 from flowhunt.api.agent_grids_api import AgentGridsApi
+from flowhunt.api.agent_team_projects_api import AgentTeamProjectsApi
 from flowhunt.api.airtable_api import AirtableApi
 from flowhunt.api.api_keys_api import ApiKeysApi
+from flowhunt.api.asana_api import AsanaApi
 from flowhunt.api.atlassian_api import AtlassianApi
 from flowhunt.api.chatbots_api import ChatbotsApi
 from flowhunt.api.click_up_api import ClickUpApi
 from flowhunt.api.credits_api import CreditsApi
+from flowhunt.api.custom_models_api import CustomModelsApi
 from flowhunt.api.documents_api import DocumentsApi
 from flowhunt.api.fine_tunings_api import FineTuningsApi
 from flowhunt.api.flow_assistant_v3_api import FlowAssistantV3Api
@@ -16,6 +21,7 @@ from flowhunt.api.flow_messages_api import FlowMessagesApi
 from flowhunt.api.flow_sessions_api import FlowSessionsApi
 from flowhunt.api.flow_webhooks_api import FlowWebhooksApi
 from flowhunt.api.flows_api import FlowsApi
+from flowhunt.api.gateway_api import GatewayApi
 from flowhunt.api.git_hub_api import GitHubApi
 from flowhunt.api.git_lab_api import GitLabApi
 from flowhunt.api.google_api import GoogleApi
@@ -25,12 +31,18 @@ from flowhunt.api.images_api import ImagesApi
 from flowhunt.api.instagram_api import InstagramApi
 from flowhunt.api.integrations_api import IntegrationsApi
 from flowhunt.api.logs_api import LogsApi
+from flowhunt.api.mcp_connectors_api import MCPConnectorsApi
 from flowhunt.api.mcp_servers_api import MCPServersApi
+from flowhunt.api.me_api import MeApi
 from flowhunt.api.media_api import MediaApi
 from flowhunt.api.memory_api import MemoryApi
 from flowhunt.api.microsoft_outlook_api import MicrosoftOutlookApi
 from flowhunt.api.observability_driver_api import ObservabilityDriverApi
 from flowhunt.api.photo_ai_api import PhotoAIApi
+from flowhunt.api.power_bi_api import PowerBIApi
+from flowhunt.api.project_inbox_api import ProjectInboxApi
+from flowhunt.api.project_issue_tags_api import ProjectIssueTagsApi
+from flowhunt.api.project_issues_api import ProjectIssuesApi
 from flowhunt.api.prompts_api import PromptsApi
 from flowhunt.api.serp_api import SERPApi
 from flowhunt.api.schedules_api import SchedulesApi

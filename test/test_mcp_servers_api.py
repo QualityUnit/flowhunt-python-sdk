@@ -26,6 +26,13 @@ class TestMCPServersApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
+    def test_bulk_delete_mcp_servers(self) -> None:
+        """Test case for bulk_delete_mcp_servers
+
+        Bulk Delete Mcp Servers
+        """
+        pass
+
     def test_create_mcp_server(self) -> None:
         """Test case for create_mcp_server
 

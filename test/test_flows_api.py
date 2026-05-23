@@ -26,6 +26,20 @@ class TestFlowsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
+    def test_bulk_delete_flows(self) -> None:
+        """Test case for bulk_delete_flows
+
+        Bulk Delete Flows
+        """
+        pass
+
+    def test_bulk_update_flows(self) -> None:
+        """Test case for bulk_update_flows
+
+        Bulk Update Flows
+        """
+        pass
+
     def test_cancel_flow_session(self) -> None:
         """Test case for cancel_flow_session
 
@@ -114,6 +128,13 @@ class TestFlowsApi(unittest.TestCase):
         """Test case for execute_flow_cron
 
         Execute Flow Cron
+        """
+        pass
+
+    def test_fire_chat_hook(self) -> None:
+        """Test case for fire_chat_hook
+
+        Fire Chat Hook
         """
         pass
 
@@ -275,6 +296,13 @@ class TestFlowsApi(unittest.TestCase):
         """Test case for update_flow_cron
 
         Update Flow Cron
+        """
+        pass
+
+    def test_update_session_variables(self) -> None:
+        """Test case for update_session_variables
+
+        Update Session Variables
         """
         pass
 

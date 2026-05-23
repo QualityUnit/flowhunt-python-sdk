@@ -31,6 +31,7 @@ class Role(str, Enum):
     E = 'E'
     M = 'M'
     G = 'G'
+    T = 'T'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

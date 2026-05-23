@@ -110,6 +110,41 @@ class TestIntegrationsApi(unittest.TestCase):
         """
         pass
 
+    def test_get_allowed_directories(self) -> None:
+        """Test case for get_allowed_directories
+
+        Get Allowed Directories
+        """
+        pass
+
+    def test_get_asana_project_tasks(self) -> None:
+        """Test case for get_asana_project_tasks
+
+        Get Asana Project Tasks
+        """
+        pass
+
+    def test_get_asana_projects(self) -> None:
+        """Test case for get_asana_projects
+
+        Get Asana Projects
+        """
+        pass
+
+    def test_get_asana_users(self) -> None:
+        """Test case for get_asana_users
+
+        Get Asana Users
+        """
+        pass
+
+    def test_get_asana_workspaces(self) -> None:
+        """Test case for get_asana_workspaces
+
+        Get Asana Workspaces
+        """
+        pass
+
     def test_get_branches(self) -> None:
         """Test case for get_branches
 
@@ -149,6 +184,13 @@ class TestIntegrationsApi(unittest.TestCase):
         """Test case for get_confluence_spaces
 
         Get Confluence Spaces
+        """
+        pass
+
+    def test_get_drive_folders(self) -> None:
+        """Test case for get_drive_folders
+
+        Get Drive Folders
         """
         pass
 
@@ -205,6 +247,13 @@ class TestIntegrationsApi(unittest.TestCase):
         """Test case for get_picker_token
 
         Get Picker Token
+        """
+        pass
+
+    def test_get_powerbi_workspaces(self) -> None:
+        """Test case for get_powerbi_workspaces
+
+        Get Powerbi Workspaces
         """
         pass
 
@@ -334,6 +383,13 @@ class TestIntegrationsApi(unittest.TestCase):
         """
         pass
 
+    def test_resolve_integration_gateway_token(self) -> None:
+        """Test case for resolve_integration_gateway_token
+
+        Resolve an integration gateway token
+        """
+        pass
+
     def test_search_integrations(self) -> None:
         """Test case for search_integrations
 
@@ -366,6 +422,13 @@ class TestIntegrationsApi(unittest.TestCase):
         """Test case for update_admin_consent
 
         Update Admin Consent
+        """
+        pass
+
+    def test_update_allowed_directories(self) -> None:
+        """Test case for update_allowed_directories
+
+        Update Allowed Directories
         """
         pass
 

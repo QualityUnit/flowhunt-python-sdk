@@ -17,8 +17,10 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictBool, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
+from flowhunt.models.smtp_encryption import SmtpEncryption
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,12 +30,27 @@ class BrandingUpdateRequest(BaseModel):
     """ # noqa: E501
     branding_logo_url: Optional[StrictStr] = None
     brand_avatar_url: Optional[StrictStr] = None
-    slug: Optional[StrictStr] = None
     dashboard_primary_color: Optional[StrictStr] = None
     dashboard_secondary_color: Optional[StrictStr] = None
     show_ads_ai: Optional[StrictBool] = None
     show_photomatic_ai: Optional[StrictBool] = None
-    __properties: ClassVar[List[str]] = ["branding_logo_url", "brand_avatar_url", "slug", "dashboard_primary_color", "dashboard_secondary_color", "show_ads_ai", "show_photomatic_ai"]
+    show_ai_factory: Optional[StrictBool] = None
+    custom_my_agents_label: Optional[Annotated[str, Field(strict=True, max_length=100)]] = None
+    custom_my_assistants_label: Optional[Annotated[str, Field(strict=True, max_length=100)]] = None
+    custom_active_services_label: Optional[Annotated[str, Field(strict=True, max_length=100)]] = None
+    custom_more_label: Optional[Annotated[str, Field(strict=True, max_length=100)]] = None
+    custom_agents_search_label: Optional[Annotated[str, Field(strict=True, max_length=100)]] = None
+    custom_no_agents_label: Optional[Annotated[str, Field(strict=True, max_length=100)]] = None
+    custom_agent_column_label: Optional[Annotated[str, Field(strict=True, max_length=100)]] = None
+    entity_name: Optional[Annotated[str, Field(strict=True, max_length=200)]] = None
+    project_name: Optional[Annotated[str, Field(strict=True, max_length=200)]] = None
+    smtp_host: Optional[Annotated[str, Field(strict=True, max_length=255)]] = None
+    smtp_port: Optional[Annotated[int, Field(le=65535, strict=True, ge=1)]] = None
+    smtp_encryption: Optional[SmtpEncryption] = None
+    smtp_sender_email: Optional[StrictStr] = None
+    smtp_password: Optional[StrictStr] = None
+    custom_domain: Optional[Annotated[str, Field(strict=True, max_length=255)]] = None
+    __properties: ClassVar[List[str]] = ["branding_logo_url", "brand_avatar_url", "dashboard_primary_color", "dashboard_secondary_color", "show_ads_ai", "show_photomatic_ai", "show_ai_factory", "custom_my_agents_label", "custom_my_assistants_label", "custom_active_services_label", "custom_more_label", "custom_agents_search_label", "custom_no_agents_label", "custom_agent_column_label", "entity_name", "project_name", "smtp_host", "smtp_port", "smtp_encryption", "smtp_sender_email", "smtp_password", "custom_domain"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -88,11 +105,26 @@ class BrandingUpdateRequest(BaseModel):
         _obj = cls.model_validate({
             "branding_logo_url": obj.get("branding_logo_url"),
             "brand_avatar_url": obj.get("brand_avatar_url"),
-            "slug": obj.get("slug"),
             "dashboard_primary_color": obj.get("dashboard_primary_color"),
             "dashboard_secondary_color": obj.get("dashboard_secondary_color"),
             "show_ads_ai": obj.get("show_ads_ai"),
-            "show_photomatic_ai": obj.get("show_photomatic_ai")
+            "show_photomatic_ai": obj.get("show_photomatic_ai"),
+            "show_ai_factory": obj.get("show_ai_factory"),
+            "custom_my_agents_label": obj.get("custom_my_agents_label"),
+            "custom_my_assistants_label": obj.get("custom_my_assistants_label"),
+            "custom_active_services_label": obj.get("custom_active_services_label"),
+            "custom_more_label": obj.get("custom_more_label"),
+            "custom_agents_search_label": obj.get("custom_agents_search_label"),
+            "custom_no_agents_label": obj.get("custom_no_agents_label"),
+            "custom_agent_column_label": obj.get("custom_agent_column_label"),
+            "entity_name": obj.get("entity_name"),
+            "project_name": obj.get("project_name"),
+            "smtp_host": obj.get("smtp_host"),
+            "smtp_port": obj.get("smtp_port"),
+            "smtp_encryption": obj.get("smtp_encryption"),
+            "smtp_sender_email": obj.get("smtp_sender_email"),
+            "smtp_password": obj.get("smtp_password"),
+            "custom_domain": obj.get("custom_domain")
         })
         return _obj
 

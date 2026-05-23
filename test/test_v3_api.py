@@ -40,6 +40,13 @@ class TestV3Api(unittest.TestCase):
         """
         pass
 
+    def test_fire_session_closed(self) -> None:
+        """Test case for fire_session_closed
+
+        Fire Session Closed
+        """
+        pass
+
     def test_get_all_components_v3(self) -> None:
         """Test case for get_all_components_v3
 

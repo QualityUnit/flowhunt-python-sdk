@@ -36,12 +36,16 @@ class TestSlackChannelResponse(unittest.TestCase):
         if include_optional:
             return SlackChannelResponse(
                 channel_id = '',
-                channel_name = ''
+                channel_name = '',
+                channel_type = '',
+                is_private = True
             )
         else:
             return SlackChannelResponse(
                 channel_id = '',
                 channel_name = '',
+                channel_type = '',
+                is_private = True,
         )
         """
 

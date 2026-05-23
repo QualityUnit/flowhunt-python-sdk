@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **name** | **str** | Field name | 
 **field_type** | [**AgentGridFieldType**](AgentGridFieldType.md) | Field type | 
 **required** | **bool** | Whether the field is required | 
+**unique** | **bool** | Whether the field is part of the unique-key set. Inserts with matching composite values upsert the existing row in place. | [optional] [default to False]
 
 ## Example
 

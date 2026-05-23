@@ -17,8 +17,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -31,7 +31,8 @@ class WorkspaceRole(BaseModel):
     owner_name: StrictStr = Field(description="Name of the owner of the workspace")
     owner_email: StrictStr = Field(description="Email of the owner of the workspace")
     role: StrictStr = Field(description="Role of the user in the workspace (A - Admin, E - Editor, M - Member, G - Guest)")
-    __properties: ClassVar[List[str]] = ["workspace_id", "workspace_name", "owner_name", "owner_email", "role"]
+    can_white_label: Optional[StrictBool] = Field(default=False, description="Whether the workspace owner has white label enabled")
+    __properties: ClassVar[List[str]] = ["workspace_id", "workspace_name", "owner_name", "owner_email", "role", "can_white_label"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -88,7 +89,8 @@ class WorkspaceRole(BaseModel):
             "workspace_name": obj.get("workspace_name"),
             "owner_name": obj.get("owner_name"),
             "owner_email": obj.get("owner_email"),
-            "role": obj.get("role")
+            "role": obj.get("role"),
+            "can_white_label": obj.get("can_white_label") if obj.get("can_white_label") is not None else False
         })
         return _obj
 

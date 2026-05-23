@@ -31,7 +31,8 @@ class TotalFeedback(BaseModel):
     session_count: Optional[StrictInt] = Field(default=0, description="Total count of unique sessions (visitor count)")
     human_message_count: Optional[Union[StrictFloat, StrictInt]] = Field(default=0.0, description="Average human messages per session")
     tool_calling_count: Optional[Union[StrictFloat, StrictInt]] = Field(default=0.0, description="Average tool calls per session")
-    __properties: ClassVar[List[str]] = ["positive", "negative", "session_count", "human_message_count", "tool_calling_count"]
+    avg_error_message: Optional[Union[StrictFloat, StrictInt]] = Field(default=0.0, description="Average error messages per session")
+    __properties: ClassVar[List[str]] = ["positive", "negative", "session_count", "human_message_count", "tool_calling_count", "avg_error_message"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -88,7 +89,8 @@ class TotalFeedback(BaseModel):
             "negative": obj.get("negative") if obj.get("negative") is not None else 0,
             "session_count": obj.get("session_count") if obj.get("session_count") is not None else 0,
             "human_message_count": obj.get("human_message_count") if obj.get("human_message_count") is not None else 0.0,
-            "tool_calling_count": obj.get("tool_calling_count") if obj.get("tool_calling_count") is not None else 0.0
+            "tool_calling_count": obj.get("tool_calling_count") if obj.get("tool_calling_count") is not None else 0.0,
+            "avg_error_message": obj.get("avg_error_message") if obj.get("avg_error_message") is not None else 0.0
         })
         return _obj
 

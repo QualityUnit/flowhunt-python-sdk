@@ -14,17 +14,22 @@
 """  # noqa: E501
 
 
-__version__ = "3.18.2"
+__version__ = "3.19.1"
 
 # Define package exports
 __all__ = [
+    "AIProjectsLibraryApi",
+    "AIStudioLibraryApi",
     "AgentGridsApi",
+    "AgentTeamProjectsApi",
     "AirtableApi",
     "ApiKeysApi",
+    "AsanaApi",
     "AtlassianApi",
     "ChatbotsApi",
     "ClickUpApi",
     "CreditsApi",
+    "CustomModelsApi",
     "DocumentsApi",
     "FineTuningsApi",
     "FlowAssistantV3Api",
@@ -33,6 +38,7 @@ __all__ = [
     "FlowSessionsApi",
     "FlowWebhooksApi",
     "FlowsApi",
+    "GatewayApi",
     "GitHubApi",
     "GitLabApi",
     "GoogleApi",
@@ -42,12 +48,18 @@ __all__ = [
     "InstagramApi",
     "IntegrationsApi",
     "LogsApi",
+    "MCPConnectorsApi",
     "MCPServersApi",
+    "MeApi",
     "MediaApi",
     "MemoryApi",
     "MicrosoftOutlookApi",
     "ObservabilityDriverApi",
     "PhotoAIApi",
+    "PowerBIApi",
+    "ProjectInboxApi",
+    "ProjectIssueTagsApi",
+    "ProjectIssuesApi",
     "PromptsApi",
     "SERPApi",
     "SchedulesApi",
@@ -73,6 +85,9 @@ __all__ = [
     "ApiKeyError",
     "ApiAttributeError",
     "ApiException",
+    "AIProjectTemplateCardResponse",
+    "AIProjectTemplateDetailResponse",
+    "AIStudioFlowTemplateResponse",
     "AgentGridBulkInsertResponse",
     "AgentGridCreateRequest",
     "AgentGridFieldRequest",
@@ -86,8 +101,14 @@ __all__ = [
     "AgentGridRowInsertRequest",
     "AgentGridRowInsertResponse",
     "AgentGridRowsBulkInsertRequest",
+    "AgentGridSearchListRequest",
     "AgentGridSearchRequest",
     "AgentGridSearchResponse",
+    "AgentTeamProjectChatRequest",
+    "AgentTeamProjectCreate",
+    "AgentTeamProjectResponse",
+    "AgentTeamProjectSearchRequest",
+    "AgentTeamProjectUpdate",
     "AirtableBaseResponse",
     "AirtableBasesResponse",
     "AirtableFieldResponse",
@@ -95,21 +116,36 @@ __all__ = [
     "AirtableTablesResponse",
     "AirtableViewResponse",
     "AllFlowsSearchRequest",
+    "ApiKeyBulkDeleteRequest",
+    "ApiKeyBulkUpdateItem",
+    "ApiKeyBulkUpdateRequest",
     "ApiKeyCreateRequest",
     "ApiKeyResponse",
     "ApiKeySearchRequest",
     "ApiKeyUpdateRequest",
     "AppUrlInput",
     "AppUrlOutput",
+    "AsanaProjectResponse",
+    "AsanaTaskResponse",
+    "AsanaUserResponse",
+    "AsanaWorkspaceResponse",
     "AspecRatio",
+    "AvailableModelsResponse",
+    "AvatarChip",
     "BaseFoundationModel",
     "BillingProvider",
     "BoolChar",
     "BrandingResponse",
     "BrandingUpdateRequest",
     "CategoryType",
+    "ChannelTestRequest",
+    "ChannelTestResponse",
     "ChartSessionDurationResponse",
     "ChartsFeedbackRequest",
+    "ChatStartResponse",
+    "ChatbotBulkDeleteRequest",
+    "ChatbotBulkUpdateItem",
+    "ChatbotBulkUpdateRequest",
     "ChatbotCreateRequest",
     "ChatbotResponse",
     "ChatbotSearchRequest",
@@ -118,6 +154,7 @@ __all__ = [
     "ClickUpSpaceResponse",
     "ClickUpWorkspaceResponse",
     "CommunityImageGenerationsResponse",
+    "CompleteOnboardingRequest",
     "Completed",
     "ComponentValidateRequest",
     "ComponentValidationError",
@@ -134,10 +171,22 @@ __all__ = [
     "CreditDailyTransactionSearchRequest",
     "CreditTransactionResponse",
     "CreditTransactionSearchRequest",
+    "CustomModelBulkDeleteRequest",
+    "CustomModelCompatibility",
+    "CustomModelCreateRequest",
+    "CustomModelFamily",
+    "CustomModelProvider",
+    "CustomModelResponse",
+    "CustomModelSearchRequest",
+    "CustomModelUpdateRequest",
     "CustomerDataRequestPayload",
     "CustomerRedactPayload",
     "Data",
     "DeleteNodeRequest",
+    "DocumentBulkDeleteRequest",
+    "DocumentBulkUpdateItem",
+    "DocumentBulkUpdateRequest",
+    "DocumentCategoryBulkDeleteRequest",
     "DocumentCategoryCreateRequest",
     "DocumentCategoryResponse",
     "DocumentCategorySearchRequest",
@@ -156,6 +205,9 @@ __all__ = [
     "FTStatus",
     "FTType",
     "FailedFaqItem",
+    "FaqBulkDeleteRequest",
+    "FaqBulkUpdateItem",
+    "FaqBulkUpdateRequest",
     "FaqCreateRequest",
     "FaqImportResponse",
     "FaqResponse",
@@ -165,6 +217,7 @@ __all__ = [
     "FaqUpdateRequest",
     "FeedbackChartResponse",
     "FileUploadResponse",
+    "FiltersValue",
     "FlowAssistantAIModel",
     "FlowAssistantAddComponentMetadata",
     "FlowAssistantAddConnectionMetadata",
@@ -187,7 +240,11 @@ __all__ = [
     "FlowBatchRunResponse",
     "FlowBatchRunStatus",
     "FlowBatchRunUpdateRequest",
+    "FlowBatchSearchRequest",
     "FlowBranch",
+    "FlowBulkCategoryUpdateItem",
+    "FlowBulkDeleteRequest",
+    "FlowBulkUpdateRequest",
     "FlowCategoryCreateRequest",
     "FlowCategoryResponse",
     "FlowCategorySearchRequest",
@@ -214,15 +271,20 @@ __all__ = [
     "FlowResponse",
     "FlowSearchRequest",
     "FlowSessionAgentCotMetadata",
+    "FlowSessionAgentInitializedMetadata",
     "FlowSessionArtefactContentResponse",
     "FlowSessionArtefactInfo",
     "FlowSessionArtefactsMetadata",
     "FlowSessionAttachmentMetadata",
-    "FlowSessionAttachmentResponse",
     "FlowSessionCreateFromFlowRequest",
     "FlowSessionCreateRequest",
+    "FlowSessionEvaluateClientJsMetadata",
     "FlowSessionEvent",
+    "FlowSessionFileAccessRequiredMetadata",
+    "FlowSessionHITLApprovalMetadata",
+    "FlowSessionHookRequest",
     "FlowSessionHookWaitingMetadata",
+    "FlowSessionIntegrationMissingMetadata",
     "FlowSessionInvocationResponse",
     "FlowSessionInvokeRequest",
     "FlowSessionLoadingMetadata",
@@ -230,12 +292,16 @@ __all__ = [
     "FlowSessionMessageMetadata",
     "FlowSessionResponse",
     "FlowSessionResumeHookRequest",
+    "FlowSessionStatus",
+    "FlowSessionSubagentPromptMetadata",
     "FlowSessionTaskResponseMetadata",
     "FlowSessionTodoListMetadata",
     "FlowSessionToolCallMetadata",
     "FlowSessionV3FlowAssistantInitMetadata",
     "FlowSessionV3ToolCallEndMetadata",
     "FlowSessionV3ToolCallStartMetadata",
+    "FlowSessionVariablesRequest",
+    "FlowSessionVariablesResponse",
     "FlowSessionViewResponse",
     "FlowSessionViewSearchRequest",
     "FlowSessionViewUpdateRequest",
@@ -247,6 +313,8 @@ __all__ = [
     "FlowVersionHistoryResponse",
     "GeneralMCPSubserverCapabilitiesResponse",
     "GeneralMCPSubserverResponse",
+    "GenerateAgentConfigRequest",
+    "GenerateAgentConfigStartResponse",
     "GetNodeRequest",
     "GitHubRepoResponse",
     "GitHubReposResponse",
@@ -279,12 +347,17 @@ __all__ = [
     "GoogleAdsRecommendationStatus",
     "GoogleAdsRecommendationType",
     "GoogleAdsRecommendationsRequest",
+    "GoogleAllowedDirectoriesRequest",
+    "GoogleAllowedDirectoriesResponse",
     "GoogleCalendarResponse",
     "GoogleCalendarsResponse",
+    "GoogleDriveFolderResponse",
+    "GoogleDriveFoldersResponse",
     "GooglePickerTokenResponse",
     "GoogleSheetResponse",
     "GoogleSheetsResponse",
     "GroupingPeriod",
+    "HITLRespondRequest",
     "HTTPValidationError",
     "HubSpotActorIdResponse",
     "HubSpotActorsResponse",
@@ -304,10 +377,14 @@ __all__ = [
     "ImagePromptResponse",
     "InferenceFileType",
     "InferenceHistorySearchRequest",
+    "InferenceHistorySearchRequestSearchAfterInner",
+    "InhouseAttachment",
+    "InitialIssueSeed",
     "InstagramProfileInformationResponse",
     "IntegrationCategory",
     "IntegrationDetailResponse",
     "IntegrationFlowResponse",
+    "IntegrationGatewayResponse",
     "IntegrationResponse",
     "IntegrationSearchRequest",
     "IntegrationSlug",
@@ -327,10 +404,20 @@ __all__ = [
     "LogResponse",
     "LogsSearchRequest",
     "MCPCapabilityBinding",
+    "MCPConnectorAuthPayload",
+    "MCPConnectorCreateRequest",
+    "MCPConnectorResponse",
+    "MCPConnectorSearchRequest",
+    "MCPConnectorTestResponse",
+    "MCPConnectorTestTool",
+    "MCPConnectorUpdateRequest",
+    "MCPServerBulkDeleteRequest",
     "MCPServerCreateRequest",
     "MCPServerResponse",
     "MCPServerSearchRequest",
     "MCPSubServerBinding",
+    "ManualSessionClosedResponse",
+    "MatchFilter",
     "MemoryDocumentProcessRequest",
     "MemoryDocumentUploadResponse",
     "MemoryMessageResponse",
@@ -344,17 +431,17 @@ __all__ = [
     "MessageFeedback",
     "MessageType",
     "Metadata",
-    "MicrosoftPowerBiDatasetResponse",
-    "MicrosoftPowerBiDatasetsResponse",
-    "MicrosoftPowerBiPushDatasetResponse",
-    "MicrosoftPowerBiTableResponse",
-    "MicrosoftPowerBiTableValidateResponse",
-    "MicrosoftPowerBiTablesResponse",
-    "MicrosoftPowerBiWorkspaceResponse",
-    "MicrosoftPowerBiWorkspacesResponse",
+    "ModelCapabilitiesResponse",
+    "ModelCategoryResponse",
+    "ModelLimitsResponse",
+    "ModelResponse",
     "NodeDetailRequest",
     "NodeUpdateRequest",
     "ObservabilityDriverResponse",
+    "OllamaListModelsRequest",
+    "OllamaListModelsResponse",
+    "OnboardingPrimaryGoal",
+    "OnboardingStateResponse",
     "OptimizedPromptResponse",
     "Pagination",
     "PerDayFeedback",
@@ -363,10 +450,24 @@ __all__ = [
     "PhotoAIStyleResponse",
     "PhotoAITemplateResponse",
     "PointerType",
-    "PowerBiDatasetRequest",
-    "PowerBiPushDatasetRequest",
-    "PowerBiRequest",
-    "PowerBiTableRequest",
+    "PowerBIWorkspaceResponse",
+    "PowerBIWorkspacesResponse",
+    "ProjectInboxEntryResponse",
+    "ProjectInboxSearchRequest",
+    "ProjectInboxSearchResponse",
+    "ProjectInboxUnreadCountResponse",
+    "ProjectIssueCommentArtefactResponse",
+    "ProjectIssueCommentCreate",
+    "ProjectIssueCommentResponse",
+    "ProjectIssueCreate",
+    "ProjectIssueResponse",
+    "ProjectIssueSearchRequest",
+    "ProjectIssueSearchResponse",
+    "ProjectIssueTagCreate",
+    "ProjectIssueTagResponse",
+    "ProjectIssueTagSearchRequest",
+    "ProjectIssueTagUpdate",
+    "ProjectIssueUpdate",
     "PromptCategoryCreateRequest",
     "PromptCategoryResponse",
     "PromptCategorySearchRequest",
@@ -378,7 +479,13 @@ __all__ = [
     "PromptUpdateRequest",
     "QuerySimilarityRequest",
     "QuerySimilarityTaskRequest",
+    "RangeFilter",
+    "RequiredIntegration",
     "Role",
+    "ScheduleBulkDeleteRequest",
+    "ScheduleBulkRunRequest",
+    "ScheduleBulkUpdateItem",
+    "ScheduleBulkUpdateRequest",
     "ScheduleCreateRequest",
     "ScheduleFrequency",
     "ScheduleResponse",
@@ -414,9 +521,11 @@ __all__ = [
     "ShopifyIntegrationResponse",
     "SlackChannelResponse",
     "SlackWorkspaceResponse",
+    "SmtpEncryption",
     "SortDirection",
     "Source",
     "SubscriptionPlan",
+    "SuggestionResponse",
     "SystemMessageMetadata",
     "TagCreateRequest",
     "TagResponse",
@@ -424,6 +533,9 @@ __all__ = [
     "TagUpdateRequest",
     "TaskResponse",
     "TaskStatus",
+    "TeamPreview",
+    "TermFilter",
+    "TermsFilter",
     "TodoItem",
     "ToolCallFeedbackResponse",
     "ToolFeedback",
@@ -466,6 +578,7 @@ __all__ = [
     "WordPressCategoryResponse",
     "WordPressSiteResponse",
     "WordPressTagsResponse",
+    "WorkspaceAutoRechargeRequest",
     "WorkspaceCreateRequest",
     "WorkspaceCreditAlertThresholdRequest",
     "WorkspaceCreditLimitRequest",
@@ -486,13 +599,18 @@ __all__ = [
 ]
 
 # import apis into sdk package
+from flowhunt.api.ai_projects_library_api import AIProjectsLibraryApi as AIProjectsLibraryApi
+from flowhunt.api.ai_studio_library_api import AIStudioLibraryApi as AIStudioLibraryApi
 from flowhunt.api.agent_grids_api import AgentGridsApi as AgentGridsApi
+from flowhunt.api.agent_team_projects_api import AgentTeamProjectsApi as AgentTeamProjectsApi
 from flowhunt.api.airtable_api import AirtableApi as AirtableApi
 from flowhunt.api.api_keys_api import ApiKeysApi as ApiKeysApi
+from flowhunt.api.asana_api import AsanaApi as AsanaApi
 from flowhunt.api.atlassian_api import AtlassianApi as AtlassianApi
 from flowhunt.api.chatbots_api import ChatbotsApi as ChatbotsApi
 from flowhunt.api.click_up_api import ClickUpApi as ClickUpApi
 from flowhunt.api.credits_api import CreditsApi as CreditsApi
+from flowhunt.api.custom_models_api import CustomModelsApi as CustomModelsApi
 from flowhunt.api.documents_api import DocumentsApi as DocumentsApi
 from flowhunt.api.fine_tunings_api import FineTuningsApi as FineTuningsApi
 from flowhunt.api.flow_assistant_v3_api import FlowAssistantV3Api as FlowAssistantV3Api
@@ -501,6 +619,7 @@ from flowhunt.api.flow_messages_api import FlowMessagesApi as FlowMessagesApi
 from flowhunt.api.flow_sessions_api import FlowSessionsApi as FlowSessionsApi
 from flowhunt.api.flow_webhooks_api import FlowWebhooksApi as FlowWebhooksApi
 from flowhunt.api.flows_api import FlowsApi as FlowsApi
+from flowhunt.api.gateway_api import GatewayApi as GatewayApi
 from flowhunt.api.git_hub_api import GitHubApi as GitHubApi
 from flowhunt.api.git_lab_api import GitLabApi as GitLabApi
 from flowhunt.api.google_api import GoogleApi as GoogleApi
@@ -510,12 +629,18 @@ from flowhunt.api.images_api import ImagesApi as ImagesApi
 from flowhunt.api.instagram_api import InstagramApi as InstagramApi
 from flowhunt.api.integrations_api import IntegrationsApi as IntegrationsApi
 from flowhunt.api.logs_api import LogsApi as LogsApi
+from flowhunt.api.mcp_connectors_api import MCPConnectorsApi as MCPConnectorsApi
 from flowhunt.api.mcp_servers_api import MCPServersApi as MCPServersApi
+from flowhunt.api.me_api import MeApi as MeApi
 from flowhunt.api.media_api import MediaApi as MediaApi
 from flowhunt.api.memory_api import MemoryApi as MemoryApi
 from flowhunt.api.microsoft_outlook_api import MicrosoftOutlookApi as MicrosoftOutlookApi
 from flowhunt.api.observability_driver_api import ObservabilityDriverApi as ObservabilityDriverApi
 from flowhunt.api.photo_ai_api import PhotoAIApi as PhotoAIApi
+from flowhunt.api.power_bi_api import PowerBIApi as PowerBIApi
+from flowhunt.api.project_inbox_api import ProjectInboxApi as ProjectInboxApi
+from flowhunt.api.project_issue_tags_api import ProjectIssueTagsApi as ProjectIssueTagsApi
+from flowhunt.api.project_issues_api import ProjectIssuesApi as ProjectIssuesApi
 from flowhunt.api.prompts_api import PromptsApi as PromptsApi
 from flowhunt.api.serp_api import SERPApi as SERPApi
 from flowhunt.api.schedules_api import SchedulesApi as SchedulesApi
@@ -545,6 +670,9 @@ from flowhunt.exceptions import ApiAttributeError as ApiAttributeError
 from flowhunt.exceptions import ApiException as ApiException
 
 # import models into sdk package
+from flowhunt.models.ai_project_template_card_response import AIProjectTemplateCardResponse as AIProjectTemplateCardResponse
+from flowhunt.models.ai_project_template_detail_response import AIProjectTemplateDetailResponse as AIProjectTemplateDetailResponse
+from flowhunt.models.ai_studio_flow_template_response import AIStudioFlowTemplateResponse as AIStudioFlowTemplateResponse
 from flowhunt.models.agent_grid_bulk_insert_response import AgentGridBulkInsertResponse as AgentGridBulkInsertResponse
 from flowhunt.models.agent_grid_create_request import AgentGridCreateRequest as AgentGridCreateRequest
 from flowhunt.models.agent_grid_field_request import AgentGridFieldRequest as AgentGridFieldRequest
@@ -558,8 +686,14 @@ from flowhunt.models.agent_grid_response import AgentGridResponse as AgentGridRe
 from flowhunt.models.agent_grid_row_insert_request import AgentGridRowInsertRequest as AgentGridRowInsertRequest
 from flowhunt.models.agent_grid_row_insert_response import AgentGridRowInsertResponse as AgentGridRowInsertResponse
 from flowhunt.models.agent_grid_rows_bulk_insert_request import AgentGridRowsBulkInsertRequest as AgentGridRowsBulkInsertRequest
+from flowhunt.models.agent_grid_search_list_request import AgentGridSearchListRequest as AgentGridSearchListRequest
 from flowhunt.models.agent_grid_search_request import AgentGridSearchRequest as AgentGridSearchRequest
 from flowhunt.models.agent_grid_search_response import AgentGridSearchResponse as AgentGridSearchResponse
+from flowhunt.models.agent_team_project_chat_request import AgentTeamProjectChatRequest as AgentTeamProjectChatRequest
+from flowhunt.models.agent_team_project_create import AgentTeamProjectCreate as AgentTeamProjectCreate
+from flowhunt.models.agent_team_project_response import AgentTeamProjectResponse as AgentTeamProjectResponse
+from flowhunt.models.agent_team_project_search_request import AgentTeamProjectSearchRequest as AgentTeamProjectSearchRequest
+from flowhunt.models.agent_team_project_update import AgentTeamProjectUpdate as AgentTeamProjectUpdate
 from flowhunt.models.airtable_base_response import AirtableBaseResponse as AirtableBaseResponse
 from flowhunt.models.airtable_bases_response import AirtableBasesResponse as AirtableBasesResponse
 from flowhunt.models.airtable_field_response import AirtableFieldResponse as AirtableFieldResponse
@@ -567,21 +701,36 @@ from flowhunt.models.airtable_table_response import AirtableTableResponse as Air
 from flowhunt.models.airtable_tables_response import AirtableTablesResponse as AirtableTablesResponse
 from flowhunt.models.airtable_view_response import AirtableViewResponse as AirtableViewResponse
 from flowhunt.models.all_flows_search_request import AllFlowsSearchRequest as AllFlowsSearchRequest
+from flowhunt.models.api_key_bulk_delete_request import ApiKeyBulkDeleteRequest as ApiKeyBulkDeleteRequest
+from flowhunt.models.api_key_bulk_update_item import ApiKeyBulkUpdateItem as ApiKeyBulkUpdateItem
+from flowhunt.models.api_key_bulk_update_request import ApiKeyBulkUpdateRequest as ApiKeyBulkUpdateRequest
 from flowhunt.models.api_key_create_request import ApiKeyCreateRequest as ApiKeyCreateRequest
 from flowhunt.models.api_key_response import ApiKeyResponse as ApiKeyResponse
 from flowhunt.models.api_key_search_request import ApiKeySearchRequest as ApiKeySearchRequest
 from flowhunt.models.api_key_update_request import ApiKeyUpdateRequest as ApiKeyUpdateRequest
 from flowhunt.models.app_url_input import AppUrlInput as AppUrlInput
 from flowhunt.models.app_url_output import AppUrlOutput as AppUrlOutput
+from flowhunt.models.asana_project_response import AsanaProjectResponse as AsanaProjectResponse
+from flowhunt.models.asana_task_response import AsanaTaskResponse as AsanaTaskResponse
+from flowhunt.models.asana_user_response import AsanaUserResponse as AsanaUserResponse
+from flowhunt.models.asana_workspace_response import AsanaWorkspaceResponse as AsanaWorkspaceResponse
 from flowhunt.models.aspec_ratio import AspecRatio as AspecRatio
+from flowhunt.models.available_models_response import AvailableModelsResponse as AvailableModelsResponse
+from flowhunt.models.avatar_chip import AvatarChip as AvatarChip
 from flowhunt.models.base_foundation_model import BaseFoundationModel as BaseFoundationModel
 from flowhunt.models.billing_provider import BillingProvider as BillingProvider
 from flowhunt.models.bool_char import BoolChar as BoolChar
 from flowhunt.models.branding_response import BrandingResponse as BrandingResponse
 from flowhunt.models.branding_update_request import BrandingUpdateRequest as BrandingUpdateRequest
 from flowhunt.models.category_type import CategoryType as CategoryType
+from flowhunt.models.channel_test_request import ChannelTestRequest as ChannelTestRequest
+from flowhunt.models.channel_test_response import ChannelTestResponse as ChannelTestResponse
 from flowhunt.models.chart_session_duration_response import ChartSessionDurationResponse as ChartSessionDurationResponse
 from flowhunt.models.charts_feedback_request import ChartsFeedbackRequest as ChartsFeedbackRequest
+from flowhunt.models.chat_start_response import ChatStartResponse as ChatStartResponse
+from flowhunt.models.chatbot_bulk_delete_request import ChatbotBulkDeleteRequest as ChatbotBulkDeleteRequest
+from flowhunt.models.chatbot_bulk_update_item import ChatbotBulkUpdateItem as ChatbotBulkUpdateItem
+from flowhunt.models.chatbot_bulk_update_request import ChatbotBulkUpdateRequest as ChatbotBulkUpdateRequest
 from flowhunt.models.chatbot_create_request import ChatbotCreateRequest as ChatbotCreateRequest
 from flowhunt.models.chatbot_response import ChatbotResponse as ChatbotResponse
 from flowhunt.models.chatbot_search_request import ChatbotSearchRequest as ChatbotSearchRequest
@@ -590,6 +739,7 @@ from flowhunt.models.chatbot_update_request import ChatbotUpdateRequest as Chatb
 from flowhunt.models.click_up_space_response import ClickUpSpaceResponse as ClickUpSpaceResponse
 from flowhunt.models.click_up_workspace_response import ClickUpWorkspaceResponse as ClickUpWorkspaceResponse
 from flowhunt.models.community_image_generations_response import CommunityImageGenerationsResponse as CommunityImageGenerationsResponse
+from flowhunt.models.complete_onboarding_request import CompleteOnboardingRequest as CompleteOnboardingRequest
 from flowhunt.models.completed import Completed as Completed
 from flowhunt.models.component_validate_request import ComponentValidateRequest as ComponentValidateRequest
 from flowhunt.models.component_validation_error import ComponentValidationError as ComponentValidationError
@@ -606,10 +756,22 @@ from flowhunt.models.credit_daily_transaction_response import CreditDailyTransac
 from flowhunt.models.credit_daily_transaction_search_request import CreditDailyTransactionSearchRequest as CreditDailyTransactionSearchRequest
 from flowhunt.models.credit_transaction_response import CreditTransactionResponse as CreditTransactionResponse
 from flowhunt.models.credit_transaction_search_request import CreditTransactionSearchRequest as CreditTransactionSearchRequest
+from flowhunt.models.custom_model_bulk_delete_request import CustomModelBulkDeleteRequest as CustomModelBulkDeleteRequest
+from flowhunt.models.custom_model_compatibility import CustomModelCompatibility as CustomModelCompatibility
+from flowhunt.models.custom_model_create_request import CustomModelCreateRequest as CustomModelCreateRequest
+from flowhunt.models.custom_model_family import CustomModelFamily as CustomModelFamily
+from flowhunt.models.custom_model_provider import CustomModelProvider as CustomModelProvider
+from flowhunt.models.custom_model_response import CustomModelResponse as CustomModelResponse
+from flowhunt.models.custom_model_search_request import CustomModelSearchRequest as CustomModelSearchRequest
+from flowhunt.models.custom_model_update_request import CustomModelUpdateRequest as CustomModelUpdateRequest
 from flowhunt.models.customer_data_request_payload import CustomerDataRequestPayload as CustomerDataRequestPayload
 from flowhunt.models.customer_redact_payload import CustomerRedactPayload as CustomerRedactPayload
 from flowhunt.models.data import Data as Data
 from flowhunt.models.delete_node_request import DeleteNodeRequest as DeleteNodeRequest
+from flowhunt.models.document_bulk_delete_request import DocumentBulkDeleteRequest as DocumentBulkDeleteRequest
+from flowhunt.models.document_bulk_update_item import DocumentBulkUpdateItem as DocumentBulkUpdateItem
+from flowhunt.models.document_bulk_update_request import DocumentBulkUpdateRequest as DocumentBulkUpdateRequest
+from flowhunt.models.document_category_bulk_delete_request import DocumentCategoryBulkDeleteRequest as DocumentCategoryBulkDeleteRequest
 from flowhunt.models.document_category_create_request import DocumentCategoryCreateRequest as DocumentCategoryCreateRequest
 from flowhunt.models.document_category_response import DocumentCategoryResponse as DocumentCategoryResponse
 from flowhunt.models.document_category_search_request import DocumentCategorySearchRequest as DocumentCategorySearchRequest
@@ -628,6 +790,9 @@ from flowhunt.models.driver_type import DriverType as DriverType
 from flowhunt.models.ft_status import FTStatus as FTStatus
 from flowhunt.models.ft_type import FTType as FTType
 from flowhunt.models.failed_faq_item import FailedFaqItem as FailedFaqItem
+from flowhunt.models.faq_bulk_delete_request import FaqBulkDeleteRequest as FaqBulkDeleteRequest
+from flowhunt.models.faq_bulk_update_item import FaqBulkUpdateItem as FaqBulkUpdateItem
+from flowhunt.models.faq_bulk_update_request import FaqBulkUpdateRequest as FaqBulkUpdateRequest
 from flowhunt.models.faq_create_request import FaqCreateRequest as FaqCreateRequest
 from flowhunt.models.faq_import_response import FaqImportResponse as FaqImportResponse
 from flowhunt.models.faq_response import FaqResponse as FaqResponse
@@ -637,6 +802,7 @@ from flowhunt.models.faq_type import FaqType as FaqType
 from flowhunt.models.faq_update_request import FaqUpdateRequest as FaqUpdateRequest
 from flowhunt.models.feedback_chart_response import FeedbackChartResponse as FeedbackChartResponse
 from flowhunt.models.file_upload_response import FileUploadResponse as FileUploadResponse
+from flowhunt.models.filters_value import FiltersValue as FiltersValue
 from flowhunt.models.flow_assistant_ai_model import FlowAssistantAIModel as FlowAssistantAIModel
 from flowhunt.models.flow_assistant_add_component_metadata import FlowAssistantAddComponentMetadata as FlowAssistantAddComponentMetadata
 from flowhunt.models.flow_assistant_add_connection_metadata import FlowAssistantAddConnectionMetadata as FlowAssistantAddConnectionMetadata
@@ -659,7 +825,11 @@ from flowhunt.models.flow_batch_run_detail_response import FlowBatchRunDetailRes
 from flowhunt.models.flow_batch_run_response import FlowBatchRunResponse as FlowBatchRunResponse
 from flowhunt.models.flow_batch_run_status import FlowBatchRunStatus as FlowBatchRunStatus
 from flowhunt.models.flow_batch_run_update_request import FlowBatchRunUpdateRequest as FlowBatchRunUpdateRequest
+from flowhunt.models.flow_batch_search_request import FlowBatchSearchRequest as FlowBatchSearchRequest
 from flowhunt.models.flow_branch import FlowBranch as FlowBranch
+from flowhunt.models.flow_bulk_category_update_item import FlowBulkCategoryUpdateItem as FlowBulkCategoryUpdateItem
+from flowhunt.models.flow_bulk_delete_request import FlowBulkDeleteRequest as FlowBulkDeleteRequest
+from flowhunt.models.flow_bulk_update_request import FlowBulkUpdateRequest as FlowBulkUpdateRequest
 from flowhunt.models.flow_category_create_request import FlowCategoryCreateRequest as FlowCategoryCreateRequest
 from flowhunt.models.flow_category_response import FlowCategoryResponse as FlowCategoryResponse
 from flowhunt.models.flow_category_search_request import FlowCategorySearchRequest as FlowCategorySearchRequest
@@ -686,15 +856,20 @@ from flowhunt.models.flow_node_data import FlowNodeData as FlowNodeData
 from flowhunt.models.flow_response import FlowResponse as FlowResponse
 from flowhunt.models.flow_search_request import FlowSearchRequest as FlowSearchRequest
 from flowhunt.models.flow_session_agent_cot_metadata import FlowSessionAgentCotMetadata as FlowSessionAgentCotMetadata
+from flowhunt.models.flow_session_agent_initialized_metadata import FlowSessionAgentInitializedMetadata as FlowSessionAgentInitializedMetadata
 from flowhunt.models.flow_session_artefact_content_response import FlowSessionArtefactContentResponse as FlowSessionArtefactContentResponse
 from flowhunt.models.flow_session_artefact_info import FlowSessionArtefactInfo as FlowSessionArtefactInfo
 from flowhunt.models.flow_session_artefacts_metadata import FlowSessionArtefactsMetadata as FlowSessionArtefactsMetadata
 from flowhunt.models.flow_session_attachment_metadata import FlowSessionAttachmentMetadata as FlowSessionAttachmentMetadata
-from flowhunt.models.flow_session_attachment_response import FlowSessionAttachmentResponse as FlowSessionAttachmentResponse
 from flowhunt.models.flow_session_create_from_flow_request import FlowSessionCreateFromFlowRequest as FlowSessionCreateFromFlowRequest
 from flowhunt.models.flow_session_create_request import FlowSessionCreateRequest as FlowSessionCreateRequest
+from flowhunt.models.flow_session_evaluate_client_js_metadata import FlowSessionEvaluateClientJsMetadata as FlowSessionEvaluateClientJsMetadata
 from flowhunt.models.flow_session_event import FlowSessionEvent as FlowSessionEvent
+from flowhunt.models.flow_session_file_access_required_metadata import FlowSessionFileAccessRequiredMetadata as FlowSessionFileAccessRequiredMetadata
+from flowhunt.models.flow_session_hitl_approval_metadata import FlowSessionHITLApprovalMetadata as FlowSessionHITLApprovalMetadata
+from flowhunt.models.flow_session_hook_request import FlowSessionHookRequest as FlowSessionHookRequest
 from flowhunt.models.flow_session_hook_waiting_metadata import FlowSessionHookWaitingMetadata as FlowSessionHookWaitingMetadata
+from flowhunt.models.flow_session_integration_missing_metadata import FlowSessionIntegrationMissingMetadata as FlowSessionIntegrationMissingMetadata
 from flowhunt.models.flow_session_invocation_response import FlowSessionInvocationResponse as FlowSessionInvocationResponse
 from flowhunt.models.flow_session_invoke_request import FlowSessionInvokeRequest as FlowSessionInvokeRequest
 from flowhunt.models.flow_session_loading_metadata import FlowSessionLoadingMetadata as FlowSessionLoadingMetadata
@@ -702,12 +877,16 @@ from flowhunt.models.flow_session_message_feedback_metadata import FlowSessionMe
 from flowhunt.models.flow_session_message_metadata import FlowSessionMessageMetadata as FlowSessionMessageMetadata
 from flowhunt.models.flow_session_response import FlowSessionResponse as FlowSessionResponse
 from flowhunt.models.flow_session_resume_hook_request import FlowSessionResumeHookRequest as FlowSessionResumeHookRequest
+from flowhunt.models.flow_session_status import FlowSessionStatus as FlowSessionStatus
+from flowhunt.models.flow_session_subagent_prompt_metadata import FlowSessionSubagentPromptMetadata as FlowSessionSubagentPromptMetadata
 from flowhunt.models.flow_session_task_response_metadata import FlowSessionTaskResponseMetadata as FlowSessionTaskResponseMetadata
 from flowhunt.models.flow_session_todo_list_metadata import FlowSessionTodoListMetadata as FlowSessionTodoListMetadata
 from flowhunt.models.flow_session_tool_call_metadata import FlowSessionToolCallMetadata as FlowSessionToolCallMetadata
 from flowhunt.models.flow_session_v3_flow_assistant_init_metadata import FlowSessionV3FlowAssistantInitMetadata as FlowSessionV3FlowAssistantInitMetadata
 from flowhunt.models.flow_session_v3_tool_call_end_metadata import FlowSessionV3ToolCallEndMetadata as FlowSessionV3ToolCallEndMetadata
 from flowhunt.models.flow_session_v3_tool_call_start_metadata import FlowSessionV3ToolCallStartMetadata as FlowSessionV3ToolCallStartMetadata
+from flowhunt.models.flow_session_variables_request import FlowSessionVariablesRequest as FlowSessionVariablesRequest
+from flowhunt.models.flow_session_variables_response import FlowSessionVariablesResponse as FlowSessionVariablesResponse
 from flowhunt.models.flow_session_view_response import FlowSessionViewResponse as FlowSessionViewResponse
 from flowhunt.models.flow_session_view_search_request import FlowSessionViewSearchRequest as FlowSessionViewSearchRequest
 from flowhunt.models.flow_session_view_update_request import FlowSessionViewUpdateRequest as FlowSessionViewUpdateRequest
@@ -719,6 +898,8 @@ from flowhunt.models.flow_validation_response import FlowValidationResponse as F
 from flowhunt.models.flow_version_history_response import FlowVersionHistoryResponse as FlowVersionHistoryResponse
 from flowhunt.models.general_mcp_subserver_capabilities_response import GeneralMCPSubserverCapabilitiesResponse as GeneralMCPSubserverCapabilitiesResponse
 from flowhunt.models.general_mcp_subserver_response import GeneralMCPSubserverResponse as GeneralMCPSubserverResponse
+from flowhunt.models.generate_agent_config_request import GenerateAgentConfigRequest as GenerateAgentConfigRequest
+from flowhunt.models.generate_agent_config_start_response import GenerateAgentConfigStartResponse as GenerateAgentConfigStartResponse
 from flowhunt.models.get_node_request import GetNodeRequest as GetNodeRequest
 from flowhunt.models.git_hub_repo_response import GitHubRepoResponse as GitHubRepoResponse
 from flowhunt.models.git_hub_repos_response import GitHubReposResponse as GitHubReposResponse
@@ -751,12 +932,17 @@ from flowhunt.models.google_ads_recommendation_confidence import GoogleAdsRecomm
 from flowhunt.models.google_ads_recommendation_status import GoogleAdsRecommendationStatus as GoogleAdsRecommendationStatus
 from flowhunt.models.google_ads_recommendation_type import GoogleAdsRecommendationType as GoogleAdsRecommendationType
 from flowhunt.models.google_ads_recommendations_request import GoogleAdsRecommendationsRequest as GoogleAdsRecommendationsRequest
+from flowhunt.models.google_allowed_directories_request import GoogleAllowedDirectoriesRequest as GoogleAllowedDirectoriesRequest
+from flowhunt.models.google_allowed_directories_response import GoogleAllowedDirectoriesResponse as GoogleAllowedDirectoriesResponse
 from flowhunt.models.google_calendar_response import GoogleCalendarResponse as GoogleCalendarResponse
 from flowhunt.models.google_calendars_response import GoogleCalendarsResponse as GoogleCalendarsResponse
+from flowhunt.models.google_drive_folder_response import GoogleDriveFolderResponse as GoogleDriveFolderResponse
+from flowhunt.models.google_drive_folders_response import GoogleDriveFoldersResponse as GoogleDriveFoldersResponse
 from flowhunt.models.google_picker_token_response import GooglePickerTokenResponse as GooglePickerTokenResponse
 from flowhunt.models.google_sheet_response import GoogleSheetResponse as GoogleSheetResponse
 from flowhunt.models.google_sheets_response import GoogleSheetsResponse as GoogleSheetsResponse
 from flowhunt.models.grouping_period import GroupingPeriod as GroupingPeriod
+from flowhunt.models.hitl_respond_request import HITLRespondRequest as HITLRespondRequest
 from flowhunt.models.http_validation_error import HTTPValidationError as HTTPValidationError
 from flowhunt.models.hub_spot_actor_id_response import HubSpotActorIdResponse as HubSpotActorIdResponse
 from flowhunt.models.hub_spot_actors_response import HubSpotActorsResponse as HubSpotActorsResponse
@@ -776,10 +962,14 @@ from flowhunt.models.image_prompt_generation_request import ImagePromptGeneratio
 from flowhunt.models.image_prompt_response import ImagePromptResponse as ImagePromptResponse
 from flowhunt.models.inference_file_type import InferenceFileType as InferenceFileType
 from flowhunt.models.inference_history_search_request import InferenceHistorySearchRequest as InferenceHistorySearchRequest
+from flowhunt.models.inference_history_search_request_search_after_inner import InferenceHistorySearchRequestSearchAfterInner as InferenceHistorySearchRequestSearchAfterInner
+from flowhunt.models.inhouse_attachment import InhouseAttachment as InhouseAttachment
+from flowhunt.models.initial_issue_seed import InitialIssueSeed as InitialIssueSeed
 from flowhunt.models.instagram_profile_information_response import InstagramProfileInformationResponse as InstagramProfileInformationResponse
 from flowhunt.models.integration_category import IntegrationCategory as IntegrationCategory
 from flowhunt.models.integration_detail_response import IntegrationDetailResponse as IntegrationDetailResponse
 from flowhunt.models.integration_flow_response import IntegrationFlowResponse as IntegrationFlowResponse
+from flowhunt.models.integration_gateway_response import IntegrationGatewayResponse as IntegrationGatewayResponse
 from flowhunt.models.integration_response import IntegrationResponse as IntegrationResponse
 from flowhunt.models.integration_search_request import IntegrationSearchRequest as IntegrationSearchRequest
 from flowhunt.models.integration_slug import IntegrationSlug as IntegrationSlug
@@ -799,10 +989,20 @@ from flowhunt.models.log_entry_type import LogEntryType as LogEntryType
 from flowhunt.models.log_response import LogResponse as LogResponse
 from flowhunt.models.logs_search_request import LogsSearchRequest as LogsSearchRequest
 from flowhunt.models.mcp_capability_binding import MCPCapabilityBinding as MCPCapabilityBinding
+from flowhunt.models.mcp_connector_auth_payload import MCPConnectorAuthPayload as MCPConnectorAuthPayload
+from flowhunt.models.mcp_connector_create_request import MCPConnectorCreateRequest as MCPConnectorCreateRequest
+from flowhunt.models.mcp_connector_response import MCPConnectorResponse as MCPConnectorResponse
+from flowhunt.models.mcp_connector_search_request import MCPConnectorSearchRequest as MCPConnectorSearchRequest
+from flowhunt.models.mcp_connector_test_response import MCPConnectorTestResponse as MCPConnectorTestResponse
+from flowhunt.models.mcp_connector_test_tool import MCPConnectorTestTool as MCPConnectorTestTool
+from flowhunt.models.mcp_connector_update_request import MCPConnectorUpdateRequest as MCPConnectorUpdateRequest
+from flowhunt.models.mcp_server_bulk_delete_request import MCPServerBulkDeleteRequest as MCPServerBulkDeleteRequest
 from flowhunt.models.mcp_server_create_request import MCPServerCreateRequest as MCPServerCreateRequest
 from flowhunt.models.mcp_server_response import MCPServerResponse as MCPServerResponse
 from flowhunt.models.mcp_server_search_request import MCPServerSearchRequest as MCPServerSearchRequest
 from flowhunt.models.mcp_sub_server_binding import MCPSubServerBinding as MCPSubServerBinding
+from flowhunt.models.manual_session_closed_response import ManualSessionClosedResponse as ManualSessionClosedResponse
+from flowhunt.models.match_filter import MatchFilter as MatchFilter
 from flowhunt.models.memory_document_process_request import MemoryDocumentProcessRequest as MemoryDocumentProcessRequest
 from flowhunt.models.memory_document_upload_response import MemoryDocumentUploadResponse as MemoryDocumentUploadResponse
 from flowhunt.models.memory_message_response import MemoryMessageResponse as MemoryMessageResponse
@@ -816,17 +1016,17 @@ from flowhunt.models.merchant_metadata import MerchantMetadata as MerchantMetada
 from flowhunt.models.message_feedback import MessageFeedback as MessageFeedback
 from flowhunt.models.message_type import MessageType as MessageType
 from flowhunt.models.metadata import Metadata as Metadata
-from flowhunt.models.microsoft_power_bi_dataset_response import MicrosoftPowerBiDatasetResponse as MicrosoftPowerBiDatasetResponse
-from flowhunt.models.microsoft_power_bi_datasets_response import MicrosoftPowerBiDatasetsResponse as MicrosoftPowerBiDatasetsResponse
-from flowhunt.models.microsoft_power_bi_push_dataset_response import MicrosoftPowerBiPushDatasetResponse as MicrosoftPowerBiPushDatasetResponse
-from flowhunt.models.microsoft_power_bi_table_response import MicrosoftPowerBiTableResponse as MicrosoftPowerBiTableResponse
-from flowhunt.models.microsoft_power_bi_table_validate_response import MicrosoftPowerBiTableValidateResponse as MicrosoftPowerBiTableValidateResponse
-from flowhunt.models.microsoft_power_bi_tables_response import MicrosoftPowerBiTablesResponse as MicrosoftPowerBiTablesResponse
-from flowhunt.models.microsoft_power_bi_workspace_response import MicrosoftPowerBiWorkspaceResponse as MicrosoftPowerBiWorkspaceResponse
-from flowhunt.models.microsoft_power_bi_workspaces_response import MicrosoftPowerBiWorkspacesResponse as MicrosoftPowerBiWorkspacesResponse
+from flowhunt.models.model_capabilities_response import ModelCapabilitiesResponse as ModelCapabilitiesResponse
+from flowhunt.models.model_category_response import ModelCategoryResponse as ModelCategoryResponse
+from flowhunt.models.model_limits_response import ModelLimitsResponse as ModelLimitsResponse
+from flowhunt.models.model_response import ModelResponse as ModelResponse
 from flowhunt.models.node_detail_request import NodeDetailRequest as NodeDetailRequest
 from flowhunt.models.node_update_request import NodeUpdateRequest as NodeUpdateRequest
 from flowhunt.models.observability_driver_response import ObservabilityDriverResponse as ObservabilityDriverResponse
+from flowhunt.models.ollama_list_models_request import OllamaListModelsRequest as OllamaListModelsRequest
+from flowhunt.models.ollama_list_models_response import OllamaListModelsResponse as OllamaListModelsResponse
+from flowhunt.models.onboarding_primary_goal import OnboardingPrimaryGoal as OnboardingPrimaryGoal
+from flowhunt.models.onboarding_state_response import OnboardingStateResponse as OnboardingStateResponse
 from flowhunt.models.optimized_prompt_response import OptimizedPromptResponse as OptimizedPromptResponse
 from flowhunt.models.pagination import Pagination as Pagination
 from flowhunt.models.per_day_feedback import PerDayFeedback as PerDayFeedback
@@ -835,10 +1035,24 @@ from flowhunt.models.photo_ai_effect_response import PhotoAIEffectResponse as Ph
 from flowhunt.models.photo_ai_style_response import PhotoAIStyleResponse as PhotoAIStyleResponse
 from flowhunt.models.photo_ai_template_response import PhotoAITemplateResponse as PhotoAITemplateResponse
 from flowhunt.models.pointer_type import PointerType as PointerType
-from flowhunt.models.power_bi_dataset_request import PowerBiDatasetRequest as PowerBiDatasetRequest
-from flowhunt.models.power_bi_push_dataset_request import PowerBiPushDatasetRequest as PowerBiPushDatasetRequest
-from flowhunt.models.power_bi_request import PowerBiRequest as PowerBiRequest
-from flowhunt.models.power_bi_table_request import PowerBiTableRequest as PowerBiTableRequest
+from flowhunt.models.power_bi_workspace_response import PowerBIWorkspaceResponse as PowerBIWorkspaceResponse
+from flowhunt.models.power_bi_workspaces_response import PowerBIWorkspacesResponse as PowerBIWorkspacesResponse
+from flowhunt.models.project_inbox_entry_response import ProjectInboxEntryResponse as ProjectInboxEntryResponse
+from flowhunt.models.project_inbox_search_request import ProjectInboxSearchRequest as ProjectInboxSearchRequest
+from flowhunt.models.project_inbox_search_response import ProjectInboxSearchResponse as ProjectInboxSearchResponse
+from flowhunt.models.project_inbox_unread_count_response import ProjectInboxUnreadCountResponse as ProjectInboxUnreadCountResponse
+from flowhunt.models.project_issue_comment_artefact_response import ProjectIssueCommentArtefactResponse as ProjectIssueCommentArtefactResponse
+from flowhunt.models.project_issue_comment_create import ProjectIssueCommentCreate as ProjectIssueCommentCreate
+from flowhunt.models.project_issue_comment_response import ProjectIssueCommentResponse as ProjectIssueCommentResponse
+from flowhunt.models.project_issue_create import ProjectIssueCreate as ProjectIssueCreate
+from flowhunt.models.project_issue_response import ProjectIssueResponse as ProjectIssueResponse
+from flowhunt.models.project_issue_search_request import ProjectIssueSearchRequest as ProjectIssueSearchRequest
+from flowhunt.models.project_issue_search_response import ProjectIssueSearchResponse as ProjectIssueSearchResponse
+from flowhunt.models.project_issue_tag_create import ProjectIssueTagCreate as ProjectIssueTagCreate
+from flowhunt.models.project_issue_tag_response import ProjectIssueTagResponse as ProjectIssueTagResponse
+from flowhunt.models.project_issue_tag_search_request import ProjectIssueTagSearchRequest as ProjectIssueTagSearchRequest
+from flowhunt.models.project_issue_tag_update import ProjectIssueTagUpdate as ProjectIssueTagUpdate
+from flowhunt.models.project_issue_update import ProjectIssueUpdate as ProjectIssueUpdate
 from flowhunt.models.prompt_category_create_request import PromptCategoryCreateRequest as PromptCategoryCreateRequest
 from flowhunt.models.prompt_category_response import PromptCategoryResponse as PromptCategoryResponse
 from flowhunt.models.prompt_category_search_request import PromptCategorySearchRequest as PromptCategorySearchRequest
@@ -850,7 +1064,13 @@ from flowhunt.models.prompt_search_request import PromptSearchRequest as PromptS
 from flowhunt.models.prompt_update_request import PromptUpdateRequest as PromptUpdateRequest
 from flowhunt.models.query_similarity_request import QuerySimilarityRequest as QuerySimilarityRequest
 from flowhunt.models.query_similarity_task_request import QuerySimilarityTaskRequest as QuerySimilarityTaskRequest
+from flowhunt.models.range_filter import RangeFilter as RangeFilter
+from flowhunt.models.required_integration import RequiredIntegration as RequiredIntegration
 from flowhunt.models.role import Role as Role
+from flowhunt.models.schedule_bulk_delete_request import ScheduleBulkDeleteRequest as ScheduleBulkDeleteRequest
+from flowhunt.models.schedule_bulk_run_request import ScheduleBulkRunRequest as ScheduleBulkRunRequest
+from flowhunt.models.schedule_bulk_update_item import ScheduleBulkUpdateItem as ScheduleBulkUpdateItem
+from flowhunt.models.schedule_bulk_update_request import ScheduleBulkUpdateRequest as ScheduleBulkUpdateRequest
 from flowhunt.models.schedule_create_request import ScheduleCreateRequest as ScheduleCreateRequest
 from flowhunt.models.schedule_frequency import ScheduleFrequency as ScheduleFrequency
 from flowhunt.models.schedule_response import ScheduleResponse as ScheduleResponse
@@ -886,9 +1106,11 @@ from flowhunt.models.shop_redact_payload import ShopRedactPayload as ShopRedactP
 from flowhunt.models.shopify_integration_response import ShopifyIntegrationResponse as ShopifyIntegrationResponse
 from flowhunt.models.slack_channel_response import SlackChannelResponse as SlackChannelResponse
 from flowhunt.models.slack_workspace_response import SlackWorkspaceResponse as SlackWorkspaceResponse
+from flowhunt.models.smtp_encryption import SmtpEncryption as SmtpEncryption
 from flowhunt.models.sort_direction import SortDirection as SortDirection
 from flowhunt.models.source import Source as Source
 from flowhunt.models.subscription_plan import SubscriptionPlan as SubscriptionPlan
+from flowhunt.models.suggestion_response import SuggestionResponse as SuggestionResponse
 from flowhunt.models.system_message_metadata import SystemMessageMetadata as SystemMessageMetadata
 from flowhunt.models.tag_create_request import TagCreateRequest as TagCreateRequest
 from flowhunt.models.tag_response import TagResponse as TagResponse
@@ -896,6 +1118,9 @@ from flowhunt.models.tag_search_request import TagSearchRequest as TagSearchRequ
 from flowhunt.models.tag_update_request import TagUpdateRequest as TagUpdateRequest
 from flowhunt.models.task_response import TaskResponse as TaskResponse
 from flowhunt.models.task_status import TaskStatus as TaskStatus
+from flowhunt.models.team_preview import TeamPreview as TeamPreview
+from flowhunt.models.term_filter import TermFilter as TermFilter
+from flowhunt.models.terms_filter import TermsFilter as TermsFilter
 from flowhunt.models.todo_item import TodoItem as TodoItem
 from flowhunt.models.tool_call_feedback_response import ToolCallFeedbackResponse as ToolCallFeedbackResponse
 from flowhunt.models.tool_feedback import ToolFeedback as ToolFeedback
@@ -938,6 +1163,7 @@ from flowhunt.models.wix_members_response import WixMembersResponse as WixMember
 from flowhunt.models.word_press_category_response import WordPressCategoryResponse as WordPressCategoryResponse
 from flowhunt.models.word_press_site_response import WordPressSiteResponse as WordPressSiteResponse
 from flowhunt.models.word_press_tags_response import WordPressTagsResponse as WordPressTagsResponse
+from flowhunt.models.workspace_auto_recharge_request import WorkspaceAutoRechargeRequest as WorkspaceAutoRechargeRequest
 from flowhunt.models.workspace_create_request import WorkspaceCreateRequest as WorkspaceCreateRequest
 from flowhunt.models.workspace_credit_alert_threshold_request import WorkspaceCreditAlertThresholdRequest as WorkspaceCreditAlertThresholdRequest
 from flowhunt.models.workspace_credit_limit_request import WorkspaceCreditLimitRequest as WorkspaceCreditLimitRequest

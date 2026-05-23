@@ -19,6 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
 from flowhunt.models.pagination import Pagination
 from typing import Optional, Set
 from typing_extensions import Self
@@ -34,7 +35,7 @@ class FlowSessionViewSearchRequest(BaseModel):
     created_at_filter: Optional[Dict[str, Any]] = Field(default=None, description="Filter for created at")
     last_message_at_filter: Optional[Dict[str, Any]] = Field(default=None, description="Filter for last message at")
     duration_filter: Optional[Dict[str, Any]] = Field(default=None, description="Filter for duration")
-    msg_count_filter: Optional[Dict[str, Any]] = Field(default=None, description="Filter for message count")
+    msg_count_filter: Optional[Annotated[int, Field(le=100000, strict=True)]] = Field(default=2, description="Minimum message count per session (must be > 0).")
     credits_filter: Optional[Dict[str, Any]] = Field(default=None, description="Filter for credits")
     chatbot_name: Optional[StrictStr] = Field(default=None, description="Chatbot name to match")
     flow_name: Optional[StrictStr] = Field(default=None, description="Agent name to match")
@@ -42,7 +43,9 @@ class FlowSessionViewSearchRequest(BaseModel):
     pagination: Optional[Pagination] = Field(default=None, description="Pagination parameters")
     positive_feedback: Optional[StrictInt] = Field(default=None, description="Positive feedback count")
     negative_feedback: Optional[StrictInt] = Field(default=None, description="Negative feedback count")
-    __properties: ClassVar[List[str]] = ["chatbot_id", "flow_id", "tags", "limit", "created_at_filter", "last_message_at_filter", "duration_filter", "msg_count_filter", "credits_filter", "chatbot_name", "flow_name", "ipaddress_filter", "pagination", "positive_feedback", "negative_feedback"]
+    error_message: Optional[StrictInt] = Field(default=None, description="Error message count")
+    status_filter: Optional[StrictStr] = Field(default=None, description="Filter by derived status: 'running', 'completed', or 'failed'")
+    __properties: ClassVar[List[str]] = ["chatbot_id", "flow_id", "tags", "limit", "created_at_filter", "last_message_at_filter", "duration_filter", "msg_count_filter", "credits_filter", "chatbot_name", "flow_name", "ipaddress_filter", "pagination", "positive_feedback", "negative_feedback", "error_message", "status_filter"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -105,14 +108,16 @@ class FlowSessionViewSearchRequest(BaseModel):
             "created_at_filter": obj.get("created_at_filter"),
             "last_message_at_filter": obj.get("last_message_at_filter"),
             "duration_filter": obj.get("duration_filter"),
-            "msg_count_filter": obj.get("msg_count_filter"),
+            "msg_count_filter": obj.get("msg_count_filter") if obj.get("msg_count_filter") is not None else 2,
             "credits_filter": obj.get("credits_filter"),
             "chatbot_name": obj.get("chatbot_name"),
             "flow_name": obj.get("flow_name"),
             "ipaddress_filter": obj.get("ipaddress_filter"),
             "pagination": Pagination.from_dict(obj["pagination"]) if obj.get("pagination") is not None else None,
             "positive_feedback": obj.get("positive_feedback"),
-            "negative_feedback": obj.get("negative_feedback")
+            "negative_feedback": obj.get("negative_feedback"),
+            "error_message": obj.get("error_message"),
+            "status_filter": obj.get("status_filter")
         })
         return _obj
 

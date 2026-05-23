@@ -39,7 +39,10 @@ class TestWorkspaceResponse(unittest.TestCase):
                 name = 'My Company 1',
                 credit_limit = 1000000,
                 credits_consumed = 250000,
-                credit_alert_threshold = 1000000
+                credit_alert_threshold = 1000000,
+                auto_recharge_enabled = True,
+                auto_recharge_threshold = 1000000,
+                auto_recharge_amount = 10000000
             )
         else:
             return WorkspaceResponse(

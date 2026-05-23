@@ -26,10 +26,24 @@ class TestGoogleApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
+    def test_get_allowed_directories(self) -> None:
+        """Test case for get_allowed_directories
+
+        Get Allowed Directories
+        """
+        pass
+
     def test_get_calendars(self) -> None:
         """Test case for get_calendars
 
         Get Calendars
+        """
+        pass
+
+    def test_get_drive_folders(self) -> None:
+        """Test case for get_drive_folders
+
+        Get Drive Folders
         """
         pass
 
@@ -44,6 +58,13 @@ class TestGoogleApi(unittest.TestCase):
         """Test case for get_sheets
 
         Get Sheets
+        """
+        pass
+
+    def test_update_allowed_directories(self) -> None:
+        """Test case for update_allowed_directories
+
+        Update Allowed Directories
         """
         pass
 

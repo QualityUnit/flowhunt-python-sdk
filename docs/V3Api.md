@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**check_migration_readiness**](V3Api.md#check_migration_readiness) | **GET** /v3/flows/{flow_id}/migration-readiness | Check Migration Readiness
 [**create_v3_flow_assistant_session**](V3Api.md#create_v3_flow_assistant_session) | **POST** /v3/flow-assistants/create | Create V3 Flow Assistant Session
+[**fire_session_closed**](V3Api.md#fire_session_closed) | **POST** /v3/flows/{flow_id}/sessions/{session_id}/fire-session-closed | Fire Session Closed
 [**get_all_components_v3**](V3Api.md#get_all_components_v3) | **GET** /v3/flows/components/all | Get All Components V3
 [**get_tool**](V3Api.md#get_tool) | **GET** /v3/tools/{step_name} | Get Tool
 [**get_v3_components**](V3Api.md#get_v3_components) | **GET** /v3/flows/components/v3 | Get V3 Components
@@ -182,6 +183,104 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **fire_session_closed**
+> ManualSessionClosedResponse fire_session_closed(flow_id, session_id, workspace_id)
+
+Fire Session Closed
+
+Manually fire the SessionClosed trigger for a live session.
+
+Used from the flow-editor playground so authors can iterate on their
+close-session branch without waiting ~3h for the natural idle timer.
+
+Behaviour:
+- Loads the DRAFT branch of the flow (the version being authored).
+- Validates the flow contains a SessionClosed trigger node.
+- Validates the session exists in Redis and belongs to the workspace.
+- Rejects (409) when the session is already suppressed/escalated.
+- Revokes the pending Celery close-session task.
+- Marks the session ``session_close_suppressed`` so the scheduled task
+  cannot fire after this manual run.
+- Synchronously starts the close-session execution; the actual branch
+  output streams via the regular session event channel.
+
+Args:
+    workspace_id: The workspace ID.
+    flow_id: The flow whose SessionClosed branch should fire.
+    session_id: The live session id to close.
+    flow_v3_controller: Injected controller.
+    user: Current authenticated user (must have UPDATE permission on
+        the workspace).
+
+Returns:
+    ManualSessionClosedResponse with run_id and pending status.
+
+### Example
+
+
+```python
+import flowhunt
+from flowhunt.models.manual_session_closed_response import ManualSessionClosedResponse
+from flowhunt.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.flowhunt.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = flowhunt.Configuration(
+    host = "https://api.flowhunt.io"
+)
+
+
+# Enter a context with an instance of the API client
+with flowhunt.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = flowhunt.V3Api(api_client)
+    flow_id = 'flow_id_example' # str | 
+    session_id = 'session_id_example' # str | 
+    workspace_id = 'workspace_id_example' # str | 
+
+    try:
+        # Fire Session Closed
+        api_response = api_instance.fire_session_closed(flow_id, session_id, workspace_id)
+        print("The response of V3Api->fire_session_closed:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling V3Api->fire_session_closed: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **flow_id** | **str**|  | 
+ **session_id** | **str**|  | 
+ **workspace_id** | **str**|  | 
+
+### Return type
+
+[**ManualSessionClosedResponse**](ManualSessionClosedResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
 **422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

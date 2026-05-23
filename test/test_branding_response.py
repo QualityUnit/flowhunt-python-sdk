@@ -37,11 +37,27 @@ class TestBrandingResponse(unittest.TestCase):
             return BrandingResponse(
                 branding_logo_url = '',
                 brand_avatar_url = '',
-                slug = '',
                 dashboard_primary_color = '',
                 dashboard_secondary_color = '',
                 show_ads_ai = True,
-                show_photomatic_ai = True
+                show_photomatic_ai = True,
+                show_ai_factory = True,
+                custom_my_agents_label = '',
+                custom_my_assistants_label = '',
+                custom_active_services_label = '',
+                custom_more_label = '',
+                custom_agents_search_label = '',
+                custom_no_agents_label = '',
+                custom_agent_column_label = '',
+                entity_name = '',
+                project_name = '',
+                smtp_host = '',
+                smtp_port = 56,
+                smtp_encryption = 'tls',
+                smtp_sender_email = '',
+                smtp_password_is_set = True,
+                custom_domain = '',
+                custom_domain_status = ''
             )
         else:
             return BrandingResponse(

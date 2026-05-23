@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **created_at_filter** | **Dict[str, object]** | Filter for created at | [optional] 
 **last_message_at_filter** | **Dict[str, object]** | Filter for last message at | [optional] 
 **duration_filter** | **Dict[str, object]** | Filter for duration | [optional] 
-**msg_count_filter** | **Dict[str, object]** | Filter for message count | [optional] 
+**msg_count_filter** | **int** | Minimum message count per session (must be &gt; 0). | [optional] [default to 2]
 **credits_filter** | **Dict[str, object]** | Filter for credits | [optional] 
 **chatbot_name** | **str** | Chatbot name to match | [optional] 
 **flow_name** | **str** | Agent name to match | [optional] 
@@ -20,6 +20,8 @@ Name | Type | Description | Notes
 **pagination** | [**Pagination**](Pagination.md) | Pagination parameters | [optional] 
 **positive_feedback** | **int** | Positive feedback count | [optional] 
 **negative_feedback** | **int** | Negative feedback count | [optional] 
+**error_message** | **int** | Error message count | [optional] 
+**status_filter** | **str** | Filter by derived status: &#39;running&#39;, &#39;completed&#39;, or &#39;failed&#39; | [optional] 
 
 ## Example
 

@@ -3,7 +3,7 @@
 
 ## Enum
 
-* `CLAUDE_SONNET_4_DOT_5` (value: `'Claude Sonnet 4.5'`)
+* `CLAUDE_SONNET_4_DOT_6` (value: `'Claude Sonnet 4.6'`)
 
 * `GPT4_DOT_1` (value: `'GPT4.1'`)
 

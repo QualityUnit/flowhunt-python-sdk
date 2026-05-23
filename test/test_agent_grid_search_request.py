@@ -36,7 +36,7 @@ class TestAgentGridSearchRequest(unittest.TestCase):
         if include_optional:
             return AgentGridSearchRequest(
                 query = 'John',
-                filters = {status=completed},
+                filters = {name={fuzzy=true, op=match, value=john}, price={gte=10, lte=100, op=range}, status={op=terms, values=[open, closed]}},
                 limit = 50,
                 offset = 0
             )

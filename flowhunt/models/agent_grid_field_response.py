@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from flowhunt.models.agent_grid_field_type import AgentGridFieldType
 from typing import Optional, Set
 from typing_extensions import Self
@@ -30,7 +30,8 @@ class AgentGridFieldResponse(BaseModel):
     name: StrictStr = Field(description="Field name")
     field_type: AgentGridFieldType = Field(description="Field type")
     required: StrictBool = Field(description="Whether the field is required")
-    __properties: ClassVar[List[str]] = ["name", "field_type", "required"]
+    unique: Optional[StrictBool] = Field(default=False, description="Whether the field is part of the unique-key set. Inserts with matching composite values upsert the existing row in place.")
+    __properties: ClassVar[List[str]] = ["name", "field_type", "required", "unique"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -85,7 +86,8 @@ class AgentGridFieldResponse(BaseModel):
         _obj = cls.model_validate({
             "name": obj.get("name"),
             "field_type": obj.get("field_type"),
-            "required": obj.get("required")
+            "required": obj.get("required"),
+            "unique": obj.get("unique") if obj.get("unique") is not None else False
         })
         return _obj
 

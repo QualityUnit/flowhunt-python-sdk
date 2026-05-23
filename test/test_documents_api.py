@@ -26,6 +26,41 @@ class TestDocumentsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
+    def test_bulk_delete_document_categories(self) -> None:
+        """Test case for bulk_delete_document_categories
+
+        Bulk Delete Document Categories
+        """
+        pass
+
+    def test_bulk_delete_documents(self) -> None:
+        """Test case for bulk_delete_documents
+
+        Bulk Delete Documents
+        """
+        pass
+
+    def test_bulk_delete_faqs(self) -> None:
+        """Test case for bulk_delete_faqs
+
+        Bulk Delete Faqs
+        """
+        pass
+
+    def test_bulk_update_documents(self) -> None:
+        """Test case for bulk_update_documents
+
+        Bulk Update Documents
+        """
+        pass
+
+    def test_bulk_update_faqs(self) -> None:
+        """Test case for bulk_update_faqs
+
+        Bulk Update Faqs
+        """
+        pass
+
     def test_create_document_category(self) -> None:
         """Test case for create_document_category
 

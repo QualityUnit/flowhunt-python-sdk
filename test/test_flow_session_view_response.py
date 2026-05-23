@@ -50,7 +50,9 @@ class TestFlowSessionViewResponse(unittest.TestCase):
                 ipaddress = '',
                 url = '',
                 positive_feedback_count = 1,
-                negative_feedback_count = 1
+                negative_feedback_count = 1,
+                error_message_count = 1,
+                chat_session_title = ''
             )
         else:
             return FlowSessionViewResponse(

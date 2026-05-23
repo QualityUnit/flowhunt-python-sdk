@@ -35,13 +35,13 @@ class TestFlowSessionResumeHookRequest(unittest.TestCase):
         model = FlowSessionResumeHookRequest()
         if include_optional:
             return FlowSessionResumeHookRequest(
-                hook_id = '',
+                hook_id = '0',
                 message = '',
                 form_data = { }
             )
         else:
             return FlowSessionResumeHookRequest(
-                hook_id = '',
+                hook_id = '0',
                 message = '',
         )
         """

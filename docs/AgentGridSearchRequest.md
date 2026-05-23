@@ -7,7 +7,7 @@ Schema for searching rows in an agent grid.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **query** | **str** | Full-text search query | [optional] 
-**filters** | **Dict[str, object]** | Field filters for exact matching | [optional] 
+**filters** | [**Dict[str, FiltersValue]**](FiltersValue.md) | Per-column filters keyed by field name. The body is a discriminated union on &#x60;&#x60;op&#x60;&#x60; (&#x60;&#x60;term&#x60;&#x60; | &#x60;&#x60;terms&#x60;&#x60; | &#x60;&#x60;match&#x60;&#x60; | &#x60;&#x60;range&#x60;&#x60;). | [optional] 
 **limit** | **int** | Maximum number of rows to return | [optional] [default to 50]
 **offset** | **int** | Number of rows to skip | [optional] [default to 0]
 

@@ -41,7 +41,8 @@ class TestAgentGridCreateRequest(unittest.TestCase):
                     flowhunt.models.agent_grid_field_request.AgentGridFieldRequest(
                         name = 'customer_name', 
                         field_type = text, 
-                        required = False, )
+                        required = False, 
+                        unique = False, )
                     ],
                 semantic_search_enabled = False
             )
@@ -52,7 +53,8 @@ class TestAgentGridCreateRequest(unittest.TestCase):
                     flowhunt.models.agent_grid_field_request.AgentGridFieldRequest(
                         name = 'customer_name', 
                         field_type = text, 
-                        required = False, )
+                        required = False, 
+                        unique = False, )
                     ],
         )
         """

@@ -17,8 +17,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -26,8 +27,8 @@ class FlowSessionResumeHookRequest(BaseModel):
     """
     FlowSessionResumeHookRequest
     """ # noqa: E501
-    hook_id: StrictStr = Field(description="The hook ID to resume")
-    message: StrictStr = Field(description="The user input message")
+    hook_id: Annotated[str, Field(min_length=1, strict=True, max_length=256)] = Field(description="The hook ID to resume")
+    message: Annotated[str, Field(strict=True, max_length=65536)] = Field(description="The user input message")
     form_data: Optional[Dict[str, Any]] = Field(default=None, description="Form field data from form submissions")
     __properties: ClassVar[List[str]] = ["hook_id", "message", "form_data"]
 

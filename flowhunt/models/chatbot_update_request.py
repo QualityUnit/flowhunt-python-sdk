@@ -56,13 +56,14 @@ class ChatbotUpdateRequest(BaseModel):
     remove_branding: Optional[StrictBool] = Field(default=None, description="Whether to remove FlowHunt branding from the chatbot")
     chatbot_style: Optional[Annotated[str, Field(strict=True, max_length=30)]] = Field(default=None, description="Chatbot style (default or custom)")
     session_message_history: Optional[StrictBool] = Field(default=None, description="Session message history")
+    show_embed_close_button: Optional[StrictBool] = Field(default=None, description="Whether to show a close button in the embedded chatbot header")
     chatbot_bubble_size: Optional[StrictInt] = Field(default=None, description="Chatbot bubble size")
     message_header_logo_url: Optional[StrictStr] = Field(default=None, description="URL for the message header logo")
     popup_messages: Optional[List[StrictStr]] = Field(default=None, description="List of popup markdown messages")
     popup_messages_delay: Optional[StrictInt] = Field(default=None, description="Delay in seconds before showing popup messages")
     language: Optional[Annotated[str, Field(strict=True, max_length=10)]] = Field(default=None, description="Language code for chatbot UI and loading indicators (ISO 639-1)")
     max_input_characters: Optional[StrictInt] = Field(default=None, description="Maximum number of characters allowed in a single chat message input (null = unlimited)")
-    __properties: ClassVar[List[str]] = ["title", "description", "flow_id", "status", "url_suffix", "theme", "max_window_size", "max_window_height", "msg_rpm", "msg_ip_rpm", "ratelimit_msg", "chatbot_description", "show_chatbot_header", "chat_bubble_bg_color", "chat_bubble_icon_color", "primary_color", "text_color", "chat_bubble_img_url", "chatbot_theme", "chatbot_position", "text_direction", "message_placeholder", "chatbot_header_text", "chatbot_header_logo_url", "assistant_avatar_image_url", "remove_branding", "chatbot_style", "session_message_history", "chatbot_bubble_size", "message_header_logo_url", "popup_messages", "popup_messages_delay", "language", "max_input_characters"]
+    __properties: ClassVar[List[str]] = ["title", "description", "flow_id", "status", "url_suffix", "theme", "max_window_size", "max_window_height", "msg_rpm", "msg_ip_rpm", "ratelimit_msg", "chatbot_description", "show_chatbot_header", "chat_bubble_bg_color", "chat_bubble_icon_color", "primary_color", "text_color", "chat_bubble_img_url", "chatbot_theme", "chatbot_position", "text_direction", "message_placeholder", "chatbot_header_text", "chatbot_header_logo_url", "assistant_avatar_image_url", "remove_branding", "chatbot_style", "session_message_history", "show_embed_close_button", "chatbot_bubble_size", "message_header_logo_url", "popup_messages", "popup_messages_delay", "language", "max_input_characters"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -143,6 +144,7 @@ class ChatbotUpdateRequest(BaseModel):
             "remove_branding": obj.get("remove_branding"),
             "chatbot_style": obj.get("chatbot_style"),
             "session_message_history": obj.get("session_message_history"),
+            "show_embed_close_button": obj.get("show_embed_close_button"),
             "chatbot_bubble_size": obj.get("chatbot_bubble_size"),
             "message_header_logo_url": obj.get("message_header_logo_url"),
             "popup_messages": obj.get("popup_messages"),
